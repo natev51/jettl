@@ -1,2 +1,7 @@
 jettl
 LabVIEW
+lvlib
+lvclass
+ctl
+subprocesses
+subVI

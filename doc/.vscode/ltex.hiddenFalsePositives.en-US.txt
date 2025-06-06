@@ -1,0 +1,7 @@
+{"rule":"LC_AFTER_PERIOD","sentence":"^\\QMethod: method-Name.vi Control: control-Name.ctl (this control, which is not tied to a class is lowercase!)\\E$"}
+{"rule":"LC_AFTER_PERIOD","sentence":"^\\QYes no Library-Name.lvlib Interface-Name.lvclass Class-Name.lvclass (control is capital by default!) method-Name.vi control-Name.ctl (this control, which is not tied to a class is lowercase!)\\E$"}
+{"rule":"LC_AFTER_PERIOD","sentence":"^\\QLibrary-Name.lvlib Interface-Name.lvclass Class-Name.lvclass (control is capital by default!) method-Name.vi control-Name.ctl (this control, which is not tied to a class is lowercase!)\\E$"}
+{"rule":"LC_AFTER_PERIOD","sentence":"^\\QMethod.vi (just a wrapper for Method.vi “State”).\\E$"}
+{"rule":"LC_AFTER_PERIOD","sentence":"^\\QBest Practice: use this Method.vi in other methods, rather than the Method.vi “State” itself\\E$"}
+{"rule":"LC_AFTER_PERIOD","sentence":"^\\QState.lvclass (interface): Concrete State.lvclass Method.vi “State”\\E$"}
+{"rule":"LC_AFTER_PERIOD","sentence":"^\\QContext: Method.vi (just a wrapper for Method.vi “State”).\\E$"}
