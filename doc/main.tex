@@ -1,0 +1,30 @@
+\documentclass{article}
+
+\title{jettl}
+\author{Nathan Davis}
+\date{\today}
+
+\begin{document}
+
+\section{Introduction}
+\label{sec:introduction}
+
+Strictly interface composition based asynchronous actor oriented design pattern for LabVIEW Applications.
+jettl also has the newer banners for vis. Easy adoption for the new age of LV developers.
+State pattern with decorators.
+It is interface composition, so stick with the same rule set for naming methods
+
+\section{LabVIEW Interfaces}
+\label{sec:labview-interfaces}
+
+The default implementation idea works so only as there is only one method implementation across all interfaces.
+
+For example, \\
+class implements interface 1 and interface 2 \\
+interface 1: method \\
+interface 2: method \\
+This cannot exist unless the class overrides the method.
+Otherwise, at runtime, LabVIEW does not know to execute interface 1: method or interface 2: method.
+
+
+\end{document}

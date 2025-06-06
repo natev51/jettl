@@ -1,0 +1,22 @@
+# Fdb version 4
+["pdflatex"] 1749228102.96172 "c:/git/jettl/doc/main.tex" "main.pdf" "main" 1749228103.76332 0
+  "c:/git/jettl/doc/main.tex" 1749228102 937 866b07f1fb1632b0f8d4d3671f99a3f6 ""
+  "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1747882871 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1747882172 1324 c910af8c371558dc20f2d7822f66fe64 ""
+  "c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1747882172 1288 655e228510b4c2a1abe905c368440826 ""
+  "c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1747881628 32080 340ef9bf63678554ee606688e7b5339d ""
+  "c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1747881628 35752 024fb6c41858982481f6968b5fc26508 ""
+  "c:/texlive/2025/texmf-dist/tex/latex/base/article.cls" 1747883455 20144 63d8bacaf52e5abf4db3bc322373e1d4 ""
+  "c:/texlive/2025/texmf-dist/tex/latex/base/size10.clo" 1747883455 8448 5cf247d4bd0c7d5d711bbbdf111fae2e ""
+  "c:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1747883428 30366 13daaaa774357bc2a262523ba6a04bac ""
+  "c:/texlive/2025/texmf-dist/web2c/texmf.cnf" 1747881537 42148 61becc7c670cd061bb319c643c27fdd4 ""
+  "c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1747885766 5569470 f263a82cf6bb394f5bc87b63f38b78df ""
+  "c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1747885991 3568816 6886bad01d81666f18d24fc16cbc2713 ""
+  "c:/texlive/2025/texmf.cnf" 1747885743 713 e69b156964470283e0530f5060668171 ""
+  "main.aux" 1749228103 346 7e7b8e72d59aaff3c6ce076bc51ebfc4 "pdflatex"
+  "main.tex" 1749228102 937 866b07f1fb1632b0f8d4d3671f99a3f6 ""
+  (generated)
+  "main.aux"
+  "main.log"
+  "main.pdf"
+  (rewritten before read)
