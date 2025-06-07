@@ -103,9 +103,18 @@ INPUT ./main.out
 INPUT ./main.out
 OUTPUT main.out
 INPUT c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT ./figures/labview_dmitry_message _transport.png
 INPUT ./figures/labview_dmitry_message _transport.png
@@ -118,21 +127,21 @@ INPUT ./figures/dmitry_liskov_sub_principle.png
 INPUT ./figures/dmitry_liskov_sub_principle.png
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 INPUT ./figures/justACS_ui_events.png
 INPUT ./figures/justACS_ui_events.png
 INPUT ./figures/justACS_ui_events.png
 INPUT ./figures/justACS_ui_events.png
+INPUT ./figures/method-template.png
+INPUT ./figures/method-template.png
+INPUT ./figures/method-template.png
+INPUT ./figures/method-template.png
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
+INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
+INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb

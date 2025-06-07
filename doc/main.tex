@@ -3,11 +3,15 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 
-\title{jettl}
+\title{jettl \\ S.O.L.I.D LabVIEW Asynchronous Framework}
 \author{Nathan Davis}
 \date{\today}
 
 \begin{document}
+
+\maketitle
+
+\maketitle
 
 \section{Introduction}
 \label{sec:introduction}
@@ -39,7 +43,7 @@ The overall “application” has access to the actor's reference (unique messag
 \subsection{Pub-Sub Messaging}
 \label{subsec:pub-sub-messaging}
 
-\begin{figure}[h]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/labview_dmitry_message _transport}
     \caption{LabVIEW Actor Framework Message Transport.}
@@ -78,7 +82,7 @@ Check this video near the end for reference: \href{https://www.youtube.com/watch
 \section{Naming Conventions}
 \label{sec:naming-conventions}
 
-\begin{figure}[h]
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/dmitry_liskov_sub_principle}
     \caption{This image shows the naming convention for LabVIEW classes and methods.}
@@ -140,7 +144,7 @@ Script to create the subVI first.
 Interface with DD methods:
 No need for template to replace the placeholder methods with new ones, just have DD methods as “placeholders” which change their implementation depending on the class that's on the wire
 
-\begin{figure}
+\begin{figure}[!ht]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/justACS_ui_events}
     \caption{This image shows the UI events in LabVIEW.}
@@ -197,5 +201,27 @@ Read State and Write State do because they'll have functionality.
 \label{subsec:mef}
 
 \href{https://www.youtube.com/watch?v=rrtz7sKCg2A}{LabVIEW Interfaces for Satellite Calibration - SLM and McBee}: 44:50
+
+\section{Errors}
+\label{sec:errors}
+
+In frameworks, errors are fundamental to the program's operation. They are not just incidental issues but rather integral to the design and flow of the application.
+jettl has an error object in the private data of the jettl object. At the end of the method, the error object is unbundled and checked for errors before teardown.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/method-template}
+    \caption{Method template. This has no error terminals, and the error object is handled internally. This is a different approach to error handling in LabVIEW methods.}
+    \label{fig:method-template}
+\end{figure}
+
+Wouldn't this make the API more beautiful and easy to understand? Having just the object wire come out of the method, and ONLY the object wire coming out of the method?
+I suppose, adopting the OO paradigm.
+Instead of having the error cluster inside the objects class data.
+Instead, it's a dedicated “error object” shared for every single object in use.
+Encourages data flow since unbundling of errors will always occur.
+It's a step in the right direction having no “error input” for methods.
+Now it's time to get rid of the error out.
+It's almost like branching an objects wire, in a way. There should only be one thing coming out of a method.
 
 \end{document}

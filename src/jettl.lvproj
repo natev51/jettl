@@ -27,16 +27,15 @@
 			<Item Name="Dev Actor.lvlib" Type="Library" URL="../Example/Dev Actor/Dev Actor.lvlib"/>
 			<Item Name="Main.vi" Type="VI" URL="../Example/Main.vi"/>
 		</Item>
-		<Item Name="LVCAM" Type="Folder">
+		<Item Name="jettl" Type="Folder">
 			<Property Name="NI.SortType" Type="Int">3</Property>
 			<Item Name="Msgs" Type="Folder">
 				<Item Name="Actor Create.lvlib" Type="Library" URL="../LVCAM/Msgs/Actor Create/Actor Create.lvlib"/>
 				<Item Name="Actor Destroy.lvlib" Type="Library" URL="../LVCAM/Msgs/Actor Destroy/Actor Destroy.lvlib"/>
 				<Item Name="Actor Last Ack.lvlib" Type="Library" URL="../LVCAM/Msgs/Actor Last Ack/Actor Last Ack.lvlib"/>
 			</Item>
-			<Item Name="LVCAM.lvlib" Type="Library" URL="../LVCAM/LVCAM/LVCAM.lvlib"/>
+			<Item Name="jettl.lvlib" Type="Library" URL="../LVCAM/LVCAM/jettl.lvlib"/>
 		</Item>
-		<Item Name="API.vi" Type="VI" URL="../API.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
