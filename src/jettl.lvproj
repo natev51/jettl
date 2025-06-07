@@ -11,7 +11,7 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="Additional *Packages*" Type="Folder">
+		<Item Name="Helper" Type="Folder">
 			<Item Name="State" Type="Folder">
 				<Item Name="State.lvclass" Type="LVClass" URL="../State/State.lvclass"/>
 			</Item>
