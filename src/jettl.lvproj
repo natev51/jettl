@@ -11,31 +11,12 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="Helper" Type="Folder">
-			<Item Name="State" Type="Folder">
-				<Item Name="State.lvclass" Type="LVClass" URL="../State/State.lvclass"/>
-			</Item>
-			<Item Name="Panel" Type="Folder">
-				<Item Name="Panel.lvclass" Type="LVClass" URL="../Panel/Panel.lvclass"/>
-			</Item>
+		<Item Name="Msgs" Type="Folder">
+			<Item Name="Actor Create.lvlib" Type="Library" URL="../LVCAM/Msgs/Actor Create/Actor Create.lvlib"/>
+			<Item Name="Actor Destroy.lvlib" Type="Library" URL="../LVCAM/Msgs/Actor Destroy/Actor Destroy.lvlib"/>
+			<Item Name="Actor Last Ack.lvlib" Type="Library" URL="../LVCAM/Msgs/Actor Last Ack/Actor Last Ack.lvlib"/>
 		</Item>
-		<Item Name="Dev Actor" Type="Folder">
-			<Item Name="Dev Actor Panel" Type="Folder">
-				<Item Name="UEs.ctl" Type="VI" URL="../Example/UEs.ctl"/>
-				<Item Name="Dev Actor Panel.lvclass" Type="LVClass" URL="../Example/Dev Actor Panel/Dev Actor Panel.lvclass"/>
-			</Item>
-			<Item Name="Dev Actor.lvlib" Type="Library" URL="../Example/Dev Actor/Dev Actor.lvlib"/>
-			<Item Name="Main.vi" Type="VI" URL="../Example/Main.vi"/>
-		</Item>
-		<Item Name="jettl" Type="Folder">
-			<Property Name="NI.SortType" Type="Int">3</Property>
-			<Item Name="Msgs" Type="Folder">
-				<Item Name="Actor Create.lvlib" Type="Library" URL="../LVCAM/Msgs/Actor Create/Actor Create.lvlib"/>
-				<Item Name="Actor Destroy.lvlib" Type="Library" URL="../LVCAM/Msgs/Actor Destroy/Actor Destroy.lvlib"/>
-				<Item Name="Actor Last Ack.lvlib" Type="Library" URL="../LVCAM/Msgs/Actor Last Ack/Actor Last Ack.lvlib"/>
-			</Item>
-			<Item Name="jettl.lvlib" Type="Library" URL="../LVCAM/LVCAM/jettl.lvlib"/>
-		</Item>
+		<Item Name="jettl.lvlib" Type="Library" URL="../LVCAM/LVCAM/jettl.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
