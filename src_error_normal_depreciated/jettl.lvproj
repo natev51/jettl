@@ -12,12 +12,11 @@
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="Msgs" Type="Folder">
-			<Item Name="Actor Create.lvlib" Type="Library" URL="../Msgs/Actor Create/Actor Create.lvlib"/>
-			<Item Name="Actor Destroy.lvlib" Type="Library" URL="../Msgs/Actor Destroy/Actor Destroy.lvlib"/>
-			<Item Name="Actor Last Ack.lvlib" Type="Library" URL="../Msgs/Actor Last Ack/Actor Last Ack.lvlib"/>
+			<Item Name="Actor Create.lvlib" Type="Library" URL="../LVCAM/Msgs/Actor Create/Actor Create.lvlib"/>
+			<Item Name="Actor Destroy.lvlib" Type="Library" URL="../LVCAM/Msgs/Actor Destroy/Actor Destroy.lvlib"/>
+			<Item Name="Actor Last Ack.lvlib" Type="Library" URL="../LVCAM/Msgs/Actor Last Ack/Actor Last Ack.lvlib"/>
 		</Item>
-		<Item Name="jettl.lvlib" Type="Library" URL="../jettl/jettl.lvlib"/>
-		<Item Name="API.vi" Type="VI" URL="../API.vi"/>
+		<Item Name="jettl.lvlib" Type="Library" URL="../LVCAM/LVCAM/jettl.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
