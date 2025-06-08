@@ -162,6 +162,13 @@ Noting that Fig~\ref{fig:dmitry-liskov-sub-principle} shows the naming conventio
 
 \quad Method.vi “State”
 
+\subsection{Memento Pattern}
+\label{subsec:memento-pattern}
+
+When saving the state of an actor, the Memento Pattern is used.
+Instead of sending the entire actor state in Actor Last Ack Msg, there should be another dedicated message that sends the actors state to the calling actor.
+This has not been done, but it is a good idea to implement this in the future.
+
 \section{External Packages}
 \label{sec:external-packages}
 

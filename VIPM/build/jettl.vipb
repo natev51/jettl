@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-06-08 10:32:39" Modified_Date="2025-06-08 10:40:49" Creator="natev" Comments="" ID="d8f071090fb4d170308ee733d60d480c">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-06-08 10:32:39" Modified_Date="2025-06-08 14:19:14" Creator="natev" Comments="" ID="8416d6362f51882cf9279d995a8c72db">
   <Library_General_Settings>
     <Package_File_Name>jettl_lib_jettl</Package_File_Name>
-    <Library_Version>1.0.0.4</Library_Version>
+    <Library_Version>1.0.0.5</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\..\src</Library_Source_Folder>
     <Library_Output_Folder>..\package</Library_Output_Folder>
@@ -111,9 +111,6 @@
         <Namespace_Type>Prefix</Namespace_Type>
         <Namespace/>
       </Namespace_Overrides>
-      <Compile_Exclusions>
-        <Path/>
-      </Compile_Exclusions>
       <Place_Folder_Contents>
         <Path/>
       </Place_Folder_Contents>
@@ -371,7 +368,7 @@
         <Path>..\..\src\jettl\Actor\Msg To Nested.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>055AB623431B34D43F17C2DD4A4DE1D1</GUID>
+      <GUID>AE68075ACA28273262EE1593A65791BF</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>

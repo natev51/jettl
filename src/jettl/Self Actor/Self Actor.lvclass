@@ -158,14 +158,4 @@
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 		<Property Name="NI.ClassItem.State" Type="Int">1082135040</Property>
 	</Item>
-	<Item Name="Alias to Q.vi" Type="VI" URL="../Alias to Q.vi">
-		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!&amp;Q!!!!#Q!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!&amp;*!=!!?!!!C#WJF&gt;(2M,GRW&lt;'FC&amp;%VT:S"4&gt;(*B&gt;'6H?3ZM&gt;G.M98.T!!!F18*U;7:F?#""9X2P=C".&lt;W2F&lt;#ZM&gt;GRJ9DJ.=W=O&lt;(:D&lt;'&amp;T=Q!51(!!%A!"!!5*=86F&gt;75A&lt;X6U!"V!=!!A!!%!"A!14G6T&gt;'6E)%VT:S"2)%275A!!'%!Q`````Q^.=W=A53"%6F)A17RJ98-!/%"Q!"Y!!#!,;G6U&gt;'QO&lt;(:M;7)35W6M:C""9X2P=CZM&gt;G.M98.T!!!.5W6M:C""9X2P=C"J&lt;A"5!0!!$!!$!!1!"Q!%!!1!"!!%!!1!"!!%!!A!#1-!!(A!!!E!!!!!!!!!#1!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!))!!!!%!!!!!!"!!I!!!!!</Property>
-		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
-		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
-		<Property Name="NI.ClassItem.MethodScope" Type="UInt">2</Property>
-		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-		<Property Name="NI.ClassItem.State" Type="Int">1350574608</Property>
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
 </LVClass>

@@ -14,8 +14,8 @@
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="Dev Actor.lvlib" Type="Library" URL="../Dev Actor/Dev Actor.lvlib"/>
 		<Item Name="Panel.lvclass" Type="LVClass" URL="../Panel/Panel.lvclass"/>
-		<Item Name="State.lvclass" Type="LVClass" URL="../State/State.lvclass"/>
 		<Item Name="Dev Actor Panel.lvclass" Type="LVClass" URL="../Dev Actor Panel/Dev Actor Panel.lvclass"/>
+		<Item Name="State.lvclass" Type="LVClass" URL="../State/State.lvclass"/>
 		<Item Name="UEs.ctl" Type="VI" URL="../UEs.ctl"/>
 		<Item Name="Main.vi" Type="VI" URL="../Main.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
