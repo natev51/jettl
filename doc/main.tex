@@ -3,7 +3,7 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 
-\title{jettl \\ S.O.L.I.D LabVIEW Asynchronous Framework}
+\title{\textbf{jettl} \\ An Interface-Composition based LabVIEW Asynchronous Actor Framework}
 \author{Nathan Davis}
 \date{\today}
 
@@ -21,6 +21,29 @@ jettl also has the newer banners for vis. Easy adoption for the new age of LV de
 State pattern with decorators.
 It is interface composition, so stick with the same rule set for naming methods
 
+\section{Philosophy}
+\label{sec:philosophy}
+
+\subsection{Access Scope}
+\label{subsec:access-scope}
+
+Only public and private.
+Interfaces, classes, and methods have text in the icon/banner that are black for public and red for private.
+
+\section{Class Hierarchy}
+\label{sec:class-hierarchy}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/class-hierarchy}
+    \caption{jettl Class Hierarchy.}
+    \label{fig:jettl-class-hierarchy}
+\end{figure}
+
+Fig~\ref{fig:jettl-class-hierarchy} shows the class hierarchy of jettl.
+In particular, there exist design patterns such as the Strategy Pattern, State Pattern, and Decorator Pattern.
+
+
 \section{LabVIEW Interfaces}
 \label{sec:labview-interfaces}
 
@@ -33,6 +56,21 @@ interface 2: method \\
 This cannot exist unless the class overrides the method.
 Otherwise, at runtime, LabVIEW does not know to execute interface 1: method or interface 2: method.
 
+\subsection{Descendants Must Override}
+\label{subsec:descendants-must-override}
+
+Interface methods: check the 'descendants must override' checkbox and see which errors pop up.
+Attempt to fix them, and if you can't, then justify the reasoning.
+
+For example, in the Self Actor State.lvclass, the DD methods are not required to be overridden.
+This is because the Self Actor State.lvclass has default functionality in the interface methods.
+Maybe this is bad practice, but it is a design choice showing only the methods that are required to be overridden with different functionality.
+
+Another example, the DD methods in the Dev Actor.lvclass are not required to be overridden.
+This is because the methods here are all decorator methods that are not required to be overridden.
+Using the Actor.lvclass methods are sufficient for the Dev Actor.lvclass.
+These will be found in the palette.
+
 \section{Future Scope}
 \label{sec:future-scope}
 
@@ -43,7 +81,7 @@ The overall “application” has access to the actor's reference (unique messag
 \subsection{Pub-Sub Messaging}
 \label{subsec:pub-sub-messaging}
 
-\begin{figure}[!ht]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/labview_dmitry_message _transport}
     \caption{LabVIEW Actor Framework Message Transport.}
@@ -61,12 +99,20 @@ Same with Git, the philosophy is that all branches are created equal
 \section{Debugging}
 \label{sec:debugging}
 
+\subsection{Displaying Method Execution}
+\label{subsec:displaying-method-execution}
+
 What a log for which methods are executed, instead of the dialog popups
 
-Take out error handling for the backend, for now.
-Not necessary since on the basis that the framework will not generate errors.
-This may not be true in production, but for simplicity of understanding the framework, this is it.
+Two project conditional blocks:
+\begin{enumerate}
+    \item Occurs in all methods
+    \item Occurs only in message specific methods
+\end{enumerate}
 
+These conditionals occur in Self Actor.lvclass.
+If either conditional is true, debug panel that displays the names of actors (columns), along with timestamps (rows) of when methods (data) are executed.
+Think discrete time water fall display.
 
 \section{Git}
 \label{sec:git}
@@ -82,7 +128,7 @@ Check this video near the end for reference: \href{https://www.youtube.com/watch
 \section{Naming Conventions}
 \label{sec:naming-conventions}
 
-\begin{figure}[!ht]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/dmitry_liskov_sub_principle}
     \caption{This image shows the naming convention for LabVIEW classes and methods.}
@@ -144,7 +190,7 @@ Script to create the subVI first.
 Interface with DD methods:
 No need for template to replace the placeholder methods with new ones, just have DD methods as “placeholders” which change their implementation depending on the class that's on the wire
 
-\begin{figure}[!ht]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/justACS_ui_events}
     \caption{This image shows the UI events in LabVIEW.}
@@ -176,7 +222,7 @@ User groups for the scripting (quick drop, right click, etc.).
 \section{TODO}
 \label{sec:todo}
 
-Non-reentrant methods → shared reentrant
+Check execution for all methods.
 
 Have the interface checkbox for DD methods not required for override doesn't necessarily break subtype rules!
 
@@ -208,20 +254,39 @@ Read State and Write State do because they'll have functionality.
 In frameworks, errors are fundamental to the program's operation. They are not just incidental issues but rather integral to the design and flow of the application.
 jettl has an error object in the private data of the jettl object. At the end of the method, the error object is unbundled and checked for errors before teardown.
 
-\begin{figure}[h]
+Error philosophy: Errors occur ONLY from unexpected events.
+For example, the error case in Msg.vi: in the case structure, a custom error saying that a message could not be executed occurs when 'message name' occurs for 'actor name'. This is unexpected behavior since this SHOULD be known at edit time. This is a legit error.
+
+'That was handled, or I wouldn't have been called' - SLM (\href{https://www.youtube.com/watch?v=00TZxeyt8_A}{The Errors of our Ways | Stephen Loftus-Mercer GDevCon N.A. 2021: 52:08})
+
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/method-template}
-    \caption{Method template. This has no error terminals, and the error object is handled internally. This is a different approach to error handling in LabVIEW methods.}
+    \caption{Method template. This has no error terminals, and the error cluster is handled internally. This is a different approach to error handling in LabVIEW methods.}
     \label{fig:method-template}
 \end{figure}
+% have the actual method template here, from the example. These are scripted and autogenerated when one creates an actor.
 
 Wouldn't this make the API more beautiful and easy to understand? Having just the object wire come out of the method, and ONLY the object wire coming out of the method?
 I suppose, adopting the OO paradigm.
 Instead of having the error cluster inside the objects class data.
-Instead, it's a dedicated “error object” shared for every single object in use.
+Instead, it's a dedicated “error cluster” shared for every single object in use.
 Encourages data flow since unbundling of errors will always occur.
 It's a step in the right direction having no “error input” for methods.
 Now it's time to get rid of the error out.
 It's almost like branching an objects wire, in a way. There should only be one thing coming out of a method.
+
+\section{Orderly Shutdown}
+\label{sec:orderly-shutdown}
+
+Boolean flag for orderly shutdown i.e.'destroy nested actors before destroying self'
+
+\section{Example}
+\label{sec:example}
+
+\subsection{Dev Actor}
+\label{subsec:dev-actor}
+
+No decorators used since they're trivial and only used once.
 
 \end{document}
