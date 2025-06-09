@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1749417403.53161 "c:/git/jettl/doc/main.tex" "main.pdf" "main" 1749417404.8106 0
-  "c:/git/jettl/doc/main.tex" 1749417401 12716 a6ba10d46b94b75efa778f5f3393b626 ""
+["pdflatex"] 1749447685.42725 "c:/git/jettl/doc/main.tex" "main.pdf" "main" 1749447687.39906 0
+  "c:/git/jettl/doc/main.tex" 1749447683 13063 66dc7e989e59f3d02ee99cdd3620ddba ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1747882180 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1747882871 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1747882580 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -67,14 +67,15 @@
   "c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1747885766 5569470 f263a82cf6bb394f5bc87b63f38b78df ""
   "c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1747885991 3568816 6886bad01d81666f18d24fc16cbc2713 ""
   "c:/texlive/2025/texmf.cnf" 1747885743 713 e69b156964470283e0530f5060668171 ""
-  "figures/class-hierarchy.png" 1749403083 5745 ff05bb292d4cc061cd7a7252988f1926 ""
-  "figures/dmitry_liskov_sub_principle.png" 1749229464 166164 991ae37c038510703035002c627da053 ""
-  "figures/justACS_ui_events.png" 1749234397 1523098 40d4b738ff648c378c4bcd05b9d8ab4d ""
-  "figures/labview_dmitry_message _transport.png" 1749228743 255796 24fbe0ff00c99c64cf40aa1671db7a50 ""
-  "figures/method-template.png" 1749317426 16563 80098b20f0b8bb73b43ebc4780a63f97 ""
-  "main.aux" 1749417404 6793 116f143cf5a9109ba8435f252ca6a8b9 "pdflatex"
-  "main.out" 1749417404 3501 e2bc23a9c0b989bca44416e612e407c3 "pdflatex"
-  "main.tex" 1749417401 12716 a6ba10d46b94b75efa778f5f3393b626 ""
+  "figures/Need_for_error_msg.png" 1749430290 4517 ef0a56a5793be84c0222fe0468a0d127 ""
+  "figures/class-hierarchy.png" 1749447373 5745 ff05bb292d4cc061cd7a7252988f1926 ""
+  "figures/dmitry_liskov_sub_principle.png" 1749447373 166164 991ae37c038510703035002c627da053 ""
+  "figures/justACS_ui_events.png" 1749447373 1523098 40d4b738ff648c378c4bcd05b9d8ab4d ""
+  "figures/labview_dmitry_message _transport.png" 1749447373 255796 24fbe0ff00c99c64cf40aa1671db7a50 ""
+  "figures/method-template.png" 1749447373 16563 80098b20f0b8bb73b43ebc4780a63f97 ""
+  "main.aux" 1749447687 7343 6b7fe98bfa8adbe8a354c43280f33fb6 "pdflatex"
+  "main.out" 1749447687 3609 37c4bba6dc91a53f56716bda29f52c97 "pdflatex"
+  "main.tex" 1749447683 13063 66dc7e989e59f3d02ee99cdd3620ddba ""
   (generated)
   "main.aux"
   "main.log"
