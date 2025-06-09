@@ -19,6 +19,7 @@
 		<Item Name="Actor Create.lvlib:Actor Create.lvclass" Type="Parent" URL="../../../Msgs/Actor Create/Actor Create/Actor Create.lvclass"/>
 		<Item Name="Actor Destroy.lvlib:Actor Destroy.lvclass" Type="Parent" URL="../../../Msgs/Actor Destroy/Actor Destroy/Actor Destroy.lvclass"/>
 		<Item Name="Actor Last Ack.lvlib:Actor Last Ack.lvclass" Type="Parent" URL="../../../Msgs/Actor Last Ack/Actor Last Ack/Actor Last Ack.lvclass"/>
+		<Item Name="Error.lvlib:Error.lvclass" Type="Parent" URL="../../../Msgs/Error/Error/Error.lvclass"/>
 	</Item>
 	<Item Name="Palette" Type="Folder">
 		<Item Name="Nested Alias Unique.vi" Type="VI" URL="../Nested Alias Unique.vi">

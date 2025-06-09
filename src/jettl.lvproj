@@ -15,6 +15,7 @@
 			<Item Name="Actor Create.lvlib" Type="Library" URL="../Msgs/Actor Create/Actor Create.lvlib"/>
 			<Item Name="Actor Destroy.lvlib" Type="Library" URL="../Msgs/Actor Destroy/Actor Destroy.lvlib"/>
 			<Item Name="Actor Last Ack.lvlib" Type="Library" URL="../Msgs/Actor Last Ack/Actor Last Ack.lvlib"/>
+			<Item Name="Error.lvlib" Type="Library" URL="../Msgs/Error/Error.lvlib"/>
 		</Item>
 		<Item Name="jettl.lvlib" Type="Library" URL="../jettl/jettl.lvlib"/>
 		<Item Name="API.vi" Type="VI" URL="../API.vi"/>
