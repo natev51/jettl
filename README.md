@@ -68,4 +68,15 @@ Development actors:
 - Internal (VF): Static methods are private and in the internal folder
 - Implemented (VF): Dynamic dispatch are public and MUST be implemented by an interface to follow SOLID principles. For example, (Actor (VF)) the Actor methods are overrides from the Actor Interface. Another example, (Msg (VF)) the Msg methods are overrides from the respective Msg Interface. For example, (Other (VF)) other interface implementations.
 
-Actors do not have accessors, classes / interfaces composed in a development actor can have accessors.. sure. Maybe there’s something with state that is different 
+Actors do not have accessors, classes / interfaces composed in a development actor can have accessors.. sure. Maybe there’s something with state that is different
+
+Benefit:
+Since the UIs and its references dependency is NOT dependent on the actor, we can unit test the UIs.
+
+## create wrapper
+
+Instead of create top level, use actor create with static dispatch wrapper to create 
+
+## rename
+
+Rewrite names to NOT have Actor in front.. simplicity :)
