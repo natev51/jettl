@@ -61,23 +61,36 @@ So when going through orderly shutdown, the caller won’t care about the nested
 
 ## Philosophy
 
-Messages:
+### Msg
 All messages come from an interface and follow ISP where one message belongs to one interface. If there is a naming issue, that is a good thing.. it means in the dependencies, you should be packaging modules so you don’t run into naming issues.
 
-Development actors:
+### Dev Actor
 - Internal (VF): Static methods are private and in the internal folder
 - Implemented (VF): Dynamic dispatch are public and MUST be implemented by an interface to follow SOLID principles. For example, (Actor (VF)) the Actor methods are overrides from the Actor Interface. Another example, (Msg (VF)) the Msg methods are overrides from the respective Msg Interface. For example, (Other (VF)) other interface implementations.
 
-Actors do not have accessors, classes / interfaces composed in a development actor can have accessors.. sure. Maybe there’s something with state that is different
+Actor messages must be implemented since called in algorithm.
+Other DD from Actor interface do not since not called in algorithm.
 
-Benefit:
+Actors do not have accessors.
+Classes / interfaces composed in a development actor can have accessors.. sure. Maybe there’s something with state that is different
+
+### Modular UI
 Since the UIs and its references dependency is NOT dependent on the actor, we can unit test the UIs.
 
 ## create wrapper
 
-Instead of create top level, use `Create Nested.vi` with static dispatch wrapper for launch async. 
+Instead of create top level, use `Create.vi` with static dispatch wrapper for launch async.
 
-## rename
+##
 
-Rewrite names to NOT have Actor in front.. simplicity :) Rename Actor Create -> Create Nested
-![rename_without_actor](rename_without_actor.png)
+VIPM .vi lib
+jettl (VF)
+
+Self Actor renamed to jettl
+This is the class AND the state interface / classes
+
+###
+
+rename:
+Get rid of strategy
+get rid of actor

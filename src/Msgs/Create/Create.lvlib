@@ -5,6 +5,6 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">false</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
-	<Item Name="Actor Create.lvclass" Type="LVClass" URL="../Actor Create/Actor Create.lvclass"/>
-	<Item Name="Actor Create Msg Strategy.lvclass" Type="LVClass" URL="../Actor Create Msg Strategy/Actor Create Msg Strategy.lvclass"/>
+	<Item Name="Create.lvclass" Type="LVClass" URL="../Create/Create.lvclass"/>
+	<Item Name="Create Msg.lvclass" Type="LVClass" URL="../Create Msg/Create Msg.lvclass"/>
 </Library>

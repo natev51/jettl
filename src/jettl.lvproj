@@ -12,7 +12,7 @@
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="Msgs" Type="Folder">
-			<Item Name="Actor Create.lvlib" Type="Library" URL="../Msgs/Actor Create/Actor Create.lvlib"/>
+			<Item Name="Create.lvlib" Type="Library" URL="../Msgs/Create/Create.lvlib"/>
 			<Item Name="Actor Destroy.lvlib" Type="Library" URL="../Msgs/Actor Destroy/Actor Destroy.lvlib"/>
 			<Item Name="Actor Last Ack.lvlib" Type="Library" URL="../Msgs/Actor Last Ack/Actor Last Ack.lvlib"/>
 			<Item Name="Error.lvlib" Type="Library" URL="../Msgs/Error/Error.lvlib"/>
