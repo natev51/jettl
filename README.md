@@ -82,8 +82,3 @@ Since the UIs and its references dependency is NOT dependent on the actor, we ca
 
 VIPM .vi lib
 jettl (VF)
-Actor (necessary Actor methods / messages) -> jettl folder
-
-Instead of create top level, use `Create.vi` with static dispatch wrapper for launch async.
-
-reorganize folder structure
