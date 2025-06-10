@@ -75,8 +75,9 @@ Since the UIs and its references dependency is NOT dependent on the actor, we ca
 
 ## create wrapper
 
-Instead of create top level, use actor create with static dispatch wrapper to create 
+Instead of create top level, use `Create Nested.vi` with static dispatch wrapper for launch async. 
 
 ## rename
 
-Rewrite names to NOT have Actor in front.. simplicity :)
+Rewrite names to NOT have Actor in front.. simplicity :) Rename Actor Create -> Create Nested
+![rename_without_actor](rename_without_actor.png)
