@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-06-08 10:32:39" Modified_Date="2025-06-08 22:44:48" Creator="natev" Comments="" ID="0899cd5229cc3128bc7edccc12499551">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-06-08 10:32:39" Modified_Date="2025-06-09 22:02:50" Creator="natev" Comments="" ID="e02c357e9b255444bfcad1a5e495f6bc">
   <Library_General_Settings>
     <Package_File_Name>jettl_lib_jettl</Package_File_Name>
-    <Library_Version>1.0.0.9</Library_Version>
+    <Library_Version>1.0.0.11</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\..\src</Library_Source_Folder>
     <Library_Output_Folder>..\package</Library_Output_Folder>
@@ -259,20 +259,6 @@
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Create Top Level.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>1</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\..\src\jettl\Self Actor\Create Top Level.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
         <NameSub_Menu_Name>Nested Exist.vi</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
@@ -368,7 +354,21 @@
         <Path>..\..\src\Msgs\Error\Error Msg Strategy\Send.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>62EF1E2ABC751A723B29831889A60D34</GUID>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Launch.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>1</Row>
+          <Column>1</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\..\src\jettl\Self Actor\Launch.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <GUID>065322D279A3BE1F60AABBF6058C6573</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
