@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-06-08 10:32:39" Modified_Date="2025-06-10 10:57:20" Creator="natev" Comments="" ID="324abf0184ef813dbfdafdb04a510fe2">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-06-08 10:32:39" Modified_Date="2025-06-10 13:26:02" Creator="natev" Comments="" ID="5e165f3fc164b3338484f8be0ab0cb67">
   <Library_General_Settings>
     <Package_File_Name>jettl_lib_jettl</Package_File_Name>
-    <Library_Version>1.0.0.15</Library_Version>
+    <Library_Version>1.0.0.16</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\..\src</Library_Source_Folder>
     <Library_Output_Folder>..\package</Library_Output_Folder>
@@ -312,7 +312,7 @@
         <Path>..\..\src\unnamed</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0881EB97704A842C0CB973118901F198</GUID>
+      <GUID>2E22B268EE10A75704F552D337429268</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -350,7 +350,7 @@
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Launch p2.vi</NameSub_Menu_Name>
+        <NameSub_Menu_Name>Launch OLD.vi</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
@@ -358,10 +358,10 @@
           <Column>2</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\..\src\jettl\jettl\Launch p2.vi</Path>
+        <Path>..\..\src\jettl\jettl\Launch OLD.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D45E43B69947B9FEE417D6091F1D6606</GUID>
+      <GUID>B00582CFCE901053912B5CD5ECF968BB</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -452,7 +452,7 @@
         <Path>..\..\src\Actor\Actor\Nested Aliases.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>884935FBEEAC87FA747C851F30C21733</GUID>
+      <GUID>149DCD0B3AC14628D3204083E28EB82E</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
