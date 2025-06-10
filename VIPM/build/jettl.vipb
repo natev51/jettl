@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-06-08 10:32:39" Modified_Date="2025-06-10 14:50:30" Creator="natev" Comments="" ID="7235c44bfe38964578c7959720dbcdea">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-06-08 10:32:39" Modified_Date="2025-06-10 15:26:44" Creator="natev" Comments="" ID="18cf8c81397bb374e552c3bb657427a2">
   <Library_General_Settings>
     <Package_File_Name>jettl_lib_jettl</Package_File_Name>
-    <Library_Version>1.0.0.17</Library_Version>
+    <Library_Version>1.0.0.18</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\..\src</Library_Source_Folder>
     <Library_Output_Folder>..\package</Library_Output_Folder>
@@ -312,7 +312,7 @@
         <Path>..\..\src\unnamed</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>7F500975E2F43D6CFBB9AE1F010924B2</GUID>
+      <GUID>21299F2176F17CA4C21C611D340D34EC</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -361,7 +361,7 @@
         <Path>..\..\src\jettl\jettl\Launch OLD.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>208A26B7486D13A0BB49972480AB816E</GUID>
+      <GUID>5D955490AF1404381634515DF8AD287F</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -452,7 +452,21 @@
         <Path>..\..\src\Actor\Actor\Nested Aliases.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4E2C7F03E03D80F83A0AB2302A4E8423</GUID>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Self Alias.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>2</Row>
+          <Column>4</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\..\src\Actor\Actor\Self Alias.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <GUID>69E934158B325B5ED0321A6B6385B51D</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
