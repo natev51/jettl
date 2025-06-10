@@ -79,16 +79,11 @@ Since the UIs and its references dependency is NOT dependent on the actor, we ca
 
 ###
 
-rename:
-Get rid of strategy
-get rid of actor
-Self Actor -> jettl
-
-replace `Error` with `Set Error`
-
 
 VIPM .vi lib
 jettl (VF)
-Actor -> jettl folder
+Actor (necessary Actor methods / messages) -> jettl folder
 
 Instead of create top level, use `Create.vi` with static dispatch wrapper for launch async.
+
+reorganize folder structure
