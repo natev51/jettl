@@ -6,5 +6,5 @@
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">false</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
 	<Item Name="Error.lvclass" Type="LVClass" URL="../Error/Error.lvclass"/>
-	<Item Name="Error Msg Strategy.lvclass" Type="LVClass" URL="../Error Msg Strategy/Error Msg Strategy.lvclass"/>
+	<Item Name="Error Msg.lvclass" Type="LVClass" URL="../Error Msg/Error Msg.lvclass"/>
 </Library>

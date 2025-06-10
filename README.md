@@ -94,3 +94,5 @@ This is the class AND the state interface / classes
 rename:
 Get rid of strategy
 get rid of actor
+
+get rid of `Set Error` and instead use the Msg that is Error

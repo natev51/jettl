@@ -5,6 +5,6 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">false</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
-	<Item Name="Actor Destroy.lvclass" Type="LVClass" URL="../Actor Destroy/Actor Destroy.lvclass"/>
-	<Item Name="Actor Destroy Msg Strategy.lvclass" Type="LVClass" URL="../Actor Destroy Msg Strategy/Actor Destroy Msg Strategy.lvclass"/>
+	<Item Name="Destroy.lvclass" Type="LVClass" URL="../Destroy/Destroy.lvclass"/>
+	<Item Name="Destroy Msg.lvclass" Type="LVClass" URL="../Destroy Msg/Destroy Msg.lvclass"/>
 </Library>
