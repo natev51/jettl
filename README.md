@@ -49,3 +49,23 @@ Along with scripting tools including:
 ## Benchmarks
 
 *Insert Benchmarks .md here*
+
+# TODO
+
+## Orphan Actors
+
+Maybe there can be a Boolean that is “Can be Orphan?” Kind of a bypass to the orderly shutdown.
+So that when the caller closes
+When creating a nested actor, Boolean flag that says if actor can be orphaned.
+So when going through orderly shutdown, the caller won’t care about the nested actor last ack since it’s last ack will be removed (knowing that it had already been marked as can be orphan)
+
+## Philosophy
+
+Messages:
+All messages come from an interface and follow ISP where one message belongs to one interface. If there is a naming issue, that is a good thing.. it means in the dependencies, you should be packaging modules so you don’t run into naming issues.
+
+Development actors:
+- Internal (VF): Static methods are private and in the internal folder
+- Implemented (VF): Dynamic dispatch are public and MUST be implemented by an interface to follow SOLID principles. For example, (Actor (VF)) the Actor methods are overrides from the Actor Interface. Another example, (Msg (VF)) the Msg methods are overrides from the respective Msg Interface. For example, (Other (VF)) other interface implementations.
+
+Actors do not have accessors, classes / interfaces composed in a development actor can have accessors.. sure. Maybe there’s something with state that is different 
