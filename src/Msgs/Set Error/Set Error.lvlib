@@ -5,6 +5,6 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">false</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
-	<Item Name="Error.lvclass" Type="LVClass" URL="../Error/Error.lvclass"/>
-	<Item Name="Error Msg.lvclass" Type="LVClass" URL="../Error Msg/Error Msg.lvclass"/>
+	<Item Name="Set Error.lvclass" Type="LVClass" URL="../Set Error/Set Error.lvclass"/>
+	<Item Name="Set Error Msg.lvclass" Type="LVClass" URL="../Set Error Msg/Set Error Msg.lvclass"/>
 </Library>

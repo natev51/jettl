@@ -77,19 +77,6 @@ Classes / interfaces composed in a development actor can have accessors.. sure. 
 ### Modular UI
 Since the UIs and its references dependency is NOT dependent on the actor, we can unit test the UIs.
 
-## create wrapper
-
-Instead of create top level, use `Create.vi` with static dispatch wrapper for launch async.
-
-##
-
-VIPM .vi lib
-jettl (VF)
-Actor -> jettl folder
-
-Self Actor renamed to jettl
-This is the class AND the state interface / classes
-
 ###
 
 rename:
@@ -98,3 +85,10 @@ get rid of actor
 Self Actor -> jettl
 
 replace `Error` with `Set Error`
+
+
+VIPM .vi lib
+jettl (VF)
+Actor -> jettl folder
+
+Instead of create top level, use `Create.vi` with static dispatch wrapper for launch async.

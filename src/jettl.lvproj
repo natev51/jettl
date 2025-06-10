@@ -15,7 +15,7 @@
 			<Item Name="Create.lvlib" Type="Library" URL="../Msgs/Create/Create.lvlib"/>
 			<Item Name="Destroy.lvlib" Type="Library" URL="../Msgs/Destroy/Destroy.lvlib"/>
 			<Item Name="Last Ack.lvlib" Type="Library" URL="../Msgs/Last Ack/Last Ack.lvlib"/>
-			<Item Name="Error.lvlib" Type="Library" URL="../Msgs/Error/Error.lvlib"/>
+			<Item Name="Set Error.lvlib" Type="Library" URL="../Msgs/Set Error/Set Error.lvlib"/>
 		</Item>
 		<Item Name="jettl.lvlib" Type="Library" URL="../jettl/jettl.lvlib"/>
 		<Item Name="API.vi" Type="VI" URL="../API.vi"/>
