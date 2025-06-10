@@ -85,6 +85,7 @@ Instead of create top level, use `Create.vi` with static dispatch wrapper for la
 
 VIPM .vi lib
 jettl (VF)
+Actor -> jettl folder
 
 Self Actor renamed to jettl
 This is the class AND the state interface / classes
@@ -96,4 +97,4 @@ Get rid of strategy
 get rid of actor
 Self Actor -> jettl
 
-get rid of `Set Error` and instead use the Msg that is Error
+replace `Error` with `Set Error`

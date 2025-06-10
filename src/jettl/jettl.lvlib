@@ -17,13 +17,13 @@
 		<Item Name="Release Msg Q DVR.vi" Type="VI" URL="../Msg Q DVR/Release Msg Q DVR.vi"/>
 	</Item>
 	<Item Name="jettl" Type="Folder">
-		<Item Name="jettl State" Type="Folder">
+		<Item Name="State" Type="Folder">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-			<Item Name="jettl State.lvclass" Type="LVClass" URL="../jettl/jettl State/jettl State/jettl State.lvclass"/>
-			<Item Name="Msg jettl State.lvclass" Type="LVClass" URL="../jettl/jettl State/Msg jettl State/Msg jettl State.lvclass"/>
-			<Item Name="Destroy jettl State.lvclass" Type="LVClass" URL="../jettl/jettl State/Destroy jettl State/Destroy jettl State.lvclass"/>
+			<Item Name="State.lvclass" Type="LVClass" URL="../jettl/State/State/State.lvclass"/>
+			<Item Name="Msg State.lvclass" Type="LVClass" URL="../jettl/State/Msg State/Msg State.lvclass"/>
+			<Item Name="Destroy State.lvclass" Type="LVClass" URL="../jettl/State/Destroy State/Destroy State.lvclass"/>
 		</Item>
-		<Item Name="Self Actor.lvclass" Type="LVClass" URL="../jettl/Self Actor/Self Actor.lvclass"/>
+		<Item Name="jettl.lvclass" Type="LVClass" URL="../jettl/jettl/jettl.lvclass"/>
 	</Item>
 	<Item Name="Msg Strategy.lvclass" Type="LVClass" URL="../Msg Strategy/Msg Strategy.lvclass"/>
 	<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor.lvclass"/>
