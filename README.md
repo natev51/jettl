@@ -77,8 +77,12 @@ Classes / interfaces composed in a development actor can have accessors.. sure. 
 ### Modular UI
 Since the UIs and its references dependency is NOT dependent on the actor, we can unit test the UIs.
 
-###
+### TODO
 
+Transfer over comments from create top level to create wrapper.
+Then, delete the launch and create top level, when working.
 
-VIPM .vi lib
-jettl (VF)
+Replace all strings with the \code option
+
+Memento, actors shouldn't know about each other, so if the state of a nested is to be saved, then there is a separate message for this since last ack shouldn't know about this.
+Rather, this specialty message couples with last ack if the developer wants this functionality.
