@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.5.21)  8 JUN 2025 22:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.5.21)  11 JUN 2025 16:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -203,85 +203,87 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 13.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 13.
-<figures/class-hierarchy.png, id=120, 362.10281pt x 210.7875pt>
+<figures/class-hierarchy.png, id=148, 362.10281pt x 210.7875pt>
 File: figures/class-hierarchy.png Graphic file (type png)
 <use figures/class-hierarchy.png>
-Package pdftex.def Info: figures/class-hierarchy.png  used on input line 38.
+Package pdftex.def Info: figures/class-hierarchy.png  used on input line 43.
 (pdftex.def)             Requested size: 276.00105pt x 160.66653pt.
 
 
 [1
 
 {c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<figures/labview_dmitry_message _transport.png, id=132, 2541.495pt x 1174.3875pt>
-File: figures/labview_dmitry_message _transport.png Graphic file (type png)
-<use figures/labview_dmitry_message _transport.png>
-Package pdftex.def Info: figures/labview_dmitry_message _transport.png  used on input line 86.
-(pdftex.def)             Requested size: 276.00105pt x 127.53441pt.
-
 
 [2 <./figures/class-hierarchy.png>]
-<figures/dmitry_liskov_sub_principle.png, id=141, 2541.495pt x 1174.3875pt>
-File: figures/dmitry_liskov_sub_principle.png Graphic file (type png)
-<use figures/dmitry_liskov_sub_principle.png>
-Package pdftex.def Info: figures/dmitry_liskov_sub_principle.png  used on input line 133.
+<figures/labview_dmitry_message _transport.png, id=164, 2541.495pt x 1174.3875pt>
+File: figures/labview_dmitry_message _transport.png Graphic file (type png)
+<use figures/labview_dmitry_message _transport.png>
+Package pdftex.def Info: figures/labview_dmitry_message _transport.png  used on input line 100.
 (pdftex.def)             Requested size: 276.00105pt x 127.53441pt.
 
 
 [3 <./figures/labview_dmitry_message _transport.png>]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 157.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 157.
+<figures/dmitry_liskov_sub_principle.png, id=176, 2541.495pt x 1174.3875pt>
+File: figures/dmitry_liskov_sub_principle.png Graphic file (type png)
+<use figures/dmitry_liskov_sub_principle.png>
+Package pdftex.def Info: figures/dmitry_liskov_sub_principle.png  used on input line 153.
+(pdftex.def)             Requested size: 276.00105pt x 127.53441pt.
 
 
 [4{c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./figures/dmitry_liskov_sub_principle.png>]
-<figures/justACS_ui_events.png, id=165, 1107.38719pt x 486.31688pt>
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 177.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 177.
+
+
+[5]
+<figures/justACS_ui_events.png, id=197, 1107.38719pt x 486.31688pt>
 File: figures/justACS_ui_events.png Graphic file (type png)
 <use figures/justACS_ui_events.png>
-Package pdftex.def Info: figures/justACS_ui_events.png  used on input line 202.
+Package pdftex.def Info: figures/justACS_ui_events.png  used on input line 244.
 (pdftex.def)             Requested size: 276.00105pt x 121.20789pt.
 
 
-[5 <./figures/justACS_ui_events.png>]
-<figures/Need_for_error_msg.png, id=174, 265.74281pt x 130.23656pt>
+[6 <./figures/justACS_ui_events.png>]
+<figures/Need_for_error_msg.png, id=206, 265.74281pt x 130.23656pt>
 File: figures/Need_for_error_msg.png Graphic file (type png)
 <use figures/Need_for_error_msg.png>
-Package pdftex.def Info: figures/Need_for_error_msg.png  used on input line 225.
+Package pdftex.def Info: figures/Need_for_error_msg.png  used on input line 275.
 (pdftex.def)             Requested size: 276.00105pt x 135.2739pt.
 
 
-[6 <./figures/Need_for_error_msg.png>]
-<figures/method-template.png, id=182, 733.23938pt x 573.64313pt>
+[7 <./figures/Need_for_error_msg.png>]
+<figures/method-template.png, id=215, 733.23938pt x 573.64313pt>
 File: figures/method-template.png Graphic file (type png)
 <use figures/method-template.png>
-Package pdftex.def Info: figures/method-template.png  used on input line 282.
+Package pdftex.def Info: figures/method-template.png  used on input line 332.
 (pdftex.def)             Requested size: 276.00105pt x 215.92967pt.
 
 
-[7]
+[8]
 
-[8 <./figures/method-template.png>] (./main.aux)
+[9 <./figures/method-template.png>] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-04-29>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 37C4BBA6DC91A53F56716BDA29F52C97;3609.
+(rerunfilecheck)             Checksum: 2BE23E97F9575ED9C779F338282D0548;4549.
  ) 
 Here is how much of TeX's memory you used:
- 8615 strings out of 469589
- 134538 string characters out of 5474498
- 524691 words of memory out of 5000000
- 35353 multiletter control sequences out of 15000+600000
+ 8637 strings out of 469589
+ 134908 string characters out of 5474498
+ 524007 words of memory out of 5000000
+ 35367 multiletter control sequences out of 15000+600000
  631414 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,8n,79p,347b,500s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,8n,79p,347b,440s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (8 pages, 2118351 bytes).
+Output written on main.pdf (9 pages, 2121141 bytes).
 PDF statistics:
- 244 PDF objects out of 1000 (max. 8388607)
- 208 compressed objects within 3 object streams
- 47 named destinations out of 1000 (max. 500000)
- 263 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 278 PDF objects out of 1000 (max. 8388607)
+ 241 compressed objects within 3 object streams
+ 55 named destinations out of 1000 (max. 500000)
+ 319 words of extra memory for PDF output out of 10000 (max. 10000000)
 

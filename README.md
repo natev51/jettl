@@ -50,39 +50,17 @@ Along with scripting tools including:
 
 *Insert Benchmarks .md here*
 
-# TODO
-
-## Orphan Actors
-
-Maybe there can be a Boolean that is “Can be Orphan?” Kind of a bypass to the orderly shutdown.
-So that when the caller closes
-When creating a nested actor, Boolean flag that says if actor can be orphaned.
-So when going through orderly shutdown, the caller won’t care about the nested actor last ack since it’s last ack will be removed (knowing that it had already been marked as can be orphan)
-
 ## Philosophy
 
-### Msg
-All messages come from an interface and follow ISP where one message belongs to one interface. If there is a naming issue, that is a good thing.. it means in the dependencies, you should be packaging modules so you don’t run into naming issues.
-
 ### Dev Actor
-- Internal (VF): Static methods are private and in the internal folder
+- Internal (VF): As a baseline, everything is a static method, which is private and are found in the internal folder.
 - Implemented (VF): Dynamic dispatch are public and MUST be implemented by an interface to follow SOLID principles. For example, (Actor (VF)) the Actor methods are overrides from the Actor Interface. Another example, (Msg (VF)) the Msg methods are overrides from the respective Msg Interface. For example, (Other (VF)) other interface implementations.
 
 Actor messages must be implemented since called in algorithm.
 Other DD from Actor interface do not since not called in algorithm.
 
-Actors do not have accessors.
-Classes / interfaces composed in a development actor can have accessors.. sure. Maybe there’s something with state that is different
+## TODO
 
-### Modular UI
-Since the UIs and its references dependency is NOT dependent on the actor, we can unit test the UIs.
-
-### TODO
-
-Transfer over comments from create top level to create wrapper.
-Then, delete the launch and create top level, when working.
+### Would be Nice
 
 Replace all strings with the \code option
-
-Memento, actors shouldn't know about each other, so if the state of a nested is to be saved, then there is a separate message for this since last ack shouldn't know about this.
-Rather, this specialty message couples with last ack if the developer wants this functionality.

@@ -30,6 +30,11 @@ It is interface composition, so stick with the same rule set for naming methods
 Only public and private.
 Interfaces, classes, and methods have text in the icon/banner that are black for public and red for private.
 
+\subsection{Errors}
+\label{subsec:errors}
+
+No error goes unrecognized
+
 \section{Class Hierarchy}
 \label{sec:class-hierarchy}
 
@@ -43,6 +48,15 @@ Interfaces, classes, and methods have text in the icon/banner that are black for
 Fig~\ref{fig:jettl-class-hierarchy} shows the class hierarchy of jettl.
 In particular, there exist design patterns such as the Strategy Pattern, State Pattern, and Decorator Pattern.
 
+\section{Actors}
+\label{sec:actors}
+
+\subsection{Actor Benefits}
+\label{subsec:actor-benefits}
+
+Actors do not create their own references OR destroy their own references.
+They conform to the tree like hierarchy of creation where Caller owns nesteds reference i.e. Caller received Nesteds Last Ack, safe to release their reference.
+Actors are queue based.
 
 \section{LabVIEW Interfaces}
 \label{sec:labview-interfaces}
@@ -114,6 +128,12 @@ These conditionals occur in Self Actor.lvclass.
 If either conditional is true, debug panel that displays the names of actors (columns), along with timestamps (rows) of when methods (data) are executed.
 Think discrete time water fall display.
 
+\subsection{Debug General LabVIEW}
+\label{subsec:debug-general-labview}
+
+General way to see which methods are being executed in the system?
+Used to see which actors are presently running / which methods are used?
+
 \section{Git}
 \label{sec:git}
 
@@ -169,10 +189,29 @@ When saving the state of an actor, the Memento Pattern is used.
 Instead of sending the entire actor state in Actor Last Ack Msg, there should be another dedicated message that sends the actors state to the calling actor.
 This has not been done, but it is a good idea to implement this in the future.
 
+Memento, actors shouldn't know about each other, so if the state of a nested is to be saved, then there is a separate message for this since last ack shouldn't know about this.
+Rather, this specialty message couples with last ack if the developer wants this functionality.
+
 \section{External Packages}
 \label{sec:external-packages}
 
 \href{https://www.vipm.io/package/illuminatedg_lib_ig_oopanel/}{IG OOPanel}
+
+\section{Helper Loops}
+\label{sec:helper-loops}
+
+\subsection{Helper Loop Best Practices}
+\label{subsec:helper-loop-best-practices}
+
+References cannot change after they are created.
+
+\subsection{Helper Loop Benefits}
+\label{subsec:helper-loop-benefits}
+
+They are orphan processes since they create and release their own references.
+They are not tied to the actor that launches them.
+Furthermore, they are not tied to the lifetime of the actor that launches them.
+Helper Loops are event based.
 
 \subsection{Panels}
 \label{subsec:panels}
@@ -181,6 +220,9 @@ Actor helpers, not helper actors.
 Helper Loop → Async Actor Helper.
 These are helper loops that are created async which help an actor with its task.
 This is to declutter the actor by offloading certain tasks such as panel display or subprocesses that do not require an additional actor to be created.
+
+Modular UI.
+Since the UIs and its references' dependency is NOT dependent on the actor, we can unit test the UIs.
 
 \subsection{UI Events}
 \label{subsec:ui-events}
@@ -214,8 +256,16 @@ Creates library containing interface and method along with message class with Se
 \section{Messaging}
 \label{sec:messaging}
 
+All messages come from an interface and follow ISP where one message belongs to one interface.
+If there is a naming issue, that is a good thing.
+It means in the dependencies, you should be packaging modules so you don't run into naming issues.
+
+
+All messages are interface messages.
+Note, they do not need to be implemented.
+
 Actor messages error on generation of message.
-Error when creating a message and wiring in the interface object as an input, the message scripting doesn't know how to differentiate the class input and the parameter input
+Error when creating a message and wiring in the interface object as an input, the message scripting doesn't know how to differentiate the class input and the parameter input.
 
 \subsection{Error Msg}
 \label{subsec:error-msg}
