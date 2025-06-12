@@ -17,7 +17,7 @@
 		<Item Name="Actor" Type="Folder">
 			<Item Name="Msgs" Type="Folder">
 				<Item Name="Create.lvlib" Type="Library" URL="../Actor/Msgs/Create/Create.lvlib"/>
-				<Item Name="Destroy.lvlib" Type="Library" URL="../Actor/Msgs/Destroy/Destroy.lvlib"/>
+				<Item Name="Teardown.lvlib" Type="Library" URL="../Actor/Msgs/Teardown/Teardown.lvlib"/>
 				<Item Name="Last Ack.lvlib" Type="Library" URL="../Actor/Msgs/Last Ack/Last Ack.lvlib"/>
 				<Item Name="Merge Error.lvlib" Type="Library" URL="../Actor/Msgs/Merge Error/Merge Error.lvlib"/>
 				<Item Name="Override Error.lvlib" Type="Library" URL="../Actor/Msgs/Override Error/Override Error.lvlib"/>

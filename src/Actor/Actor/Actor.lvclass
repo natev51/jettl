@@ -15,10 +15,10 @@
 </Property>
 	<Item Name="Parent Libraries" Type="Parent Libraries">
 		<Item Name="Create.lvlib:Create.lvclass" Type="Parent" URL="../../Msgs/Create/Create/Create.lvclass"/>
-		<Item Name="Destroy.lvlib:Destroy.lvclass" Type="Parent" URL="../../Msgs/Destroy/Destroy/Destroy.lvclass"/>
 		<Item Name="Last Ack.lvlib:Last Ack.lvclass" Type="Parent" URL="../../Msgs/Last Ack/Last Ack/Last Ack.lvclass"/>
 		<Item Name="Merge Error.lvlib:Merge Error.lvclass" Type="Parent" URL="../../Msgs/Merge Error/Merge Error/Merge Error.lvclass"/>
 		<Item Name="Override Error.lvlib:Override Error.lvclass" Type="Parent" URL="../../Msgs/Override Error/Override Error/Override Error.lvclass"/>
+		<Item Name="Teardown.lvlib:Teardown.lvclass" Type="Parent" URL="../../Msgs/Teardown/Teardown/Teardown.lvclass"/>
 	</Item>
 	<Item Name="Palette" Type="Folder">
 		<Item Name="Advanced" Type="Folder">
@@ -133,6 +133,16 @@
 		<Property Name="NI.ClassItem.MustOverride" Type="Bool">false</Property>
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 		<Property Name="NI.ClassItem.State" Type="Int">1342710272</Property>
+	</Item>
+	<Item Name="Destroy.vi" Type="VI" URL="../Destroy.vi">
+		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!#E!!!!"!!%!!!!)E"Q!"Y!!!].17.U&lt;X)O&lt;(:D&lt;'&amp;T=Q!*17.U&lt;X)A&lt;X6U!#*!=!!?!!!0$5&amp;D&gt;'^S,GRW9WRB=X-!#%&amp;D&gt;'^S)'FO!!"5!0!!$!!!!!!!!!!"!!!!!!!!!!!!!!!!!!!!!A)!!(A!!!!!!!!!!!!!!!!!!)U,!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!E!!!!!!"!!-!!!!!</Property>
+		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
+		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
+		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
+		<Property Name="NI.ClassItem.MustOverride" Type="Bool">false</Property>
+		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1115685376</Property>
 	</Item>
 	<Item Name="Loop.vi" Type="VI" URL="../Loop.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!#E!!!!"!!%!!!!)E"Q!"Y!!!].17.U&lt;X)O&lt;(:D&lt;'&amp;T=Q!*17.U&lt;X)A&lt;X6U!#*!=!!?!!!0$5&amp;D&gt;'^S,GRW9WRB=X-!#%&amp;D&gt;'^S)'FO!!"5!0!!$!!!!!!!!!!"!!!!!!!!!!!!!!!!!!!!!A-!!(A!!!!!!!!!!!!!!!!!!!U,!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!%A!!!!!"!!-!!!!!</Property>

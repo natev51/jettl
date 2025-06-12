@@ -35,7 +35,7 @@
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 		<Property Name="NI.ClassItem.State" Type="Int">1342710272</Property>
 	</Item>
-	<Item Name="Destroy.vi" Type="VI" URL="../Destroy.vi">
+	<Item Name="Teardown.vi" Type="VI" URL="../Teardown.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$3!!!!"1!%!!!!)E"Q!"Y!!!].17.U&lt;X)O&lt;(:D&lt;'&amp;T=Q!*17.U&lt;X)A&lt;X6U!#*!=!!?!!!0$5&amp;D&gt;'^S,GRW9WRB=X-!#%&amp;D&gt;'^S)'FO!!!O1(!!(A!!'QNK:82U&lt;#ZM&gt;GRJ9AV4&gt;'&amp;U:3ZM&gt;G.M98.T!!B4&gt;'&amp;U:3"J&lt;A!!6!$Q!!Q!!!!!!!!!!!!!!!%!!!!#!!!!!!!!!!-#!!"Y!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!U(!!!!!!!!%!!!!!!!!!!!!!!!!!!!!*!!!!!!!1!%!!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>

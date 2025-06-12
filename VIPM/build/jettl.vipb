@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-06-08 10:32:39" Modified_Date="2025-06-12 09:14:09" Creator="natev" Comments="" ID="231e6c622936bde1cdfc73b8e84b634f">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-06-08 10:32:39" Modified_Date="2025-06-12 09:59:46" Creator="natev" Comments="" ID="c8d94e6aca630f5f5a0904bf364dc43f">
   <Library_General_Settings>
     <Package_File_Name>jettl_lib_jettl</Package_File_Name>
-    <Library_Version>1.0.0.26</Library_Version>
+    <Library_Version>1.0.0.27</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\..\src</Library_Source_Folder>
     <Library_Output_Folder>..\package</Library_Output_Folder>
@@ -292,20 +292,6 @@
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
           <Row>1</Row>
-          <Column>2</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\..\src\Actor\Msgs\Destroy\Destroy Msg\Send.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Send.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
           <Column>3</Column>
         </Position>
         <Icon>00000000</Icon>
@@ -326,7 +312,21 @@
         <Path>..\..\src\Actor\Msgs\Override Error\Override Error Msg\Send.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E8EF68B8CEBFECF440A8D325F703AE85</GUID>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Send.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>1</Row>
+          <Column>2</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\..\src\Actor\Msgs\Teardown\Teardown Msg\Send.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <GUID>88E4F4041BC1AD5156257A6B43DCAFB3</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -361,7 +361,7 @@
         <Path>..\..\src\jettl\jettl\Launch.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>25B8131DED0BE916895040E2BA35D473</GUID>
+      <GUID>6433A06BE88108686B0B61DF260AAEE4</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -452,7 +452,7 @@
         <Path>..\..\src\Actor\Actor\Self Alias.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0A7A6FE9C5562D173BF13AAD34E82D89</GUID>
+      <GUID>68652F201FF514AE2A501174A863F760</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
