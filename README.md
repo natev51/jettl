@@ -63,4 +63,20 @@ Other DD from Actor interface do not since not called in algorithm.
 
 ### Would be Nice
 
+Use the Event and Other methods (in Dev Panel) in Dev Actor.
+There are of course other methods that can be created, such as the auto generated references in the private data of Dev Panel.
+See the Other folder for examples.
+
+
+Look down at the green grass, look up to the blue sky, and look further to the purple galaxy.
+Purple Library RGB (0,0,0) 
+Blue Interface RGB (0,0,0) 
+Green Class RGB (0,0,0)
+
+
+jettl: "#Should be preserve?" in Launch jettl
+
+
+
+
 Replace all strings with the \code option
