@@ -124,7 +124,7 @@
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 		<Property Name="NI.ClassItem.State" Type="Int">1082139136</Property>
 	</Item>
-	<Item Name="REPLACE.vi" Type="VI" URL="../REPLACE.vi">
+	<Item Name="Handle.vi" Type="VI" URL="../Handle.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!#S!!!!"1!%!!!!$E!B#%2F=X2S&lt;XE`!!!C1(!!(A!!$QV"9X2P=CZM&gt;G.M98.T!!F"9X2P=C"P&gt;81!)E"Q!"Y!!!].17.U&lt;X)O&lt;(:D&lt;'&amp;T=Q!)17.U&lt;X)A;7Y!!&amp;1!]!!-!!!!!!!"!!)!!!!!!!!!!!!!!!!!!!!$!A!!?!!!!!!!!!!!!!!*!!!!D1M!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#1!!!!!!%!"!!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>

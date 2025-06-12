@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-06-08 10:32:39" Modified_Date="2025-06-12 09:59:46" Creator="natev" Comments="" ID="c8d94e6aca630f5f5a0904bf364dc43f">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-06-08 10:32:39" Modified_Date="2025-06-12 10:24:12" Creator="natev" Comments="" ID="12199a91d6838358ea8a8545a028902d">
   <Library_General_Settings>
     <Package_File_Name>jettl_lib_jettl</Package_File_Name>
-    <Library_Version>1.0.0.27</Library_Version>
+    <Library_Version>1.0.0.28</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\..\src</Library_Source_Folder>
     <Library_Output_Folder>..\package</Library_Output_Folder>
@@ -326,7 +326,7 @@
         <Path>..\..\src\Actor\Msgs\Teardown\Teardown Msg\Send.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>88E4F4041BC1AD5156257A6B43DCAFB3</GUID>
+      <GUID>BF43EBD8F815EE12379B63940033FE5E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -361,7 +361,7 @@
         <Path>..\..\src\jettl\jettl\Launch.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6433A06BE88108686B0B61DF260AAEE4</GUID>
+      <GUID>5CD9E0383EDBEEA058545C38029513F7</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -452,7 +452,7 @@
         <Path>..\..\src\Actor\Actor\Self Alias.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>68652F201FF514AE2A501174A863F760</GUID>
+      <GUID>6F18D822A9947119D4A94E0ECCD1704D</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
