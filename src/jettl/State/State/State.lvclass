@@ -25,15 +25,15 @@
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 		<Property Name="NI.ClassItem.State" Type="Int">1082139136</Property>
 	</Item>
-	<Item Name="Teardown.vi" Type="VI" URL="../Teardown.vi">
-		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$A!!!!"A!%!!!!$E!B#62F98*E&lt;X&gt;O0Q!C1(!!(A!!$QV"9X2P=CZM&gt;G.M98.T!!F"9X2P=C"P&gt;81!)E"Q!"Y!!!].17.U&lt;X)O&lt;(:D&lt;'&amp;T=Q!)17.U&lt;X)A;7Y!!#Z!=!!?!!!&lt;#WJF&gt;(2M,GRW&lt;'FC$6.U982F,GRW9WRB=X-!#&amp;.U982F)'FO!!"5!0!!$!!!!!!!!1!!!!!!!A!!!!-!!!!!!!!!"!)!!(A!!!!!!!!!!!!!#1!!!!!!!!!!!!!!$1=!!!!!!!!1!!!!!!!!!!!!!!!!!!!!E!!!!!!"!!5!!!!!</Property>
+	<Item Name="REPLACE.vi" Type="VI" URL="../REPLACE.vi">
+		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$A!!!!"A!%!!!!$E!B#%2F=X2S&lt;XE`!!!C1(!!(A!!$QV"9X2P=CZM&gt;G.M98.T!!F"9X2P=C"P&gt;81!)E"Q!"Y!!!].17.U&lt;X)O&lt;(:D&lt;'&amp;T=Q!)17.U&lt;X)A;7Y!!#Z!=!!?!!!&lt;#WJF&gt;(2M,GRW&lt;'FC$6.U982F,GRW9WRB=X-!#&amp;.U982F)'FO!!"5!0!!$!!!!!!!!1!!!!!!!A!!!!-!!!!!!!!!"!)!!(A!!!!!!!!!!!!!#1!!!!!!!!!!!!!!$1=!!!!!!!!1!!!!!!!!!!!!!!!!!!!!E!!!!!!"!!5!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
 		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
 		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 		<Property Name="NI.ClassItem.MustOverride" Type="Bool">false</Property>
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-		<Property Name="NI.ClassItem.State" Type="Int">1082139136</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1342710272</Property>
 	</Item>
 	<Item Name="Destroy.vi" Type="VI" URL="../Destroy.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$3!!!!"1!%!!!!)E"Q!"Y!!!].17.U&lt;X)O&lt;(:D&lt;'&amp;T=Q!*17.U&lt;X)A&lt;X6U!#*!=!!?!!!0$5&amp;D&gt;'^S,GRW9WRB=X-!#%&amp;D&gt;'^S)'FO!!!O1(!!(A!!'QNK:82U&lt;#ZM&gt;GRJ9AV4&gt;'&amp;U:3ZM&gt;G.M98.T!!B4&gt;'&amp;U:3"J&lt;A!!6!$Q!!Q!!!!!!!!!!!!!!!%!!!!#!!!!!!!!!!-#!!"Y!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!U(!!!!!!!!%!!!!!!!!!!!!!!!!!!!!*!!!!!!!1!%!!!!!!</Property>

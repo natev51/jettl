@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-06-08 10:32:39" Modified_Date="2025-06-11 22:57:26" Creator="natev" Comments="" ID="9e65d75212eb1fc344c96aee1d17dd09">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-06-08 10:32:39" Modified_Date="2025-06-12 09:14:09" Creator="natev" Comments="" ID="231e6c622936bde1cdfc73b8e84b634f">
   <Library_General_Settings>
     <Package_File_Name>jettl_lib_jettl</Package_File_Name>
-    <Library_Version>1.0.0.25</Library_Version>
+    <Library_Version>1.0.0.26</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\..\src</Library_Source_Folder>
     <Library_Output_Folder>..\package</Library_Output_Folder>
@@ -326,7 +326,7 @@
         <Path>..\..\src\Actor\Msgs\Override Error\Override Error Msg\Send.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>28B47475C60EBB0AF744D48AEF3B8F55</GUID>
+      <GUID>E8EF68B8CEBFECF440A8D325F703AE85</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -361,7 +361,7 @@
         <Path>..\..\src\jettl\jettl\Launch.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>922FB6DFF546DF84787E4B371EE1E2D1</GUID>
+      <GUID>25B8131DED0BE916895040E2BA35D473</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -452,7 +452,7 @@
         <Path>..\..\src\Actor\Actor\Self Alias.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>8405452311588B8879D008FF828C6FB0</GUID>
+      <GUID>0A7A6FE9C5562D173BF13AAD34E82D89</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
