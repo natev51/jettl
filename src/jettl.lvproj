@@ -19,7 +19,8 @@
 				<Item Name="Create.lvlib" Type="Library" URL="../Actor/Msgs/Create/Create.lvlib"/>
 				<Item Name="Destroy.lvlib" Type="Library" URL="../Actor/Msgs/Destroy/Destroy.lvlib"/>
 				<Item Name="Last Ack.lvlib" Type="Library" URL="../Actor/Msgs/Last Ack/Last Ack.lvlib"/>
-				<Item Name="Set Error.lvlib" Type="Library" URL="../Actor/Msgs/Set Error/Set Error.lvlib"/>
+				<Item Name="Merge Error.lvlib" Type="Library" URL="../Actor/Msgs/Merge Error/Merge Error.lvlib"/>
+				<Item Name="Override Error.lvlib" Type="Library" URL="../Actor/Msgs/Override Error/Override Error.lvlib"/>
 			</Item>
 			<Item Name="Msg.lvclass" Type="LVClass" URL="../Actor/Msg/Msg.lvclass"/>
 			<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor/Actor.lvclass"/>

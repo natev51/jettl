@@ -17,7 +17,8 @@
 		<Item Name="Create.lvlib:Create.lvclass" Type="Parent" URL="../../Msgs/Create/Create/Create.lvclass"/>
 		<Item Name="Destroy.lvlib:Destroy.lvclass" Type="Parent" URL="../../Msgs/Destroy/Destroy/Destroy.lvclass"/>
 		<Item Name="Last Ack.lvlib:Last Ack.lvclass" Type="Parent" URL="../../Msgs/Last Ack/Last Ack/Last Ack.lvclass"/>
-		<Item Name="Set Error.lvlib:Set Error.lvclass" Type="Parent" URL="../../Msgs/Set Error/Set Error/Set Error.lvclass"/>
+		<Item Name="Merge Error.lvlib:Merge Error.lvclass" Type="Parent" URL="../../Msgs/Merge Error/Merge Error/Merge Error.lvclass"/>
+		<Item Name="Override Error.lvlib:Override Error.lvclass" Type="Parent" URL="../../Msgs/Override Error/Override Error/Override Error.lvclass"/>
 	</Item>
 	<Item Name="Palette" Type="Folder">
 		<Item Name="Nested Alias Unique.vi" Type="VI" URL="../Nested Alias Unique.vi">

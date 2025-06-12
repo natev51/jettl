@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-06-08 10:32:39" Modified_Date="2025-06-11 16:51:21" Creator="natev" Comments="" ID="8f3afcff45181b6ae9c1f957be04031a">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-06-08 10:32:39" Modified_Date="2025-06-11 21:44:20" Creator="natev" Comments="" ID="d809f91db56c9bfec238f3116619a29c">
   <Library_General_Settings>
     <Package_File_Name>jettl_lib_jettl</Package_File_Name>
-    <Library_Version>1.0.0.23</Library_Version>
+    <Library_Version>1.0.0.24</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\..\src</Library_Source_Folder>
     <Library_Output_Folder>..\package</Library_Output_Folder>
@@ -281,7 +281,7 @@
           <Column>1</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\..\src\Actor\Msgs\Destroy\Destroy Msg\Send.vi</Path>
+        <Path>..\..\src\Actor\Msgs\Create\Create Msg\Send.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -295,7 +295,7 @@
           <Column>2</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\..\src\Actor\Msgs\Create\Create Msg\Send.vi</Path>
+        <Path>..\..\src\Actor\Msgs\Destroy\Destroy Msg\Send.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -309,10 +309,24 @@
           <Column>3</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\..\src\Actor\Msgs\Set Error\Set Error Msg\Send.vi</Path>
+        <Path>..\..\src\Actor\Msgs\Merge Error\Merge Error Msg\Send.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F89EBA11705F5873AE07CF548466A623</GUID>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Send.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>1</Row>
+          <Column>4</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\..\src\Actor\Msgs\Override Error\Override Error Msg\Send.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <GUID>79DA8F0573BAF5A1DE9A2FC2D43B3C1C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -347,7 +361,7 @@
         <Path>..\..\src\jettl\jettl\Launch.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>8D7535C0720D0570578FA592CC73F74E</GUID>
+      <GUID>A4522B722CADDA9F80D7E86331AEBCE5</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -380,34 +394,6 @@
         </Position>
         <Icon>00000000</Icon>
         <Path>..\..\src\Actor\Actor\Get Error.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Set Error.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>2</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\..\src\Actor\Msgs\Set Error\Set Error\Set Error.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Nested Alias Unique.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>2</Row>
-          <Column>1</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\..\src\Actor\Actor\Nested Alias Unique.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -452,7 +438,49 @@
         <Path>..\..\src\Actor\Actor\Self Alias.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D0FD8D79CB787D7A27EFCF9C18819835</GUID>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Nested Alias Unique.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>2</Row>
+          <Column>1</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\..\src\Actor\Actor\Nested Alias Unique.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Merge Error.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>1</Row>
+          <Column>2</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\..\src\Actor\Msgs\Merge Error\Merge Error\Merge Error.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Override Error.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>1</Row>
+          <Column>3</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\..\src\Actor\Msgs\Override Error\Override Error\Override Error.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <GUID>D3880FF5B6AC3C76513A924D6A3BBE86</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
