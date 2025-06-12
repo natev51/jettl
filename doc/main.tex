@@ -55,7 +55,7 @@ In particular, there exist design patterns such as the Strategy Pattern, State P
 \label{subsec:actor-benefits}
 
 Actors do not create their own references OR destroy their own references.
-They conform to the tree like hierarchy of creation where Caller owns nesteds reference i.e. Caller received Nesteds Last Ack, safe to release their reference.
+They conform to the tree like hierarchy of creation where Caller owns Nested Actors reference i.e. Caller received Nested Actors Last Ack, safe to release their reference.
 Actors are queue based.
 
 \section{LabVIEW Interfaces}
@@ -208,6 +208,9 @@ References cannot change after they are created.
 \subsection{Helper Loop Benefits}
 \label{subsec:helper-loop-benefits}
 
+Helper Loops are designed to be reused.
+Actors depend on the interface for the helper references, but that's it.
+
 They are orphan processes since they create and release their own references.
 They are not tied to the actor that launches them.
 Furthermore, they are not tied to the lifetime of the actor that launches them.
@@ -273,7 +276,7 @@ Error when creating a message and wiring in the interface object as an input, th
 \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{figures/Need_for_error_msg}
-    \caption{Error message in jettl. This is a custom error message that occurs when an error occurs asynchronously.}
+    \caption{This is the Error message in jettl. This is a custom error message that occurs when an error occurs asynchronously.}
     \label{fig:error-msg}
 \end{figure}
 
@@ -344,10 +347,10 @@ It's a step in the right direction having no “error input” for methods.
 Now it's time to get rid of the error out.
 It's almost like branching an objects wire, in a way. There should only be one thing coming out of a method.
 
-\section{Orderly Shutdown}
-\label{sec:orderly-shutdown}
+\section{Orderly Teardown}
+\label{sec:orderly-teardown}
 
-Boolean flag for orderly shutdown i.e.'destroy nested actors before destroying self'
+Boolean flag for orderly teardown i.e.'teardown nested actors before destroying self'
 
 \section{Example}
 \label{sec:example}
@@ -355,6 +358,7 @@ Boolean flag for orderly shutdown i.e.'destroy nested actors before destroying s
 \subsection{Dev Actor}
 \label{subsec:dev-actor}
 
-No decorators used since they're trivial and only used once.
+Merge Error and Override Error are decorators used.
+Otherwise, the other DD methods are trivial and only used once.
 
 \end{document}
