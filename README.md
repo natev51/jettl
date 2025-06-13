@@ -18,7 +18,7 @@ For a little over a year (currently 2025), I have had success designing applicat
 
 ### Implementations
 
-`Self Actor`: Encapsulates the state and references to other actors. Providing the concrete implementation for messages.
+`jettl`: Encapsulates the state and references to other actors. Providing the concrete implementation for messages.
 
 ## Examples
 
