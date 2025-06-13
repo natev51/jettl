@@ -77,6 +77,22 @@ Green Class RGB (0,0,0)
 jettl: "#Should be preserve?" in Launch jettl
 
 
-
-
 Replace all strings with the \code option
+
+
+Does the same happen for objects, that also happens with references?
+Have dedicated method in Dev Panel that takes the obejct, unbundles the object and rewrites the object into a new initialized object
+(forum trick you posted about)
+
+
+Maybe these should resemble the Msgs?
+
+
+Way to tell is to destroy Dev Actor, but Dev Panel keeps running.
+With a “Button”, THAT DOESNT NEED TO BE ASSOCIATED WITH A MSG, property node to change “String Indicator Text”
+
+Refs (Interface)
+Dev Panel Refs (Class) has get / set methods
+
+Input of TSC and Refs (Interface) DD
+TSC to Bundle by name 
