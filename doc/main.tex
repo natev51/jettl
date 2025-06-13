@@ -192,6 +192,25 @@ This has not been done, but it is a good idea to implement this in the future.
 Memento, actors shouldn't know about each other, so if the state of a nested is to be saved, then there is a separate message for this since last ack shouldn't know about this.
 Rather, this specialty message couples with last ack if the developer wants this functionality.
 
+\subsection{Decorator Pattern}
+\label{subsec:decorator-pattern}
+
+
+
+\subsection{Strategy Pattern}
+\label{subsec:strategy-pattern}
+
+
+
+\subsection{Observer Pattern}
+\label{subsec:observer-pattern}
+
+Actors references cannot be passed between actors or helper loops.
+They are intentionally abstracted away from the developer.
+Now, because helper loops are async and own their own references.
+Their references can be passed around the actor tree.
+This provides a modular way of sharing async references, following the observer pattern.
+
 \section{External Packages}
 \label{sec:external-packages}
 
