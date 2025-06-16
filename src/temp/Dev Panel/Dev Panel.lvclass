@@ -130,7 +130,7 @@
 		<Property Name="NI.ClassItem.State" Type="Int">1342710288</Property>
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Event Loop.vi" Type="VI" URL="../Event Loop.vi">
+	<Item Name="Loop.vi" Type="VI" URL="../Loop.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!&amp;$!!!!#Q!%!!!!$%!B"H.U982V=Q!!#U!$!!2D&lt;W2F!!!11$$`````"H.P&gt;8*D:1!!&amp;E"1!!-!!1!#!!-*:8*S&lt;X)A&lt;X6U!"*!=!!3!!%!"!&gt;&amp;=H*P=C"2!$*!=!!?!!!6%UBF&lt;("F=C"-&lt;W^Q,GRW9WRB=X-!%UBF&lt;("F=C"-&lt;W^Q,GRW9WRB=X-!'%"Q!")!!1!'$5BF&lt;("F=C"-&lt;W^Q)&amp;%!(E"Q!"Y!!!].17.U&lt;X)O&lt;(:D&lt;'&amp;T=Q!&amp;17.U&lt;X)!,%"Q!"Y!!"-22'6W)&amp;"B&lt;G6M,GRW9WRB=X-!$U2F&gt;C""9X2P=C"197ZF&lt;!"5!0!!$!!!!!!!!!!!!!!!!!!!!!!!"1!(!!A!#1-!!(A!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!%!!!!"!!!!!1!!!!E!!!!!!"!!I!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 		<Property Name="NI.ClassItem.Flags" Type="Int">1090814400</Property>
