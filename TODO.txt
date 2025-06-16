@@ -38,3 +38,6 @@ That way jettl Event Actor can also use this and override, then Example Event Ac
 
 Actor -> Queue Actor
 Helper Loop -> Event Actor
+
+
+good idea to override ALL methods, even in interfaces?
