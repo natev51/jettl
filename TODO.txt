@@ -16,12 +16,8 @@ Queue Actor (Interface)
 Event Actor (Interface)
 
 
-Get rid of Ref, replace with Msg.
-
-Create Actor (Interface)
-
 So, Msg has input Rather of Actor in and Actor out.
 
 
-replace Msg in Msg libraries with Msg Queue
-This leaves the events to have the tag Msg Event for their libraries.
+replace Msg in Msg libraries with "Queue Msg"
+This leaves the events to have the tag "Event Msg" for their libraries.

@@ -6,5 +6,5 @@
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
 	<Item Name="String Indicator.lvclass" Type="LVClass" URL="../String Indicator/String Indicator.lvclass"/>
-	<Item Name="String Indicator Ref.lvclass" Type="LVClass" URL="../String Indicator Ref/String Indicator Ref.lvclass"/>
+	<Item Name="String Indicator Msg.lvclass" Type="LVClass" URL="../String Indicator Msg/String Indicator Msg.lvclass"/>
 </Library>
