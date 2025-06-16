@@ -1,0 +1,3 @@
+good idea to override ALL methods, even in interfaces?
+
+

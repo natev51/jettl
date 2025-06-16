@@ -1,7 +1,7 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <Project Type="Project" LVVersion="21008000">
 	<Property Name="CCSymbols" Type="Str">jettl_debug,true;</Property>
-	<Property Name="NI.LV.All.SourceOnly" Type="Bool">false</Property>
+	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.Project.Description" Type="Str"></Property>
 	<Item Name="My Computer" Type="My Computer">
 		<Property Name="NI.SortType" Type="Int">3</Property>
@@ -23,7 +23,7 @@
 				<Item Name="Override Error.lvlib" Type="Library" URL="../Actor/Msgs/Override Error/Override Error.lvlib"/>
 			</Item>
 			<Item Name="Msg.lvclass" Type="LVClass" URL="../Actor/Msg/Msg.lvclass"/>
-			<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor/Actor.lvclass"/>
+			<Item Name="Queue Actor.lvclass" Type="LVClass" URL="../Queue Actor/Queue Actor.lvclass"/>
 		</Item>
 		<Item Name="temp" Type="Folder">
 			<Item Name="Msgs" Type="Folder">
