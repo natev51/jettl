@@ -25,6 +25,9 @@
 			<Item Name="Msg.lvclass" Type="LVClass" URL="../Actor/Msg/Msg.lvclass"/>
 			<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor/Actor.lvclass"/>
 		</Item>
+		<Item Name="temp" Type="Folder">
+			<Item Name="Helper Loop.lvclass" Type="LVClass" URL="../temp/Helper Loop/Helper Loop.lvclass"/>
+		</Item>
 		<Item Name="jettl.lvlib" Type="Library" URL="../jettl/jettl.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
