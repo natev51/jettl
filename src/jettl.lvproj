@@ -29,7 +29,6 @@
 			<Item Name="Msgs" Type="Folder">
 				<Item Name="Pop Up.lvlib" Type="Library" URL="../temp/Msgs/Pop Up/Pop Up.lvlib"/>
 			</Item>
-			<Item Name="Helper Loop.lvclass" Type="LVClass" URL="../temp/Helper Loop/Helper Loop.lvclass"/>
 			<Item Name="Dev Actor.lvlib" Type="Library" URL="../temp/Dev Actor/Dev Actor.lvlib"/>
 			<Item Name="Dev Panel.lvclass" Type="LVClass" URL="../temp/Dev Panel/Dev Panel.lvclass"/>
 			<Item Name="Main.vi" Type="VI" URL="../temp/Main.vi"/>
@@ -37,6 +36,8 @@
 		<Item Name="jettl.lvlib" Type="Library" URL="../jettl/jettl.lvlib"/>
 		<Item Name="Event Actor.lvclass" Type="LVClass" URL="../Event Actor/Event Actor.lvclass"/>
 		<Item Name="jettl Event Actor.lvclass" Type="LVClass" URL="../jettl Event Actor/jettl Event Actor.lvclass"/>
+		<Item Name="Ref.lvclass" Type="LVClass" URL="../Ref/Ref.lvclass"/>
+		<Item Name="String Indicator Ref.lvlib" Type="Library" URL="../String Indicator Ref/String Indicator Ref.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>

@@ -9,12 +9,19 @@
 
 </Property>
 	<Item Name="Msg Queue DVR" Type="Folder">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		<Item Name="Obtain Msg Queue DVR.vi" Type="VI" URL="../Msg Queue DVR/Obtain Msg Queue DVR.vi"/>
+		<Item Name="Obtain Msg Queue DVR.vi" Type="VI" URL="../Msg Queue DVR/Obtain Msg Queue DVR.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
 		<Item Name="Enqueue Msg Queue DVR.vi" Type="VI" URL="../Msg Queue DVR/Enqueue Msg Queue DVR.vi"/>
-		<Item Name="Dequeue Msg Queue DVR.vi" Type="VI" URL="../Msg Queue DVR/Dequeue Msg Queue DVR.vi"/>
-		<Item Name="Status Msg Queue DVR.vi" Type="VI" URL="../Msg Queue DVR/Status Msg Queue DVR.vi"/>
-		<Item Name="Release Msg Queue DVR.vi" Type="VI" URL="../Msg Queue DVR/Release Msg Queue DVR.vi"/>
+		<Item Name="Dequeue Msg Queue DVR.vi" Type="VI" URL="../Msg Queue DVR/Dequeue Msg Queue DVR.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Status Msg Queue DVR.vi" Type="VI" URL="../Msg Queue DVR/Status Msg Queue DVR.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Release Msg Queue DVR.vi" Type="VI" URL="../Msg Queue DVR/Release Msg Queue DVR.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
 	</Item>
 	<Item Name="State" Type="Folder">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
