@@ -23,18 +23,18 @@
 				<Item Name="Override Error.lvlib" Type="Library" URL="../Actor/Msgs/Override Error/Override Error.lvlib"/>
 			</Item>
 			<Item Name="Msg.lvclass" Type="LVClass" URL="../Actor/Msg/Msg.lvclass"/>
-			<Item Name="Queue Actor.lvclass" Type="LVClass" URL="../Queue Actor/Queue Actor.lvclass"/>
+			<Item Name="Queue Actor.lvclass" Type="LVClass" URL="../Actor/Queue Actor/Queue Actor.lvclass"/>
+			<Item Name="Event Actor.lvclass" Type="LVClass" URL="../Actor/Event Actor/Event Actor.lvclass"/>
 		</Item>
-		<Item Name="temp" Type="Folder">
+		<Item Name="Example" Type="Folder">
 			<Item Name="Msgs" Type="Folder">
-				<Item Name="Pop Up.lvlib" Type="Library" URL="../temp/Msgs/Pop Up/Pop Up.lvlib"/>
+				<Item Name="Pop Up.lvlib" Type="Library" URL="../Example/Msgs/Pop Up/Pop Up.lvlib"/>
 			</Item>
-			<Item Name="Dev Actor.lvlib" Type="Library" URL="../temp/Dev Actor/Dev Actor.lvlib"/>
-			<Item Name="Dev Panel.lvclass" Type="LVClass" URL="../temp/Dev Panel/Dev Panel.lvclass"/>
-			<Item Name="Main.vi" Type="VI" URL="../temp/Main.vi"/>
+			<Item Name="Dev Actor.lvlib" Type="Library" URL="../Example/Dev Actor/Dev Actor.lvlib"/>
+			<Item Name="Dev Panel.lvclass" Type="LVClass" URL="../Example/Dev Panel/Dev Panel.lvclass"/>
+			<Item Name="Main.vi" Type="VI" URL="../Example/Main.vi"/>
 		</Item>
 		<Item Name="jettl.lvlib" Type="Library" URL="../jettl/jettl.lvlib"/>
-		<Item Name="Event Actor.lvclass" Type="LVClass" URL="../Event Actor/Event Actor.lvclass"/>
 		<Item Name="jettl Event Actor.lvclass" Type="LVClass" URL="../jettl Event Actor/jettl Event Actor.lvclass"/>
 		<Item Name="Ref.lvclass" Type="LVClass" URL="../Ref/Ref.lvclass"/>
 		<Item Name="String Indicator Ref.lvlib" Type="Library" URL="../String Indicator Ref/String Indicator Ref.lvlib"/>

@@ -1,5 +1,6 @@
 Msg Queue DVR, make private again.
 
+
 Go back through and disregard any errors that don’t matter.
 Like release references after an error..
 who cares about the error from the release references..
@@ -18,17 +19,6 @@ Queue Actor (Interface)
 Event Actor (Interface)
 
 
-jettl Event Actor
-PD:
-State
-Caller Message Queue DVR
-Error
-
-
-replace Msg in Msg libraries with Msg Queue
-This leaves the events to have the tag Msg Event for their libraries.
-
-
 Get rid of Ref, replace with Msg.
 
 Create Actor (Interface)
@@ -36,3 +26,5 @@ Create Actor (Interface)
 So, Msg has input Rather of Actor in and Actor out.
 
 
+replace Msg in Msg libraries with Msg Queue
+This leaves the events to have the tag Msg Event for their libraries.
