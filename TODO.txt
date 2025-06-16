@@ -1,0 +1,40 @@
+Create Msg Event DVR
+Generate Msg Event DVR
+Destroy Msg Event DVR
+
+
+Go back through and disregard any errors that don’t matter.
+Like release references after an error..
+who cares about the error from the release references..
+there’s already an error from the obtain references method
+
+
+Example Event Actor
+Interface with method name
+
+
+Create Library
+Teardown Library
+Actor (Interface)
+- Setup
+- Handle
+- Destroy
+Queue Actor (Interface)
+- Receive
+- Last Ack
+Event Actor (Interface)
+
+
+jettl Event Actor
+PD:
+State
+Caller Message Queue DVR
+Error
+
+
+Msg To Caller (DD) moved to Actor (change input object name to Actor in)
+That way jettl Event Actor can also use this and override, then Example Event Actor can use this to send Msg to caller.
+
+
+Actor -> Queue Actor
+Helper Loop -> Event Actor
