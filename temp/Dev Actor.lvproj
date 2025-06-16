@@ -70,6 +70,8 @@
 			<Item Name="Override Error.lvlib" Type="Library" URL="../../src/Actor/Msgs/Override Error/Override Error.lvlib"/>
 			<Item Name="Merge Error.lvlib" Type="Library" URL="../../src/Actor/Msgs/Merge Error/Merge Error.lvlib"/>
 			<Item Name="Teardown.lvlib" Type="Library" URL="../../src/Actor/Msgs/Teardown/Teardown.lvlib"/>
+			<Item Name="Launch.vi" Type="VI" URL="../Helper Loop/Helper Loop/Launch.vi"/>
+			<Item Name="Loop Wrapper.vi" Type="VI" URL="../Helper Loop/Helper Loop/Loop Wrapper.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
