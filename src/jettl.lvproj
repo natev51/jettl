@@ -26,7 +26,13 @@
 			<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor/Actor.lvclass"/>
 		</Item>
 		<Item Name="temp" Type="Folder">
+			<Item Name="Msgs" Type="Folder">
+				<Item Name="Pop Up.lvlib" Type="Library" URL="../temp/Msgs/Pop Up/Pop Up.lvlib"/>
+			</Item>
 			<Item Name="Helper Loop.lvclass" Type="LVClass" URL="../temp/Helper Loop/Helper Loop.lvclass"/>
+			<Item Name="Dev Actor.lvlib" Type="Library" URL="../temp/Dev Actor/Dev Actor.lvlib"/>
+			<Item Name="Dev Panel.lvclass" Type="LVClass" URL="../temp/Dev Panel/Dev Panel.lvclass"/>
+			<Item Name="Main.vi" Type="VI" URL="../temp/Main.vi"/>
 		</Item>
 		<Item Name="jettl.lvlib" Type="Library" URL="../jettl/jettl.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
@@ -65,6 +71,12 @@
 				<Item Name="Casting Utility For Actors.vim" Type="VI" URL="/&lt;vilib&gt;/ActorFramework/Actor/Casting Utility For Actors.vim"/>
 				<Item Name="Get LV Class Name.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Get LV Class Name.vi"/>
 				<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Error Cluster From Error Code.vi"/>
+				<Item Name="RGB to Color.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/colorconv.llb/RGB to Color.vi"/>
+				<Item Name="sub_Random U32.vi" Type="VI" URL="/&lt;vilib&gt;/numeric/sub_Random U32.vi"/>
+				<Item Name="Random Number (Range) U64.vi" Type="VI" URL="/&lt;vilib&gt;/numeric/Random Number (Range) U64.vi"/>
+				<Item Name="Random Number (Range) I64.vi" Type="VI" URL="/&lt;vilib&gt;/numeric/Random Number (Range) I64.vi"/>
+				<Item Name="Random Number (Range) DBL.vi" Type="VI" URL="/&lt;vilib&gt;/numeric/Random Number (Range) DBL.vi"/>
+				<Item Name="Random Number (Range).vi" Type="VI" URL="/&lt;vilib&gt;/numeric/Random Number (Range).vi"/>
 			</Item>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
