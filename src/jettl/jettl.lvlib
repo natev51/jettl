@@ -23,6 +23,6 @@
 		<Item Name="Teardown State.lvclass" Type="LVClass" URL="../State/Teardown State/Teardown State.lvclass"/>
 		<Item Name="Error State.lvclass" Type="LVClass" URL="../State/Error State/Error State.lvclass"/>
 	</Item>
-	<Item Name="jettl.lvclass" Type="LVClass" URL="../jettl/jettl.lvclass"/>
+	<Item Name="jettl Queue Actor.lvclass" Type="LVClass" URL="../jettl/jettl Queue Actor.lvclass"/>
 	<Item Name="Return Default Object.vi" Type="VI" URL="../Return Default Object.vi"/>
 </Library>
