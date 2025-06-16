@@ -70,7 +70,6 @@
 				<Item Name="Send.vi" Type="VI" URL="/&lt;vilib&gt;/jettl/jettl/Actor/Msgs/Create/Create Msg/Send.vi"/>
 				<Item Name="Launch.vi" Type="VI" URL="/&lt;vilib&gt;/jettl/jettl/jettl/jettl/Launch.vi"/>
 			</Item>
-			<Item Name="Helper Loop Create.lvclass" Type="LVClass" URL="../Helper Loop/Msgs/Helper Loop Create/Helper Loop Create/Helper Loop Create.lvclass"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
