@@ -16,7 +16,6 @@
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="Helper Loop" Type="Folder">
 			<Item Name="Helper Loop.lvclass" Type="LVClass" URL="../Helper Loop/Helper Loop/Helper Loop.lvclass"/>
-			<Item Name="Helper Loop Create.lvlib" Type="Library" URL="../Helper Loop/Msgs/Helper Loop Create/Helper Loop Create.lvlib"/>
 		</Item>
 		<Item Name="Msgs" Type="Folder">
 			<Item Name="Pop Up.lvlib" Type="Library" URL="../Msgs/Pop Up/Pop Up.lvlib"/>
@@ -27,8 +26,6 @@
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Casting Utility For Actors.vim" Type="VI" URL="/&lt;vilib&gt;/ActorFramework/Actor/Casting Utility For Actors.vim"/>
-				<Item Name="Get LV Class Name.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Get LV Class Name.vi"/>
-				<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Error Cluster From Error Code.vi"/>
 				<Item Name="Clear Errors.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Clear Errors.vi"/>
 				<Item Name="GetHelpDir.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/GetHelpDir.vi"/>
 				<Item Name="BuildHelpPath.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/BuildHelpPath.vi"/>
@@ -62,19 +59,18 @@
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
 				<Item Name="Actor.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/jettl/jettl/Actor/Actor/Actor.lvclass"/>
 				<Item Name="Msg.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/jettl/jettl/Actor/Msg/Msg.lvclass"/>
-				<Item Name="Create.lvlib" Type="Library" URL="/&lt;vilib&gt;/jettl/jettl/Actor/Msgs/Create/Create.lvlib"/>
-				<Item Name="Last Ack.lvlib" Type="Library" URL="/&lt;vilib&gt;/jettl/jettl/Actor/Msgs/Last Ack/Last Ack.lvlib"/>
-				<Item Name="jettl.lvlib" Type="Library" URL="/&lt;vilib&gt;/jettl/jettl/jettl/jettl.lvlib"/>
-				<Item Name="Merge Error.lvlib" Type="Library" URL="/&lt;vilib&gt;/jettl/jettl/Actor/Msgs/Merge Error/Merge Error.lvlib"/>
-				<Item Name="Override Error.lvlib" Type="Library" URL="/&lt;vilib&gt;/jettl/jettl/Actor/Msgs/Override Error/Override Error.lvlib"/>
-				<Item Name="Teardown.lvlib" Type="Library" URL="/&lt;vilib&gt;/jettl/jettl/Actor/Msgs/Teardown/Teardown.lvlib"/>
 				<Item Name="RGB to Color.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/colorconv.llb/RGB to Color.vi"/>
 				<Item Name="Random Number (Range).vi" Type="VI" URL="/&lt;vilib&gt;/numeric/Random Number (Range).vi"/>
 				<Item Name="Random Number (Range) DBL.vi" Type="VI" URL="/&lt;vilib&gt;/numeric/Random Number (Range) DBL.vi"/>
 				<Item Name="Random Number (Range) I64.vi" Type="VI" URL="/&lt;vilib&gt;/numeric/Random Number (Range) I64.vi"/>
 				<Item Name="sub_Random U32.vi" Type="VI" URL="/&lt;vilib&gt;/numeric/sub_Random U32.vi"/>
 				<Item Name="Random Number (Range) U64.vi" Type="VI" URL="/&lt;vilib&gt;/numeric/Random Number (Range) U64.vi"/>
+				<Item Name="Send.vi" Type="VI" URL="/&lt;vilib&gt;/jettl/jettl/Actor/Msgs/Merge Error/Merge Error Msg/Send.vi"/>
+				<Item Name="Send.vi" Type="VI" URL="/&lt;vilib&gt;/jettl/jettl/Actor/Msgs/Teardown/Teardown Msg/Send.vi"/>
+				<Item Name="Send.vi" Type="VI" URL="/&lt;vilib&gt;/jettl/jettl/Actor/Msgs/Create/Create Msg/Send.vi"/>
+				<Item Name="Launch.vi" Type="VI" URL="/&lt;vilib&gt;/jettl/jettl/jettl/jettl/Launch.vi"/>
 			</Item>
+			<Item Name="Helper Loop Create.lvclass" Type="LVClass" URL="../Helper Loop/Msgs/Helper Loop Create/Helper Loop Create/Helper Loop Create.lvclass"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
