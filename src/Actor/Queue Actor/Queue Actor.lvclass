@@ -14,6 +14,7 @@
 
 </Property>
 	<Item Name="Parent Libraries" Type="Parent Libraries">
+		<Item Name="Actor.lvclass" Type="Parent" URL="../../Actor/Actor.lvclass"/>
 		<Item Name="Create.lvlib:Create.lvclass" Type="Parent" URL="../../Msgs/Create/Create/Create.lvclass"/>
 		<Item Name="Last Ack.lvlib:Last Ack.lvclass" Type="Parent" URL="../../Msgs/Last Ack/Last Ack/Last Ack.lvclass"/>
 		<Item Name="Merge Error.lvlib:Merge Error.lvclass" Type="Parent" URL="../../Msgs/Merge Error/Merge Error/Merge Error.lvclass"/>

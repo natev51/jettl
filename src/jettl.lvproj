@@ -28,9 +28,7 @@
 			<Item Name="Event Actor.lvclass" Type="LVClass" URL="../Actor/Event Actor/Event Actor.lvclass"/>
 		</Item>
 		<Item Name="Example" Type="Folder">
-			<Item Name="Msgs" Type="Folder">
-				<Item Name="Pop Up.lvlib" Type="Library" URL="../Example/Pop Up/Pop Up.lvlib"/>
-			</Item>
+			<Item Name="Pop Up.lvlib" Type="Library" URL="../Example/Pop Up/Pop Up.lvlib"/>
 			<Item Name="String Indicator Msg.lvlib" Type="Library" URL="../Example/String Indicator Msg/String Indicator Msg.lvlib"/>
 			<Item Name="Dev Actor.lvlib" Type="Library" URL="../Example/Dev Actor/Dev Actor.lvlib"/>
 			<Item Name="Dev Panel.lvclass" Type="LVClass" URL="../Example/Dev Panel/Dev Panel.lvclass"/>
