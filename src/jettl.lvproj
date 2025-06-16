@@ -35,6 +35,8 @@
 			<Item Name="Main.vi" Type="VI" URL="../temp/Main.vi"/>
 		</Item>
 		<Item Name="jettl.lvlib" Type="Library" URL="../jettl/jettl.lvlib"/>
+		<Item Name="Event Actor.lvclass" Type="LVClass" URL="../Event Actor/Event Actor.lvclass"/>
+		<Item Name="jettl Event Actor.lvclass" Type="LVClass" URL="../jettl Event Actor/jettl Event Actor.lvclass"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
