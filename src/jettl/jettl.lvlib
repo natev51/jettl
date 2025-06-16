@@ -20,13 +20,6 @@
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 	</Item>
-	<Item Name="State" Type="Folder">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		<Item Name="State.lvclass" Type="LVClass" URL="../State/State/State.lvclass"/>
-		<Item Name="Nominal State.lvclass" Type="LVClass" URL="../State/Nominal State/Nominal State.lvclass"/>
-		<Item Name="Teardown State.lvclass" Type="LVClass" URL="../State/Teardown State/Teardown State.lvclass"/>
-		<Item Name="Error State.lvclass" Type="LVClass" URL="../State/Error State/Error State.lvclass"/>
-	</Item>
-	<Item Name="jettl Queue Actor.lvclass" Type="LVClass" URL="../jettl Queue Actor/jettl Queue Actor.lvclass"/>
 	<Item Name="Return Default Object.vi" Type="VI" URL="../Return Default Object.vi"/>
+	<Item Name="jettl Queue Actor.lvlib" Type="Library" URL="../jettl Queue Actor/jettl Queue Actor.lvlib"/>
 </Library>
