@@ -26,7 +26,7 @@
 </Property>
 	<Item Name="Parent Libraries" Type="Parent Libraries">
 		<Item Name="Event Actor.lvclass" Type="Parent" URL="../../../Actor/Event Actor/Event Actor.lvclass"/>
-		<Item Name="String Indicator Ref.lvlib:String Indicator.lvclass" Type="Parent" URL="../../../String Indicator Ref/String Indicator/String Indicator.lvclass"/>
+		<Item Name="String Indicator Ref.lvlib:String Indicator.lvclass" Type="Parent" URL="../../String Indicator Ref/String Indicator/String Indicator.lvclass"/>
 	</Item>
 	<Item Name="Dev Panel.ctl" Type="Class Private Data" URL="Dev Panel.ctl">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>

@@ -1,6 +1,3 @@
-Msg Queue DVR, make private again.
-
-
 Go back through and disregard any errors that don’t matter.
 Like release references after an error..
 who cares about the error from the release references..

@@ -25,19 +25,18 @@
 			<Item Name="Msg.lvclass" Type="LVClass" URL="../Actor/Msg/Msg.lvclass"/>
 			<Item Name="Queue Actor.lvclass" Type="LVClass" URL="../Actor/Queue Actor/Queue Actor.lvclass"/>
 			<Item Name="Event Actor.lvclass" Type="LVClass" URL="../Actor/Event Actor/Event Actor.lvclass"/>
+			<Item Name="Ref.lvclass" Type="LVClass" URL="../Actor/Ref/Ref.lvclass"/>
 		</Item>
 		<Item Name="Example" Type="Folder">
 			<Item Name="Msgs" Type="Folder">
 				<Item Name="Pop Up.lvlib" Type="Library" URL="../Example/Msgs/Pop Up/Pop Up.lvlib"/>
 			</Item>
+			<Item Name="String Indicator Ref.lvlib" Type="Library" URL="../Example/String Indicator Ref/String Indicator Ref.lvlib"/>
 			<Item Name="Dev Actor.lvlib" Type="Library" URL="../Example/Dev Actor/Dev Actor.lvlib"/>
 			<Item Name="Dev Panel.lvclass" Type="LVClass" URL="../Example/Dev Panel/Dev Panel.lvclass"/>
 			<Item Name="Main.vi" Type="VI" URL="../Example/Main.vi"/>
 		</Item>
 		<Item Name="jettl.lvlib" Type="Library" URL="../jettl/jettl.lvlib"/>
-		<Item Name="jettl Event Actor.lvclass" Type="LVClass" URL="../jettl Event Actor/jettl Event Actor.lvclass"/>
-		<Item Name="Ref.lvclass" Type="LVClass" URL="../Actor/Ref/Ref.lvclass"/>
-		<Item Name="String Indicator Ref.lvlib" Type="Library" URL="../String Indicator Ref/String Indicator Ref.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
