@@ -31,7 +31,7 @@
 			<Item Name="Pop Up.lvlib" Type="Library" URL="../Example/Pop Up/Pop Up.lvlib"/>
 			<Item Name="String Indicator Msg.lvlib" Type="Library" URL="../Example/String Indicator Msg/String Indicator Msg.lvlib"/>
 			<Item Name="Ex Queue Actor.lvlib" Type="Library" URL="../Example/Ex Queue Actor/Ex Queue Actor.lvlib"/>
-			<Item Name="Ex Event Actor.lvclass" Type="LVClass" URL="../Example/Ex Event Actor/Ex Event Actor/Ex Event Actor.lvclass"/>
+			<Item Name="Ex Event Actor.lvlib" Type="Library" URL="../Example/Ex Event Actor/Ex Event Actor.lvlib"/>
 			<Item Name="Main.vi" Type="VI" URL="../Example/Main.vi"/>
 		</Item>
 		<Item Name="jettl.lvlib" Type="Library" URL="../jettl/jettl.lvlib"/>

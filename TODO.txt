@@ -5,12 +5,10 @@ there’s already an error from the obtain references method
 
 
 combine launch into one and have a central loop.vi, if possible
+would be nice if they both have the same loop method in Actor that is general.
 
 
 Dev Panel need to update connector pane for Button and Pop Up
-
-
-would be nice if they both have the same loop method in Actor that is general.
 
 
 Change to Msg Queue IS CALLER.
@@ -26,6 +24,3 @@ Event Msg to Caller
 
 Queue Last Ack (with Actor input)
 Event Last Ack (with Actor input)
-
-
-Msg icon for all
