@@ -7,22 +7,6 @@ who cares about the error from the release references..
 there’s already an error from the obtain references method
 
 
-Create Library
-Teardown Library
-Actor (Interface)
-- Setup
-- Handle
-- Destroy
-Queue Actor (Interface)
-- Receive
-- Last Ack
-Event Actor (Interface)
-
-
-create msg input of Actor instead.
-
-setup to actor
-handle to actor
 get error to actor
 destroy to actor
 
