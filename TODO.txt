@@ -7,7 +7,7 @@ who cares about the error from the release references..
 there’s already an error from the obtain references method
 
 
-get error to actor
-destroy to actor
+check wrappers closely..
 
 
+"." for private data in jettl
