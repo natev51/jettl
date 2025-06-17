@@ -16,12 +16,14 @@ Queue Actor (Interface)
 Event Actor (Interface)
 
 
-So, Msg has input Rather of Actor in and Actor out.
+create msg input of Actor instead.
+
+setup to actor
+handle to actor
+get error to actor
+destroy to actor
+
+inheritance correct 
+Msg icon for all
 
 
-replace Msg in Msg libraries with "Queue Msg"
-This leaves the events to have the tag "Event Msg" for their libraries.
-
-
-Msg inputs changed to Actor
-replaced with preserve run time

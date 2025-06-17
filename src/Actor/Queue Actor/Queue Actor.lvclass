@@ -15,11 +15,7 @@
 </Property>
 	<Item Name="Parent Libraries" Type="Parent Libraries">
 		<Item Name="Actor.lvclass" Type="Parent" URL="../../Actor/Actor.lvclass"/>
-		<Item Name="Create.lvlib:Create.lvclass" Type="Parent" URL="../../Msgs/Create/Create/Create.lvclass"/>
 		<Item Name="Last Ack.lvlib:Last Ack.lvclass" Type="Parent" URL="../../Msgs/Last Ack/Last Ack/Last Ack.lvclass"/>
-		<Item Name="Merge Error.lvlib:Merge Error.lvclass" Type="Parent" URL="../../Msgs/Merge Error/Merge Error/Merge Error.lvclass"/>
-		<Item Name="Override Error.lvlib:Override Error.lvclass" Type="Parent" URL="../../Msgs/Override Error/Override Error/Override Error.lvclass"/>
-		<Item Name="Teardown.lvlib:Teardown.lvclass" Type="Parent" URL="../../Msgs/Teardown/Teardown/Teardown.lvclass"/>
 	</Item>
 	<Item Name="Setup.vi" Type="VI" URL="../Setup.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$G!!!!"1!%!!!!,E"Q!"Y!!"54586F&gt;75A17.U&lt;X)O&lt;(:D&lt;'&amp;T=Q!0586F&gt;75A17.U&lt;X)A&lt;X6U!#J!=!!?!!!6%V&amp;V:86F)%&amp;D&gt;'^S,GRW9WRB=X-!#V&amp;V:86F)%&amp;D&gt;'^S!#Z!=!!?!!!6%V&amp;V:86F)%&amp;D&gt;'^S,GRW9WRB=X-!$F&amp;V:86F)%&amp;D&gt;'^S)'FO!!"5!0!!$!!!!!!!!!!"!!!!!!!!!!!!!!!!!!)!!Q)!!(A!!!!!!!!!!!!!!!!!!)U,!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!)!!!!E!!!!!!"!!1!!!!!</Property>

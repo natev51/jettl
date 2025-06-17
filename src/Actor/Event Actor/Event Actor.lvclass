@@ -16,15 +16,6 @@
 	<Item Name="Parent Libraries" Type="Parent Libraries">
 		<Item Name="Actor.lvclass" Type="Parent" URL="../../Actor/Actor.lvclass"/>
 	</Item>
-	<Item Name="Teardown.vi" Type="VI" URL="../Teardown.vi">
-		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$,!!!!"Q!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!#Z!=!!?!!!6%U6W:7ZU)%&amp;D&gt;'^S,GRW9WRB=X-!$E6W:7ZU)%&amp;D&gt;'^S)'FO!!"5!0!!$!!$!!1!"!!%!!1!"!!%!!1!"!!%!!1!"1)!!(A!!!E!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!E!!!!!!"!!9!!!!!</Property>
-		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-		<Property Name="NI.ClassItem.Flags" Type="Int">16777352</Property>
-		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
-		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-		<Property Name="NI.ClassItem.State" Type="Int">1342714368</Property>
-	</Item>
 	<Item Name="Launch.vi" Type="VI" URL="../Launch.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$R!!!!#!!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!#J!=!!?!!!6%U6W:7ZU)%&amp;D&gt;'^S,GRW9WRB=X-!#U6W:7ZU)%&amp;D&gt;'^S!#J!=!!?!!!6%V&amp;V:86F)%&amp;D&gt;'^S,GRW9WRB=X-!#V&amp;V:86F)%&amp;D&gt;'^S!&amp;1!]!!-!!-!"!!&amp;!!1!"!!%!!1!"!!%!!9!"1!%!Q!!?!!!#1!!!!!!!!!*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!%!!!!")!!!!!!!!!!!%!"Q!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
