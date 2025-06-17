@@ -7,9 +7,6 @@ who cares about the error from the release references..
 there’s already an error from the obtain references method
 
 
-rename Dev Actor and Dev Panel
-
-
 Dev Panel need to update connector pane for Button and Pop Up
 
 
@@ -20,12 +17,21 @@ Change to Msg Queue IS CALLER.
 This includes the Msg To Self should be Msg to Caller.
 
 
+Queue Msg To Caller
+Queue Msg To Self
+Queue Msg To Nested
+
+Event Msg to Caller
+
+
+Queue Last Ack (with Actor input)
+Event Last Ack (with Actor input)
+
+
+Ex Event Actor, take away the "." private data.
 the substitute actor pattern in jettl that are private.
 
 
-check wrappers closely..
-
-
-"." for private data in jettl
+rename Dev Actor and Dev Panel
 
 
