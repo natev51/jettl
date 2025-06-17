@@ -14,7 +14,6 @@
 
 </Property>
 	<Item Name="Parent Libraries" Type="Parent Libraries">
-		<Item Name="Create.lvlib:Create.lvclass" Type="Parent" URL="../../Msgs/Create/Create/Create.lvclass"/>
 		<Item Name="Merge Error.lvlib:Merge Error.lvclass" Type="Parent" URL="../../Msgs/Merge Error/Merge Error/Merge Error.lvclass"/>
 		<Item Name="Override Error.lvlib:Override Error.lvclass" Type="Parent" URL="../../Msgs/Override Error/Override Error/Override Error.lvclass"/>
 		<Item Name="Teardown.lvlib:Teardown.lvclass" Type="Parent" URL="../../Msgs/Teardown/Teardown/Teardown.lvclass"/>
