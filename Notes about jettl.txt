@@ -1,10 +1,12 @@
 Stop Core Doesn't always happen after pre launch init, here it does in the error case
 
-
 wish i had the ability to tell my nesteds
 inside of actor to stop
 i wish i had that stop functionality
 23:23
 https://youtu.be/N6X9KyJJ-D4?feature=shared
+
+
+Auto-stop? (T) default behavior cannot change
 
 

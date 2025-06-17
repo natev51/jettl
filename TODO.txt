@@ -1,3 +1,6 @@
+Msg icon for all
+
+
 Go back through and disregard any errors that don’t matter.
 Like release references after an error..
 who cares about the error from the release references..
@@ -22,8 +25,5 @@ setup to actor
 handle to actor
 get error to actor
 destroy to actor
-
-inheritance correct 
-Msg icon for all
 
 
