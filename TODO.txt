@@ -11,10 +11,9 @@ would be nice if they both have the same loop method in Actor that is general.
 Dev Panel need to update connector pane for Button and Pop Up
 
 
-have another layer under Msg that is Queue Msg and Event Msg.
+Queue Last Ack
+Event Last Ack
 
 
-Queue Last Ack (with Actor input)
-Event Last Ack (with Actor input)
-
-
+Queue Create
+Event Create
