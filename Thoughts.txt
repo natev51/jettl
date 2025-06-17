@@ -1,4 +1,4 @@
-good idea to override ALL methods, even in interfaces?
+don't override abstract methods in inherited interfaces.
 
 
 jettl Actor Model (jettlAM)
