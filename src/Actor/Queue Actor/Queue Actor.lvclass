@@ -73,4 +73,31 @@
 			<Property Name="NI.ClassItem.State" Type="Int">1342710272</Property>
 		</Item>
 	</Item>
+	<Item Name="Queue Msg To Self.vi" Type="VI" URL="../Queue Msg To Self.vi">
+		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$T!!!!#1!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!!Z!)1F1=GFP=GFU?4]!'E"Q!"Y!!!U,48.H,GRW9WRB=X-!!UVT:Q!O1(!!(A!!&amp;2.2&gt;76V:3""9X2P=CZM&gt;G.M98.T!!Z2&gt;76V:3""9X2P=C"J&lt;A!!6!$Q!!Q!!Q!%!!1!"!!%!!1!"!!%!!1!"1!'!!=#!!"Y!!!*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!)!!!!%!!!!*!!!!!!!1!)!!!!!!</Property>
+		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">1090519176</Property>
+		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
+		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
+		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1342714368</Property>
+	</Item>
+	<Item Name="Queue Msg To Nested.vi" Type="VI" URL="../Queue Msg To Nested.vi">
+		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!%"!!!!#A!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!!Z!-0````]&amp;17RJ98-!$E!B#6"S;7^S;82Z0Q!;1(!!(A!!$1N.=W=O&lt;(:D&lt;'&amp;T=Q!$48.H!#Z!=!!?!!!6%V&amp;V:86F)%&amp;D&gt;'^S,GRW9WRB=X-!$F&amp;V:86F)%&amp;D&gt;'^S)'FO!!"5!0!!$!!$!!1!"!!%!!1!"!!%!!1!"1!'!!=!#!)!!(A!!!E!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#%!!!!!A!!!!1!!!!E!!!!!!"!!E!!!!!</Property>
+		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">1090519168</Property>
+		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
+		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
+		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1115685376</Property>
+	</Item>
+	<Item Name="Event Msg To Nested.vi" Type="VI" URL="../Event Msg To Nested.vi">
+		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$T!!!!#1!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!!Z!-0````]&amp;17RJ98-!'E"Q!"Y!!!U,48.H,GRW9WRB=X-!!UVT:Q!O1(!!(A!!&amp;2.2&gt;76V:3""9X2P=CZM&gt;G.M98.T!!Z2&gt;76V:3""9X2P=C"J&lt;A!!6!$Q!!Q!!Q!%!!1!"!!%!!1!"!!%!!5!"!!'!!=#!!"Y!!!*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"!!!!!!!!!!%!!!!*!!!!!!!1!)!!!!!!</Property>
+		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">1090519176</Property>
+		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
+		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
+		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1342714368</Property>
+	</Item>
 </LVClass>
