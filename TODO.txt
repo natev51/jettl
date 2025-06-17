@@ -11,16 +11,21 @@ would be nice if they both have the same loop method in Actor that is general.
 Dev Panel need to update connector pane for Button and Pop Up
 
 
-Change to Msg Queue IS CALLER.
-This includes the Msg To Self should be Msg to Caller.
-
-
-Queue Msg To Caller
-Queue Msg To Self
-Queue Msg To Nested
-
-Event Msg to Caller
-
-
 Queue Last Ack (with Actor input)
 Event Last Ack (with Actor input)
+
+
+- Queue Msg To Caller (Both)
+- Queue Msg To Self (Queue Actor only)
+- Queue Msg To Nested (Queue Actor only)
+
+- Event Msg To Caller (DNE)
+- Event Msg To Self (Event Actor only)
+- Event Msg To Nested (Queue Actor only)
+
+
+have another layer under Msg that is Queue Msg and Event Msg.
+
+
+Change to Msg Queue IS CALLER.
+This includes the Msg To Self should be Msg to Caller.

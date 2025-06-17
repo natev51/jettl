@@ -4,3 +4,6 @@ don't override abstract methods in inherited interfaces.
 jettl Actor Model (jettlAM)
 
 
+Future:
+How to share Event Actor References.. easy!
+Get Msg Event DVR.vi

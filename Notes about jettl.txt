@@ -10,3 +10,14 @@ https://youtu.be/N6X9KyJJ-D4?feature=shared
 Auto-stop? (T) default behavior cannot change
 
 
+Event Actor
+1. Has One Caller Queue Actor
+2. Is a Nested Event Actor of Queue Actor
+3. Is a Self Event Actor
+
+Queue Actor
+1. Has One Caller Queue Actor
+2. Is a Nested Queue Actor of Queue Actor
+3. Is a Self Queue Actor
+
+
