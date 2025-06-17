@@ -1,6 +1,3 @@
-Msg icon for all
-
-
 Go back through and disregard any errors that don’t matter.
 Like release references after an error..
 who cares about the error from the release references..
@@ -31,7 +28,4 @@ Queue Last Ack (with Actor input)
 Event Last Ack (with Actor input)
 
 
-Ex Event Actor, take away the "." private data.
-the substitute actor pattern in jettl that are private.
-
-
+Msg icon for all
