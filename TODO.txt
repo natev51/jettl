@@ -7,6 +7,9 @@ who cares about the error from the release references..
 there’s already an error from the obtain references method
 
 
+combine launch into one and have a central loop.vi, if possible
+
+
 Dev Panel need to update connector pane for Button and Pop Up
 
 
@@ -30,8 +33,5 @@ Event Last Ack (with Actor input)
 
 Ex Event Actor, take away the "." private data.
 the substitute actor pattern in jettl that are private.
-
-
-rename Dev Actor and Dev Panel
 
 

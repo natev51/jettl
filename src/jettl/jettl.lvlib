@@ -10,7 +10,9 @@
 </Property>
 	<Item Name="jettl Queue Actor.lvlib" Type="Library" URL="../jettl Queue Actor/jettl Queue Actor.lvlib"/>
 	<Item Name="jettl Event Actor.lvlib" Type="Library" URL="../jettl Event Actor/jettl Event Actor.lvlib"/>
-	<Item Name="Return Default Object.vi" Type="VI" URL="../Return Default Object.vi"/>
+	<Item Name="Return Default Object.vi" Type="VI" URL="../Return Default Object.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
 	<Item Name="Obtain Msg Queue DVR.vi" Type="VI" URL="../Obtain Msg Queue DVR.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
