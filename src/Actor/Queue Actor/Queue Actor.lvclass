@@ -15,8 +15,6 @@
 </Property>
 	<Item Name="Parent Libraries" Type="Parent Libraries">
 		<Item Name="Actor.lvclass" Type="Parent" URL="../../Actor/Actor.lvclass"/>
-		<Item Name="Create.lvlib:Create.lvclass" Type="Parent" URL="../../Msgs/Create/Create/Create.lvclass"/>
-		<Item Name="Event Last Ack.lvlib:Event Last Ack.lvclass" Type="Parent" URL="../../Msgs/Event Last Ack/Event Last Ack/Event Last Ack.lvclass"/>
 		<Item Name="Queue Last Ack.lvlib:Queue Last Ack.lvclass" Type="Parent" URL="../../Msgs/Queue Last Ack/Queue Last Ack/Queue Last Ack.lvclass"/>
 	</Item>
 	<Item Name="Caller.vi" Type="VI" URL="../Caller.vi">

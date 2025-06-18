@@ -18,7 +18,6 @@
 			<Item Name="Msgs" Type="Folder">
 				<Item Name="Teardown.lvlib" Type="Library" URL="../Actor/Msgs/Teardown/Teardown.lvlib"/>
 				<Item Name="Queue Last Ack.lvlib" Type="Library" URL="../Actor/Msgs/Queue Last Ack/Queue Last Ack.lvlib"/>
-				<Item Name="Event Last Ack.lvlib" Type="Library" URL="../Actor/Msgs/Event Last Ack/Event Last Ack.lvlib"/>
 				<Item Name="Create.lvlib" Type="Library" URL="../Actor/Msgs/Create/Create.lvlib"/>
 			</Item>
 			<Item Name="Msg.lvclass" Type="LVClass" URL="../Actor/Msg/Msg.lvclass"/>

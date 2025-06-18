@@ -14,6 +14,8 @@
 
 </Property>
 	<Item Name="Parent Libraries" Type="Parent Libraries">
+		<Item Name="Create.lvlib:Create.lvclass" Type="Parent" URL="../../Msgs/Create/Create/Create.lvclass"/>
+		<Item Name="Queue Last Ack.lvlib:Queue Last Ack.lvclass" Type="Parent" URL="../../Msgs/Queue Last Ack/Queue Last Ack/Queue Last Ack.lvclass"/>
 		<Item Name="Teardown.lvlib:Teardown.lvclass" Type="Parent" URL="../../Msgs/Teardown/Teardown/Teardown.lvclass"/>
 	</Item>
 	<Item Name="Setup.vi" Type="VI" URL="../Setup.vi">
