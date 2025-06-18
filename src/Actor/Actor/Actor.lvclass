@@ -14,8 +14,6 @@
 
 </Property>
 	<Item Name="Parent Libraries" Type="Parent Libraries">
-		<Item Name="Merge Error.lvlib:Merge Error.lvclass" Type="Parent" URL="../../Msgs/Merge Error/Merge Error/Merge Error.lvclass"/>
-		<Item Name="Override Error.lvlib:Override Error.lvclass" Type="Parent" URL="../../Msgs/Override Error/Override Error/Override Error.lvclass"/>
 		<Item Name="Teardown.lvlib:Teardown.lvclass" Type="Parent" URL="../../Msgs/Teardown/Teardown/Teardown.lvclass"/>
 	</Item>
 	<Item Name="Setup.vi" Type="VI" URL="../Setup.vi">
@@ -54,15 +52,6 @@
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 		<Property Name="NI.ClassItem.State" Type="Int">1342714368</Property>
 	</Item>
-	<Item Name="Get Error.vi" Type="VI" URL="../Get Error.vi">
-		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!#\!!!!"Q!%!!!!$%!B"H.U982V=Q!!#U!$!!2D&lt;W2F!!!11$$`````"H.P&gt;8*D:1!!%E"1!!-!!1!#!!-&amp;28*S&lt;X)!)E"Q!"Y!!!].17.U&lt;X)O&lt;(:D&lt;'&amp;T=Q!)17.U&lt;X)A;7Y!!&amp;1!]!!-!!!!!!!%!!!!!!!!!!!!!!!!!!!!!!!&amp;!A!!?!!!!!!!!!!!!!!*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#1!!!!!!%!"A!!!!!</Property>
-		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-		<Property Name="NI.ClassItem.Flags" Type="Int">16777352</Property>
-		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
-		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-		<Property Name="NI.ClassItem.State" Type="Int">1342976512</Property>
-	</Item>
 	<Item Name="Merge Error.vi" Type="VI" URL="../Merge Error.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$F!!!!#!!%!!!!*E"Q!"Y!!!].17.U&lt;X)O&lt;(:D&lt;'&amp;T=Q!.5W6U)%6S=G^S)'^V&gt;!!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!31&amp;!!!Q!#!!-!"!6&amp;=H*P=A!G1(!!(A!!$QV"9X2P=CZM&gt;G.M98.T!!R4:81A28*S&lt;X)A;7Y!!&amp;1!]!!-!!!!!!!!!!%!!!!!!!!!!!!!!!!!"1!'!A!!?!!!!!!!!!!!!!!!!!!!D1M!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!A!!!#1!!!!!!%!"Q!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
@@ -80,5 +69,14 @@
 		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 		<Property Name="NI.ClassItem.State" Type="Int">1082667520</Property>
+	</Item>
+	<Item Name="Get Error.vi" Type="VI" URL="../Get Error.vi">
+		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!#\!!!!"Q!%!!!!$%!B"H.U982V=Q!!#U!$!!2D&lt;W2F!!!11$$`````"H.P&gt;8*D:1!!%E"1!!-!!1!#!!-&amp;28*S&lt;X)!)E"Q!"Y!!!].17.U&lt;X)O&lt;(:D&lt;'&amp;T=Q!)17.U&lt;X)A;7Y!!&amp;1!]!!-!!!!!!!%!!!!!!!!!!!!!!!!!!!!!!!&amp;!A!!?!!!!!!!!!!!!!!*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#1!!!!!!%!"A!!!!!</Property>
+		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">16777352</Property>
+		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
+		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
+		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1342976512</Property>
 	</Item>
 </LVClass>

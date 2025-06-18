@@ -81,10 +81,6 @@
 				<Item Name="Random Number (Range) DBL.vi" Type="VI" URL="/&lt;vilib&gt;/numeric/Random Number (Range) DBL.vi"/>
 				<Item Name="Random Number (Range).vi" Type="VI" URL="/&lt;vilib&gt;/numeric/Random Number (Range).vi"/>
 			</Item>
-			<Item Name="Create Dev Panel.vi" Type="VI" URL="../Example/Ex Queue Actor/Ex Queue Actor/Create Dev Panel.vi"/>
-			<Item Name="Merge Error.lvclass" Type="LVClass" URL="../Actor/Msgs/Merge Error/Merge Error/Merge Error.lvclass"/>
-			<Item Name="Override Error.lvclass" Type="LVClass" URL="../Actor/Msgs/Override Error/Override Error/Override Error.lvclass"/>
-			<Item Name="Merge Error.vi" Type="VI" URL="../Actor/Msgs/Merge Error/Merge Error Msg/Merge Error.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>

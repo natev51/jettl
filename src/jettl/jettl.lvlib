@@ -22,7 +22,7 @@
 	<Item Name="Dequeue.vi" Type="VI" URL="../Dequeue.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Release Queue.vi" Type="VI" URL="../Release Queue.vi">
+	<Item Name="Release.vi" Type="VI" URL="../Release.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 </Library>
