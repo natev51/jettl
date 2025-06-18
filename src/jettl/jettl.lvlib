@@ -25,13 +25,4 @@
 	<Item Name="Release Msg Queue DVR.vi" Type="VI" URL="../Release Msg Queue DVR.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Create Msg Event DVR.vi" Type="VI" URL="../Create Msg Event DVR.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="Generate Msg Event DVR.vi" Type="VI" URL="../Generate Msg Event DVR.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="Destroy Msg Event DVR.vi" Type="VI" URL="../Destroy Msg Event DVR.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
 </Library>

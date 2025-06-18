@@ -11,14 +11,10 @@ This is where the Teardown method goes?
 
 # Events
 
-Instead of inheriting from Msg.lvclass, inherit from Event.lvclass.
-Note that events are not sent to Callers, Self, or Nested.. nor are there messages.
-This is purely sending an Event.
-
-*rename "Send.vi" with "Enqueue.vi"
-
-Replace:
-“Enqueue Name.vi” and “Msg To Caller.vi” with
-"Generate Name.vi” and “Event.vi”
-
-The reading for the above is simple, "Enqueue Name Msg To Caller" and "Generate Name Event"
+- Queue Msg To Caller (Both) -> Msg To Caller
+- Queue Msg To Self (Queue Actor only) -> Msg To Self
+- Queue Msg To Nested (Queue Actor only) -> Msg To Nested
+---------------- Inputs ARE EVENT INTERFACE!
+- Event Msg To Caller (DNE)
+- Event Msg To Self (Event Actor only) -> Event To Self
+- Event Msg To Nested (Queue Actor only) -> Event To Nested
