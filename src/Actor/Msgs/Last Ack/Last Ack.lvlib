@@ -5,6 +5,6 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">false</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
-	<Item Name="Queue Last Ack.lvclass" Type="LVClass" URL="../Queue Last Ack/Queue Last Ack.lvclass"/>
-	<Item Name="Queue Last Ack Msg.lvclass" Type="LVClass" URL="../Queue Last Ack Msg/Queue Last Ack Msg.lvclass"/>
+	<Item Name="Last Ack.lvclass" Type="LVClass" URL="../Last Ack/Last Ack.lvclass"/>
+	<Item Name="Last Ack Msg.lvclass" Type="LVClass" URL="../Last Ack Msg/Last Ack Msg.lvclass"/>
 </Library>
