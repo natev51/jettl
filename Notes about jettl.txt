@@ -1,3 +1,6 @@
+don't override abstract methods in inherited interfaces.
+
+
 Stop Core Doesn't always happen after pre launch init, here it does in the error case
 
 wish i had the ability to tell my nesteds
@@ -27,3 +30,5 @@ Queue Actor
 - Event Msg To Caller (DNE)
 - Event Msg To Self (Event Actor only)
 - Event Msg To Nested (Queue Actor only)
+
+
