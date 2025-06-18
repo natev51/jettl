@@ -17,7 +17,6 @@
 	</Item>
 	<Item Name="Queues" Type="Folder">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		<Item Name="Queues.ctl" Type="VI" URL="../Queues/Queues.ctl"/>
 		<Item Name="Queues.lvclass" Type="LVClass" URL="../Queues/Queues/Queues.lvclass"/>
 	</Item>
 	<Item Name="jettl Queue Actor.lvclass" Type="LVClass" URL="../jettl Queue Actor/jettl Queue Actor.lvclass"/>
