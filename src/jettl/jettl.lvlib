@@ -13,16 +13,16 @@
 	<Item Name="Return Default Object.vi" Type="VI" URL="../Return Default Object.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Obtain Msg Queue DVR.vi" Type="VI" URL="../Obtain Msg Queue DVR.vi">
+	<Item Name="Obtain.vi" Type="VI" URL="../Obtain.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Enqueue Msg Queue DVR.vi" Type="VI" URL="../Enqueue Msg Queue DVR.vi">
+	<Item Name="Enqueue.vi" Type="VI" URL="../Enqueue.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Dequeue Msg Queue DVR.vi" Type="VI" URL="../Dequeue Msg Queue DVR.vi">
+	<Item Name="Dequeue.vi" Type="VI" URL="../Dequeue.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Release Msg Queue DVR.vi" Type="VI" URL="../Release Msg Queue DVR.vi">
+	<Item Name="Release Queue.vi" Type="VI" URL="../Release Queue.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 </Library>

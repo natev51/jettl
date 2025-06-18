@@ -17,23 +17,25 @@
 		<Item Name="Actor" Type="Folder">
 			<Item Name="Msgs" Type="Folder">
 				<Item Name="Teardown.lvlib" Type="Library" URL="../Actor/Msgs/Teardown/Teardown.lvlib"/>
-				<Item Name="Merge Error.lvlib" Type="Library" URL="../Actor/Msgs/Merge Error/Merge Error.lvlib"/>
-				<Item Name="Override Error.lvlib" Type="Library" URL="../Actor/Msgs/Override Error/Override Error.lvlib"/>
 				<Item Name="Queue Last Ack.lvlib" Type="Library" URL="../Actor/Msgs/Queue Last Ack/Queue Last Ack.lvlib"/>
 				<Item Name="Event Last Ack.lvlib" Type="Library" URL="../Actor/Msgs/Event Last Ack/Event Last Ack.lvlib"/>
 				<Item Name="Create.lvlib" Type="Library" URL="../Actor/Msgs/Create/Create.lvlib"/>
 			</Item>
 			<Item Name="Msg.lvclass" Type="LVClass" URL="../Actor/Msg/Msg.lvclass"/>
+			<Item Name="Event.lvclass" Type="LVClass" URL="../Actor/Event/Event.lvclass"/>
 			<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor/Actor.lvclass"/>
 			<Item Name="Queue Actor.lvclass" Type="LVClass" URL="../Actor/Queue Actor/Queue Actor.lvclass"/>
 			<Item Name="Event Actor.lvclass" Type="LVClass" URL="../Actor/Event Actor/Event Actor.lvclass"/>
-			<Item Name="Event.lvclass" Type="LVClass" URL="../Actor/Event/Event.lvclass"/>
 		</Item>
 		<Item Name="Example" Type="Folder">
-			<Item Name="Pop Up.lvlib" Type="Library" URL="../Example/Pop Up/Pop Up.lvlib"/>
-			<Item Name="String Indicator Event.lvlib" Type="Library" URL="../Example/String Indicator Event/String Indicator Event.lvlib"/>
-			<Item Name="Ex Queue Actor.lvlib" Type="Library" URL="../Example/Ex Queue Actor/Ex Queue Actor.lvlib"/>
-			<Item Name="Ex Event Actor.lvlib" Type="Library" URL="../Example/Ex Event Actor/Ex Event Actor.lvlib"/>
+			<Item Name="Queue" Type="Folder">
+				<Item Name="Pop Up.lvlib" Type="Library" URL="../Example/Pop Up/Pop Up.lvlib"/>
+				<Item Name="Ex Queue Actor.lvlib" Type="Library" URL="../Example/Ex Queue Actor/Ex Queue Actor.lvlib"/>
+			</Item>
+			<Item Name="Event" Type="Folder">
+				<Item Name="String Indicator Event.lvlib" Type="Library" URL="../Example/String Indicator Event/String Indicator Event.lvlib"/>
+				<Item Name="Ex Event Actor.lvlib" Type="Library" URL="../Example/Ex Event Actor/Ex Event Actor.lvlib"/>
+			</Item>
 			<Item Name="Main.vi" Type="VI" URL="../Example/Main.vi"/>
 		</Item>
 		<Item Name="jettl.lvlib" Type="Library" URL="../jettl/jettl.lvlib"/>
@@ -79,6 +81,10 @@
 				<Item Name="Random Number (Range) DBL.vi" Type="VI" URL="/&lt;vilib&gt;/numeric/Random Number (Range) DBL.vi"/>
 				<Item Name="Random Number (Range).vi" Type="VI" URL="/&lt;vilib&gt;/numeric/Random Number (Range).vi"/>
 			</Item>
+			<Item Name="Create Dev Panel.vi" Type="VI" URL="../Example/Ex Queue Actor/Ex Queue Actor/Create Dev Panel.vi"/>
+			<Item Name="Merge Error.lvclass" Type="LVClass" URL="../Actor/Msgs/Merge Error/Merge Error/Merge Error.lvclass"/>
+			<Item Name="Override Error.lvclass" Type="LVClass" URL="../Actor/Msgs/Override Error/Override Error/Override Error.lvclass"/>
+			<Item Name="Merge Error.vi" Type="VI" URL="../Actor/Msgs/Merge Error/Merge Error Msg/Merge Error.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>

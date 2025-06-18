@@ -6,6 +6,7 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">553680896</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
 	<Item Name="State" Type="Folder">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		<Property Name="NI.SortType" Type="Int">3</Property>
@@ -14,6 +15,10 @@
 		<Item Name="Teardown State.lvclass" Type="LVClass" URL="../State/Teardown State/Teardown State.lvclass"/>
 		<Item Name="Error State.lvclass" Type="LVClass" URL="../State/Error State/Error State.lvclass"/>
 	</Item>
+	<Item Name="Queues" Type="Folder">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		<Item Name="Queues.ctl" Type="VI" URL="../Queues/Queues.ctl"/>
+		<Item Name="Queues.lvclass" Type="LVClass" URL="../Queues/Queues/Queues.lvclass"/>
+	</Item>
 	<Item Name="jettl Queue Actor.lvclass" Type="LVClass" URL="../jettl Queue Actor/jettl Queue Actor.lvclass"/>
-	<Item Name="Queues.lvclass" Type="LVClass" URL="../Queues/Queues.lvclass"/>
 </Library>

@@ -19,9 +19,6 @@ This is where the Teardown method goes?
 - Queue Msg To Caller (Both) -> Msg To Caller
 - Queue Msg To Self (Queue Actor only) -> Msg To Self
 - Queue Msg To Nested (Queue Actor only) -> Msg To Nested
----------------- Inputs ARE EVENT INTERFACE!
-- Event Msg To Caller (DNE)
-- Event Msg To Self (Event Actor only) -> Event To Self           (delete?)
 
 Event doesn’t dequeue a message, rather the Event is immediately after "Name.vi". And this message is just to generate an event.
 Generate Event private, instead of using that in the Event Msg To Self, INSTEAD put in the Msg.vi to be DDispatched right there to generate the event :)
