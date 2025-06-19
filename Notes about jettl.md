@@ -24,11 +24,10 @@ Queue Actor
 3. Is a Self Queue Actor
 
 
-- Queue Msg To Caller (Both)
-- Queue Msg To Self (Queue Actor only)
-- Queue Msg To Nested (Queue Actor only)
-- Event Msg To Caller (DNE)
-- Event Msg To Self (Event Actor only)
-- Event Msg To Nested (Queue Actor only)
 
 
+
+# private messages
+
+Private messages that aren’t exposed to external callers: Library access scope.
+With this, put the Last Ack Mag in jettl Library and make access scope private on library?
