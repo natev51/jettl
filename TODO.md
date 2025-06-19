@@ -11,7 +11,4 @@ would be nice if they both have the same loop method in Actor that is general.
 Dev Panel need to update connector pane for Button and Pop Up
 
 
-Italics
-*#AF. This comment is taken directly from the Actor Framework.
-Comment.*
-My commentary in normal case.
+#AF. This comment is taken directly and possibly modified from the Actor Framework.
