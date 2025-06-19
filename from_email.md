@@ -35,3 +35,15 @@ ExEx Event Actor wraps Ex Event Actor wraps jettl Event Actor all through the Ev
 
 the event and ququqe msg To ... DONT HAVE ERROR OUTPUT, HAVE THE OBJECT OUT AND MERGE ERROR INSIDE.
 do this ^^^^ it's easiest.. for now.
+
+
+
+KEEP Loop.vi, Receive.vi and Handle inside this.
+
+Kind of like jettl Event?
+
+
+Launch
+Create
+Loop
+Receive
