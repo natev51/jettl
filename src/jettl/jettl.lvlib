@@ -25,4 +25,7 @@
 	<Item Name="Release.vi" Type="VI" URL="../Release.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
+	<Item Name="Debug Pop Up.vi" Type="VI" URL="../Debug Pop Up.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
 </Library>
