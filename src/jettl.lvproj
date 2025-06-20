@@ -20,6 +20,9 @@
 				<Item Name="Create.lvlib" Type="Library" URL="../Actor/Msgs/Create/Create.lvlib"/>
 				<Item Name="Teardown.lvlib" Type="Library" URL="../Actor/Msgs/Teardown/Teardown.lvlib"/>
 				<Item Name="Last Ack.lvlib" Type="Library" URL="../Actor/Msgs/Last Ack/Last Ack.lvlib"/>
+				<Item Name="Event Create.lvlib" Type="Library" URL="../Actor/Msgs/Event Create/Event Create.lvlib"/>
+				<Item Name="Event Teardown.lvlib" Type="Library" URL="../Actor/Msgs/Event Teardown/Event Teardown.lvlib"/>
+				<Item Name="Event Last Ack.lvlib" Type="Library" URL="../Actor/Msgs/Event Last Ack/Event Last Ack.lvlib"/>
 			</Item>
 			<Item Name="Msg.lvclass" Type="LVClass" URL="../Actor/Msg/Msg.lvclass"/>
 			<Item Name="Event.lvclass" Type="LVClass" URL="../Actor/Event/Event.lvclass"/>
