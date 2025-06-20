@@ -9,15 +9,19 @@ map out the easy way of executing the Msg.
 
 
 
-# Four messages
-
-inheritance for each
-
-
-# replace the actor input for the create methods in jettl Queue Actor.
-
-In “Event Create.vi”, after Msg Queue DVR gotten:
-Event Loop.lvclass:“Msg To.vi”-“Event Nested.vi” (like Caller.vi)
-
-
 jettl Queue Actor -> jettl Actor
+
+
+
+get rid of Queue Actor
+
+get rid of Event Actor
+
+
+
+
+in jettl Actor
+Event Create
+Event Teardown
+Event Loop
+Event Last Ack

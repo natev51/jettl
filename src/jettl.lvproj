@@ -28,7 +28,6 @@
 			<Item Name="Msg.lvclass" Type="LVClass" URL="../Actor/Msg/Msg.lvclass"/>
 			<Item Name="Event.lvclass" Type="LVClass" URL="../Actor/Event/Event.lvclass"/>
 			<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor/Actor.lvclass"/>
-			<Item Name="Queue Actor.lvclass" Type="LVClass" URL="../Actor/Queue Actor/Queue Actor.lvclass"/>
 			<Item Name="Event Actor.lvclass" Type="LVClass" URL="../Actor/Event Actor/Event Actor.lvclass"/>
 		</Item>
 		<Item Name="Example" Type="Folder">
