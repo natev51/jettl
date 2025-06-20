@@ -18,5 +18,8 @@
 		<Item Name="Teardown State.lvclass" Type="LVClass" URL="../State/Teardown State/Teardown State.lvclass"/>
 		<Item Name="Error State.lvclass" Type="LVClass" URL="../State/Error State/Error State.lvclass"/>
 	</Item>
-	<Item Name="jettl Queue Actor.lvclass" Type="LVClass" URL="../jettl Queue Actor/jettl Queue Actor.lvclass"/>
+	<Item Name="jettl Queue Actor.lvclass" Type="LVClass" URL="../jettl Queue Actor/jettl Queue Actor.lvclass">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Launch.vi" Type="VI" URL="../Launch.vi"/>
 </Library>

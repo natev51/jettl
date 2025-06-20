@@ -37,30 +37,40 @@ jettl Event Actor: Creates, Registers, Unregisters, and Destroys its own referen
 
 don't override abstract methods in inherited interfaces.
 
-
-
-
-
-
-
-
-
-Setup AS a message.
-- Always executes as first message.
-- Enables to Setup again
-- Eliminates the error queue. (Check for NOT A REFNUM in Create.vi to ensure that error didn’t occur at enqueue.)
-
-Teardown ONLY bundles Teardown into State.
-Teardown State methods should be deleted.
-
-Receive State Methods should be deleted.
-
-Handle DOES EVERYTHING.
-
-repath the actor.vi in start async and alternate start async.vi.
-delete the error shit in create.
-
 Caller, Self, Nested moved to Actor.
 
 
 Maybe, Queue Actor really just is Actor where the Event Actor is just a since Msg that is DD called Event Msg where the Event Msg internally is just an event strucure acting as the front panel!
+
+Some kind of Event Msg, just like the Loop.vi that is executed as talked about above.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# State Pattern
+
+Context class should be private, since only interfaces should be composed into a class.
+Dependency Inversion Principle.
+
+Since the context class is private to the library it is in (and the State Interface with its concrete state classes), public static dispatch methods can be used in the context class AND concrete state classes without worrying that they'll be used outside the library since the context class is private.
+
+
+Event Create (not message)
+Event Last Ack (not message)
+Event Teardown (not message)
+
+Queue Actor inheritance for:
+Create (Input to Queue Actor)
+Setup
+Teardown
+Last Ack (Input to Queue Actor)

@@ -15,7 +15,10 @@
 </Property>
 	<Item Name="Parent Libraries" Type="Parent Libraries">
 		<Item Name="Actor.lvclass" Type="Parent" URL="../../Actor/Actor.lvclass"/>
+		<Item Name="Create.lvlib:Create.lvclass" Type="Parent" URL="../../Msgs/Create/Create/Create.lvclass"/>
 		<Item Name="Last Ack.lvlib:Last Ack.lvclass" Type="Parent" URL="../../Msgs/Last Ack/Last Ack/Last Ack.lvclass"/>
+		<Item Name="Setup.lvlib:Setup.lvclass" Type="Parent" URL="../../Msgs/Setup/Setup/Setup.lvclass"/>
+		<Item Name="Teardown.lvlib:Teardown.lvclass" Type="Parent" URL="../../Msgs/Teardown/Teardown/Teardown.lvclass"/>
 	</Item>
 	<Item Name="Caller.vi" Type="VI" URL="../Caller.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$E!!!!"A!%!!!!,E"Q!"Y!!"54586F&gt;75A17.U&lt;X)O&lt;(:D&lt;'&amp;T=Q!0586F&gt;75A17.U&lt;X)A&lt;X6U!!Z!)1F1=GFP=GFU?4]!'E"Q!"Y!!!U,48.H,GRW9WRB=X-!!UVT:Q!O1(!!(A!!&amp;2.2&gt;76V:3""9X2P=CZM&gt;G.M98.T!!Z2&gt;76V:3""9X2P=C"J&lt;A!!6!$Q!!Q!!!!!!!!!!1!!!!!!!!!!!!!!!A!$!!1#!!"Y!!!!!!!!!!!!!!!!!!#.#Q!!!!!!!!!!!!!!!!!!!!!!!!!!!!!)!!!!%!!!!*!!!!!!!1!&amp;!!!!!!</Property>
@@ -44,8 +47,8 @@
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 		<Property Name="NI.ClassItem.State" Type="Int">1117782528</Property>
 	</Item>
-	<Item Name="Nested Aliases.vi" Type="VI" URL="../Nested Aliases.vi">
-		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$#!!!!"1!%!!!!'%!Q`````Q^.=W=A53"%6F)A17RJ98-!(%"!!!(`````!!%/4G6T&gt;'6E)%&amp;M;7&amp;T:8-!!#Z!=!!?!!!6%V&amp;V:86F)%&amp;D&gt;'^S,GRW9WRB=X-!$F&amp;V:86F)%&amp;D&gt;'^S)'FO!!"5!0!!$!!!!!!!!A!!!!!!!!!!!!!!!!!!!!!!!Q)!!(A!!!!!!!!!!!!!#1!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!E!!!!!!"!!1!!!!!</Property>
+	<Item Name="Nested Status.vi" Type="VI" URL="../Nested Status.vi">
+		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$F!!!!"Q!41!-!$%ZF=X2F:#"$&lt;X6O&gt;!!!'%!Q`````Q^.=W=A53"%6F)A17RJ98-!(%"!!!(`````!!%/4G6T&gt;'6E)%&amp;M;7&amp;T:8-!!""!)1J"&lt;HEA28BJ=X1`!!!%!!!!,E"Q!"Y!!"54586F&gt;75A17.U&lt;X)O&lt;(:D&lt;'&amp;T=Q!/586F&gt;75A17.U&lt;X)A;7Y!!&amp;1!]!!-!!!!!A!$!!1!"!!%!!1!"!!%!!1!"!!&amp;!A!!?!!!#1!!!!E!!!!*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#1!!!!!!%!"A!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
 		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
@@ -53,17 +56,8 @@
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 		<Property Name="NI.ClassItem.State" Type="Int">1342710272</Property>
 	</Item>
-	<Item Name="Nested Unique.vi" Type="VI" URL="../Nested Unique.vi">
-		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!#_!!!!"1!%!!!!'E!B&amp;%ZF=X2F:#""&lt;'FB=S"6&lt;GFR&gt;75`!!!71$$`````$%ZF=X2F:#""&lt;'FB=Q!!,E"Q!"Y!!"54586F&gt;75A17.U&lt;X)O&lt;(:D&lt;'&amp;T=Q!/586F&gt;75A17.U&lt;X)A;7Y!!&amp;1!]!!-!!!!!!!"!!!!!!!!!!!!!!!!!!!!!A!$!A!!?!!!!!!!!!!!!!!*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!B!!!!#1!!!!!!%!"!!!!!!</Property>
-		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
-		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
-		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-		<Property Name="NI.ClassItem.State" Type="Int">1342710272</Property>
-	</Item>
-	<Item Name="Nested Exist.vi" Type="VI" URL="../Nested Exist.vi">
-		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!#A!!!!"!!%!!!!%E!B$5ZF=X2F:#"&amp;?'FT&gt;$]!,E"Q!"Y!!"54586F&gt;75A17.U&lt;X)O&lt;(:D&lt;'&amp;T=Q!/586F&gt;75A17.U&lt;X)A;7Y!!&amp;1!]!!-!!!!!!!"!!!!!!!!!!!!!!!!!!!!!!!#!A!!?!!!!!!!!!!!!!!*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#1!!!!!!%!!Q!!!!!</Property>
+	<Item Name="Is Nested.vi" Type="VI" URL="../Is Nested.vi">
+		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!#I!!!!"1!%!!!!$%!B"UZF=X2F:$]!$E!Q`````Q6"&lt;'FB=Q!O1(!!(A!!&amp;2.2&gt;76V:3""9X2P=CZM&gt;G.M98.T!!Z2&gt;76V:3""9X2P=C"J&lt;A!!6!$Q!!Q!!!!!!!%!!!!!!!!!!!!!!!!!!!!#!!-#!!"Y!!!!!!!!!!!!!!E!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#%!!!!*!!!!!!!1!%!!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
 		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
