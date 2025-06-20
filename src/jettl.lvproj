@@ -16,6 +16,7 @@
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="Actor" Type="Folder">
 			<Item Name="Msgs" Type="Folder">
+				<Item Name="Setup.lvlib" Type="Library" URL="../Actor/Msgs/Setup/Setup.lvlib"/>
 				<Item Name="Teardown.lvlib" Type="Library" URL="../Actor/Msgs/Teardown/Teardown.lvlib"/>
 				<Item Name="Last Ack.lvlib" Type="Library" URL="../Actor/Msgs/Last Ack/Last Ack.lvlib"/>
 				<Item Name="Create.lvlib" Type="Library" URL="../Actor/Msgs/Create/Create.lvlib"/>

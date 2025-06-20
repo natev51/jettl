@@ -16,6 +16,7 @@
 	<Item Name="Parent Libraries" Type="Parent Libraries">
 		<Item Name="Create.lvlib:Create.lvclass" Type="Parent" URL="../../Msgs/Create/Create/Create.lvclass"/>
 		<Item Name="Last Ack.lvlib:Last Ack.lvclass" Type="Parent" URL="../../Msgs/Last Ack/Last Ack/Last Ack.lvclass"/>
+		<Item Name="Setup.lvlib:Setup.lvclass" Type="Parent" URL="../../Msgs/Setup/Setup/Setup.lvclass"/>
 		<Item Name="Teardown.lvlib:Teardown.lvclass" Type="Parent" URL="../../Msgs/Teardown/Teardown/Teardown.lvclass"/>
 	</Item>
 	<Item Name="Self Alias.vi" Type="VI" URL="../Self Alias.vi">
