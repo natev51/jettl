@@ -4,4 +4,7 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">553680896</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Item Name="Event Last Ack.lvclass" Type="LVClass" URL="../Event Last Ack/Event Last Ack.lvclass"/>
+	<Item Name="Event Last Ack Msg.lvclass" Type="LVClass" URL="../Event Last Ack Msg/Event Last Ack Msg.lvclass"/>
 </Library>
