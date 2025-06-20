@@ -18,3 +18,6 @@ inheritance for each
 
 In “Event Create.vi”, after Msg Queue DVR gotten:
 Event Loop.lvclass:“Msg To.vi”-“Event Nested.vi” (like Caller.vi)
+
+
+jettl Queue Actor -> jettl Actor

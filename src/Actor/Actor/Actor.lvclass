@@ -17,6 +17,7 @@
 		<Item Name="Create.lvlib:Create.lvclass" Type="Parent" URL="../../Msgs/Create/Create/Create.lvclass"/>
 		<Item Name="Event Create.lvlib:Event Create.lvclass" Type="Parent" URL="../../Msgs/Event Create/Event Create/Event Create.lvclass"/>
 		<Item Name="Event Last Ack.lvlib:Event Last Ack.lvclass" Type="Parent" URL="../../Msgs/Event Last Ack/Event Last Ack/Event Last Ack.lvclass"/>
+		<Item Name="Event Loop.lvlib:Event Loop.lvclass" Type="Parent" URL="../../Msgs/Event Loop/Event Loop/Event Loop.lvclass"/>
 		<Item Name="Event Teardown.lvlib:Event Teardown.lvclass" Type="Parent" URL="../../Msgs/Event Teardown/Event Teardown/Event Teardown.lvclass"/>
 		<Item Name="Last Ack.lvlib:Last Ack.lvclass" Type="Parent" URL="../../Msgs/Last Ack/Last Ack/Last Ack.lvclass"/>
 		<Item Name="Setup.lvlib:Setup.lvclass" Type="Parent" URL="../../Msgs/Setup/Setup/Setup.lvclass"/>
