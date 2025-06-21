@@ -28,7 +28,6 @@
 			<Item Name="Msg.lvclass" Type="LVClass" URL="../Actor/Msg/Msg.lvclass"/>
 			<Item Name="Event.lvclass" Type="LVClass" URL="../Actor/Event/Event.lvclass"/>
 			<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor/Actor.lvclass"/>
-			<Item Name="Event Actor.lvclass" Type="LVClass" URL="../Actor/Event Actor/Event Actor.lvclass"/>
 		</Item>
 		<Item Name="Example" Type="Folder">
 			<Item Name="Queue" Type="Folder">
@@ -78,6 +77,7 @@
 				<Item Name="RGB to Color.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/colorconv.llb/RGB to Color.vi"/>
 				<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Error Cluster From Error Code.vi"/>
 			</Item>
+			<Item Name="Event Actor.lvclass" Type="LVClass" URL="../Actor/Event Actor/Event Actor.lvclass"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>

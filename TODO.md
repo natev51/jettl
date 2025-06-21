@@ -13,12 +13,6 @@ jettl Queue Actor -> jettl Actor
 
 
 
-get rid of Queue Actor
-
-get rid of Event Actor
-
-
-
 
 in jettl Actor
 Event Create
