@@ -35,11 +35,6 @@ jettl Event Actor: Creates, Registers, Unregisters, and Destroys its own referen
 
 # In general notes
 
-don't override abstract methods in inherited interfaces.
-
-Caller, Self, Nested moved to Actor.
-
-
 Maybe, Queue Actor really just is Actor where the Event Actor is just a since Msg that is DD called Event Msg where the Event Msg internally is just an event strucure acting as the front panel!
 
 Some kind of Event Msg, just like the Loop.vi that is executed as talked about above.

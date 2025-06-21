@@ -1,7 +1,5 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <Library LVVersion="21008000">
-	<Property Name="NI.Lib.ContainingLib" Type="Str">jettl.lvlib</Property>
-	<Property Name="NI.Lib.ContainingLibPath" Type="Str">../../jettl.lvlib</Property>
 	<Property Name="NI.Lib.Icon" Type="Bin">)1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!*L!!!*Q(C=\&gt;5R&lt;B."&amp;-&lt;R&lt;S-+3JQ4)(&gt;U3/]+,F"+J,X#OY,&lt;F+Z$Q_N=O$)5U#&amp;:/1(P"#"@Q6=9`DM??T=IS!U2&amp;*HV/,P@T-\]-DN;3\7]F&amp;[I8#J^[==SH*=(12F&lt;JJ^*?]P+Z,Q@U^+8[86`/GX(M&lt;XU9V0L=%K0@@Z93BG.DX8\X8=;&gt;^J_7I22`PD^:__$^AN&amp;T_7Z`.NS?X'40PG?\43]C+B*$;J44=.5*=G40-G40-G40-C$0-C$0-C$X-G&gt;X-G&gt;X-G&gt;X-C.X-C.X-C.P"\E)B?ZS#%FES=4*9-G!S3&gt;I3DZ3DS**`%E(C[6?"*0YEE]C9=O3DS**`%EHM4$&lt;5I]C3@R**\%QV"6EP5ARZ.Y'&amp;["*`!%HM!4?*B3A3=!"*-&amp;!Q?$Q&amp;$1'*Q%HM!4?$B6Y!E]A3@Q""[;&amp;8A#4_!*0)'(7_KK2.5-"TE?BJ(D=4S/R`%Y(I;7YX%]DM@R/"[GE_.R0!\#G&gt;!:()+=GZQ/TI8D=4T]E?.R0)\(]4A?GOI4]LISAW9YS0%9(M.D?!S0Y7%)'2\$9XA-D_&amp;B7"E?QW.Y$)`B93I:(M.D?!S)-3H4SRD-O.(I:!3'BU`&gt;,6;@5F3*V5.KGV&gt;N5[JN.L6.J,9ZV"[[WM.5?UBKC[_WK'K,J&lt;9);P_='FI.IT;*WMV$2RXYXF.XV#VV26V3?_K#/K@/BFP`=M@$Y;$^@K`&gt;&lt;K@N&gt;KP6;K8F=CF_',69,$3@TT7&lt;T=[PA&gt;==ZR@#]&lt;WUPHL&lt;X&gt;[^[T9`&lt;DZM\^Z`_HTTZOMXWD__5L@Z_;7\PVZXG_`L\IF_3`_$&gt;[/O."W8.@I&amp;C_8+QA!!!!!</Property>
 	<Property Name="NI.Lib.SourceVersion" Type="Int">553680896</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
@@ -22,4 +20,16 @@
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Launch.vi" Type="VI" URL="../Launch.vi"/>
+	<Item Name="Obtain.vi" Type="VI" URL="../Obtain.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Enqueue.vi" Type="VI" URL="../Enqueue.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Dequeue.vi" Type="VI" URL="../Dequeue.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Release.vi" Type="VI" URL="../Release.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
 </Library>

@@ -16,17 +16,17 @@
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="Actor" Type="Folder">
 			<Item Name="Msgs" Type="Folder">
-				<Item Name="Setup.lvlib" Type="Library" URL="../Actor/Msgs/Setup/Setup.lvlib"/>
-				<Item Name="Create.lvlib" Type="Library" URL="../Actor/Msgs/Create/Create.lvlib"/>
-				<Item Name="Teardown.lvlib" Type="Library" URL="../Actor/Msgs/Teardown/Teardown.lvlib"/>
-				<Item Name="Last Ack.lvlib" Type="Library" URL="../Actor/Msgs/Last Ack/Last Ack.lvlib"/>
+				<Item Name="Queue Create.lvlib" Type="Library" URL="../Actor/Msgs/Queue Create/Queue Create.lvlib"/>
 				<Item Name="Event Create.lvlib" Type="Library" URL="../Actor/Msgs/Event Create/Event Create.lvlib"/>
-				<Item Name="Event Teardown.lvlib" Type="Library" URL="../Actor/Msgs/Event Teardown/Event Teardown.lvlib"/>
+				<Item Name="Queue Last Ack.lvlib" Type="Library" URL="../Actor/Msgs/Queue Last Ack/Queue Last Ack.lvlib"/>
 				<Item Name="Event Last Ack.lvlib" Type="Library" URL="../Actor/Msgs/Event Last Ack/Event Last Ack.lvlib"/>
-				<Item Name="Event Loop.lvlib" Type="Library" URL="../Actor/Msgs/Event Loop/Event Loop.lvlib"/>
+				<Item Name="Setup.lvlib" Type="Library" URL="../Actor/Msgs/Setup/Setup.lvlib"/>
+				<Item Name="Teardown.lvlib" Type="Library" URL="../Actor/Msgs/Teardown/Teardown.lvlib"/>
 			</Item>
 			<Item Name="Msg.lvclass" Type="LVClass" URL="../Actor/Msg/Msg.lvclass"/>
 			<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor/Actor.lvclass"/>
+			<Item Name="Queue Actor.lvclass" Type="LVClass" URL="../Actor/Queue Actor/Queue Actor.lvclass"/>
+			<Item Name="Event Actor.lvclass" Type="LVClass" URL="../Actor/Event Actor/Event Actor.lvclass"/>
 		</Item>
 		<Item Name="Example" Type="Folder">
 			<Item Name="Queue" Type="Folder">
@@ -34,15 +34,16 @@
 				<Item Name="Ex Queue Actor.lvlib" Type="Library" URL="../Example/Ex Queue Actor/Ex Queue Actor.lvlib"/>
 			</Item>
 			<Item Name="Event" Type="Folder">
-				<Item Name="String Indicator Event.lvlib" Type="Library" URL="../Example/String Indicator Event/String Indicator Event.lvlib"/>
+				<Item Name="String Indicator.lvlib" Type="Library" URL="../Example/String Indicator/String Indicator.lvlib"/>
 				<Item Name="Ex Event Actor.lvlib" Type="Library" URL="../Example/Ex Event Actor/Ex Event Actor.lvlib"/>
 			</Item>
 			<Item Name="Main.vi" Type="VI" URL="../Example/Main.vi"/>
 		</Item>
-		<Item Name="Testing" Type="Folder">
-			<Item Name="Test.vi" Type="VI" URL="../Testing/Test.vi"/>
+		<Item Name="jettl" Type="Folder">
+			<Item Name="jettl Queue Actor.lvlib" Type="Library" URL="../jettl/jettl Queue Actor/jettl Queue Actor.lvlib"/>
+			<Item Name="jettl Event Actor.lvlib" Type="Library" URL="../jettl/jettl Event Actor/jettl Event Actor.lvlib"/>
+			<Item Name="Debug Pop Up.vi" Type="VI" URL="../jettl/Debug Pop Up.vi"/>
 		</Item>
-		<Item Name="jettl.lvlib" Type="Library" URL="../jettl/jettl.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
@@ -79,7 +80,6 @@
 				<Item Name="RGB to Color.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/colorconv.llb/RGB to Color.vi"/>
 				<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Error Cluster From Error Code.vi"/>
 			</Item>
-			<Item Name="Event.lvclass" Type="LVClass" URL="../Actor/Event/Event.lvclass"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
