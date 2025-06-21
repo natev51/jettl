@@ -65,12 +65,37 @@ Dependency Inversion Principle.
 Since the context class is private to the library it is in (and the State Interface with its concrete state classes), public static dispatch methods can be used in the context class AND concrete state classes without worrying that they'll be used outside the library since the context class is private.
 
 
-Event Create (not message)
-Event Last Ack (not message)
-Event Teardown (not message)
 
-Queue Actor inheritance for:
-Create (Input to Queue Actor)
-Setup
-Teardown
-Last Ack (Input to Queue Actor)
+Dev Panel need to update connector pane for Button and Pop Up
+
+
+AF composition messaging SO easy.
+map out the easy way of executing the Msg.
+
+
+
+
+
+
+jettl Queue Actor -> jettl Actor
+
+
+
+
+in jettl Actor
+Event Create
+Event Teardown
+Event Loop
+Event Last Ack
+
+
+
+
+
+
+
+
+create, generate, destroy methlds
+Update String Indicator Msg (Msg To)
+
+in event strucutre, wire out the DVR to the event structure from user events.. this is where you DD?

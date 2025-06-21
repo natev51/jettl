@@ -26,7 +26,6 @@
 				<Item Name="Event Loop.lvlib" Type="Library" URL="../Actor/Msgs/Event Loop/Event Loop.lvlib"/>
 			</Item>
 			<Item Name="Msg.lvclass" Type="LVClass" URL="../Actor/Msg/Msg.lvclass"/>
-			<Item Name="Event.lvclass" Type="LVClass" URL="../Actor/Event/Event.lvclass"/>
 			<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor/Actor.lvclass"/>
 		</Item>
 		<Item Name="Example" Type="Folder">
@@ -39,6 +38,9 @@
 				<Item Name="Ex Event Actor.lvlib" Type="Library" URL="../Example/Ex Event Actor/Ex Event Actor.lvlib"/>
 			</Item>
 			<Item Name="Main.vi" Type="VI" URL="../Example/Main.vi"/>
+		</Item>
+		<Item Name="Testing" Type="Folder">
+			<Item Name="Test.vi" Type="VI" URL="../Testing/Test.vi"/>
 		</Item>
 		<Item Name="jettl.lvlib" Type="Library" URL="../jettl/jettl.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
@@ -77,7 +79,7 @@
 				<Item Name="RGB to Color.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/colorconv.llb/RGB to Color.vi"/>
 				<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Error Cluster From Error Code.vi"/>
 			</Item>
-			<Item Name="Event Actor.lvclass" Type="LVClass" URL="../Actor/Event Actor/Event Actor.lvclass"/>
+			<Item Name="Event.lvclass" Type="LVClass" URL="../Actor/Event/Event.lvclass"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
