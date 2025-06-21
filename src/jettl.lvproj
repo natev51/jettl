@@ -29,15 +29,11 @@
 			<Item Name="Event Actor.lvclass" Type="LVClass" URL="../Actor/Event Actor/Event Actor.lvclass"/>
 		</Item>
 		<Item Name="Example" Type="Folder">
-			<Item Name="Queue" Type="Folder">
-				<Item Name="Pop Up.lvlib" Type="Library" URL="../Example/Pop Up/Pop Up.lvlib"/>
-				<Item Name="Ex Queue Actor.lvlib" Type="Library" URL="../Example/Ex Queue Actor/Ex Queue Actor.lvlib"/>
-			</Item>
-			<Item Name="Event" Type="Folder">
-				<Item Name="String Indicator.lvlib" Type="Library" URL="../Example/String Indicator/String Indicator.lvlib"/>
-				<Item Name="Ex Event Actor.lvlib" Type="Library" URL="../Example/Ex Event Actor/Ex Event Actor.lvlib"/>
-			</Item>
 			<Item Name="Main.vi" Type="VI" URL="../Example/Main.vi"/>
+			<Item Name="Pop Up.lvlib" Type="Library" URL="../Example/Pop Up/Pop Up.lvlib"/>
+			<Item Name="Ex Queue Actor.lvlib" Type="Library" URL="../Example/Ex Queue Actor/Ex Queue Actor.lvlib"/>
+			<Item Name="String Indicator.lvlib" Type="Library" URL="../Example/String Indicator/String Indicator.lvlib"/>
+			<Item Name="Ex Event Actor.lvlib" Type="Library" URL="../Example/Ex Event Actor/Ex Event Actor.lvlib"/>
 		</Item>
 		<Item Name="jettl" Type="Folder">
 			<Item Name="jettl Queue Actor.lvlib" Type="Library" URL="../jettl/jettl Queue Actor/jettl Queue Actor.lvlib"/>
