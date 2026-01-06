@@ -45,7 +45,7 @@
                 {
                   "type": "file",
                   "ctime": 1767725643061,
-                  "path": "docs/images/event-actor.png",
+                  "path": "docs/images/actor-transport-event.png",
                   "subpath": "#^-"
                 },
                 {
@@ -57,31 +57,31 @@
                 {
                   "type": "file",
                   "ctime": 1767725643061,
-                  "path": "docs/images/jettl-palette.png",
+                  "path": "docs/images/palette.png",
                   "subpath": "#^-"
                 },
                 {
                   "type": "file",
                   "ctime": 1767725643061,
-                  "path": "docs/images/msg.png",
+                  "path": "docs/images/msg-implemented-recurse.png",
                   "subpath": "#^-"
                 },
                 {
                   "type": "file",
                   "ctime": 1767725643061,
-                  "path": "docs/images/msg-poly.png",
+                  "path": "docs/images/msg-poly-selection.png",
                   "subpath": "#^-"
                 },
                 {
                   "type": "file",
                   "ctime": 1767725643061,
-                  "path": "docs/images/notifier-actor.png",
+                  "path": "docs/images/actor-transport-notifier.png",
                   "subpath": "#^-"
                 },
                 {
                   "type": "file",
                   "ctime": 1767725643061,
-                  "path": "docs/images/queue-actor.png",
+                  "path": "docs/images/actor-transport-queue.png",
                   "subpath": "#^-"
                 }
               ],

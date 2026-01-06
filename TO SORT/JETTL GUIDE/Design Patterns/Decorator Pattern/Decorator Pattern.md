@@ -2,6 +2,6 @@
 
 SPaIC: Subtype Polymorphism and Interface Composition
 
-![[dec_1.jpeg]]
-![[dec_2.jpeg]]
-![[dec_3.jpeg]]
+![[Images/dec_1.jpeg]]
+![[Images/dec_2.jpeg]]
+![[Images/dec_3.jpeg]]

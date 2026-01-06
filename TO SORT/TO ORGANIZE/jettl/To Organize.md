@@ -1,5 +1,5 @@
 
-![[clean propagation.png]]
+![[Images/clean propagation.png]]
 *Minimal bend wiring philosophy = Write code for maximum readability. Notice error wire and object verticality has plenty of room between. Object wires through for IO methods. Input only methods are a couple spaces beneath. And errors follow the method calls. All wires have minimal bends. Note even this isn't great, should instead reorganize and **please** use flat sequence structure! Note that the error wire should always be pushed to the back of the block diagram. Other wires of course can move over the error wire, but wires should NOT move over the object wire.*
 
 [Your LabVIEW Code Is a Work of Art... But I Can't Read It by Darren Nattinger. GDevCon N.A. 2024](https://www.youtube.com/watch?v=AHOZ7fiuWCA)@00:00-12:18
@@ -34,7 +34,7 @@ Only use when these control refs are used in message methods OR methods constrai
 Interchangeable front panels
 Where you have two created actors, and ability to toggle front panel displays as either being in the subpanel.
 
-![[statepatternactors.png]]
+![[Images/statepatternactors.png]]
 *[The State of the Art for Actor Framework](https://www.youtube.com/watch?v=gz_6FTE1__8&list=PLvDxiIkwuMQtGtstTGKpYpoMVi1Lj07EP&index=19) @21:33.*
 
 ---

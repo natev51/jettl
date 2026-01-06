@@ -211,7 +211,7 @@ check incoming messages and forward them to parent if they are part of a certain
 
 https://www.vipm.io/package/zyah_solutions_lib_zyah_af_msg_forwarding/
 Our method depends on the Msg being created by the scripting tools and put in the default location relative to the interface:
-![[Msg Forward.png]]
+![[Images/Msg Forward.png]]
 
 ---
 
@@ -267,7 +267,7 @@ jettl Tools (msg Rescript tool):
 Make a private map for the VI Refs for the name to the index to easily use for scripting instead of the arbitrary indexes.
 
 Good info in here, old news though from 10/2024
-![[DBomm Interfaces.png]]
+![[Images/DBomm Interfaces.png]]
 
 ---
 
@@ -400,7 +400,7 @@ Include
 
 
 My concept for what a documentation tool would generate as a graphical representation of an AF project.
-![[Graphical Rep.png]]
+![[Images/Graphical Rep.png]]
 Each main box is a running actor, with the nested boxes showing inheritance levels. The levels with * have an override of Actor Core that includes a While Loop or subVI running parallel with the Call Parent Node. The launches lines come off of the level of Actor Core that calls Launch Nested Actor.
 The diagram above could be built by static analysis of code or analysis of DETT output (with AF debug logging enabled).
 
@@ -518,7 +518,7 @@ I saw the presentations when it came out. If I recall correctly, the MVA framewo
 
 
 State pattern
-![[State Pattern.png]]
+![[Images/State Pattern.png]]
 
 ---
 
