@@ -56,19 +56,19 @@ Look in the `doc` folder for the `main.pdf` for the ongoing documentation.
 Due to recent rapid development, this documentation will likely be outdated.
 Please refer to the [Videos](https://www.youtube.com/@nathandavis6612), for more recent explanations.
 
-![](../images/queue-actor.png)
+![](docs/images/queue-actor.png)
 *Queue Actor.*
 
-![](../images/event-actor.png)
+![](docs/images/event-actor.png)
 *Event Actor.*
 
-![](../images/notifier-actor.png)
+![](docs/images/notifier-actor.png)
 *Notifier Actor.*
 
-![](../images/msg-poly.png)
+![](docs/images/msg-poly.png)
 *Polymorphic Message.*
 
-![](../images/msg.png)
+![](docs/images/msg.png)
 *Message implementation.*
 
 ## Motivation
