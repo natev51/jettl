@@ -8,17 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "4aec190f1186105d",
+            "id": "d3d29147243e476e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "docs/docs.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "docs"
             }
           }
         ]
@@ -68,7 +68,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 324.5110321044922
+    "width": 421.50418853759766
   },
   "right": {
     "id": "cfdf850b734605cd",
@@ -170,12 +170,31 @@
       "bases:Create new base": false
     }
   },
-  "active": "4aec190f1186105d",
+  "active": "d3d29147243e476e",
   "lastOpenFiles": [
+    "docs/ideas-that-could-be-implemented/ideas-that-could-be-implemented.md",
     "docs/docs.md",
+    "docs/ideas-that-could-be-implemented",
+    "docs/reuse-actors/reuse-actors.md",
+    "TO SORT/JETTL GUIDE/Things That Have Not Been Implemented/General Additions That Would Be Cool.md",
     "docs/features/features.md",
-    "docs/features",
+    "TO SORT/JETTL GUIDE/Things That Have Not Been Implemented/Observer Broker/Observer PubSub Broker.md",
+    "TO SORT/JETTL GUIDE/Features/Features.md",
+    "TO SORT/JETTL GUIDE/Style Guidelines/Helper Loops.md",
+    "TO SORT/JETTL GUIDE/Style Guidelines/Property Nodes.md",
+    "docs/style-guidelines/style-guidelines.md",
+    "docs/style-guidelines",
+    "style-guidelines/style-guidelines.md",
+    "style-guidelines",
+    "TO SORT/JETTL GUIDE/Reuse Actors/Panel Actor/Panel Actor.md",
+    "docs/reuse-actors",
+    "docs/immediate-changes/immediate-changes.md",
+    "TO SORT/JETTL GUIDE/Overview/Overview.md",
+    "TO SORT/JETTL GUIDE/Immediate Changes/Immediate Changes.md",
     "README.md",
+    "docs/immediate-changes",
+    "docs/resources/resources.md",
+    "docs/features",
     "docs/msg/msg.md",
     "docs/actor/actor.md",
     "docs/vipm/vipm.md",
@@ -185,38 +204,19 @@
     "TO SORT/JETTL GUIDE/Design Patterns/Decorator Pattern/Images/dec_2.jpeg",
     "TO SORT/JETTL GUIDE/Design Patterns/Decorator Pattern/Images/dec_3.jpeg",
     "docs/tools/tools.md",
-    "docs/resources/resources.md",
     "docs/resources",
     "docs/tools",
     "docs/msg",
     "docs/overview/overview.md",
-    "docs/actor",
     "docs/images/palette.png",
     "docs/images/msg-poly-selection.png",
     "docs/images/msg-implemented-recurse.png",
     "docs/images/actor-transport-queue.png",
     "docs/images/actor-transport-notifier.png",
     "docs/images/actor-transport-event.png",
-    "docs/overview",
     "docs/images/images.md",
     "docs/overview/yes/yes.md",
     "docs/overview/further content.md",
-    "docs/overview/other stuff.md",
-    "docs/DOC/JETTL GUIDE/JETTL GUIDE.md",
-    "docs/DOC/DOC.md",
-    "docs/overview/more content/more content.md",
-    "TO SORT/JETTL GUIDE/Tools/Tools.md",
-    "TO SORT/JETTL GUIDE/Features/Features.md",
-    "docs/DOC/JETTL GUIDE/Things That Have Not Been Implemented/Things That Have Not Been Implemented.md",
-    "docs/doc_outdated/NIAF/NIAF.md",
-    "docs/doc_outdated/doc_outdated.md",
-    "docs/overview/yes",
-    "src/src.md",
-    "Untitled.base",
-    "docs/overview/more content",
-    "note.md",
-    "Dashboard.md",
-    "jettl.md",
     "Untitled.canvas"
   ]
 }

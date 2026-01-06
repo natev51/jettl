@@ -22,3 +22,9 @@ There currently three actors that distinguish between Queue, Event, and Notifier
 All messages are interface coupled and statically determined execution provides for ease in understanding the relative actor system messaging.
 - **Child Actor UID Mapping**.
 Internally, Child Actor UIDs (Unique Identifiers) are automatically inserted into a map.
+
+---
+
+### Useful Things To Know
+
+Attributes are static for an actor and are only instantiated when spawned.
