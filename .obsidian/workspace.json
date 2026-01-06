@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/docs.md",
+                "file": "docs/ideas-that-could-be-implemented/ideas-that-could-be-implemented.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "docs"
+              "title": "ideas-that-could-be-implemented"
             }
           }
         ]
@@ -172,8 +172,10 @@
   },
   "active": "d3d29147243e476e",
   "lastOpenFiles": [
-    "docs/ideas-that-could-be-implemented/ideas-that-could-be-implemented.md",
     "docs/docs.md",
+    "docs/overview/overview.md",
+    "docs/resources/resources.md",
+    "docs/ideas-that-could-be-implemented/ideas-that-could-be-implemented.md",
     "docs/ideas-that-could-be-implemented",
     "docs/reuse-actors/reuse-actors.md",
     "TO SORT/JETTL GUIDE/Things That Have Not Been Implemented/General Additions That Would Be Cool.md",
@@ -193,7 +195,6 @@
     "TO SORT/JETTL GUIDE/Immediate Changes/Immediate Changes.md",
     "README.md",
     "docs/immediate-changes",
-    "docs/resources/resources.md",
     "docs/features",
     "docs/msg/msg.md",
     "docs/actor/actor.md",
@@ -207,7 +208,6 @@
     "docs/resources",
     "docs/tools",
     "docs/msg",
-    "docs/overview/overview.md",
     "docs/images/palette.png",
     "docs/images/msg-poly-selection.png",
     "docs/images/msg-implemented-recurse.png",
