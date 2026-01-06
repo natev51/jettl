@@ -11,4 +11,4 @@ These are the links to documentation for jettl. They are presented in no particu
 - [reuse-actors](reuse-actors/reuse-actors.md)
 - [style-guidelines](style-guidelines/style-guidelines.md)
 - [ideas-that-could-be-implemented](ideas-that-could-be-implemented/ideas-that-could-be-implemented.md)
-
+- [design-patterns](design-patterns/design-patterns.md)

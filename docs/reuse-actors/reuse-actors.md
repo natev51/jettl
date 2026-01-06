@@ -16,4 +16,4 @@ https://bitbucket.org/composedsystems/stream/src/master/
 
 Communicating between targets
 
-![](../images/IMG_7841.jpeg)
+![](../images/broker-startup-scratch.jpeg)
