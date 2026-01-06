@@ -1,1 +1,0 @@
-[Docs index](../index.md)

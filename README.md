@@ -4,13 +4,12 @@
 [![Image](https://www.vipm.io/package/nathan_davis_lib_jettl/badge.svg?metric=stars)](https://www.vipm.io/package/nathan_davis_lib_jettl/)
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?logo=discord&logoColor=white)](https://discord.gg/tVkvTyBxqa)
 
-**A modern LabVIEW Actor Model implementation for building scalable applications.**
+A modern LabVIEW Actor Model implementation for building scalable applications.
 
 *Dedicated to [Stephen Loftus-Mercer](https://www.linkedin.com/in/stephen-loftus-mercer/) for his pioneering work in introducing interfaces to the LabVIEW environment.*
 *This work would not be possible without this feature.*
 
-- Start here: [Docs Index](docs/index.md)
-
+Navigate through the documentation [here](docs/docs.md).
 ## Installation
 
 Install the published package on **[VIPM](https://www.vipm.io/package/nathan_davis_lib_jettl/)**.
