@@ -23,17 +23,17 @@ To find the tools:
 1. `Tools` pull-down menu
 2. `jettl Tools`
 
-To find the examples
-- in LabVIEW:
-	1. `Help` pull-down menu
-	2. `Find Examples`
-	3. `Search`
-	4. Enter keyword(s): `jettl`
-- in VIPM:
-	1. Search `jettl`
-	2. right click `jettl`
-	3. `Get Info`
-	4. `Show Examples`
+To find the examples in LabVIEW:
+1. `Help` pull-down menu
+2. `Find Examples`
+3. `Search`
+4. Enter keyword(s): `jettl`
+
+To find the examples in VIPM:
+1. Search `jettl`
+2. right click `jettl`
+3. `Get Info`
+4. `Show Examples`
 
 To learn by reading, navigate the [docs](docs/docs.md)
 
