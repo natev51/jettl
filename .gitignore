@@ -1,0 +1,6 @@
+# Obsidian local-only configuration (must never be committed)
+.obsidian/
+
+# OS noise
+.DS_Store
+Thumbs.db

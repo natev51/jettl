@@ -1,19 +1,3 @@
-Actors within other actors libraries.
-Model-View-Controller
-Separating the concerns of actors should be a normality where there’s the controller and view.
-Think for an actor system, a queue actor that needs an event helper loop. Rather, make this helper loop an event actor that is tightly coupled to the queue actor by having the event actor in the same library as the queue actor.
-
-My Computer:
-Event
-Queue Child (Network Streams)
-
-RT Target:
-Event
-Queue Child (Network Streams)
-
----
-
-
 Do a network stream on one PC between two applications.
 Get inspiration from network endpoints.
 

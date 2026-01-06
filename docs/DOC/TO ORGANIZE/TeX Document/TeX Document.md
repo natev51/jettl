@@ -3,7 +3,7 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 
-\title{\textbf{jettl} \\ An Interface-Composition based \\ LabVIEW Actor Model}
+\title{\textbf{jettl} \\ A modern LabVIEW Actor Model \\ implementation for building scalable applications.}
 \author{Nathan Davis}
 \date{\today}
 

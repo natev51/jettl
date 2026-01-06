@@ -9,13 +9,15 @@
 *Dedicated to [Stephen Loftus-Mercer](https://www.linkedin.com/in/stephen-loftus-mercer/) for his pioneering work in introducing interfaces to the LabVIEW environment.*
 *This work would not be possible without this feature.*
 
+- Start here: [Docs Index](docs/index.md)
+
 ## Installation
 
 Install the published package on **[VIPM](https://www.vipm.io/package/nathan_davis_lib_jettl/)**.
 
 Navigate to the `Data Communication` -> `jettl` palette and the pull-down menu to find tools in `Tools` -> `jettl Tools`.
 
-![](doc/figures/jettl-palette.png)
+![](../images/jettl-palette.png)
 *Palette.*
 
 This library is compatible with **LV 2020 and beyond**.
@@ -26,7 +28,7 @@ Note: If using LV2020, please consider using *LV 2020 SP1* and due to issues res
 - **Relative Actor Relations**.
 Every Actor in the system has itself, called `Self`.
 Along with one `Parent` and N many `Child` Actors.
-- **Address Abstaction**.
+- **Address Abstraction**.
 The address of an Actor is abstracted away from the developer, unless more advanced testing required.
 - **Messaging**.
 Actor messaging follow a strict tree hierarchy of messaging.
@@ -54,20 +56,20 @@ Look in the `doc` folder for the `main.pdf` for the ongoing documentation.
 Due to recent rapid development, this documentation will likely be outdated.
 Please refer to the [Videos](https://www.youtube.com/@nathandavis6612), for more recent explanations.
 
-![](doc/figures/queue-actor.png)
+![](../images/queue-actor.png)
 *Queue Actor.*
 
-![](doc/figures/event-actor.png)
+![](../images/event-actor.png)
 *Event Actor.*
 
-![](doc/figures/notifier-actor.png)
+![](../images/notifier-actor.png)
 *Notifier Actor.*
 
-![](doc/figures/msg-poly.png)
+![](../images/msg-poly.png)
 *Polymorphic Message.*
 
-![](doc/figures/msg.png)
-*Message implementaion.*
+![](../images/msg.png)
+*Message implementation.*
 
 ## Motivation
 
