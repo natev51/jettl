@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-08-18 10:28:19" Modified_Date="2026-01-05 15:59:20" Creator="Erik" Comments="" ID="16454b6ad55c357cef454657ee495b75">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-08-18 10:28:19" Modified_Date="2026-01-06 13:06:30" Creator="Erik" Comments="" ID="61699d6ddc65a5d7107b8cda329bc2d0">
   <Library_General_Settings>
     <Package_File_Name>Nathan_Davis_lib_jettl</Package_File_Name>
     <Library_Version>6.5.14.73</Library_Version>
@@ -126,9 +126,6 @@ GitHub: https://github.com/natev51/jettl</Description>
         <Namespace/>
       </Namespace_Overrides>
       <Exclusions>
-        <Path>doc</Path>
-      </Exclusions>
-      <Exclusions>
         <Path>LICENSE.txt</Path>
       </Exclusions>
       <Exclusions>
@@ -199,10 +196,11 @@ GitHub: https://github.com/natev51/jettl</Description>
       <install_into_global_environment>false</install_into_global_environment>
     </LabVIEW>
     <VI_Docs>
-      <Edit_VI_Description>false</Edit_VI_Description>
+      <Edit_VI_Description>true</Edit_VI_Description>
       <Text_to_Add>{product_name} {version_number}
 {author_name} - {company_name}
-{copyright}</Text_to_Add>
+{copyright}
+MIT</Text_to_Add>
     </VI_Docs>
     <System_Destinations/>
   </Advanced_Settings>
@@ -520,7 +518,7 @@ GitHub: https://github.com/natev51/jettl</Description>
         <Path>Add Ons</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>68AC1D86470C1749023A64651916E41B</GUID>
+      <GUID>B238CC3907CDCF73BE29A42E46207536</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -541,7 +539,7 @@ GitHub: https://github.com/natev51/jettl</Description>
         <Synchronyze_with_Directory>false</Synchronyze_with_Directory>
         <Synchronize_Directory_Path/>
       </Synchronization_Info>
-      <GUID>AE08CC2B364E68EBBB5153C04701CF6E</GUID>
+      <GUID>AC81A91F8B6C6AF6E4ECF633F3BB6636</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -562,7 +560,7 @@ GitHub: https://github.com/natev51/jettl</Description>
         <Synchronyze_with_Directory>false</Synchronyze_with_Directory>
         <Synchronize_Directory_Path/>
       </Synchronization_Info>
-      <GUID>85430C7B051935C0197310FB03944992</GUID>
+      <GUID>35E7A280E30771E578226DB52AE603A3</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>

@@ -16,4 +16,4 @@ https://bitbucket.org/composedsystems/stream/src/master/
 
 Communicating between targets
 
-**picture from phone.**
+![](../images/IMG_7841.jpeg)
