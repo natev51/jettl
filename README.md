@@ -17,7 +17,7 @@ Install the published package on **[VIPM](https://www.vipm.io/package/nathan_dav
 
 Navigate to the `Data Communication` -> `jettl` palette and the pull-down menu to find tools in `Tools` -> `jettl Tools`.
 
-![](../images/jettl-palette.png)
+![](images/jettl-palette.png)
 *Palette.*
 
 This library is compatible with **LV 2020 and beyond**.
