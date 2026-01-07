@@ -62,4 +62,5 @@
 	<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi"/>
 	<Item Name="Tell Reply.vi" Type="VI" URL="../Tell Reply.vi"/>
 	<Item Name="Listen To Msg.vi" Type="VI" URL="../Listen To Msg.vi"/>
+	<Item Name="Actor.vi" Type="VI" URL="../Actor.vi"/>
 </Library>

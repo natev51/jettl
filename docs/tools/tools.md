@@ -82,3 +82,11 @@ Take an actor and it's messages and convert to PPL.
 ### Create Errors in some folder.
 
 the `placement--error.vi`
+
+### Ref Tools
+
+Tool for scripting User Events functions.
+Also, note that it is probably best to script the methods (for user events) as public API so that other parts of the project can access them, think about private actors to the one who is sharing it's references, you want to be able to share these events around.
+Also, if you play nicely, this can lead to an easier distributed broker since the reference and the scripted value change events are public.
+Tool above for scripting the events.
+is it better to have these user events from the scripting to be messages??
