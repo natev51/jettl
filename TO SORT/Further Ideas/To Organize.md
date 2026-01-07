@@ -1,15 +1,3 @@
-
-First, note that you can launch and send a message to an actor from any LabVIEW code, not just other actors. The tricky part is getting answers *back* from that actor. This is where the bridge (or adapter, or shim code) comes in.
-Start off by creating a proper actor. It does whatever you need it to do (perhaps it handles hardware), and follows all the rules - no data communication except through actor queues, and no reply messages! This lets you reuse the actor in pure AF applications as well as your current mixed environment.
-Then you create the bridge/adapter actor. This actor sits between your calling code and your 'pure' actor. It interacts with the pure actor in a strict AF style. But since its caller isn't an actor, you can break the rules when sending data to that caller.
-Give the bridge/adapter a set of standard messages that match the ones you will send to its nested actor. (This is trivial if you use interfaces.) These are just pass-throughs; the bridge will just forward them to its nested actor.
-Also give the bridge one or more reference objects. Use DVRs for tags, or queues for streaming data or messages. The calling code can create these objects and pass them to the bridge at startup, or the bridge can create them and send them to the caller, perhaps as a message. (The former is easier, but you may need to do the latter if the calling VI goes out of memory before the actor terminates - this is common in TestStand systems.)
-When the pure nested actor sends data to the bridge, the bridge stores that data in the appropriate reference object.
-The calling code pulls data from those reference objects as and where it needs to do so. For example, if the caller is a regular queue driven message handler, you might pass the QMH queue into the bridge actor. When the bridge actor receives a message from its nested actor, it creates a message for the QMH, gives it the data from the nested actor, and sends the message to the QMH.
-If the calling code is NOT a QMH, then I wouldn't forward messages (since the caller isn't message driven). I would wrap all of the code to talk to the bridge in a class, with Create/Destroy VIs to launch the bridge actor, VIs that send commands (by sending a message), and VIs that read data (by accessing DVRs or queues).
-
----
-
 Debug
 
 In the Spawn Logic.vi, can decorate the Core Actor with some debug Actor that gets DDd at runtime depending on the debug implementation. This could occur ONLY for the Spawn Root though so that it only needs to occur in one place for an application.
