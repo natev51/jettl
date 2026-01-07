@@ -4,3 +4,6 @@
 
 ![](docs/images/msg-implemented-recurse.png)
 *Message implementation.*
+
+Private Messages:
+Putting msg library into Private Msg folder

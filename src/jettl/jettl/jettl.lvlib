@@ -14,6 +14,7 @@
 	<Item Name="Msg.lvclass" Type="LVClass" URL="../Msg/Msg.lvclass"/>
 	<Item Name="Msg Output.lvclass" Type="LVClass" URL="../Msg Output/Msg Output.lvclass"/>
 	<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor.lvclass"/>
+	<Item Name="Refs.lvclass" Type="LVClass" URL="../Refs/Refs.lvclass"/>
 	<Item Name="Teller.lvlib" Type="Library" URL="../Teller/Teller.lvlib"/>
 	<Item Name="Spawn.lvlib" Type="Library" URL="../Spawn/Spawn.lvlib"/>
 	<Item Name="Setup.lvlib" Type="Library" URL="../Setup/Setup.lvlib"/>

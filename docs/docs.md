@@ -12,3 +12,8 @@ These are the links to documentation for jettl. They are presented in no particu
 - [style-guidelines](style-guidelines/style-guidelines.md)
 - [ideas-that-could-be-implemented](ideas-that-could-be-implemented/ideas-that-could-be-implemented.md)
 - [design-patterns](design-patterns/design-patterns.md)
+- [benchmarking](benchmarking/benchmarking.md)
+- [ppl](ppl/ppl.md)
+- [executables](executables/executables.md)
+- [unit-tests](unit-tests/unit-tests.md)
+

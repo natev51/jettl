@@ -13,10 +13,7 @@
 	<Item Name="Event Transport.lvclass" Type="LVClass" URL="../Event Transport/Event Transport.lvclass">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Init.vi" Type="VI" URL="../Init.vi"/>
 	<Item Name="Read Address.vi" Type="VI" URL="../Read Address.vi"/>
 	<Item Name="Read Msg Ref.vi" Type="VI" URL="../Read Msg Ref.vi"/>
-	<Item Name="Palette.vi" Type="VI" URL="../Palette.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
+	<Item Name="Start Event.vi" Type="VI" URL="../Start Event.vi"/>
 </Library>

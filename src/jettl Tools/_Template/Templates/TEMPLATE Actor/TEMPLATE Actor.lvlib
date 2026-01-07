@@ -16,8 +16,16 @@
 	<Item Name="Msg" Type="Folder">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
+	<Item Name="Refs" Type="Folder">
+		<Item Name="TEMPLATE Refs.lvclass" Type="LVClass" URL="../TEMPLATE Refs/TEMPLATE Refs.lvclass">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Refs.ctl" Type="VI" URL="../Refs.ctl"/>
+		<Item Name="Init Refs.vi" Type="VI" URL="../Init Refs.vi"/>
+		<Item Name="Read Refs.vi" Type="VI" URL="../Read Refs.vi"/>
+	</Item>
 	<Item Name="TEMPLATE Actor.lvclass" Type="LVClass" URL="../TEMPLATE Actor/TEMPLATE Actor.lvclass">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Init.vi" Type="VI" URL="../Init.vi"/>
+	<Item Name="Init Actor.vi" Type="VI" URL="../Init Actor.vi"/>
 </Library>

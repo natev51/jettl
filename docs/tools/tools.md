@@ -19,6 +19,10 @@ invoke node, wire, CleanUpWire
 both actor and msg renaming:
 take the library(s) it is contained in and properly put them in a hierarchical map where the names are in fact unique depending on their path/hierarchy of library(s).
 
+### Template
+
+
+
 ## Current External Tools
 
 None
@@ -26,9 +30,12 @@ None
 ### Actor Rescript
 
 could be a actor rescript for rescripting the Init.vi to Init.vi where the inputs are the same.
-### Disk Moving
+### Moving Msg and Actor Libraries
 
 Moving Actors and Msgs on disk.
+also in project explorer into the correct destination
+- into Private Msg Folder of an actor, or
+- out of any library to the top level target.
 ### Forward Msg
 
 By further accessing parents parents, can look at the `Read Root.vi` to find if the parent is the root.
@@ -47,6 +54,10 @@ Or going down the tree can look at the unified msg set of the children it has, t
 4. put the poly of that msg with recurse selected
 5. wire up recurse as necessary
 
+This combats when many interfaces and classes loaded and one wants to have actor implement a msg that is tied to interface.
+This tool would bypass all classes not tied to a message and have a dropdown of only messages one can implement.
+This helps since one doesn't need to search through the laborious tree search for the name and hierarchy of the messages method.
+
 ### Un-Generate Implemented Msg
 
 Removes message from actor.
@@ -58,3 +69,16 @@ Additionally:
 > For implemented message methods that class doesn't implement the interface i.e. a message that cannot ever be executed since not tied to implemented interface.. **OR CAN IT?**
 > When a interface message is implemented, but messages method is not implemented.
 
+### Msg Destination Viewer
+
+Where messages go, relative to the actor (both to and from).
+- implemented messages
+- outbound messages to parent, child, reply (can only be within the method call being enacted since that is where the teller interface comes from, have to trace it back through subVI calls if necessary.)
+
+### PPL Conversion
+
+Take an actor and it's messages and convert to PPL.
+
+### Create Errors in some folder.
+
+the `placement--error.vi`

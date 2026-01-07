@@ -1,109 +1,12 @@
-Do a network stream on one PC between two applications.
-Get inspiration from network endpoints.
 
----
-
-Make some dummy application communicating with network streams with Booleans,
-then use an interface to send a concrete class across the network streams.
-
----
-
-Maybe use the application instance as the unique identifier?
-
-Endpoint Name/Context Uniqueness: If you have multiple applications on the same machine using network streams, you need to manage endpoint naming carefully. Only one application can use the default context (empty context in the URL) on a given computer . So if you run two executables that both create an endpoint named “DataStream” in default context, you’ll get a conflict. The solution is to assign a context name in the URL for at least one of them (e.g. //localhost:MyAppContext/DataStream). This adds complexity, but it’s a limitation to note: endpoint names are effectively global within a machine’s context space.
-
----
-
-Has anyone found a solution to this problem: You have a thousand or so classes, and you want to set the hierarchy to a new class. So you go to class properties, inheritance, and are confronted with a massive tree which you have to navigate by hand to find the exact hierarchy of the class you are looking for. There's no filter by name like there is in the labview search, just a laborious tree search.
-
-
-Tool idea
-to implement messages without overriding with Recurse already there.
-
----
-
-Network Endpoint Actors
-Look into source code
-Other example VIPMs?
-
----
-
-AF resources
-
-Actor-Oriented Design in LabVIEW.
-Tom McQuillan's YouTube channel, Tom's LabVIEW Adventures on AF
-
----
-
-Benchmarking
-on message rates for trigger messages?
-So tell the self 100000 messages and take the average until the stopped message is received in the parent.
-How fast does an bare actor get spawned to when the stopped message is listened to?
-
----
-
-PPL
-think one thing would be releasing the core AF library as a PPL though
-
----
-
-Actor Ref
-input before Setup and Start allows for the Parent to have access to the Actor Ref, that means that the Parent has accesss to put that method in its subpanel instead of sending the child across the parents subpanel.
-
----
-
-Private messages
-Putting library as private to Private Msg folder
-(Private Actor folder too)
-Only actors in the library can access that message.
-
-Tool for moving messages on disk to the Private Msg Folder and into / out of any library within the project.
-
-Have a view for dependencies for all of the tools.
-
-Best practice: Instead of helper loops, spin up another actor.
-
-
-Intra application: user events
-There’s not cross tree communication, but there is pseudo cross tree communication with user events.
-Inter labview application: network streams
-Inter non labview application: tcp
-
-CButch is good
-CaseyMay is good
-justACS is good
-
-Scripting tools exist as is, and an extension to convert to implement from PPL is available to seamlessly convert to PPL.
-
-
-I cover the techniques for writing bridge actors to connect to non-AF code in the course. It’s straightforward, but it’s all hand work. It might be possible to develop some tooling. - justACS
-
----
-
-Unit Tests
-Caraya
-LUnit
-
-Resource from AF:
-https://labviewwiki.org/wiki/Americas_CLA_Summit_2019/Test_Driven_Development_in_Actor_Framework
-
----
-
-Bridge Actors between jettl and non jettl LabVIEW Applications.
-
-from justACS from AF discord:
 First, note that you can launch and send a message to an actor from any LabVIEW code, not just other actors. The tricky part is getting answers *back* from that actor. This is where the bridge (or adapter, or shim code) comes in.
 Start off by creating a proper actor. It does whatever you need it to do (perhaps it handles hardware), and follows all the rules - no data communication except through actor queues, and no reply messages! This lets you reuse the actor in pure AF applications as well as your current mixed environment.
 Then you create the bridge/adapter actor. This actor sits between your calling code and your 'pure' actor. It interacts with the pure actor in a strict AF style. But since its caller isn't an actor, you can break the rules when sending data to that caller.
 Give the bridge/adapter a set of standard messages that match the ones you will send to its nested actor. (This is trivial if you use interfaces.) These are just pass-throughs; the bridge will just forward them to its nested actor.
 Also give the bridge one or more reference objects. Use DVRs for tags, or queues for streaming data or messages. The calling code can create these objects and pass them to the bridge at startup, or the bridge can create them and send them to the caller, perhaps as a message. (The former is easier, but you may need to do the latter if the calling VI goes out of memory before the actor terminates - this is common in TestStand systems.)
 When the pure nested actor sends data to the bridge, the bridge stores that data in the appropriate reference object.
-The calling code pulls data from those reference objects as and where it needs to do so. For example, if the caller is a regular qeueue driven message handler, you might pass the QMH queue into the bridge actor. When the bridge actor receives a message from its nested actor, it creates a message for the QMH, gives it the data from the nested actor, and sends the message to the QMH.
+The calling code pulls data from those reference objects as and where it needs to do so. For example, if the caller is a regular queue driven message handler, you might pass the QMH queue into the bridge actor. When the bridge actor receives a message from its nested actor, it creates a message for the QMH, gives it the data from the nested actor, and sends the message to the QMH.
 If the calling code is NOT a QMH, then I wouldn't forward messages (since the caller isn't message driven). I would wrap all of the code to talk to the bridge in a class, with Create/Destroy VIs to launch the bridge actor, VIs that send commands (by sending a message), and VIs that read data (by accessing DVRs or queues).
-I'll probably add this to my list of actor exercises I'm going to create for the CTI some day.
-
-You don't need a reply message if the calling code has access to the Task Container DVR.
-Actually, that's what I'd expect the calling code to look like if you are using DVRs in the bridge actor.
 
 ---
 
