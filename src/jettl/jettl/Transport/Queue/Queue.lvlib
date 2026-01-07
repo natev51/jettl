@@ -15,8 +15,8 @@
 	</Item>
 	<Item Name="Listen For Msg.vi" Type="VI" URL="../Listen For Msg.vi"/>
 	<Item Name="Read Address.vi" Type="VI" URL="../Read Address.vi"/>
-	<Item Name="Start Queue.vi" Type="VI" URL="../Start Queue.vi">
+	<Item Name="Starting.vi" Type="VI" URL="../Starting.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Queue Transport.vi" Type="VI" URL="../Queue Transport.vi"/>
+	<Item Name="Transport.vi" Type="VI" URL="../Transport.vi"/>
 </Library>

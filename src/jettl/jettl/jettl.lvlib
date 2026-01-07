@@ -48,9 +48,10 @@
 	</Item>
 	<Item Name="Spawn Root.vi" Type="VI" URL="../Spawn Root.vi"/>
 	<Item Name="Spawn.vi" Type="VI" URL="../Spawn.vi"/>
-	<Item Name="Start.vi" Type="VI" URL="../Start.vi"/>
+	<Item Name="Decorator.vi" Type="VI" URL="../Decorator.vi"/>
+	<Item Name="Starting.vi" Type="VI" URL="../Starting.vi"/>
 	<Item Name="Can Stop.vi" Type="VI" URL="../Can Stop.vi"/>
-	<Item Name="Stop.vi" Type="VI" URL="../Stop.vi"/>
+	<Item Name="Stopping.vi" Type="VI" URL="../Stopping.vi"/>
 	<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>
 	<Item Name="Recurse.vi" Type="VI" URL="../Recurse.vi"/>
 	<Item Name="Execute Msg Or Recurse.vi" Type="VI" URL="../Execute Msg Or Recurse.vi"/>

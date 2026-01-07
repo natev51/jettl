@@ -15,5 +15,5 @@
 	</Item>
 	<Item Name="Read Address.vi" Type="VI" URL="../Read Address.vi"/>
 	<Item Name="Read Msg Ref.vi" Type="VI" URL="../Read Msg Ref.vi"/>
-	<Item Name="Start Event.vi" Type="VI" URL="../Start Event.vi"/>
+	<Item Name="Starting.vi" Type="VI" URL="../Starting.vi"/>
 </Library>
