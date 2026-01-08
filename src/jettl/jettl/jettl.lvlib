@@ -46,8 +46,10 @@
 	<Item Name="Layers To Decorate.vi" Type="VI" URL="../Layers To Decorate.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Spawn Root.vi" Type="VI" URL="../Spawn Root.vi"/>
-	<Item Name="Spawn.vi" Type="VI" URL="../Spawn.vi"/>
+	<Item Name="Async Spawn Root.vi" Type="VI" URL="../Async Spawn Root.vi"/>
+	<Item Name="Async Spawn.vi" Type="VI" URL="../Async Spawn.vi"/>
+	<Item Name="Inline Spawn Root.vi" Type="VI" URL="../Inline Spawn Root.vi"/>
+	<Item Name="Inline Spawn Root.ctl" Type="VI" URL="../Inline Spawn Root.ctl"/>
 	<Item Name="Decorator.vi" Type="VI" URL="../Decorator.vi"/>
 	<Item Name="Starting.vi" Type="VI" URL="../Starting.vi"/>
 	<Item Name="Can Stop.vi" Type="VI" URL="../Can Stop.vi"/>
@@ -62,5 +64,4 @@
 	<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi"/>
 	<Item Name="Tell Reply.vi" Type="VI" URL="../Tell Reply.vi"/>
 	<Item Name="Listen To Msg.vi" Type="VI" URL="../Listen To Msg.vi"/>
-	<Item Name="Actor.vi" Type="VI" URL="../Actor.vi"/>
 </Library>

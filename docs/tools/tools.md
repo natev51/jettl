@@ -58,6 +58,18 @@ This combats when many interfaces and classes loaded and one wants to have actor
 This tool would bypass all classes not tied to a message and have a dropdown of only messages one can implement.
 This helps since one doesn't need to search through the laborious tree search for the name and hierarchy of the messages method.
 
+Descriptions for message naming:
+Use .ini parsing to get the unique identifier associated with message in the description.
+i.e.
+
+```
+$
+[Msg]
+"UID": e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+$
+```
+
+where the UID is generated when creating the TEMPLATE Msg.
 ### Un-Generate Implemented Msg
 
 Removes message from actor.

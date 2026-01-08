@@ -14,5 +14,5 @@
 	<Item Name="Base Teller.lvclass" Type="LVClass" URL="../Base Teller/Base Teller.lvclass">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Init.vi" Type="VI" URL="../Init.vi"/>
+	<Item Name="Init Teller.vi" Type="VI" URL="../Init Teller.vi"/>
 </Library>

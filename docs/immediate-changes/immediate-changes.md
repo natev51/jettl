@@ -4,22 +4,14 @@
 ---
 
 Rename tool
-change the scripting to rename the TEMPLATE Refs at it's object front panel names AND containing library.
+change the scripting to rename the TEMPLATE Refs at it's object front panel names
 **Name Ref**
 
----
-
-rename the init methods with init Xxxxxx where the xxxxxxx the interface name
-
----
-
-Descriptions for message naming:
-Use .ini parsing to get the unique identifier associated with message in the description.
-i.e.
-$
-[Msg]
-"UID": e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-$
+Both Rename and Msg Rescript
+scripting
+Init -> Init Msg
+Init -> Init Msg Output
+Output -> Read Msg Output
 
 ---
 
@@ -28,17 +20,7 @@ This ensemble can go into its own function too, this function puts out “Unifie
 
 Now, there might be some renaming for these clusters again..
 
-
----
-
-Spawn Actor.vi
-delete Actor.vi function, just use the Actor.vi DD?
-Add in comment that also, there are the count and initializing the actor constants.
-![](../images/changes-spawn-actor.png)
-
 ---
 
 Check that UID is not blank
 create a function that can be dropped around for this.
-
----

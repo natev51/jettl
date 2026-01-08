@@ -13,7 +13,7 @@
 	<Item Name="Notifier Transport.lvclass" Type="LVClass" URL="../Notifier Transport/Notifier Transport.lvclass">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Init.vi" Type="VI" URL="../Init.vi"/>
+	<Item Name="Init Transport.vi" Type="VI" URL="../Init Transport.vi"/>
 	<Item Name="Listen For Msg.vi" Type="VI" URL="../Listen For Msg.vi"/>
 	<Item Name="Read Address.vi" Type="VI" URL="../Read Address.vi"/>
 	<Item Name="Starting.vi" Type="VI" URL="../Starting.vi"/>

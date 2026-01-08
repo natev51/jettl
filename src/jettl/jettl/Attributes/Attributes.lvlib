@@ -14,5 +14,5 @@
 	<Item Name="Base Attributes.lvclass" Type="LVClass" URL="../Base Attributes/Base Attributes.lvclass">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Init.vi" Type="VI" URL="../Init.vi"/>
+	<Item Name="Init Attributes.vi" Type="VI" URL="../Init Attributes.vi"/>
 </Library>
