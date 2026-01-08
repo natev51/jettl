@@ -16,4 +16,6 @@ These are the links to documentation for jettl. They are presented in no particu
 - [ppl](ppl/ppl.md)
 - [executables](executables/executables.md)
 - [unit-tests](unit-tests/unit-tests.md)
+- [examples](examples/examples.md)
+
 

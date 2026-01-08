@@ -28,4 +28,13 @@ Now, this is the same for messages that come from the parent and go to the other
 
 ---
 
-The Bridge Actor is still an actor, it's just that it is used as 
+The Bridge Actor is still an actor, it's just that it is used as
+
+
+
+---
+
+Testing:
+- APIs for user events that are unique to the actor being tested (top diagram)
+- API function call for launching Bridge Actor (bottom diagram)
+
