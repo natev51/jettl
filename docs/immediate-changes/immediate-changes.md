@@ -15,4 +15,6 @@ Output -> Read Msg Output
 
 ---
 
-make error for the UID EMPTY!!!!!!!!
+**THEN test with the UE code.**
+maybe some kind of user event that comes with the framework that creates user events for the Stop Msg and the Stopped Msg?
+These user events can then come native with the framework in case of IPC communication.

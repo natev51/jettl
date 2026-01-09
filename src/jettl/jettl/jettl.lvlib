@@ -41,21 +41,24 @@
 	<Item Name="Layers To Decorate.vi" Type="VI" URL="../Layers To Decorate.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Async Spawn.vi" Type="VI" URL="../Async Spawn.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
 	<Item Name="Find Local Msg Set.vi" Type="VI" URL="../Find Local Msg Set.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Async Spawn Root.vi" Type="VI" URL="../Async Spawn Root.vi"/>
-	<Item Name="Async Spawn Child.vi" Type="VI" URL="../Async Spawn Child.vi"/>
-	<Item Name="Inline Spawn Root.vi" Type="VI" URL="../Inline Spawn Root.vi"/>
+	<Item Name="Check Spawn.vi" Type="VI" URL="../Check Spawn.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Async Spawn.vi" Type="VI" URL="../Async Spawn.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
 	<Item Name="Async Actor.vi" Type="VI" URL="../Async Actor.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Count.vi" Type="VI" URL="../Count.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
+	<Item Name="Async Spawn Root.vi" Type="VI" URL="../Async Spawn Root.vi"/>
+	<Item Name="Async Spawn Child.vi" Type="VI" URL="../Async Spawn Child.vi"/>
+	<Item Name="Inline Spawn Root.vi" Type="VI" URL="../Inline Spawn Root.vi"/>
 	<Item Name="Starting.vi" Type="VI" URL="../Starting.vi"/>
 	<Item Name="Can Stop.vi" Type="VI" URL="../Can Stop.vi"/>
 	<Item Name="Stopping.vi" Type="VI" URL="../Stopping.vi"/>
