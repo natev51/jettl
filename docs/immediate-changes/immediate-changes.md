@@ -15,12 +15,4 @@ Output -> Read Msg Output
 
 ---
 
-Find Local Msg Set can occur in spawning. Since can iterate on every decoration, outputs the local msg set array that is found and appends to an array which appends to another array of all decorations, which goes into the Union Local Msg Set function.
-This ensemble can go into its own function too, this function puts out “Unified Msg Set”
-
-Now, there might be some renaming for these clusters again..
-
----
-
-Check that UID is not blank
-create a function that can be dropped around for this.
+make error for the UID EMPTY!!!!!!!!

@@ -16,8 +16,6 @@
 	<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor.lvclass"/>
 	<Item Name="Refs.lvclass" Type="LVClass" URL="../Refs/Refs.lvclass"/>
 	<Item Name="Teller.lvlib" Type="Library" URL="../Teller/Teller.lvlib"/>
-	<Item Name="Spawn.lvlib" Type="Library" URL="../Spawn/Spawn.lvlib"/>
-	<Item Name="Setup.lvlib" Type="Library" URL="../Setup/Setup.lvlib"/>
 	<Item Name="Attributes.lvlib" Type="Library" URL="../Attributes/Attributes.lvlib"/>
 	<Item Name="Transport.lvlib" Type="Library" URL="../Transport/Transport.lvlib"/>
 	<Item Name="Error.lvlib" Type="Library" URL="../Error/Error.lvlib"/>
@@ -28,40 +26,49 @@
 	<Item Name="Spawn.ctl" Type="VI" URL="../Spawn.ctl">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Setup.ctl" Type="VI" URL="../Setup.ctl">
+	<Item Name="Actor.ctl" Type="VI" URL="../Actor.ctl">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Attributes.ctl" Type="VI" URL="../Attributes.ctl">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Within Msg Set.vi" Type="VI" URL="../Within Msg Set.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="Equal To Core Actor.vi" Type="VI" URL="../Equal To Core Actor.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
 	<Item Name="Default Instance.vi" Type="VI" URL="../Default Instance.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Decorate And Unified Msg Set.vi" Type="VI" URL="../Decorate And Unified Msg Set.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Layers To Decorate.vi" Type="VI" URL="../Layers To Decorate.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
+	<Item Name="Async Spawn.vi" Type="VI" URL="../Async Spawn.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Find Local Msg Set.vi" Type="VI" URL="../Find Local Msg Set.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
 	<Item Name="Async Spawn Root.vi" Type="VI" URL="../Async Spawn Root.vi"/>
-	<Item Name="Async Spawn.vi" Type="VI" URL="../Async Spawn.vi"/>
+	<Item Name="Async Spawn Child.vi" Type="VI" URL="../Async Spawn Child.vi"/>
 	<Item Name="Inline Spawn Root.vi" Type="VI" URL="../Inline Spawn Root.vi"/>
-	<Item Name="Inline Spawn Root.ctl" Type="VI" URL="../Inline Spawn Root.ctl"/>
-	<Item Name="Decorator.vi" Type="VI" URL="../Decorator.vi"/>
+	<Item Name="Async Actor.vi" Type="VI" URL="../Async Actor.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Count.vi" Type="VI" URL="../Count.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
 	<Item Name="Starting.vi" Type="VI" URL="../Starting.vi"/>
 	<Item Name="Can Stop.vi" Type="VI" URL="../Can Stop.vi"/>
 	<Item Name="Stopping.vi" Type="VI" URL="../Stopping.vi"/>
 	<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>
 	<Item Name="Recurse.vi" Type="VI" URL="../Recurse.vi"/>
 	<Item Name="Execute Msg Or Recurse.vi" Type="VI" URL="../Execute Msg Or Recurse.vi"/>
-	<Item Name="Find Local Msg Set.vi" Type="VI" URL="../Find Local Msg Set.vi"/>
-	<Item Name="Union Unified Msg Set.vi" Type="VI" URL="../Union Unified Msg Set.vi"/>
 	<Item Name="Tell Self.vi" Type="VI" URL="../Tell Self.vi"/>
 	<Item Name="Tell Parent.vi" Type="VI" URL="../Tell Parent.vi"/>
 	<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi"/>
 	<Item Name="Tell Reply.vi" Type="VI" URL="../Tell Reply.vi"/>
 	<Item Name="Listen To Msg.vi" Type="VI" URL="../Listen To Msg.vi"/>
+	<Item Name="Within Msg Set.vi" Type="VI" URL="../Within Msg Set.vi"/>
+	<Item Name="Update Attributes In Actor.vi" Type="VI" URL="../Update Attributes In Actor.vi"/>
+	<Item Name="Update Attributes in Starting.vi" Type="VI" URL="../Update Attributes in Starting.vi"/>
+	<Item Name="Check Refs Default.vi" Type="VI" URL="../Check Refs Default.vi"/>
 </Library>

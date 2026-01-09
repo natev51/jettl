@@ -17,4 +17,5 @@
 	<Item Name="Read Address.vi" Type="VI" URL="../Read Address.vi"/>
 	<Item Name="Read Msg Ref.vi" Type="VI" URL="../Read Msg Ref.vi"/>
 	<Item Name="Starting.vi" Type="VI" URL="../Starting.vi"/>
+	<Item Name="Transport.vi" Type="VI" URL="../Transport.vi"/>
 </Library>
