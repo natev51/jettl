@@ -16,8 +16,8 @@
 	<Item Name="Msg" Type="Folder">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Spawn" Type="Folder">
-		<Item Name="Spawn placeholder.vi" Type="VI" URL="../Spawn placeholder.vi"/>
+	<Item Name="Spawn Child" Type="Folder">
+		<Item Name="Spawn Child placeholder.vi" Type="VI" URL="../Spawn Child placeholder.vi"/>
 	</Item>
 	<Item Name="Static Child UIDs" Type="Folder">
 		<Item Name="Static Child UIDs.ctl" Type="VI" URL="../Static Child UIDs.ctl"/>

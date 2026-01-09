@@ -41,9 +41,6 @@
 	<Item Name="Layers To Decorate.vi" Type="VI" URL="../Layers To Decorate.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Find Local Msg Set.vi" Type="VI" URL="../Find Local Msg Set.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
 	<Item Name="Check Spawn.vi" Type="VI" URL="../Check Spawn.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
@@ -62,6 +59,7 @@
 	<Item Name="Starting.vi" Type="VI" URL="../Starting.vi"/>
 	<Item Name="Can Stop.vi" Type="VI" URL="../Can Stop.vi"/>
 	<Item Name="Stopping.vi" Type="VI" URL="../Stopping.vi"/>
+	<Item Name="Find Local Msg Set.vi" Type="VI" URL="../Find Local Msg Set.vi"/>
 	<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>
 	<Item Name="Recurse.vi" Type="VI" URL="../Recurse.vi"/>
 	<Item Name="Execute Msg Or Recurse.vi" Type="VI" URL="../Execute Msg Or Recurse.vi"/>
