@@ -41,6 +41,9 @@
 	<Item Name="Layers To Decorate.vi" Type="VI" URL="../Layers To Decorate.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
+	<Item Name="Union Local Msg Sets.vi" Type="VI" URL="../Union Local Msg Sets.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
 	<Item Name="Check Spawn.vi" Type="VI" URL="../Check Spawn.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
