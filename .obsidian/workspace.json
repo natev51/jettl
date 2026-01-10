@@ -187,6 +187,8 @@
   },
   "active": "6fa5ef4d3c64b057",
   "lastOpenFiles": [
+    "nathan_davis_lib_jettl-6.5.19.75.vip",
+    "src/jettl/jettl/Union Local Msg Sets.vi",
     "src/jettl Tools/_Template/Templates/TEMPLATE Actor/TEMPLATE Actor/Find Local Msg Set.vi",
     "src/jettl/jettl/Core Actor/Core Actor/Find Local Msg Set.vi",
     "src/jettl/jettl/Actor/Find Local Msg Set.vi",
@@ -198,8 +200,6 @@
     "docs/immediate-changes/immediate-changes.md",
     "nathan_davis_lib_jettl-6.5.18.74.vip",
     "src/jettl Tools/_Msg Rescript/_Msg Rescript/Script Msg Init Msg VI.vi",
-    "src/jettl Tools/_Msg Rescript/_Msg Rescript/Script Msg Output IMO VI.vi",
-    "src/jettl Tools/_Msg Rescript/_Msg Rescript/Script Msg Output RMO VI.vi",
     "docs/tools/tools.md",
     "docs/images/changes-spawn-actor.png",
     "docs/examples/examples.md",
