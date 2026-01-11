@@ -18,3 +18,6 @@ Property Nodes are not used due to banner color not being displayed.
 
 ---
 
+Nested Libraries Reason:
+Comment from Greg:
+![](../images/style-nested-libraries.png)

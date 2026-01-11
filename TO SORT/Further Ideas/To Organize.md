@@ -20,12 +20,6 @@ It’s the reason jettl always creates its own event references. Lifetime is gua
 
 ---
 
-Target info
-
-no way to preserve the queue reference across machines.
-
----
-
 State Pattern
 
 https://www.youtube.com/watch?v=N12L5D78MAA
@@ -107,12 +101,6 @@ Our method depends on the Msg being created by the scripting tools and put in th
 ---
 
 jettl Feature: Ability for other actors to be spawned in setup!!!!!!!!!!
-
----
-
-Network Endpoints
-
-https://www.youtube.com/live/1ubKjLSnFi0?si=mvIoviRpQWjLijJ1
 
 ---
 
@@ -364,12 +352,6 @@ State pattern actor
 
 ---
 
-Here is the list we generated from GDevCon N.A.:
-
-Bug to Fix:
-- AF Debug Traces Circular Dependency
-
-Tools Available or that We Wish We Had:
 - Network Endpoint Actors (Have - <@698284997106335765>)
 - Actor Hierarchy Inspector (Have - <@698284997106335765>)
 - Panel Actor (new release without Monitored Actor dependency, <@698284997106335765> is working on it, bug after July 31st)
@@ -385,10 +367,6 @@ Tools Available or that We Wish We Had:
 - Message Monitor (<@1198120469765832786> looking into this) This would be more like a logger/monitor showing run-time message sends and payload.
 - Actor System Designer (<@711301523027656774> looking into this) This tool would provide a system level diagram of Actors and Actor Calling Hierarchy.
 - Actor Framework Message Forwarding (Have Zyah made it. <@460922496007274497> ) Automatically can forward message through the Calling Hierarchy
-- Marketing
-- Need more AF presentations at events
-- <@711301523027656774> to create a presentation on Panel Actors and QControls
-
 
 
 

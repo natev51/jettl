@@ -1,5 +1,5 @@
 
-Best Practice: Instead of helper loops, it is encouraged to spawn a child actor that acts as a helper loop. Fhis maintains a single loop within an actor. This emphasizes to not branch the actor object to different loops.
+Best Practice: Instead of helper loops, it is encouraged to spawn a child actor that acts as a helper loop. This maintains a single loop within an actor. This emphasizes to not branch the actor object to different loops.
 
 ---
 
@@ -79,7 +79,7 @@ This logging should go into **Start.vi** wrapper actor
 Intermediate Actor Logging  
 EACH Actor can have an event logger.
 
-File is created for EACH Actor in a central temp application directory, and a time stamp with a call chain / object hierarchy are logged with events etc. This way we can easily stream these values to disk as an internal actor logger.
+File is created for EACH Actor in a central temp application directory, and a time stamp with a call chain / object hierarchy are logged with events etc. This way we can easily write these values to disk as an internal actor logger.
 
 Wrapper
 For the Errors generated in the program..
@@ -168,11 +168,6 @@ Also, a tool for determining if a message can be sent to sel like if there are m
 
 Instead of class inheritance, the decorator pattern already has the methods overridden with functionality. So you don’t have to create a new override method, just move the method to the extended virtual folder (for developer experience) and append functionality as necessary.
 jettl does not require ever modifying class inheritance since class inheritance is not recommended. Recommended practice is using interface implementation for all classes mixed with dependency inversion.
-
----
-
-Standardize on Network Streams for LabVIEW communication between applications
-Gives rise also to distributed system design having multiple hierarchies communicating with each other through their lowest created actors.
 
 ---
 

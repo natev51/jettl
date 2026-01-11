@@ -14,38 +14,12 @@ Usefulness of having `Actor Ref` as an input before `Setup.vi` and `Start.vi` al
 Resources:
 https://bitbucket.org/composedsystems/mva-framework/src/master/
 https://bitbucket.org/composedsystems/stream/src/master/
-https://www.vipm.io/package/national_instruments_lib_ni_network_endpoint_actors/
 
 ---
 
 Communicating between targets
 
 ![](../images/broker-startup-scratch.jpeg)
-
----
-
-Confirm working by:
-With a boolean message,
-Do a network stream on My Computer between two applications.
-then with My Computer and RT
-
----
-
-Identify the unique application instance by using the property for `Read Application Ref.vi` and convert to bytes for unique identifier.
-
-An external note on this:
-Endpoint Name/Context Uniqueness: If you have multiple applications on the same machine using network streams, you need to manage endpoint naming carefully. Only one application can use the default context (empty context in the URL) on a given computer . So if you run two executables that both create an endpoint named “DataStream” in default context, you’ll get a conflict. The solution is to assign a context name in the URL for at least one of them (e.g. //localhost:MyAppContext/DataStream). This adds complexity, but it’s a limitation to note: endpoint names are effectively global within a machine’s context space.
-
----
-
-Intra application: user events
-There’s not cross tree communication, but there is pseudo cross tree communication with user events.
-
-Inter LabVIEW application: network streams
-
-Inter non LabVIEW application: TCP
-
----
 
 
 ### Bridge Actors
@@ -80,7 +54,7 @@ The bridge actor should expose a set of standard messages that mirror those acce
 
 Because the caller is not message-driven in the AF sense, returned data must flow through reference objects:
 * Use **DVRs** for tagged or state-style data.
-* Use **queues** for streaming data or asynchronous notifications.
+* Use **queues** for telling data or asynchronous notifications.
 These references can be:
 * Created by the calling code and passed to the bridge at startup (simplest approach), or
 * Created by the bridge and returned to the caller (useful when the caller VI may go out of memory before the actor shuts down, which is common in TestStand-based systems).
@@ -111,10 +85,11 @@ First, note that you can launch and send a message to an actor from any LabVIEW 
 Start off by creating a proper actor. It does whatever you need it to do (perhaps it handles hardware), and follows all the rules - no data communication except through actor queues, and no reply messages! This lets you reuse the actor in pure AF applications as well as your current mixed environment.
 Then you create the bridge/adapter actor. This actor sits between your calling code and your 'pure' actor. It interacts with the pure actor in a strict AF style. But since its caller isn't an actor, you can break the rules when sending data to that caller.
 Give the bridge/adapter a set of standard messages that match the ones you will send to its nested actor. (This is trivial if you use interfaces.) These are just pass-throughs; the bridge will just forward them to its nested actor.
-Also give the bridge one or more reference objects. Use DVRs for tags, or queues for streaming data or messages. The calling code can create these objects and pass them to the bridge at startup, or the bridge can create them and send them to the caller, perhaps as a message. (The former is easier, but you may need to do the latter if the calling VI goes out of memory before the actor terminates - this is common in TestStand systems.)
+Also give the bridge one or more reference objects. Use DVRs for tags, or queues for telling data or messages. The calling code can create these objects and pass them to the bridge at startup, or the bridge can create them and send them to the caller, perhaps as a message. (The former is easier, but you may need to do the latter if the calling VI goes out of memory before the actor terminates - this is common in TestStand systems.)
 When the pure nested actor sends data to the bridge, the bridge stores that data in the appropriate reference object.
 The calling code pulls data from those reference objects as and where it needs to do so. For example, if the caller is a regular queue driven message handler, you might pass the QMH queue into the bridge actor. When the bridge actor receives a message from its nested actor, it creates a message for the QMH, gives it the data from the nested actor, and sends the message to the QMH.
 If the calling code is NOT a QMH, then I wouldn't forward messages (since the caller isn't message driven). I would wrap all of the code to talk to the bridge in a class, with Create/Destroy VIs to launch the bridge actor, VIs that send commands (by sending a message), and VIs that read data (by accessing DVRs or queues).
 
 ---
 ---
+
