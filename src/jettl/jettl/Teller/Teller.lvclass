@@ -1,7 +1,7 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <LVClass LVVersion="25008000">
-	<Property Name="NI.Lib.ContainingLib" Type="Str">jettl.lvlib:Teller.lvlib</Property>
-	<Property Name="NI.Lib.ContainingLibPath" Type="Str">../../Teller.lvlib</Property>
+	<Property Name="NI.Lib.ContainingLib" Type="Str">jettl.lvlib</Property>
+	<Property Name="NI.Lib.ContainingLibPath" Type="Str">../../jettl.lvlib</Property>
 	<Property Name="NI.Lib.Icon" Type="Bin">*1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!)T!!!*Q(C=\&gt;7^41."%)&lt;B\R!"K4N!DE!E3./#7X!,UY*&amp;2OC1HWASYKM!S3V-#W\",2TP,7-&lt;%,)41!CR[\80X_\N0OS&gt;$[G6-_F5Q\&amp;S=\$1PRX$U;@^W`BA`V$^QWPUM8^Y6T`JXY\:,\@P0_Q`5P2@`MP@,L&gt;(@Q4@`DPI.$[);%E,GN.-Y\*$EC&gt;ZEC&gt;ZEC&gt;ZE!&gt;ZE!&gt;ZE!?ZETOZETOZETOZE2OZE2OZE2NZK_1C&amp;\H))37,*QMFES94*)/B+(F,0)EH]31?PCLR**\%EXA3$U/5?"*0YEE]C9@4F(A34_**0)G(K:IE7S8(EXC98I%H]!3?Q".Y7&amp;+"*Q!%CQ54"Z0!5.!:(!3?Q".Y/&amp;4A#4S"*`!%(LI6?!*0Y!E]A9&gt;4WKZ%UYS6(!`4S0%Y(M@D?"Q05]PR/"\(YXA=$]P*]4A?"_%M[%Q/1=Z*TA$HC_.R0(T)]4A?R_.Y(!^&gt;\1JZWZF2-V:S0)&lt;(]"A?QW.YG%+'R`!9(M.D?*B7BM@Q'"\$9XB93I&lt;(]"A?!W)MSP)S*D./.!9:A?(BV?Y7;V=JGM2;F?LG6&gt;W5KJN.&gt;2/J&lt;A\626&gt;&gt;4.6&amp;5GW_;F.6G[8;".5@JU+L-+J&amp;6#?0!\8B@5V&lt;U8L;EL;AT7ETWJ1W'5`^YI'&lt;T5&lt;L^6KLV5J^XWOZ8'KR7'A_HWMWGWE[H7ISG?Q?!_@5X10B^&lt;FUS`(TB&lt;I\WPXF&gt;@@10X706_@&gt;G0`!`_&gt;@]'T5C&gt;[OQ2[^!+NV@/M!!!!!</Property>
 	<Property Name="NI.Lib.SourceVersion" Type="Int">620789760</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
@@ -30,6 +30,14 @@
 		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 		<Property Name="NI.ClassItem.State" Type="Int">1082139136</Property>
+	</Item>
+	<Item Name="Read Priority.vi" Type="VI" URL="../Read Priority.vi">
+		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
+		<Property Name="NI.ClassItem.InvokeUsage" Type="UInt">1</Property>
+		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
+		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1342710272</Property>
 	</Item>
 	<Item Name="Read Time.vi" Type="VI" URL="../Read Time.vi">
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>

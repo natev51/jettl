@@ -15,7 +15,8 @@
 	<Item Name="Msg Output.lvclass" Type="LVClass" URL="../Msg Output/Msg Output.lvclass"/>
 	<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor.lvclass"/>
 	<Item Name="Refs.lvclass" Type="LVClass" URL="../Refs/Refs.lvclass"/>
-	<Item Name="Teller.lvlib" Type="Library" URL="../Teller/Teller.lvlib"/>
+	<Item Name="Teller.lvclass" Type="LVClass" URL="../Teller/Teller.lvclass"/>
+	<Item Name="Base Teller.lvlib" Type="Library" URL="../Base Teller/Base Teller.lvlib"/>
 	<Item Name="Attributes.lvlib" Type="Library" URL="../Attributes/Attributes.lvlib"/>
 	<Item Name="Transport.lvlib" Type="Library" URL="../Transport/Transport.lvlib"/>
 	<Item Name="Error.lvlib" Type="Library" URL="../Error/Error.lvlib"/>

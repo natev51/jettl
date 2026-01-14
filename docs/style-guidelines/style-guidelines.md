@@ -21,3 +21,8 @@ Property Nodes are not used due to banner color not being displayed.
 Nested Libraries Reason:
 Comment from Greg:
 ![](../images/style-nested-libraries.png)
+
+---
+
+Fundamentally, class inheritance should not occur for actors.
+Instead, (for something like a HAL) use dependency inversion with the strategy pattern to pick and choose the implementation to use for THAT actor.
