@@ -84,7 +84,7 @@
 		<Item Name="Find Local Msg Set.vi" Type="VI" URL="../Find Local Msg Set.vi"/>
 		<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>
 		<Item Name="Recurse.vi" Type="VI" URL="../Recurse.vi"/>
-		<Item Name="Msg Or Recurse.vi" Type="VI" URL="../Msg Or Recurse.vi"/>
+		<Item Name="Execute Msg Or Recurse.vi" Type="VI" URL="../Execute Msg Or Recurse.vi"/>
 		<Item Name="Tell Self.vi" Type="VI" URL="../Tell Self.vi"/>
 		<Item Name="Tell Parent.vi" Type="VI" URL="../Tell Parent.vi"/>
 		<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi"/>

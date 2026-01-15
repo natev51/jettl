@@ -43,12 +43,6 @@ Actor renaming to just the Name of the Actor for the top level library.
 
 ---
 
-rename the Msg as Msg Input??
-have a distinct Msg Input class??
-Is this better decoupling the API from the command pattern to a better more SOLID friendly pattern?
-
----
-
 Maybe errors are in a private library since they're private to the actor itself.
 
 ---
@@ -56,18 +50,16 @@ Maybe errors are in a private library since they're private to the actor itself.
 attributes and transport into their own folders and libraries, remember to rename as necessary before moving!! avoid naming conflicts!!!
 
 ---
-**refactor of the msg library.**
 
-take pictures of the preexisting library:
 ![](../images/Pasted%20image%2020260114125703.png)
 
-
-
-post library:
-
-
+![](../images/Pasted%20image%2020260114162246.png)
 
 ---
 
-template tool:
-Actor and Msg Library that has drop down menu for Tree under Actor and Msg the templates that are available.
+update the Stop and Stopped libraries and all of their contents.
+
+---
+
+okay, so the refs SHOULD be independent of the Init.
+Take this away. This will make things so much easier to understand too.
