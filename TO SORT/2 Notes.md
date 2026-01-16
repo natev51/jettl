@@ -176,3 +176,12 @@ Revert back to 2020 (not SP1!)
 ---
 
 jettl is a typed frameworks, you cannot send a message not in the msg set of the receiving actor (the type system prevents it)
+
+
+
+
+---
+
+the inline is good because it doesn't spawn an async process. This can be beneficial in case such as:
+Can get outputs from the inline call i.e. Actor state and error information. This can help with dataflow to let some top level application know that the actor has stopped, wiring it's state/error for serialization to a user event, etc. No user event is needed to let the application know the actor has stopped, just wait for event after the actor has finished.
+- You can have multiple of these in the same application, if you wish.

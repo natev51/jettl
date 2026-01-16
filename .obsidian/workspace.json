@@ -13,6 +13,20 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "docs/actor/actor.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "actor"
+            }
+          },
+          {
+            "id": "17bd9bfc1a4cac66",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "docs/immediate-changes/immediate-changes.md",
                 "mode": "source",
                 "source": false
@@ -21,7 +35,8 @@
               "title": "immediate-changes"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -180,23 +195,28 @@
       "bases:Create new base": false
     }
   },
-  "active": "0ff1977519798775",
+  "active": "17bd9bfc1a4cac66",
   "lastOpenFiles": [
-    "docs/images/Pasted image 20260114162246.png",
-    "src/jettl/jettl/Execute Msg Or Recurse.vi",
-    "src/jettl/jettl/Stop Msg/Stop Msg/Read Msg Input.vi",
-    "src/jettl/jettl/Stop Msg/Stop Msg/Write Msg Input.vi",
-    "src/jettl/jettl/Stopped Msg/Stopped Msg/Read Msg Input.vi",
-    "src/jettl/jettl/Stopped Msg/Stopped Msg/Write Msg Input.vi",
-    "src/jettl Tools/_Template/Templates/TEMPLATE Msg/TEMPLATE Msg/TEMPLATE Msg/Write Msg Input.vi",
-    "src/jettl/jettl/Msg/Write Msg Input.vi",
-    "src/jettl Tools/_Template/Templates/TEMPLATE Msg/Instantiate.vi",
-    "src/jettl Tools/_Template/Templates/TEMPLATE Msg/Init Msg.vi",
-    "src/jettl/jettl/Stopped Msg/Stopped Msg/Execute Msg.vi",
-    "docs/images/Pasted image 20260114125703.png",
-    "docs/style-guidelines/style-guidelines.md",
+    "src/jettl Tools/_Template/Templates/TEMPLATE Actor/TEMPLATE Actor/TEMPLATE Actor/Write Self Attributes.vi",
+    "src/jettl/jettl/Core Actor/Core Actor/Write Self Attributes.vi",
+    "src/jettl/jettl/Actor/Write Self Attributes.vi",
+    "src/jettl/jettl/Actor/Insert Child Attributes.vi",
+    "src/jettl Tools/_Template/Templates/TEMPLATE Actor/TEMPLATE Actor/TEMPLATE Actor/Insert Child Attributes.vi",
+    "src/jettl/jettl/Core Actor/Core Actor/Insert Child Attributes.vi",
+    "src/jettl/jettl/Teardown.vi",
+    "src/jettl/jettl/Finalize Turn.vi",
+    "src/jettl/jettl/Inspect.vi",
+    "src/jettl/jettl/Start.vi",
+    "src/jettl/jettl/Setup.vi",
+    "docs/actor/actor.md",
     "docs/immediate-changes/immediate-changes.md",
     "TO SORT/2 Notes.md",
+    "docs/images/Pasted image 20260114162246.png",
+    "docs/images/Pasted image 20260114125703.png",
+    "docs/images/actor-transport-queue.png",
+    "docs/images/actor-transport-notifier.png",
+    "docs/images/actor-transport-event.png",
+    "docs/style-guidelines/style-guidelines.md",
     "TO SORT/1 Notes.md",
     "TO SORT/TeX Document/TeX Document.md",
     "TO SORT/Further Ideas/To Organize.md",
@@ -220,14 +240,9 @@
     "docs/msg/msg.md",
     "docs/PPL/PPL.md",
     "docs/benchmarking/benchmarking.md",
-    "docs/vipm/vipm.md",
     "docs/images/dec_3.jpeg",
     "docs/images/dec_2.jpeg",
     "docs/images/dec_1.jpeg",
-    "TO SORT/JETTL GUIDE/Design Patterns/Decorator Pattern/Images/dec_1.jpeg",
-    "docs/images/broker-startup-scratch.jpeg",
-    "TO SORT/JETTL GUIDE/Design Patterns/Decorator Pattern/Images/dec_2.jpeg",
-    "TO SORT/JETTL GUIDE/Design Patterns/Decorator Pattern/Images/dec_3.jpeg",
     "Untitled.canvas"
   ]
 }

@@ -17,5 +17,6 @@
 	<Item Name="UID Not Found--error.vi" Type="VI" URL="../UID Not Found--error.vi"/>
 	<Item Name="UID Empty--error.vi" Type="VI" URL="../UID Empty--error.vi"/>
 	<Item Name="Already In Stop--error.vi" Type="VI" URL="../Already In Stop--error.vi"/>
+	<Item Name="Cannot Reply With No Relation--error.vi" Type="VI" URL="../Cannot Reply With No Relation--error.vi"/>
 	<Item Name="Error Prefix.vi" Type="VI" URL="../Error Prefix.vi"/>
 </Library>

@@ -16,6 +16,16 @@
 		<Item Name="Stopped Msg.lvlib" Type="Library" URL="../Stopped Msg/Stopped Msg.lvlib"/>
 	</Item>
 	<Item Name="Actor" Type="Folder">
+		<Item Name="Decorators" Type="Folder">
+			<Item Name="Invariant" Type="Folder"/>
+			<Item Name="Default" Type="Folder">
+				<Item Name="Setup.vi" Type="VI" URL="../Setup.vi"/>
+				<Item Name="Start.vi" Type="VI" URL="../Start.vi"/>
+				<Item Name="Inspect.vi" Type="VI" URL="../Inspect.vi"/>
+				<Item Name="Finalize Turn.vi" Type="VI" URL="../Finalize Turn.vi"/>
+				<Item Name="Teardown.vi" Type="VI" URL="../Teardown.vi"/>
+			</Item>
+		</Item>
 		<Item Name="Refs.lvclass" Type="LVClass" URL="../Refs/Refs.lvclass"/>
 		<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor.lvclass"/>
 		<Item Name="Core Actor.lvlib" Type="Library" URL="../Core Actor/Core Actor.lvlib"/>
@@ -79,7 +89,7 @@
 		<Item Name="Async Spawn Child.vi" Type="VI" URL="../Async Spawn Child.vi"/>
 		<Item Name="Inline Spawn Root.vi" Type="VI" URL="../Inline Spawn Root.vi"/>
 		<Item Name="Starting.vi" Type="VI" URL="../Starting.vi"/>
-		<Item Name="Can Stop.vi" Type="VI" URL="../Can Stop.vi"/>
+		<Item Name="Should Stop.vi" Type="VI" URL="../Should Stop.vi"/>
 		<Item Name="Stopping.vi" Type="VI" URL="../Stopping.vi"/>
 		<Item Name="Find Local Msg Set.vi" Type="VI" URL="../Find Local Msg Set.vi"/>
 		<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>
@@ -92,7 +102,11 @@
 		<Item Name="Listen To Msg.vi" Type="VI" URL="../Listen To Msg.vi"/>
 		<Item Name="Within Msg Set.vi" Type="VI" URL="../Within Msg Set.vi"/>
 		<Item Name="Update Attributes In Actor.vi" Type="VI" URL="../Update Attributes In Actor.vi"/>
-		<Item Name="Update Attributes in Starting.vi" Type="VI" URL="../Update Attributes in Starting.vi"/>
-		<Item Name="Check Refs Default.vi" Type="VI" URL="../Check Refs Default.vi"/>
+		<Item Name="Update Attributes in Starting.vi" Type="VI" URL="../Update Attributes in Starting.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Msg Listened To.vi" Type="VI" URL="../Msg Listened To.vi"/>
+		<Item Name="Write Teller In Msg.vi" Type="VI" URL="../Write Teller In Msg.vi"/>
+		<Item Name="Async Elements.ctl" Type="VI" URL="../Async Elements.ctl"/>
 	</Item>
 </Library>
