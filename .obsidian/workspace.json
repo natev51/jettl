@@ -8,20 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "0ff1977519798775",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "docs/actor/actor.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "actor"
-            }
-          },
-          {
             "id": "17bd9bfc1a4cac66",
             "type": "leaf",
             "state": {
@@ -35,8 +21,7 @@
               "title": "immediate-changes"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -197,19 +182,19 @@
   },
   "active": "17bd9bfc1a4cac66",
   "lastOpenFiles": [
-    "src/jettl Tools/_Template/Templates/TEMPLATE Actor/TEMPLATE Actor/TEMPLATE Actor/Write Self Attributes.vi",
-    "src/jettl/jettl/Core Actor/Core Actor/Write Self Attributes.vi",
-    "src/jettl/jettl/Actor/Write Self Attributes.vi",
-    "src/jettl/jettl/Actor/Insert Child Attributes.vi",
-    "src/jettl Tools/_Template/Templates/TEMPLATE Actor/TEMPLATE Actor/TEMPLATE Actor/Insert Child Attributes.vi",
-    "src/jettl/jettl/Core Actor/Core Actor/Insert Child Attributes.vi",
-    "src/jettl/jettl/Teardown.vi",
-    "src/jettl/jettl/Finalize Turn.vi",
-    "src/jettl/jettl/Inspect.vi",
-    "src/jettl/jettl/Start.vi",
-    "src/jettl/jettl/Setup.vi",
+    "src/jettl Tools/_Template/Templates/TEMPLATE Actor/TEMPLATE Actor/TEMPLATE Refs/Find Refs.vi",
+    "src/jettl/jettl/Write Msg.vi",
+    "src/jettl/jettl/Read Msg.vi",
+    "src/jettl/jettl/Update Attributes.vi",
     "docs/actor/actor.md",
     "docs/immediate-changes/immediate-changes.md",
+    "src/jettl/jettl/Find Child UIDs.vi",
+    "src/jettl/jettl/Find Child Attributes.vi",
+    "src/jettl Tools/_Template/Templates/TEMPLATE Actor/TEMPLATE Actor/TEMPLATE Actor/Read All Child Attributes.vi",
+    "src/jettl Tools/_Template/Templates/TEMPLATE Actor/TEMPLATE Actor/TEMPLATE Actor/Write All Child Attributes.vi",
+    "src/jettl/jettl/Core Actor/Core Actor/Read All Child Attributes.vi",
+    "src/jettl/jettl/Core Actor/Core Actor/Write All Child Attributes.vi",
+    "src/jettl/jettl/Actor/Write All Child Attributes.vi",
     "TO SORT/2 Notes.md",
     "docs/images/Pasted image 20260114162246.png",
     "docs/images/Pasted image 20260114125703.png",

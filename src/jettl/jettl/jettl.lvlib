@@ -17,8 +17,11 @@
 	</Item>
 	<Item Name="Actor" Type="Folder">
 		<Item Name="Decorators" Type="Folder">
-			<Item Name="Invariant" Type="Folder"/>
-			<Item Name="Default" Type="Folder">
+			<Item Name="Invariant" Type="Folder">
+				<Item Name="Read Msg.vi" Type="VI" URL="../Read Msg.vi"/>
+				<Item Name="Write Msg.vi" Type="VI" URL="../Write Msg.vi"/>
+			</Item>
+			<Item Name="Variant" Type="Folder">
 				<Item Name="Setup.vi" Type="VI" URL="../Setup.vi"/>
 				<Item Name="Start.vi" Type="VI" URL="../Start.vi"/>
 				<Item Name="Inspect.vi" Type="VI" URL="../Inspect.vi"/>
@@ -47,20 +50,17 @@
 	<Item Name="Error" Type="Folder">
 		<Item Name="Error.lvlib" Type="Library" URL="../Error/Error.lvlib"/>
 	</Item>
-	<Item Name="API" Type="Folder">
+	<Item Name="Type Defs" Type="Folder">
 		<Item Name="Child UIDs.ctl" Type="VI" URL="../Child UIDs.ctl"/>
 		<Item Name="Relation.ctl" Type="VI" URL="../Relation.ctl"/>
 		<Item Name="Msg Set.ctl" Type="VI" URL="../Msg Set.ctl"/>
 		<Item Name="Teardown Location.ctl" Type="VI" URL="../Teardown Location.ctl"/>
-		<Item Name="Spawn.ctl" Type="VI" URL="../Spawn.ctl">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Actor.ctl" Type="VI" URL="../Actor.ctl">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
+		<Item Name="All Child Attributes.ctl" Type="VI" URL="../All Child Attributes.ctl"/>
 		<Item Name="Attributes.ctl" Type="VI" URL="../Attributes.ctl">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
+	</Item>
+	<Item Name="Functions" Type="Folder">
 		<Item Name="Default Instance.vi" Type="VI" URL="../Default Instance.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
@@ -101,12 +101,16 @@
 		<Item Name="Tell Reply.vi" Type="VI" URL="../Tell Reply.vi"/>
 		<Item Name="Listen To Msg.vi" Type="VI" URL="../Listen To Msg.vi"/>
 		<Item Name="Within Msg Set.vi" Type="VI" URL="../Within Msg Set.vi"/>
-		<Item Name="Update Attributes In Actor.vi" Type="VI" URL="../Update Attributes In Actor.vi"/>
-		<Item Name="Update Attributes in Starting.vi" Type="VI" URL="../Update Attributes in Starting.vi">
+		<Item Name="Update Attributes.vi" Type="VI" URL="../Update Attributes.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
+		<Item Name="Async Elements.ctl" Type="VI" URL="../Async Elements.ctl"/>
+		<Item Name="Insert Child Attributes.vi" Type="VI" URL="../Insert Child Attributes.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Find Child Attributes.vi" Type="VI" URL="../Find Child Attributes.vi"/>
+		<Item Name="Find Child UIDs.vi" Type="VI" URL="../Find Child UIDs.vi"/>
 		<Item Name="Msg Listened To.vi" Type="VI" URL="../Msg Listened To.vi"/>
 		<Item Name="Write Teller In Msg.vi" Type="VI" URL="../Write Teller In Msg.vi"/>
-		<Item Name="Async Elements.ctl" Type="VI" URL="../Async Elements.ctl"/>
 	</Item>
 </Library>

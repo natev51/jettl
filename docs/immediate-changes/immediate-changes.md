@@ -34,16 +34,16 @@ Note, palette contains ALL function calls that can be made, no need to venture t
 
 ---
 
-Move the `Application Ref` to INSIDE the bundling of the `Application Ref`. This allows the `Actor Ref` input to go directly into Starting (event, queue, notifier). That way you can get rid of the appending of the attributes method call before.
-
-Replace the Queues with just ONE Queue that is in the cluster. They go together, so all good.
-
----
-
 For the Msgs, do not include any names that are apart of the actor overrides, to avoid any further naming conflicts i.e. cannot name `Setup Msg` since the `Setup.vi` already would exist and no point to run into naming conflict if you don't have to. Have a string list here that is hardcoded in tools.
 Update all the tools renaming etc.
 
 ---
 
-is it really the end of the world the the Child Attributes are private..? change them to public and add functions that get their contents, these don't have to be overrides, just normal functions.
-Child Attributes Map -> Child Attributes
+tools map of init conn pane to output conn pane
+
+---
+
+return to errors on inputs for the message stuff.
+
+---
+
