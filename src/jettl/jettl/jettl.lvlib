@@ -20,6 +20,12 @@
 			<Item Name="Invariant" Type="Folder">
 				<Item Name="Read Msg.vi" Type="VI" URL="../Read Msg.vi"/>
 				<Item Name="Write Msg.vi" Type="VI" URL="../Write Msg.vi"/>
+				<Item Name="Read Stop.vi" Type="VI" URL="../Read Stop.vi"/>
+				<Item Name="Read Safe Stop.vi" Type="VI" URL="../Read Safe Stop.vi"/>
+				<Item Name="Read Self Attributes.vi" Type="VI" URL="../Read Self Attributes.vi"/>
+				<Item Name="Write Self Attributes.vi" Type="VI" URL="../Write Self Attributes.vi"/>
+				<Item Name="Read All Child Attributes.vi" Type="VI" URL="../Read All Child Attributes.vi"/>
+				<Item Name="Write All Child Attributes.vi" Type="VI" URL="../Write All Child Attributes.vi"/>
 			</Item>
 			<Item Name="Variant" Type="Folder">
 				<Item Name="Setup.vi" Type="VI" URL="../Setup.vi"/>
@@ -56,6 +62,7 @@
 		<Item Name="Msg Set.ctl" Type="VI" URL="../Msg Set.ctl"/>
 		<Item Name="Teardown Location.ctl" Type="VI" URL="../Teardown Location.ctl"/>
 		<Item Name="All Child Attributes.ctl" Type="VI" URL="../All Child Attributes.ctl"/>
+		<Item Name="Async Elements.ctl" Type="VI" URL="../Async Elements.ctl"/>
 		<Item Name="Attributes.ctl" Type="VI" URL="../Attributes.ctl">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
@@ -85,6 +92,12 @@
 		<Item Name="Count.vi" Type="VI" URL="../Count.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
+		<Item Name="Update Attributes.vi" Type="VI" URL="../Update Attributes.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Insert Child Attributes.vi" Type="VI" URL="../Insert Child Attributes.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
 		<Item Name="Async Spawn Root.vi" Type="VI" URL="../Async Spawn Root.vi"/>
 		<Item Name="Async Spawn Child.vi" Type="VI" URL="../Async Spawn Child.vi"/>
 		<Item Name="Inline Spawn Root.vi" Type="VI" URL="../Inline Spawn Root.vi"/>
@@ -95,19 +108,12 @@
 		<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>
 		<Item Name="Recurse.vi" Type="VI" URL="../Recurse.vi"/>
 		<Item Name="Execute Msg Or Recurse.vi" Type="VI" URL="../Execute Msg Or Recurse.vi"/>
+		<Item Name="Listen To Msg.vi" Type="VI" URL="../Listen To Msg.vi"/>
 		<Item Name="Tell Self.vi" Type="VI" URL="../Tell Self.vi"/>
 		<Item Name="Tell Parent.vi" Type="VI" URL="../Tell Parent.vi"/>
 		<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi"/>
 		<Item Name="Tell Reply.vi" Type="VI" URL="../Tell Reply.vi"/>
-		<Item Name="Listen To Msg.vi" Type="VI" URL="../Listen To Msg.vi"/>
 		<Item Name="Within Msg Set.vi" Type="VI" URL="../Within Msg Set.vi"/>
-		<Item Name="Update Attributes.vi" Type="VI" URL="../Update Attributes.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Async Elements.ctl" Type="VI" URL="../Async Elements.ctl"/>
-		<Item Name="Insert Child Attributes.vi" Type="VI" URL="../Insert Child Attributes.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
 		<Item Name="Find Child Attributes.vi" Type="VI" URL="../Find Child Attributes.vi"/>
 		<Item Name="Find Child UIDs.vi" Type="VI" URL="../Find Child UIDs.vi"/>
 		<Item Name="Msg Listened To.vi" Type="VI" URL="../Msg Listened To.vi"/>

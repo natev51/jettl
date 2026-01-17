@@ -24,16 +24,6 @@ update
 
 ---
 
-**All** Decorator method have functions inside.
-
-So you would be calling the function in normal code, not the methods themselves.
-Have these function calls on the palette.
-Don't calls methods in `Actor Overrides` and `Msg Overrides`, just the functions in the palette.
-
-Note, palette contains ALL function calls that can be made, no need to venture to the library for them, just look in the palettes. If they were not meant to be touched, they would be private. Though, be careful, some functions are exposed specifically for being able to get details about the actor in testing and debugging situations.
-
----
-
 For the Msgs, do not include any names that are apart of the actor overrides, to avoid any further naming conflicts i.e. cannot name `Setup Msg` since the `Setup.vi` already would exist and no point to run into naming conflict if you don't have to. Have a string list here that is hardcoded in tools.
 Update all the tools renaming etc.
 
@@ -44,6 +34,3 @@ tools map of init conn pane to output conn pane
 ---
 
 return to errors on inputs for the message stuff.
-
----
-
