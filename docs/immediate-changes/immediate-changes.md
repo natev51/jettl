@@ -29,8 +29,12 @@ Update all the tools renaming etc.
 
 ---
 
-tools map of init conn pane to output conn pane
+rescript msg tool.
+map of init conn pane to output conn pane
 
 ---
 
 return to errors on inputs for the message stuff.
+
+---
+

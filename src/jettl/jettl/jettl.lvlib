@@ -37,15 +37,21 @@
 		</Item>
 		<Item Name="Refs.lvclass" Type="LVClass" URL="../Refs/Refs.lvclass"/>
 		<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor.lvclass"/>
-		<Item Name="Core Actor.lvlib" Type="Library" URL="../Core Actor/Core Actor.lvlib"/>
+		<Item Name="Core Actor.lvlib" Type="Library" URL="../Core Actor/Core Actor.lvlib">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
 	</Item>
 	<Item Name="Teller" Type="Folder">
 		<Item Name="Teller.lvclass" Type="LVClass" URL="../Teller/Teller.lvclass"/>
-		<Item Name="Base Teller.lvlib" Type="Library" URL="../Base Teller/Base Teller.lvlib"/>
+		<Item Name="Base Teller.lvlib" Type="Library" URL="../Base Teller/Base Teller.lvlib">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
 	</Item>
 	<Item Name="Attributes" Type="Folder">
 		<Item Name="Attributes.lvclass" Type="LVClass" URL="../Attributes/Attributes.lvclass"/>
-		<Item Name="Base Attributes.lvlib" Type="Library" URL="../Base Attributes/Base Attributes.lvlib"/>
+		<Item Name="Base Attributes.lvlib" Type="Library" URL="../Base Attributes/Base Attributes.lvlib">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
 	</Item>
 	<Item Name="Transport" Type="Folder">
 		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>

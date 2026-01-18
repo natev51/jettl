@@ -10,6 +10,6 @@
 </Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
-	<Item Name="TEMPLATE Msg.lvlib" Type="Library" URL="../TEMPLATE Msg/TEMPLATE Msg.lvlib"/>
-	<Item Name="TEMPLATE Actor.lvlib" Type="Library" URL="../TEMPLATE Actor/TEMPLATE Actor.lvlib"/>
+	<Item Name="TEMPLATE jettl Msg.lvlib" Type="Library" URL="../TEMPLATE jettl Msg/TEMPLATE jettl Msg.lvlib"/>
+	<Item Name="TEMPLATE jettl Actor.lvlib" Type="Library" URL="../TEMPLATE jettl Actor/TEMPLATE jettl Actor.lvlib"/>
 </Library>
