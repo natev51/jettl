@@ -29,21 +29,21 @@ Bridge Actors between jettl and non jettl LabVIEW Applications.
 
 ---
 ---
-You can launch an actor and send it messages from any LabVIEW code, not only from other actors. The primary challenge is receiving results back from that actor. This is the role of a **bridge (adapter or shim)**.
+You can spawn an actor and tell it messages from any LabVIEW code, not only from other actors. The primary challenge is receiving messages from that actor. This is the role of a **bridge (adapter or shim)**.
 
 #### 1. Create a pure actor
 
-Start by creating a proper actor that performs the required work (for example, hardware interaction). This actor must strictly follow Actor Framework rules:
+Start by creating a proper actor that performs the required work (for example, hardware interaction). This actor must strictly follow jettl rules:
 * All communication occurs through actor messaging.
 * No shared data access.
 * No reply messages to non-actors.
-By keeping this actor “pure,” it remains reusable in fully Actor Framework–based applications as well as in mixed environments.
+By keeping this actor “pure,” it remains reusable in fully jettl–based applications as well as in mixed environments.
 #### 2. Create a bridge (adapter) actor
 
 Next, introduce a bridge actor that sits between the calling (non-actor) code and the pure actor.
-* Toward the pure actor, the bridge behaves like a normal AF actor and follows all AF rules.
-* Toward the caller, the bridge is allowed to break AF rules, since the caller is not an actor.
-This separation preserves correctness and reusability while enabling integration with legacy or non-AF code.
+* Toward the pure actor, the bridge behaves like a normal jettl actor and follows all jettl rules.
+* Toward the caller, the bridge is allowed to break jettl rules, since the caller is not an actor.
+This separation preserves correctness and reusability while enabling integration with legacy or non-jettl code.
 #### 3. Define pass-through command messages
 
 The bridge actor should expose a set of standard messages that mirror those accepted by the nested pure actor.
@@ -52,7 +52,7 @@ The bridge actor should expose a set of standard messages that mirror those acce
 * This is straightforward to implement when using interfaces.
 #### 4. Establish return paths using reference objects
 
-Because the caller is not message-driven in the AF sense, returned data must flow through reference objects:
+Because the caller is not message-driven in the jettl sense, returned data must flow through reference objects:
 * Use **DVRs** for tagged or state-style data.
 * Use **queues** for telling data or asynchronous notifications.
 These references can be:
@@ -75,15 +75,15 @@ If the caller is **not** message-driven:
   * Create/Destroy VIs to launch and shut down the bridge actor.
   * Command VIs that send messages to the bridge.
   * Data access VIs that read from DVRs or queues.
-This pattern cleanly encapsulates the actor interaction while presenting a conventional API to non-AF code.
+This pattern cleanly encapsulates the actor interaction while presenting a conventional API to non-jettl code.
 ---
 ---
 
 ---
 ---
 First, note that you can launch and send a message to an actor from any LabVIEW code, not just other actors. The tricky part is getting answers *back* from that actor. This is where the bridge (or adapter, or shim code) comes in.
-Start off by creating a proper actor. It does whatever you need it to do (perhaps it handles hardware), and follows all the rules - no data communication except through actor queues, and no reply messages! This lets you reuse the actor in pure AF applications as well as your current mixed environment.
-Then you create the bridge/adapter actor. This actor sits between your calling code and your 'pure' actor. It interacts with the pure actor in a strict AF style. But since its caller isn't an actor, you can break the rules when sending data to that caller.
+Start off by creating a proper actor. It does whatever you need it to do (perhaps it handles hardware), and follows all the rules - no data communication except through actor queues, and no reply messages! This lets you reuse the actor in pure jettl applications as well as your current mixed environment.
+Then you create the bridge/adapter actor. This actor sits between your calling code and your 'pure' actor. It interacts with the pure actor in a strict jettl style. But since its caller isn't an actor, you can break the rules when sending data to that caller.
 Give the bridge/adapter a set of standard messages that match the ones you will send to its nested actor. (This is trivial if you use interfaces.) These are just pass-throughs; the bridge will just forward them to its nested actor.
 Also give the bridge one or more reference objects. Use DVRs for tags, or queues for telling data or messages. The calling code can create these objects and pass them to the bridge at startup, or the bridge can create them and send them to the caller, perhaps as a message. (The former is easier, but you may need to do the latter if the calling VI goes out of memory before the actor terminates - this is common in TestStand systems.)
 When the pure nested actor sends data to the bridge, the bridge stores that data in the appropriate reference object.
@@ -93,3 +93,6 @@ If the calling code is NOT a QMH, then I wouldn't forward messages (since the ca
 ---
 ---
 
+**THEN test with the UE code.**
+maybe some kind of user event that comes with jettl that creates user events for the Stop Msg and the Stopped Msg?
+These user events can then come native with jettl in case of IPC communication.

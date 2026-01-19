@@ -18,4 +18,5 @@ These are the links to documentation for jettl. They are presented in no particu
 - [unit-tests](unit-tests/unit-tests.md)
 - [examples](examples/examples.md)
 - [reentrancy](reentrancy/reentrancy.md)
-
+- [attributes](attributes/attributes.md)
+- [spawning](spawning/spawning.md)

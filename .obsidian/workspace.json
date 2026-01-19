@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "17bd9bfc1a4cac66",
+            "id": "3c8f39044f13f6df",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -180,8 +180,16 @@
       "bases:Create new base": false
     }
   },
-  "active": "17bd9bfc1a4cac66",
+  "active": "3c8f39044f13f6df",
   "lastOpenFiles": [
+    "docs/spawning/spawning.md",
+    "docs/reuse-actors/reuse-actors.md",
+    "docs/tools/tools.md",
+    "docs/immediate-changes/immediate-changes.md",
+    "docs/attributes/attributes.md",
+    "docs/docs.md",
+    "docs/spawning",
+    "docs/attributes",
     "src/jettl Tools/Class 3/TEMPLATE.vi",
     "src/jettl Tools/Class 3/Class 3.lvclass",
     "src/jettl Tools/Class 3",
@@ -190,13 +198,8 @@
     "src/jettl/jettl/BLAH.vi",
     "src/jettl/jettl/Unified Actor And Unified Msgs.vi",
     "src/jettl/jettl/Create Persistent Unified.vi",
-    "src/jettl/jettl/Persistent a.vi",
-    "src/jettl/jettl/Base Attributes/Base Attributes/Read Persistent Unified Actor.vi",
-    "src/jettl/jettl/Attributes/Read Persistent Unified Actor.vi",
     "docs/ppl/ppl.md",
-    "docs/immediate-changes/immediate-changes.md",
     "docs/reentrancy/reentrancy.md",
-    "docs/docs.md",
     "docs/style-guidelines/style-guidelines.md",
     "docs/actor/actor.md",
     "TO SORT/2 Notes.md",
@@ -209,8 +212,6 @@
     "TO SORT/TeX Document/TeX Document.md",
     "TO SORT/Further Ideas/To Organize.md",
     "docs/unit-tests/unit-tests.md",
-    "docs/tools/tools.md",
-    "docs/reuse-actors/reuse-actors.md",
     "docs/resources/resources.md",
     "docs/ideas-that-could-be-implemented/ideas-that-could-be-implemented.md",
     "docs/features/features.md",
@@ -224,7 +225,6 @@
     "docs/executables/executables.md",
     "docs/images/changes-spawn-actor.png",
     "docs/msg/msg.md",
-    "docs/PPL/PPL.md",
     "docs/images/dec_3.jpeg",
     "docs/images/dec_2.jpeg",
     "docs/images/dec_1.jpeg",

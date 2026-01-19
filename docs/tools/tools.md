@@ -5,7 +5,7 @@ Please place them in this common location, helping developers easily find your t
 ---
 
 ## Current Native Tools
-### Msg Rescript
+### Rescript
 
 How To Use:
 Only the left two inputs, and Error in are inputs that can be scripted.

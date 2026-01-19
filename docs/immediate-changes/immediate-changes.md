@@ -3,53 +3,23 @@
 
 ---
 
-**THEN test with the UE code.**
-maybe some kind of user event that comes with the framework that creates user events for the Stop Msg and the Stopped Msg?
-These user events can then come native with the framework in case of IPC communication.
+Goals:
 
----
+1. update
+	- Stop
+	- Stopped
 
-msg rescript tool:
-create a map that maps the indexes to the names of the functions so that you can use the map elements to alter the correct functions by their name.
+2. Template
+	- check for ending in `jettl Msg` or `jettl Actor` instead of just `Msg` or `Actor`
 
----
+3. run code to ensure it's running
 
-update
-- Stop
-- Stopped
+4. Renaming Tool
+	- For the Msgs, do not include any names that are apart of the actor overrides, to avoid any further naming conflicts i.e. cannot name `Setup Msg` since the `Setup.vi` already would exist and no point to run into naming conflict if you don't have to. Have a string list here that is hardcoded in tools.
 
----
-
-For the Msgs, do not include any names that are apart of the actor overrides, to avoid any further naming conflicts i.e. cannot name `Setup Msg` since the `Setup.vi` already would exist and no point to run into naming conflict if you don't have to. Have a string list here that is hardcoded in tools.
-Update all the tools renaming etc.
-
----
-
-rescript msg tool.
-Two maps for look up between init and read I.e. Msg Input and Msg Output mapping.
-
----
-
-rename msg rescript to rescript.
-
----
-
-check the TEMPLATE methods for ending in `jettl Msg` or `jettl Actor` instead of just `Msg` or `Actor`
-
----
-
-Attributes documentation.
-`Actors` allow Self, Parent, and Children to see their state DIRECTLY AFTER Starting, helpful for persistent actors where their common method calls 
-
-
-Spawning documentation:
-Use of inline: want to setup resources in the Main. So inline is there for the lifetime of the Main, and since references are created in main, then they are guaranteed to be alive for the application, assuming they have not been closed).
-Bridge Actors.
-
----
-
-Clean Up Wire invoke node
-
----
-
-`Find Msgs.vi` rework
+5. Rescript Tool
+	- rename msg rescript to rescript.
+	- make the tree the same actor and Msg dropdown.
+	- create a map that maps the indexes to the names of the functions (for Msgs and Actors separately) so that you can use the map elements to alter the correct functions by their name.
+	- Two maps for look up between `Init X` and `Read X` i.e. Msg Input and Msg Output mapping.
+	- Clean Up Wire invoke node where necessary
