@@ -163,7 +163,7 @@
 			</Item>
 			<Item Name="Actor.vi" Type="VI" URL="../Actor.vi">
 				<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-				<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
+				<Property Name="NI.ClassItem.Flags" Type="Int">50331776</Property>
 				<Property Name="NI.ClassItem.InvokeUsage" Type="UInt">1</Property>
 				<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 				<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
@@ -187,7 +187,7 @@
 			</Item>
 			<Item Name="Inspect.vi" Type="VI" URL="../Inspect.vi">
 				<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-				<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
+				<Property Name="NI.ClassItem.Flags" Type="Int">50331776</Property>
 				<Property Name="NI.ClassItem.InvokeUsage" Type="UInt">1</Property>
 				<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 				<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
@@ -240,11 +240,11 @@
 		</Item>
 		<Item Name="Stopped.vi" Type="VI" URL="../Stopped.vi">
 			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-			<Property Name="NI.ClassItem.Flags" Type="Int">168</Property>
+			<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
 			<Property Name="NI.ClassItem.InvokeUsage" Type="UInt">1</Property>
 			<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-			<Property Name="NI.ClassItem.State" Type="Int">1082143248</Property>
+			<Property Name="NI.ClassItem.State" Type="Int">1115685392</Property>
 		</Item>
 	</Item>
 	<Item Name="Private" Type="Folder">

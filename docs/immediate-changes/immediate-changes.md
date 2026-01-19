@@ -42,40 +42,14 @@ Attributes documentation.
 `Actors` allow Self, Parent, and Children to see their state DIRECTLY AFTER Starting, helpful for persistent actors where their common method calls 
 
 
-
-
-
-
-
-
-
-Maybe instead of passing the atrributes everywhere, just bundle them in at the beginning. so need to pass the attributes everywhere
-
-
-
-
-Unified Actor
-
-Decorator Actors
-Persistent Decorator Actors
-Persistent Core Actor
-
-Persistent Decorator Actors+
-Persistent Core Actor=
-Persistent Actors
-
-
-function for the persistent actors and persistent msgs. only in the spawn
-
-
 Spawning documentation:
 Use of inline: want to setup resources in the Main. So inline is there for the lifetime of the Main, and since references are created in main, then they are guaranteed to be alive for the application, assuming they have not been closed).
 Bridge Actors.
-
-template
-Rename static XXXXX to just XXXXXX
 
 ---
 
 Clean Up Wire invoke node
 
+---
+
+`Find Msgs.vi` rework

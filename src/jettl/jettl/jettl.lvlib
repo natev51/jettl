@@ -84,29 +84,46 @@
 				<Item Name="Teardown.vi" Type="VI" URL="../Teardown.vi"/>
 			</Item>
 		</Item>
-		<Item Name="Default Instance.vi" Type="VI" URL="../Default Instance.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Decorate And Unified Msgs.vi" Type="VI" URL="../Decorate And Unified Msgs.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Layers To Decorate.vi" Type="VI" URL="../Layers To Decorate.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Union Msgs.vi" Type="VI" URL="../Union Msgs.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Check Spawn.vi" Type="VI" URL="../Check Spawn.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Async Spawn.vi" Type="VI" URL="../Async Spawn.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Async Actor.vi" Type="VI" URL="../Async Actor.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Count.vi" Type="VI" URL="../Count.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		<Item Name="Spawning" Type="Folder">
+			<Item Name="Check Parent Actor.vi" Type="VI" URL="../Check Parent Actor.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Check UID Already Exists.vi" Type="VI" URL="../Check UID Already Exists.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Check UID Empty.vi" Type="VI" URL="../Check UID Empty.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Check Decorator Actors.vi" Type="VI" URL="../Check Decorator Actors.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Check Persistent Decorator Actors.vi" Type="VI" URL="../Check Persistent Decorator Actors.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Check Persistent Core Actor.vi" Type="VI" URL="../Check Persistent Core Actor.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Create Persistent Unified.vi" Type="VI" URL="../Create Persistent Unified.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Unified Actor And Unified Msgs.vi" Type="VI" URL="../Unified Actor And Unified Msgs.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Insert Child Attributes.vi" Type="VI" URL="../Insert Child Attributes.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Async Spawn Root.vi" Type="VI" URL="../Async Spawn Root.vi"/>
+			<Item Name="Async Spawn Child.vi" Type="VI" URL="../Async Spawn Child.vi"/>
+			<Item Name="Inline Spawn Root.vi" Type="VI" URL="../Inline Spawn Root.vi"/>
+			<Item Name="Async Spawn.vi" Type="VI" URL="../Async Spawn.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Async Actor.vi" Type="VI" URL="../Async Actor.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Count.vi" Type="VI" URL="../Count.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
 		</Item>
 		<Item Name="Update Attributes A.vi" Type="VI" URL="../Update Attributes A.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
@@ -114,12 +131,6 @@
 		<Item Name="Update Attributes B.vi" Type="VI" URL="../Update Attributes B.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
-		<Item Name="Insert Child Attributes.vi" Type="VI" URL="../Insert Child Attributes.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Async Spawn Root.vi" Type="VI" URL="../Async Spawn Root.vi"/>
-		<Item Name="Async Spawn Child.vi" Type="VI" URL="../Async Spawn Child.vi"/>
-		<Item Name="Inline Spawn Root.vi" Type="VI" URL="../Inline Spawn Root.vi"/>
 		<Item Name="Find Msgs.vi" Type="VI" URL="../Find Msgs.vi"/>
 		<Item Name="Find Actors.vi" Type="VI" URL="../Find Actors.vi"/>
 		<Item Name="Starting.vi" Type="VI" URL="../Starting.vi"/>
@@ -138,6 +149,9 @@
 		<Item Name="Find Child Attributes.vi" Type="VI" URL="../Find Child Attributes.vi"/>
 		<Item Name="Find Child UIDs.vi" Type="VI" URL="../Find Child UIDs.vi"/>
 		<Item Name="Within Msgs.vi" Type="VI" URL="../Within Msgs.vi"/>
+		<Item Name="Default Instance.vi" Type="VI" URL="../Default Instance.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
 		<Item Name="Msg Listened To.vi" Type="VI" URL="../Msg Listened To.vi"/>
 		<Item Name="Write Teller In Msg.vi" Type="VI" URL="../Write Teller In Msg.vi"/>
 	</Item>

@@ -16,6 +16,9 @@
 	<Item Name="Value Change" Type="Folder">
 		<Item Name="Value Change.vi" Type="VI" URL="../Value Change.vi"/>
 	</Item>
+	<Item Name="placeholder.vi" Type="VI" URL="../placeholder.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
 	<Item Name="TEMPLATE Refs.lvclass" Type="LVClass" URL="../TEMPLATE Refs/TEMPLATE Refs.lvclass">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
