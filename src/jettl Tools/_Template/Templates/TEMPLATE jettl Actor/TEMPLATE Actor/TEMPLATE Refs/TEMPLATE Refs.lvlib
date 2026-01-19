@@ -10,13 +10,19 @@
 </Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Item Name="Value Change Signaling" Type="Folder">
+		<Item Name="Value Change Signaling.vi" Type="VI" URL="../Value Change Signaling.vi"/>
+	</Item>
+	<Item Name="Value Change" Type="Folder">
+		<Item Name="Value Change.vi" Type="VI" URL="../Value Change.vi"/>
+	</Item>
 	<Item Name="TEMPLATE Refs.lvclass" Type="LVClass" URL="../TEMPLATE Refs/TEMPLATE Refs.lvclass">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Refs.ctl" Type="VI" URL="../Refs.ctl"/>
 	<Item Name="Init Refs.vi" Type="VI" URL="../Init Refs.vi"/>
 	<Item Name="Read Refs.vi" Type="VI" URL="../Read Refs.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Find Refs.vi" Type="VI" URL="../Find Refs.vi"/>
+	<Item Name="Refs.ctl" Type="VI" URL="../Refs.ctl"/>
 </Library>

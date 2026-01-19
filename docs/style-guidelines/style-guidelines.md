@@ -26,3 +26,26 @@ Comment from Greg:
 
 Fundamentally, class inheritance should not occur for actors.
 Instead, (for something like a HAL) use dependency inversion with the strategy pattern to pick and choose the implementation to use for THAT actor.
+
+---
+
+Default function
+Icon: ctrl+shift+k, left justified, not capital, red text
+private
+conn pane: error out
+Shared clone
+
+Default SD
+Icon: ctrl+shift+k, left justified, not capital, red text
+private
+conn pane: object in, error out
+Shared clone
+
+Default DD
+Icon: ctrl+shift+k, left justified, not capital, black text
+public (has to be)
+conn pane: object in, error out
+Shared clone
+
+---
+
