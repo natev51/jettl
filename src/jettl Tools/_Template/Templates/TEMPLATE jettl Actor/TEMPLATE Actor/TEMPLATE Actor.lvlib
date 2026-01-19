@@ -12,7 +12,7 @@
 	<Property Name="NI.SortType" Type="Int">3</Property>
 	<Item Name="Spawn Child" Type="Folder">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		<Item Name="Static Child UIDs.ctl" Type="VI" URL="../Static Child UIDs.ctl"/>
+		<Item Name="Child UIDs.ctl" Type="VI" URL="../Child UIDs.ctl"/>
 		<Item Name="Spawn Child placeholder.vi" Type="VI" URL="../Spawn Child placeholder.vi"/>
 	</Item>
 	<Item Name="TEMPLATE Refs.lvlib" Type="Library" URL="../TEMPLATE Refs/TEMPLATE Refs.lvlib">

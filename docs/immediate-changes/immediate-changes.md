@@ -30,10 +30,6 @@ Two maps for look up between init and read I.e. Msg Input and Msg Output mapping
 
 ---
 
-return to errors on inputs for the message stuff.
-
----
-
 rename msg rescript to rescript.
 
 ---
@@ -69,11 +65,8 @@ Persistent Core Actor=
 Persistent Actors
 
 
+function for the persistent actors and persistent msgs. only in the spawn
 
-
-
-
-Change name from Core Actor TO Base Actor.
 
 Spawning documentation:
 Use of inline: want to setup resources in the Main. So inline is there for the lifetime of the Main, and since references are created in main, then they are guaranteed to be alive for the application, assuming they have not been closed).

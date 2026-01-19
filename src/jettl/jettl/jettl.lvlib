@@ -87,13 +87,13 @@
 		<Item Name="Default Instance.vi" Type="VI" URL="../Default Instance.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
-		<Item Name="Decorate And Unified Msg Set.vi" Type="VI" URL="../Decorate And Unified Msg Set.vi">
+		<Item Name="Decorate And Unified Msgs.vi" Type="VI" URL="../Decorate And Unified Msgs.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 		<Item Name="Layers To Decorate.vi" Type="VI" URL="../Layers To Decorate.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
-		<Item Name="Union Local Msg Sets.vi" Type="VI" URL="../Union Local Msg Sets.vi">
+		<Item Name="Union Msgs.vi" Type="VI" URL="../Union Msgs.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 		<Item Name="Check Spawn.vi" Type="VI" URL="../Check Spawn.vi">
@@ -120,7 +120,7 @@
 		<Item Name="Async Spawn Root.vi" Type="VI" URL="../Async Spawn Root.vi"/>
 		<Item Name="Async Spawn Child.vi" Type="VI" URL="../Async Spawn Child.vi"/>
 		<Item Name="Inline Spawn Root.vi" Type="VI" URL="../Inline Spawn Root.vi"/>
-		<Item Name="Find Local Msg Set.vi" Type="VI" URL="../Find Local Msg Set.vi"/>
+		<Item Name="Find Msgs.vi" Type="VI" URL="../Find Msgs.vi"/>
 		<Item Name="Find Actors.vi" Type="VI" URL="../Find Actors.vi"/>
 		<Item Name="Starting.vi" Type="VI" URL="../Starting.vi"/>
 		<Item Name="Listen To Msg.vi" Type="VI" URL="../Listen To Msg.vi"/>
