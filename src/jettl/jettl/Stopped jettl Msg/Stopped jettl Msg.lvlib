@@ -20,12 +20,6 @@
 	<Item Name="Stopped Msg Output.lvlib" Type="Library" URL="../Stopped Msg Output/Stopped Msg Output.lvlib">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="--Stopped Msg.lvclass" Type="LVClass" URL="../--Stopped Msg/--Stopped Msg.lvclass">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="--Stopped Msg Output.lvclass" Type="LVClass" URL="../--Stopped Msg Output/--Stopped Msg Output.lvclass">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
 	<Item Name="Stopped.vi" Type="VI" URL="../Stopped.vi"/>
 	<Item Name="Call.vi" Type="VI" URL="../Call.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
