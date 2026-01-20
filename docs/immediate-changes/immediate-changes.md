@@ -9,6 +9,12 @@ Goals:
 	- Stop
 	- Stopped
 
+
+TEMPLATE Msg Input
+TEMPLATE Msg Output
+TEMPLATE Msg: Execute Msg
+TEMPLATE
+
 2. Add in the Actor Index to the spawning
 
 3. Template
@@ -25,3 +31,6 @@ Goals:
 	- create a map that maps the indexes to the names of the functions (for Msgs and Actors separately) so that you can use the map elements to alter the correct functions by their name.
 	- Two maps for look up between `Init X` and `Read X` i.e. Msg Input and Msg Output mapping.
 	- Clean Up Wire invoke node where necessary
+
+Would be cool.
+could.. Should?.. go back to Base Actor and make it the same folder structure as TEMPLATE jettl Actor!
