@@ -5,11 +5,6 @@
 
 Goals:
 
-1. update
-	- Stop
-	- Stopped
-
-TEMPLATE
 
 2. Add in the Actor Index to the spawning
 
