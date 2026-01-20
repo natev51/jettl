@@ -11,10 +11,19 @@
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
 	<Item Name="Stopped jettl Msg.lvclass" Type="LVClass" URL="../Stopped jettl Msg/Stopped jettl Msg.lvclass"/>
-	<Item Name="Stopped Msg.lvclass" Type="LVClass" URL="../Stopped Msg/Stopped Msg.lvclass">
+	<Item Name="Stopped Msg.lvlib" Type="Library" URL="../Stopped Msg/Stopped Msg.lvlib">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Stopped Msg Output.lvclass" Type="LVClass" URL="../Stopped Msg Output/Stopped Msg Output.lvclass">
+	<Item Name="Stopped Msg Input.lvlib" Type="Library" URL="../Stopped Msg Input/Stopped Msg Input.lvlib">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Stopped Msg Output.lvlib" Type="Library" URL="../Stopped Msg Output/Stopped Msg Output.lvlib">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="--Stopped Msg.lvclass" Type="LVClass" URL="../--Stopped Msg/--Stopped Msg.lvclass">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="--Stopped Msg Output.lvclass" Type="LVClass" URL="../--Stopped Msg Output/--Stopped Msg Output.lvclass">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Stopped.vi" Type="VI" URL="../Stopped.vi"/>
