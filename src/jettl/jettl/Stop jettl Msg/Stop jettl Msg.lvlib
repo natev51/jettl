@@ -10,27 +10,7 @@
 </Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
-	<Item Name="Stop" Type="Folder">
-		<Item Name="Stop.vi" Type="VI" URL="../Stop.vi"/>
-		<Item Name="Call.vi" Type="VI" URL="../Call.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Recurse.vi" Type="VI" URL="../Recurse.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Tell Self.vi" Type="VI" URL="../Tell Self.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Tell Parent.vi" Type="VI" URL="../Tell Parent.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Tell Reply.vi" Type="VI" URL="../Tell Reply.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-	</Item>
+	<Item Name="Stop.lvlib" Type="Library" URL="../Stop/Stop.lvlib"/>
 	<Item Name="Stop jettl Msg.lvclass" Type="LVClass" URL="../Stop jettl Msg/Stop jettl Msg.lvclass"/>
 	<Item Name="Stop Msg.lvlib" Type="Library" URL="../Stop Msg/Stop Msg.lvlib">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>

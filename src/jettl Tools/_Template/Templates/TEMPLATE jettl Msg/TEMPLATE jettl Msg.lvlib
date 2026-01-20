@@ -10,33 +10,7 @@
 </Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
-	<Item Name="TEMPLATE" Type="Folder">
-		<Item Name="TEMPLATE.vi" Type="VI" URL="../TEMPLATE.vi"/>
-		<Item Name="Call.vi" Type="VI" URL="../Call.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Recurse.vi" Type="VI" URL="../Recurse.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Tell Self.vi" Type="VI" URL="../Tell Self.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Tell Parent.vi" Type="VI" URL="../Tell Parent.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Tell Reply.vi" Type="VI" URL="../Tell Reply.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Init Msg.vi" Type="VI" URL="../Init Msg.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Init Msg Default.vi" Type="VI" URL="../Init Msg Default.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-	</Item>
+	<Item Name="TEMPLATE.lvlib" Type="Library" URL="../TEMPLATE/TEMPLATE.lvlib"/>
 	<Item Name="TEMPLATE jettl Msg.lvclass" Type="LVClass" URL="../TEMPLATE jettl Msg/TEMPLATE jettl Msg.lvclass"/>
 	<Item Name="TEMPLATE Msg.lvlib" Type="Library" URL="../TEMPLATE Msg/TEMPLATE Msg.lvlib">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
