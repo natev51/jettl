@@ -9,15 +9,17 @@ Goals:
 	- Stop
 	- Stopped
 
-2. Template
+2. Add in the Actor Index to the spawning
+
+3. Template
 	- check for ending in `jettl Msg` or `jettl Actor` instead of just `Msg` or `Actor`
 
-3. run code to ensure it's running
+4. run code to ensure it's running
 
-4. Renaming Tool
+5. Renaming Tool
 	- For the Msgs, do not include any names that are apart of the actor overrides, to avoid any further naming conflicts i.e. cannot name `Setup Msg` since the `Setup.vi` already would exist and no point to run into naming conflict if you don't have to. Have a string list here that is hardcoded in tools.
 
-5. Rescript Tool
+6. Rescript Tool
 	- rename msg rescript to rescript.
 	- make the tree the same actor and Msg dropdown.
 	- create a map that maps the indexes to the names of the functions (for Msgs and Actors separately) so that you can use the map elements to alter the correct functions by their name.

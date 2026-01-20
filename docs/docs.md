@@ -9,7 +9,7 @@ These are the links to documentation for jettl. They are presented in no particu
 - [features](features/features.md)
 - [immediate-changes](immediate-changes/immediate-changes.md)
 - [reuse-actors](reuse-actors/reuse-actors.md)
-- [style-guidelines](style-guidelines/style-guidelines.md)
+- [readability-guidelines](readability-guidelines/readability-guidelines.md)
 - [ideas-that-could-be-implemented](ideas-that-could-be-implemented/ideas-that-could-be-implemented.md)
 - [design-patterns](design-patterns/design-patterns.md)
 - [benchmarking](benchmarking/benchmarking.md)

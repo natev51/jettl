@@ -12,8 +12,8 @@
 		<Item Name="Msg.lvclass" Type="LVClass" URL="../Msg/Msg.lvclass"/>
 		<Item Name="Msg Input.lvclass" Type="LVClass" URL="../Msg Input/Msg Input.lvclass"/>
 		<Item Name="Msg Output.lvclass" Type="LVClass" URL="../Msg Output/Msg Output.lvclass"/>
-		<Item Name="Stop Msg.lvlib" Type="Library" URL="../Stop Msg/Stop Msg.lvlib"/>
-		<Item Name="Stopped Msg.lvlib" Type="Library" URL="../Stopped Msg/Stopped Msg.lvlib"/>
+		<Item Name="Stop jettl Msg.lvlib" Type="Library" URL="../Stop jettl Msg/Stop jettl Msg.lvlib"/>
+		<Item Name="Stopped jettl Msg.lvlib" Type="Library" URL="../Stopped jettl Msg/Stopped jettl Msg.lvlib"/>
 	</Item>
 	<Item Name="Actor" Type="Folder">
 		<Item Name="Refs.lvclass" Type="LVClass" URL="../Refs/Refs.lvclass"/>
@@ -65,25 +65,6 @@
 		</Item>
 	</Item>
 	<Item Name="Functions" Type="Folder">
-		<Item Name="Decorators" Type="Folder">
-			<Item Name="Invariant" Type="Folder">
-				<Item Name="Read Msg.vi" Type="VI" URL="../Read Msg.vi"/>
-				<Item Name="Write Msg.vi" Type="VI" URL="../Write Msg.vi"/>
-				<Item Name="Read Stop.vi" Type="VI" URL="../Read Stop.vi"/>
-				<Item Name="Read Safe Stop.vi" Type="VI" URL="../Read Safe Stop.vi"/>
-				<Item Name="Read Self Attributes.vi" Type="VI" URL="../Read Self Attributes.vi"/>
-				<Item Name="Write Self Attributes.vi" Type="VI" URL="../Write Self Attributes.vi"/>
-				<Item Name="Read All Child Attributes.vi" Type="VI" URL="../Read All Child Attributes.vi"/>
-				<Item Name="Write All Child Attributes.vi" Type="VI" URL="../Write All Child Attributes.vi"/>
-			</Item>
-			<Item Name="Variant" Type="Folder">
-				<Item Name="Setup.vi" Type="VI" URL="../Setup.vi"/>
-				<Item Name="Start.vi" Type="VI" URL="../Start.vi"/>
-				<Item Name="Inspect.vi" Type="VI" URL="../Inspect.vi"/>
-				<Item Name="Finalize Turn.vi" Type="VI" URL="../Finalize Turn.vi"/>
-				<Item Name="Teardown.vi" Type="VI" URL="../Teardown.vi"/>
-			</Item>
-		</Item>
 		<Item Name="Spawning" Type="Folder">
 			<Item Name="Check Parent Actor.vi" Type="VI" URL="../Check Parent Actor.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
@@ -125,34 +106,59 @@
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
 		</Item>
-		<Item Name="Update Attributes A.vi" Type="VI" URL="../Update Attributes A.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		<Item Name="Actor" Type="Folder">
+			<Item Name="Decorators" Type="Folder">
+				<Item Name="Invariant" Type="Folder">
+					<Item Name="Write Msg.vi" Type="VI" URL="../Write Msg.vi"/>
+					<Item Name="Read Msg.vi" Type="VI" URL="../Read Msg.vi"/>
+					<Item Name="Read Stop.vi" Type="VI" URL="../Read Stop.vi"/>
+					<Item Name="Read Safe Stop.vi" Type="VI" URL="../Read Safe Stop.vi"/>
+					<Item Name="Write Self Attributes.vi" Type="VI" URL="../Write Self Attributes.vi"/>
+					<Item Name="Read Self Attributes.vi" Type="VI" URL="../Read Self Attributes.vi"/>
+					<Item Name="Write All Child Attributes.vi" Type="VI" URL="../Write All Child Attributes.vi"/>
+					<Item Name="Read All Child Attributes.vi" Type="VI" URL="../Read All Child Attributes.vi"/>
+				</Item>
+				<Item Name="Variant" Type="Folder">
+					<Item Name="Setup.vi" Type="VI" URL="../Setup.vi"/>
+					<Item Name="Start.vi" Type="VI" URL="../Start.vi"/>
+					<Item Name="Inspect.vi" Type="VI" URL="../Inspect.vi"/>
+					<Item Name="Finalize Turn.vi" Type="VI" URL="../Finalize Turn.vi"/>
+					<Item Name="Teardown.vi" Type="VI" URL="../Teardown.vi"/>
+				</Item>
+			</Item>
+			<Item Name="Find Msgs.vi" Type="VI" URL="../Find Msgs.vi"/>
+			<Item Name="Find Actors.vi" Type="VI" URL="../Find Actors.vi"/>
+			<Item Name="Update Attributes A.vi" Type="VI" URL="../Update Attributes A.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Update Attributes B.vi" Type="VI" URL="../Update Attributes B.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Starting.vi" Type="VI" URL="../Starting.vi"/>
+			<Item Name="Listen To Msg.vi" Type="VI" URL="../Listen To Msg.vi"/>
+			<Item Name="Should Stop.vi" Type="VI" URL="../Should Stop.vi"/>
+			<Item Name="Stopping.vi" Type="VI" URL="../Stopping.vi"/>
 		</Item>
-		<Item Name="Update Attributes B.vi" Type="VI" URL="../Update Attributes B.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		<Item Name="Msg" Type="Folder">
+			<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>
+			<Item Name="Recurse.vi" Type="VI" URL="../Recurse.vi"/>
+			<Item Name="Execute Msg Or Recurse.vi" Type="VI" URL="../Execute Msg Or Recurse.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Tell Self.vi" Type="VI" URL="../Tell Self.vi"/>
+			<Item Name="Tell Parent.vi" Type="VI" URL="../Tell Parent.vi"/>
+			<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi"/>
+			<Item Name="Tell Reply.vi" Type="VI" URL="../Tell Reply.vi"/>
 		</Item>
-		<Item Name="Find Msgs.vi" Type="VI" URL="../Find Msgs.vi"/>
-		<Item Name="Find Actors.vi" Type="VI" URL="../Find Actors.vi"/>
-		<Item Name="Starting.vi" Type="VI" URL="../Starting.vi"/>
-		<Item Name="Listen To Msg.vi" Type="VI" URL="../Listen To Msg.vi"/>
-		<Item Name="Should Stop.vi" Type="VI" URL="../Should Stop.vi"/>
-		<Item Name="Stopping.vi" Type="VI" URL="../Stopping.vi"/>
-		<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>
-		<Item Name="Recurse.vi" Type="VI" URL="../Recurse.vi"/>
-		<Item Name="Execute Msg Or Recurse.vi" Type="VI" URL="../Execute Msg Or Recurse.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		<Item Name="Misc" Type="Folder">
+			<Item Name="Find Child Attributes.vi" Type="VI" URL="../Find Child Attributes.vi"/>
+			<Item Name="Find Child UIDs.vi" Type="VI" URL="../Find Child UIDs.vi"/>
+			<Item Name="Within Msgs.vi" Type="VI" URL="../Within Msgs.vi"/>
+			<Item Name="Default Instance.vi" Type="VI" URL="../Default Instance.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Msg Listened To.vi" Type="VI" URL="../Msg Listened To.vi"/>
+			<Item Name="Write Teller In Msg.vi" Type="VI" URL="../Write Teller In Msg.vi"/>
 		</Item>
-		<Item Name="Tell Self.vi" Type="VI" URL="../Tell Self.vi"/>
-		<Item Name="Tell Parent.vi" Type="VI" URL="../Tell Parent.vi"/>
-		<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi"/>
-		<Item Name="Tell Reply.vi" Type="VI" URL="../Tell Reply.vi"/>
-		<Item Name="Find Child Attributes.vi" Type="VI" URL="../Find Child Attributes.vi"/>
-		<Item Name="Find Child UIDs.vi" Type="VI" URL="../Find Child UIDs.vi"/>
-		<Item Name="Within Msgs.vi" Type="VI" URL="../Within Msgs.vi"/>
-		<Item Name="Default Instance.vi" Type="VI" URL="../Default Instance.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Msg Listened To.vi" Type="VI" URL="../Msg Listened To.vi"/>
-		<Item Name="Write Teller In Msg.vi" Type="VI" URL="../Write Teller In Msg.vi"/>
 	</Item>
 </Library>
