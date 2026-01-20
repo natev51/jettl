@@ -5,9 +5,6 @@
 
 Goals:
 
-
-2. Add in the Actor Index to the spawning
-
 3. Template
 	- check for ending in `jettl Msg` or `jettl Actor` instead of just `Msg` or `Actor`
 
@@ -23,5 +20,14 @@ Goals:
 	- Two maps for look up between `Init X` and `Read X` i.e. Msg Input and Msg Output mapping.
 	- Clean Up Wire invoke node where necessary
 
-Would be cool.
-could.. Should?.. go back to Base Actor and make it the same folder structure as TEMPLATE jettl Actor!
+---
+
+Base Actor and make it the same folder structure as TEMPLATE jettl Actor!
+
+---
+
+add in additional function calls for the actor index i.e. if it is the outer actor, if it is a persistent actor, 
+
+---
+
+more specific functions for `within unified msgs` and `within msgs`, both take the `actor` ? as an input.
