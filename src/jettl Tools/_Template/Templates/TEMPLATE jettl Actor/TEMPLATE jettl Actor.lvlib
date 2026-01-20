@@ -10,14 +10,16 @@
 </Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Item Name="TEMPLATE" Type="Folder">
+		<Item Name="TEMPLATE.vi" Type="VI" URL="../TEMPLATE.vi"/>
+		<Item Name="Init Actor.vi" Type="VI" URL="../Init Actor.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Init Actor Default.vi" Type="VI" URL="../Init Actor Default.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+	</Item>
 	<Item Name="TEMPLATE Actor.lvlib" Type="Library" URL="../TEMPLATE Actor/TEMPLATE Actor.lvlib">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="TEMPLATE.vi" Type="VI" URL="../TEMPLATE.vi"/>
-	<Item Name="Init Actor.vi" Type="VI" URL="../Init Actor.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="Init Actor Default.vi" Type="VI" URL="../Init Actor Default.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 </Library>
