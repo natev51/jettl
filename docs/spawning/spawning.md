@@ -3,3 +3,5 @@ Use of inline: want to setup resources in the Main. So inline is there for the l
 ---
 
 Bridge Actors.
+
+![](../images/alternate-start-async.png)
