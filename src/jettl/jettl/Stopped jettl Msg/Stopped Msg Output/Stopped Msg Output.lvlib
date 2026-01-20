@@ -9,7 +9,10 @@
 
 </Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
+	<Property Name="NI.SortType" Type="Int">3</Property>
 	<Item Name="Stopped Msg Output.lvclass" Type="LVClass" URL="../Stopped Msg Output/Stopped Msg Output.lvclass">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
+	<Item Name="Init Msg Output.vi" Type="VI" URL="../Init Msg Output.vi"/>
+	<Item Name="Read Msg Output.vi" Type="VI" URL="../Read Msg Output.vi"/>
 </Library>

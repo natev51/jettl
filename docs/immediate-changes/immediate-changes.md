@@ -9,10 +9,6 @@ Goals:
 	- Stop
 	- Stopped
 
-
-TEMPLATE Msg Input
-TEMPLATE Msg Output
-TEMPLATE Msg: Execute Msg
 TEMPLATE
 
 2. Add in the Actor Index to the spawning
