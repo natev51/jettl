@@ -18,9 +18,7 @@
 	<Item Name="Actor" Type="Folder">
 		<Item Name="Refs.lvclass" Type="LVClass" URL="../Refs/Refs.lvclass"/>
 		<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor.lvclass"/>
-		<Item Name="Base Actor.lvlib" Type="Library" URL="../Base Actor/Base Actor.lvlib">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
+		<Item Name="Base jettl Actor.lvlib" Type="Library" URL="../Base jettl Actor/Base jettl Actor.lvlib"/>
 	</Item>
 	<Item Name="Teller" Type="Folder">
 		<Item Name="Teller.lvclass" Type="LVClass" URL="../Teller/Teller.lvclass"/>
@@ -119,6 +117,7 @@
 					<Item Name="Read All Child Attributes.vi" Type="VI" URL="../Read All Child Attributes.vi"/>
 				</Item>
 				<Item Name="Variant" Type="Folder">
+					<Item Name="Spawn.vi" Type="VI" URL="../Spawn.vi"/>
 					<Item Name="Setup.vi" Type="VI" URL="../Setup.vi"/>
 					<Item Name="Start.vi" Type="VI" URL="../Start.vi"/>
 					<Item Name="Inspect.vi" Type="VI" URL="../Inspect.vi"/>

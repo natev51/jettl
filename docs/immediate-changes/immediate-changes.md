@@ -21,10 +21,6 @@ Goals:
 
 ---
 
-Base Actor and make it the same folder structure as TEMPLATE jettl Actor!
-
----
-
 add in additional function calls for the actor index i.e. if it is the outer actor, if it is a persistent actor, 
 
 ---
@@ -34,3 +30,6 @@ more specific functions for `within unified msgs` and `within msgs`, both take t
 
 ---
 
+Have the input instead be persistent outer decorator
+
+Wire in the Base Actor as necessary to Persistent Inner Actors
