@@ -6,6 +6,7 @@
 Goals:
 
 5. Renaming Tool
+	- combine the find vi ref and rename VI
 
 6. run code to ensure it's running
 
