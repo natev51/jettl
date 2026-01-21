@@ -6,7 +6,6 @@
 Goals:
 
 5. Renaming Tool
-	- For the Msgs, do not include any names that are apart of the actor overrides, to avoid any further naming conflicts i.e. cannot name `Setup Msg` since the `Setup.vi` already would exist and no point to run into naming conflict if you don't have to. Have a string list here that is hardcoded in tools.
 
 6. run code to ensure it's running
 
@@ -30,6 +29,7 @@ more specific functions for `within unified msgs` and `within msgs`, both take t
 
 ---
 
+Spawning:
 Have the input instead be persistent outer decorator
-
-Wire in the Base Actor as necessary to Persistent Inner Actors
+Normal
+Inner: Wire in the Base Actor as necessary to Persistent Inner Actors

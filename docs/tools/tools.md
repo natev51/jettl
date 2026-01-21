@@ -8,7 +8,7 @@ Please place them in this common location, helping developers easily find your t
 ### Rescript
 
 How To Use:
-Only the left two inputs, and Error in are inputs that can be scripted.
+Only the left two inputs can be scripted.
 Only the right two outputs can be scripted.
 
 Future clean up: `Script Msg.vi`:
