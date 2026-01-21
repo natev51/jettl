@@ -5,11 +5,6 @@
 
 Goals:
 
-3. Template
-	- check for ending in `jettl Msg` or `jettl Actor` instead of just `Msg` or `Actor`
-
-4. run code to ensure it's running
-
 5. Renaming Tool
 	- For the Msgs, do not include any names that are apart of the actor overrides, to avoid any further naming conflicts i.e. cannot name `Setup Msg` since the `Setup.vi` already would exist and no point to run into naming conflict if you don't have to. Have a string list here that is hardcoded in tools.
 

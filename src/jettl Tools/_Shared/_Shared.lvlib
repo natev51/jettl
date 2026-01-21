@@ -13,6 +13,9 @@
 	<Item Name="Name Library File Path.ctl" Type="VI" URL="../Name Library File Path.ctl"/>
 	<Item Name="Project Path.vi" Type="VI" URL="../Project Path.vi"/>
 	<Item Name="Get Project Types.vi" Type="VI" URL="../Get Project Types.vi"/>
+	<Item Name="Map STUFF.vi" Type="VI" URL="../Map STUFF.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
 	<Item Name="Immediate Children.vi" Type="VI" URL="../Immediate Children.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
@@ -24,5 +27,4 @@
 	<Item Name="Project Stuff.lvclass" Type="LVClass" URL="../Project Stuff/Project Stuff.lvclass"/>
 	<Item Name="Name Specs.lvclass" Type="LVClass" URL="../Name Specs/Name Specs.lvclass"/>
 	<Item Name="Name Stuff.ctl" Type="VI" URL="../Name Stuff.ctl"/>
-	<Item Name="Map STUFF.vi" Type="VI" URL="../Map STUFF.vi"/>
 </Library>
