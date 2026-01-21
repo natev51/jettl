@@ -11,10 +11,10 @@
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
 	<Item Name="TEMPLATE.lvlib" Type="Library" URL="../TEMPLATE/TEMPLATE.lvlib"/>
-	<Item Name="TEMPLATE jettl Msg.lvclass" Type="LVClass" URL="../TEMPLATE jettl Msg/TEMPLATE jettl Msg.lvclass"/>
 	<Item Name="TEMPLATE Msg.lvlib" Type="Library" URL="../TEMPLATE Msg/TEMPLATE Msg.lvlib">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
+	<Item Name="TEMPLATE jettl Msg.lvclass" Type="LVClass" URL="../TEMPLATE jettl Msg/TEMPLATE jettl Msg.lvclass"/>
 	<Item Name="TEMPLATE Msg Input.lvlib" Type="Library" URL="../TEMPLATE Msg Input/TEMPLATE Msg Input.lvlib">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
