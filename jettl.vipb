@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-08-18 10:28:19" Modified_Date="2026-01-21 12:40:57" Creator="Erik" Comments="" ID="8ac2bdb034f879f25a23994012cfda31">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-08-18 10:28:19" Modified_Date="2026-01-21 13:54:02" Creator="Erik" Comments="" ID="e9de55df0cff38a16815394392c4a66a">
   <Library_General_Settings>
     <Package_File_Name>Nathan_Davis_lib_jettl</Package_File_Name>
-    <Library_Version>6.6.0.79</Library_Version>
+    <Library_Version>6.6.1.80</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>.</Library_Output_Folder>
@@ -504,7 +504,7 @@ MIT</Text_to_Add>
         <Path>src\jettl\jettl\Base jettl Actor\Base\Base.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>BD5EDBD6B775EA8AED953A912A492B01</GUID>
+      <GUID>CD6F331F243D7C60A3AE810D1CFB756B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -525,7 +525,7 @@ MIT</Text_to_Add>
         <Synchronyze_with_Directory>false</Synchronyze_with_Directory>
         <Synchronize_Directory_Path/>
       </Synchronization_Info>
-      <GUID>27599231596551083D8C10671480AEE2</GUID>
+      <GUID>53246008835F70FA9E69AD05AFBD901D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -546,7 +546,7 @@ MIT</Text_to_Add>
         <Synchronyze_with_Directory>false</Synchronyze_with_Directory>
         <Synchronize_Directory_Path/>
       </Synchronization_Info>
-      <GUID>2E8304CF5B9054C1C717A34157E62AF6</GUID>
+      <GUID>31F98CEFFEE921227F73BCB61F93785D</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>

@@ -5,13 +5,9 @@
 
 Goals:
 
-5. Renaming Tool
-
-6. run code to ensure it's running
-
 7. Rescript Tool
-	- rename msg rescript to rescript.
-	- make the tree the same actor and Msg dropdown.
+
+
 	- create a map that maps the indexes to the names of the functions (for Msgs and Actors separately) so that you can use the map elements to alter the correct functions by their name.
 	- Two maps for look up between `Init X` and `Read X` i.e. Msg Input and Msg Output mapping.
 	- Clean Up Wire invoke node where necessary
@@ -33,3 +29,16 @@ Spawning:
 Have the input instead be persistent outer decorator
 Normal
 Inner: Wire in the Base Actor as necessary to Persistent Inner Actors
+
+---
+
+`Init Msg Default.vi` which is JUST the instantiated object.
+Change the `Init Msg Default` and `Init Actor Default` as necessary.
+
+do this for the three messages
+do this for the two messages
+
+---
+
+For the developer code, add comments that explain if can modify and touch or DO NOT MODIFY.
+`Init Actor`: DO NOT modify!

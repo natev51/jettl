@@ -20,4 +20,5 @@ These are the links to documentation for jettl. They are presented in no particu
 - [reentrancy](reentrancy/reentrancy.md)
 - [attributes](attributes/attributes.md)
 - [spawning](spawning/spawning.md)
+- [debug](debug/debug.md)
 
