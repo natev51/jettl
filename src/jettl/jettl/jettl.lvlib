@@ -120,7 +120,7 @@
 					<Item Name="Spawn.vi" Type="VI" URL="../Spawn.vi"/>
 					<Item Name="Setup.vi" Type="VI" URL="../Setup.vi"/>
 					<Item Name="Start.vi" Type="VI" URL="../Start.vi"/>
-					<Item Name="Inspect.vi" Type="VI" URL="../Inspect.vi"/>
+					<Item Name="Call Inspect.vi" Type="VI" URL="../Call Inspect.vi"/>
 					<Item Name="Finalize Turn.vi" Type="VI" URL="../Finalize Turn.vi"/>
 					<Item Name="Teardown.vi" Type="VI" URL="../Teardown.vi"/>
 				</Item>
@@ -141,7 +141,7 @@
 		<Item Name="Msg" Type="Folder">
 			<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>
 			<Item Name="Recurse.vi" Type="VI" URL="../Recurse.vi"/>
-			<Item Name="Execute Msg Or Recurse.vi" Type="VI" URL="../Execute Msg Or Recurse.vi">
+			<Item Name="Execute Or Recurse.vi" Type="VI" URL="../Execute Or Recurse.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
 			<Item Name="Tell Self.vi" Type="VI" URL="../Tell Self.vi"/>

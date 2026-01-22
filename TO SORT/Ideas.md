@@ -336,3 +336,29 @@ After 'Spawn.vi', access to Child Attributes, which has ‘VI Ref’, so can eas
 - always starts as `False`
 - only be changed to `True` in  `Stop.vi`
 - can never be changed back to `False`
+
+---
+
+Should Stop.vi
+
+`Stop` = TRUE
+OR
+Error (then Stops)
+outputs `Can Stop` = True
+
+Error from Finalize Turn.vi means that the actor should stop, hence Stop will be called, if not called already.
+
+—-
+
+### jettl Tools
+
+Implement message interface AND auto populates that interfaces message method with 'Recurse.vi' and necessary wiring.
+https://forums.ni.com/t5/LabVIEW/Programmatically-add-a-parent-interface-to-a-class/td-p/4239580
+
+---
+
+Testing:
+DD output terminal on the `Actor.vi` prevents the object wire from changing
+
+---
+
