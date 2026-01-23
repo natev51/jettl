@@ -139,7 +139,6 @@
 			<Item Name="Starting.vi" Type="VI" URL="../Starting.vi"/>
 			<Item Name="Listen To Msg.vi" Type="VI" URL="../Listen To Msg.vi"/>
 			<Item Name="Should Stop.vi" Type="VI" URL="../Should Stop.vi"/>
-			<Item Name="Stopping.vi" Type="VI" URL="../Stopping.vi"/>
 		</Item>
 		<Item Name="Msg" Type="Folder">
 			<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>
@@ -151,6 +150,9 @@
 			<Item Name="Tell Parent.vi" Type="VI" URL="../Tell Parent.vi"/>
 			<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi"/>
 			<Item Name="Tell Reply.vi" Type="VI" URL="../Tell Reply.vi"/>
+			<Item Name="Tell If Stopped.vi" Type="VI" URL="../Tell If Stopped.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
 		</Item>
 		<Item Name="Misc" Type="Folder">
 			<Item Name="Find Child Attributes.vi" Type="VI" URL="../Find Child Attributes.vi"/>

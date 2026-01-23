@@ -182,6 +182,7 @@
   },
   "active": "293645e939297681",
   "lastOpenFiles": [
+    "src/jettl/jettl/Tell If Stopped.vi",
     "src/jettl Tools/_Template/Templates/TEMPLATE jettl Actor/TEMPLATE Actor/TEMPLATE Actor/Tell Child Inspect.vi",
     "src/jettl Tools/_Template/Templates/TEMPLATE jettl Actor/TEMPLATE Actor/TEMPLATE Actor/Tell Parent Inspect.vi",
     "src/jettl/jettl/Tell Child Inspect.vi",
@@ -192,7 +193,6 @@
     "src/jettl/jettl/Actor/Tell Child Inspect.vi",
     "src/jettl/jettl/Async Actor.vi",
     "src/jettl/jettl/Actor.vi",
-    "src/jettl Tools/_Template/Templates/TEMPLATE jettl Actor/TEMPLATE Actor/TEMPLATE Actor/Tell Self Inspect.vi",
     "docs/debug/debug.md",
     "TO SORT/Ideas.md",
     "TO SORT/1 Notes.md",

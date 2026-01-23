@@ -12,11 +12,7 @@ Goals:
 
 ---
 
-add in additional function calls for the actor index i.e. if it is the outer actor, if it is a persistent actor, 
-
----
-
-more specific functions for `within unified msgs` and `within msgs`, both take the `actor` ? as an input.
+add in additional function calls for the actor index i.e. if it is the outer actor, if it is a edge, core, etc actor 
 
 
 ---
@@ -33,17 +29,13 @@ Have some examples that show the relationships with some number of actors being 
 
 ---
 
-`Init Msg Default.vi` which is JUST the instantiated object.
-Change the `Init Msg Default` and `Init Actor Default` as necessary.
-
-do this for the three messages
-do this for the two messages
-
----
-
 For the developer code, add comments that explain if can modify and touch or DO NOT MODIFY.
 `Init Actor`: DO NOT modify!
 
 ---
 
-implement the tell self inspect, tell parent inspect, tell child inspect, tell reply inspect
+`Init Msg Default.vi` which is JUST the instantiated object.
+Change the `Init Msg Default` and `Init Actor Default` as necessary.
+
+do this for the three messages
+do this for the two messages
