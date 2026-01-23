@@ -14,4 +14,5 @@
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Init Msg.vi" Type="VI" URL="../Init Msg.vi"/>
+	<Item Name="Init Msg Default.vi" Type="VI" URL="../Init Msg Default.vi"/>
 </Library>

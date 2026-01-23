@@ -23,7 +23,7 @@
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 		<Property Name="NI.ClassItem.State" Type="Int">1342710272</Property>
 	</Item>
-	<Item Name="Read Persistent Unified Actor.vi" Type="VI" URL="../Read Persistent Unified Actor.vi">
+	<Item Name="Read Edge Actors.vi" Type="VI" URL="../Read Edge Actors.vi">
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
 		<Property Name="NI.ClassItem.InvokeUsage" Type="UInt">1</Property>
@@ -31,13 +31,13 @@
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 		<Property Name="NI.ClassItem.State" Type="Int">1342710272</Property>
 	</Item>
-	<Item Name="Read Persistent Unified Msgs.vi" Type="VI" URL="../Read Persistent Unified Msgs.vi">
+	<Item Name="Read Core Actors.vi" Type="VI" URL="../Read Core Actors.vi">
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-		<Property Name="NI.ClassItem.Flags" Type="Int">16777352</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
 		<Property Name="NI.ClassItem.InvokeUsage" Type="UInt">1</Property>
 		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-		<Property Name="NI.ClassItem.State" Type="Int">1342714368</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1342710272</Property>
 	</Item>
 	<Item Name="Read Parent Attributes.vi" Type="VI" URL="../Read Parent Attributes.vi">
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>

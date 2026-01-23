@@ -34,8 +34,3 @@ For the developer code, add comments that explain if can modify and touch or DO 
 
 ---
 
-`Init Msg Default.vi` which is JUST the instantiated object.
-Change the `Init Msg Default` and `Init Actor Default` as necessary.
-
-do this for the three messages
-do this for the two messages

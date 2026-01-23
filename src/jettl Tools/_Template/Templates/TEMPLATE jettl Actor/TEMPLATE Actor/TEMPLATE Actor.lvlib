@@ -17,4 +17,5 @@
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Init Actor.vi" Type="VI" URL="../Init Actor.vi"/>
+	<Item Name="Init Actor Default.vi" Type="VI" URL="../Init Actor Default.vi"/>
 </Library>

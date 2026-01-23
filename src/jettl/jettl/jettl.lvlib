@@ -67,25 +67,19 @@
 			<Item Name="Check Parent Actor.vi" Type="VI" URL="../Check Parent Actor.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
+			<Item Name="Check Actors.vi" Type="VI" URL="../Check Actors.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
 			<Item Name="Check UID Already Exists.vi" Type="VI" URL="../Check UID Already Exists.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
 			<Item Name="Check UID Empty.vi" Type="VI" URL="../Check UID Empty.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
-			<Item Name="Check Decorator Actors.vi" Type="VI" URL="../Check Decorator Actors.vi">
+			<Item Name="Unify.vi" Type="VI" URL="../Unify.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
-			<Item Name="Check Persistent Decorator Actors.vi" Type="VI" URL="../Check Persistent Decorator Actors.vi">
-				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-			</Item>
-			<Item Name="Check Persistent Core Actor.vi" Type="VI" URL="../Check Persistent Core Actor.vi">
-				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-			</Item>
-			<Item Name="Create Persistent Unified.vi" Type="VI" URL="../Create Persistent Unified.vi">
-				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-			</Item>
-			<Item Name="Unified Actor And Unified Msgs.vi" Type="VI" URL="../Unified Actor And Unified Msgs.vi">
+			<Item Name="Unify Iterator.vi" Type="VI" URL="../Unify Iterator.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
 			<Item Name="Insert Child Attributes.vi" Type="VI" URL="../Insert Child Attributes.vi">
