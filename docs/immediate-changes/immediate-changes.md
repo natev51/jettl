@@ -14,19 +14,6 @@ Goals:
 
 add in additional function calls for the actor index i.e. if it is the outer actor, if it is a edge, core, etc actor 
 
-
----
-
-Spawning:
-Edge (1)
-Near Edge (n)
-Mid Edge (1)
-Mid (n)
-Mid Core (1)
-Near Core (n)
-Core (1)
-Have some examples that show the relationships with some number of actors being wrapped.
-
 ---
 
 For the developer code, add comments that explain if can modify and touch or DO NOT MODIFY.
