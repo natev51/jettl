@@ -15,4 +15,6 @@
 	<Item Name="Name jettl M.ctl" Type="VI" URL="../Name jettl M.ctl"/>
 	<Item Name="Name MI.ctl" Type="VI" URL="../Name MI.ctl"/>
 	<Item Name="Name MO.ctl" Type="VI" URL="../Name MO.ctl"/>
+	<Item Name="MI Attributes.vi" Type="VI" URL="../MI Attributes.vi"/>
+	<Item Name="MO Attributes.vi" Type="VI" URL="../MO Attributes.vi"/>
 </Library>

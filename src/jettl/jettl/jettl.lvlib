@@ -94,10 +94,10 @@
 			<Item Name="Async Spawn Root.vi" Type="VI" URL="../Async Spawn Root.vi"/>
 			<Item Name="Async Spawn Child.vi" Type="VI" URL="../Async Spawn Child.vi"/>
 			<Item Name="Inline Spawn Root.vi" Type="VI" URL="../Inline Spawn Root.vi"/>
-			<Item Name="Async Spawn.vi" Type="VI" URL="../Async Spawn.vi">
+			<Item Name="Async Actor.vi" Type="VI" URL="../Async Actor.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
-			<Item Name="Async Actor.vi" Type="VI" URL="../Async Actor.vi">
+			<Item Name="Actor.vi" Type="VI" URL="../Actor.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
 			<Item Name="Count.vi" Type="VI" URL="../Count.vi">
@@ -121,6 +121,9 @@
 					<Item Name="Setup.vi" Type="VI" URL="../Setup.vi"/>
 					<Item Name="Start.vi" Type="VI" URL="../Start.vi"/>
 					<Item Name="Call Inspect.vi" Type="VI" URL="../Call Inspect.vi"/>
+					<Item Name="Tell Self Inspect.vi" Type="VI" URL="../Tell Self Inspect.vi"/>
+					<Item Name="Tell Parent Inspect.vi" Type="VI" URL="../Tell Parent Inspect.vi"/>
+					<Item Name="Tell Child Inspect.vi" Type="VI" URL="../Tell Child Inspect.vi"/>
 					<Item Name="Finalize Turn.vi" Type="VI" URL="../Finalize Turn.vi"/>
 					<Item Name="Teardown.vi" Type="VI" URL="../Teardown.vi"/>
 				</Item>

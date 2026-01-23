@@ -6,10 +6,6 @@
 Goals:
 
 7. Rescript Tool
-
-
-	- create a map that maps the indexes to the names of the functions (for Msgs and Actors separately) so that you can use the map elements to alter the correct functions by their name.
-	- Two maps for look up between `Init X` and `Read X` i.e. Msg Input and Msg Output mapping.
 	- Clean Up Wire invoke node where necessary
 
 8. run code to ensure it's running
@@ -26,9 +22,14 @@ more specific functions for `within unified msgs` and `within msgs`, both take t
 ---
 
 Spawning:
-Have the input instead be persistent outer decorator
-Normal
-Inner: Wire in the Base Actor as necessary to Persistent Inner Actors
+Edge (1)
+Near Edge (n)
+Mid Edge (1)
+Mid (n)
+Mid Core (1)
+Near Core (n)
+Core (1)
+Have some examples that show the relationships with some number of actors being wrapped.
 
 ---
 
@@ -42,3 +43,7 @@ do this for the two messages
 
 For the developer code, add comments that explain if can modify and touch or DO NOT MODIFY.
 `Init Actor`: DO NOT modify!
+
+---
+
+implement the tell self inspect, tell parent inspect, tell child inspect, tell reply inspect

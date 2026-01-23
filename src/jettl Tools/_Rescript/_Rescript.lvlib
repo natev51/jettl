@@ -15,7 +15,13 @@
 	<Item Name="Actor.lvlib" Type="Library" URL="../Actor/Actor.lvlib">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Attributes.ctl" Type="VI" URL="../Attributes.ctl"/>
-	<Item Name="Init Term Attributes.ctl" Type="VI" URL="../Init Term Attributes.ctl"/>
-	<Item Name="Read Term Attributes.ctl" Type="VI" URL="../Read Term Attributes.ctl"/>
+	<Item Name="Attributes.ctl" Type="VI" URL="../Attributes.ctl">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Init Term Attributes.ctl" Type="VI" URL="../Init Term Attributes.ctl">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Read Term Attributes.ctl" Type="VI" URL="../Read Term Attributes.ctl">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
 </Library>
