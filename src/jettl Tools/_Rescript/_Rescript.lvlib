@@ -9,10 +9,14 @@
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
 	<Item Name="_Rescript.lvclass" Type="LVClass" URL="../_Rescript/_Rescript.lvclass"/>
+	<Item Name="Type.lvclass" Type="LVClass" URL="../Type/Type.lvclass"/>
 	<Item Name="Msg.lvlib" Type="Library" URL="../Msg/Msg.lvlib">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Actor.lvlib" Type="Library" URL="../Actor/Actor.lvlib">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Terminal Attributes.ctl" Type="VI" URL="../Terminal Attributes.ctl">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Attributes.ctl" Type="VI" URL="../Attributes.ctl">
@@ -22,6 +26,12 @@
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Read Term Attributes.ctl" Type="VI" URL="../Read Term Attributes.ctl">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Find Pane.vi" Type="VI" URL="../Find Pane.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Duplicate Control To FP.vi" Type="VI" URL="../Duplicate Control To FP.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 </Library>

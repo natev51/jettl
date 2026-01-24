@@ -45,11 +45,6 @@
 		<Item Name="Queue Transport.lvlib" Type="Library" URL="../Queue Transport/Queue Transport.lvlib"/>
 		<Item Name="Notifier Transport.lvlib" Type="Library" URL="../Notifier Transport/Notifier Transport.lvlib"/>
 	</Item>
-	<Item Name="Error" Type="Folder">
-		<Item Name="Error.lvlib" Type="Library" URL="../Error/Error.lvlib">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-	</Item>
 	<Item Name="Type Defs" Type="Folder">
 		<Item Name="Child UIDs.ctl" Type="VI" URL="../Child UIDs.ctl"/>
 		<Item Name="Relation.ctl" Type="VI" URL="../Relation.ctl"/>
@@ -160,6 +155,39 @@
 			<Item Name="Valid Teller Metadata.vi" Type="VI" URL="../Valid Teller Metadata.vi"/>
 			<Item Name="Msg Listened To.vi" Type="VI" URL="../Msg Listened To.vi"/>
 			<Item Name="Write Teller In Msg.vi" Type="VI" URL="../Write Teller In Msg.vi"/>
+		</Item>
+		<Item Name="Error" Type="Folder">
+			<Item Name="UID Already Exists--error.vi" Type="VI" URL="../UID Already Exists--error.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="UID Does Not Exist--error.vi" Type="VI" URL="../UID Does Not Exist--error.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Msg Not In Unified Msgs--error.vi" Type="VI" URL="../Msg Not In Unified Msgs--error.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Teller Not Valid--error.vi" Type="VI" URL="../Teller Not Valid--error.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="UID Not Found--error.vi" Type="VI" URL="../UID Not Found--error.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="UID Empty--error.vi" Type="VI" URL="../UID Empty--error.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Already In Stop--error.vi" Type="VI" URL="../Already In Stop--error.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Cannot Reply With No Relation--error.vi" Type="VI" URL="../Cannot Reply With No Relation--error.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Empty Actors--error.vi" Type="VI" URL="../Empty Actors--error.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Not Concrete Actor--error.vi" Type="VI" URL="../Not Concrete Actor--error.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Error Prefix.vi" Type="VI" URL="../Error Prefix.vi"/>
 		</Item>
 	</Item>
 </Library>

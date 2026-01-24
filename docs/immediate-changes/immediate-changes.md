@@ -21,3 +21,17 @@ For the developer code, add comments that explain if can modify and touch or DO 
 
 ---
 
+replace the two maps for the init and the read with the single map with the same contents.
+
+delete the init terms attributes
+dleete the read terms attributes
+
+
+msg and actor be classes
+Type interface with DD Create, Condition, Script depending on the Type enum.
+
+move the msgs methods to the Msg folder, move on disk.
+
+delete the controls from the `_Rescript.lvclass`
+
+delete the clusters of Actor and Msg.
