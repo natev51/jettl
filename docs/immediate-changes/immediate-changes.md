@@ -21,14 +21,10 @@ For the developer code, add comments that explain if can modify and touch or DO 
 
 ---
 
-replace the two maps for the init and the read with the single map with the same contents.
 
-delete the init terms attributes
-dleete the read terms attributes
+replace the create, condition, script with the correct object IO. Create the Init methods for each. they have the two objects in Rescript.
 
-
-msg and actor be classes
-Type interface with DD Create, Condition, Script depending on the Type enum.
+wire the objects in Main with the correct Init.
 
 move the msgs methods to the Msg folder, move on disk.
 

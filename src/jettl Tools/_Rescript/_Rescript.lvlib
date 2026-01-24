@@ -22,12 +22,6 @@
 	<Item Name="Attributes.ctl" Type="VI" URL="../Attributes.ctl">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Init Term Attributes.ctl" Type="VI" URL="../Init Term Attributes.ctl">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="Read Term Attributes.ctl" Type="VI" URL="../Read Term Attributes.ctl">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
 	<Item Name="Find Pane.vi" Type="VI" URL="../Find Pane.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>

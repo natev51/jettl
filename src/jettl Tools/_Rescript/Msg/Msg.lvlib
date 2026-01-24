@@ -10,7 +10,7 @@
 </Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
-	<Item Name="Msg.ctl" Type="VI" URL="../Msg.ctl"/>
+	<Item Name="Msg.lvclass" Type="LVClass" URL="../Msg/Msg.lvclass"/>
 	<Item Name="Name.ctl" Type="VI" URL="../Name.ctl"/>
 	<Item Name="Name Msg.ctl" Type="VI" URL="../Name Msg.ctl"/>
 	<Item Name="Name jettl Msg.ctl" Type="VI" URL="../Name jettl Msg.ctl"/>
@@ -18,7 +18,4 @@
 	<Item Name="Name Msg Output.ctl" Type="VI" URL="../Name Msg Output.ctl"/>
 	<Item Name="Msg Input Terminals.vi" Type="VI" URL="../Msg Input Terminals.vi"/>
 	<Item Name="Msg Output Terminals.vi" Type="VI" URL="../Msg Output Terminals.vi"/>
-	<Item Name="Create.vi" Type="VI" URL="../Create.vi"/>
-	<Item Name="Condition.vi" Type="VI" URL="../Condition.vi"/>
-	<Item Name="Script.vi" Type="VI" URL="../Script.vi"/>
 </Library>
