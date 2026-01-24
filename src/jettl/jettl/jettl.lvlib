@@ -21,6 +21,7 @@
 		<Item Name="Base jettl Actor.lvlib" Type="Library" URL="../Base jettl Actor/Base jettl Actor.lvlib"/>
 	</Item>
 	<Item Name="Teller" Type="Folder">
+		<Item Name="Teller Metadata.lvclass" Type="LVClass" URL="../Teller Metadata/Teller Metadata.lvclass"/>
 		<Item Name="Teller.lvclass" Type="LVClass" URL="../Teller/Teller.lvclass"/>
 		<Item Name="Base Teller.lvlib" Type="Library" URL="../Base Teller/Base Teller.lvlib">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
@@ -118,8 +119,9 @@
 					<Item Name="Tell Self Inspect.vi" Type="VI" URL="../Tell Self Inspect.vi"/>
 					<Item Name="Tell Parent Inspect.vi" Type="VI" URL="../Tell Parent Inspect.vi"/>
 					<Item Name="Tell Child Inspect.vi" Type="VI" URL="../Tell Child Inspect.vi"/>
-					<Item Name="Finalize Turn.vi" Type="VI" URL="../Finalize Turn.vi"/>
+					<Item Name="Finalize.vi" Type="VI" URL="../Finalize.vi"/>
 					<Item Name="Teardown.vi" Type="VI" URL="../Teardown.vi"/>
+					<Item Name="Inject Teller Metadata.vi" Type="VI" URL="../Inject Teller Metadata.vi"/>
 				</Item>
 			</Item>
 			<Item Name="Find Msgs.vi" Type="VI" URL="../Find Msgs.vi"/>
@@ -152,9 +154,10 @@
 			<Item Name="Find Child Attributes.vi" Type="VI" URL="../Find Child Attributes.vi"/>
 			<Item Name="Find Child UIDs.vi" Type="VI" URL="../Find Child UIDs.vi"/>
 			<Item Name="Within Msgs.vi" Type="VI" URL="../Within Msgs.vi"/>
-			<Item Name="Default Instance.vi" Type="VI" URL="../Default Instance.vi">
+			<Item Name="Default Implementation.vi" Type="VI" URL="../Default Implementation.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
+			<Item Name="Valid Teller Metadata.vi" Type="VI" URL="../Valid Teller Metadata.vi"/>
 			<Item Name="Msg Listened To.vi" Type="VI" URL="../Msg Listened To.vi"/>
 			<Item Name="Write Teller In Msg.vi" Type="VI" URL="../Write Teller In Msg.vi"/>
 		</Item>

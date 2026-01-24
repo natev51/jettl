@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 335.51240158081055
+    "width": 335.51240158081055,
+    "collapsed": true
   },
   "right": {
     "id": "cfdf850b734605cd",
@@ -182,21 +183,22 @@
   },
   "active": "293645e939297681",
   "lastOpenFiles": [
-    "src/jettl/jettl/Check Actors.vi",
-    "src/jettl/jettl/Check Core Actors.vi",
-    "src/jettl/jettl/Unify Iterator.vi",
-    "src/jettl/jettl/Unify Helper.vi",
-    "src/jettl/jettl/Unify.vi",
-    "src/jettl/jettl/Base Attributes/Base Attributes/Read Core Actors.vi",
-    "src/jettl/jettl/Base Attributes/Base Attributes/Read Edge Actors.vi",
-    "src/jettl/jettl/Attributes/Read Core Actors.vi",
-    "src/jettl/jettl/Attributes/Read Edge Actors.vi",
-    "src/jettl/jettl/Unify Mid Core.vi",
-    "src/jettl/jettl/Unify Edge Mid Core.vi",
-    "docs/debug/debug.md",
+    "src/jettl/jettl/Default Implementation.vi",
+    "src/jettl/jettl/Valid Teller Metadata.vi",
+    "src/jettl/jettl/Inject Teller Metadata.vi",
+    "src/jettl/jettl/Finalize.vi",
+    "src/jettl Tools/_Template/Templates/TEMPLATE jettl Actor/TEMPLATE Actor/TEMPLATE Actor/Finalize.vi",
+    "src/jettl Tools/_Template/Templates/TEMPLATE jettl Actor/TEMPLATE Actor/TEMPLATE Actor/Inject Teller Metadata.vi",
+    "src/jettl/jettl/Base jettl Actor/Base Actor/Base Actor/Finalize.vi",
+    "src/jettl/jettl/Actor/Finalize.vi",
+    "src/jettl/jettl/Base jettl Actor/Base Actor/Base Actor/Inject Teller Metadata.vi",
+    "src/jettl/jettl/Actor/Inject Teller Metadata.vi",
+    "src/jettl/jettl/Actor/Extend Teller Metadata.vi",
+    "README.md",
     "TO SORT/Ideas.md",
-    "TO SORT/1 Notes.md",
     "docs/immediate-changes/immediate-changes.md",
+    "docs/debug/debug.md",
+    "TO SORT/1 Notes.md",
     "docs/docs.md",
     "docs/tools/tools.md",
     "TO SORT/2 Notes.md",
@@ -226,7 +228,6 @@
     "docs/features/features.md",
     "docs/overview/overview.md",
     "TO SORT/IPC Actor.md",
-    "README.md",
     "docs/ipc/ipc.md",
     "Untitled.canvas"
   ]
