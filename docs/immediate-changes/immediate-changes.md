@@ -21,13 +21,9 @@ For the developer code, add comments that explain if can modify and touch or DO 
 
 ---
 
+ctrl k all private methods in the msg.
+rename them as necessary
+add functions as necessary
+add comments as necessary
 
-replace the create, condition, script with the correct object IO. Create the Init methods for each. they have the two objects in Rescript.
-
-wire the objects in Main with the correct Init.
-
-move the msgs methods to the Msg folder, move on disk.
-
-delete the controls from the `_Rescript.lvclass`
-
-delete the clusters of Actor and Msg.
+create the accompanying function calls in actor

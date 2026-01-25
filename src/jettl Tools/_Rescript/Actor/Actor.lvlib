@@ -10,7 +10,8 @@
 </Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
-	<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor.lvclass"/>
-	<Item Name="Name.ctl" Type="VI" URL="../Name.ctl"/>
-	<Item Name="Name Actor.ctl" Type="VI" URL="../Name Actor.ctl"/>
+	<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor.lvclass">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Init Actor.vi" Type="VI" URL="../Init Actor.vi"/>
 </Library>
