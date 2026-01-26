@@ -27,3 +27,6 @@ add functions as necessary
 add comments as necessary
 
 create the accompanying function calls in actor
+
+to condition
+to script

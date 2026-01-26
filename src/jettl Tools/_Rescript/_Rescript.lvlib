@@ -14,6 +14,11 @@
 		<Item Name="Attributes.ctl" Type="VI" URL="../Attributes.ctl"/>
 		<Item Name="Find Pane.vi" Type="VI" URL="../Find Pane.vi"/>
 		<Item Name="Duplicate Control To FP.vi" Type="VI" URL="../Duplicate Control To FP.vi"/>
+		<Item Name="Terminals.ctl" Type="VI" URL="../Terminals.ctl"/>
+		<Item Name="Terminals Descending Order.vi" Type="VI" URL="../Terminals Descending Order.vi"/>
+		<Item Name="Condition Delete Controls.vi" Type="VI" URL="../Condition Delete Controls.vi"/>
+		<Item Name="Condition Valid Control In Terminal.vi" Type="VI" URL="../Condition Valid Control In Terminal.vi"/>
+		<Item Name="Condition Terminal Attributes.vi" Type="VI" URL="../Condition Terminal Attributes.vi"/>
 	</Item>
 	<Item Name="_Rescript.lvclass" Type="LVClass" URL="../_Rescript/_Rescript.lvclass"/>
 	<Item Name="Type.lvclass" Type="LVClass" URL="../Type/Type.lvclass"/>
