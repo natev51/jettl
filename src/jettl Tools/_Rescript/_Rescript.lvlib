@@ -19,6 +19,7 @@
 		<Item Name="Condition Delete Controls.vi" Type="VI" URL="../Condition Delete Controls.vi"/>
 		<Item Name="Condition Valid Control In Terminal.vi" Type="VI" URL="../Condition Valid Control In Terminal.vi"/>
 		<Item Name="Condition Terminal Attributes.vi" Type="VI" URL="../Condition Terminal Attributes.vi"/>
+		<Item Name="Terminal Attributes Descending Order.vi" Type="VI" URL="../Terminal Attributes Descending Order.vi"/>
 	</Item>
 	<Item Name="_Rescript.lvclass" Type="LVClass" URL="../_Rescript/_Rescript.lvclass"/>
 	<Item Name="Type.lvclass" Type="LVClass" URL="../Type/Type.lvclass"/>
