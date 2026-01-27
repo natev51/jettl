@@ -2,14 +2,6 @@
 *The order of items presented is in no particular order.*
 
 ---
-
-Goals:
-
-7. Rescript Tool
-	- Clean Up Wire invoke node where necessary
-
-8. run code to ensure it's running
-
 ---
 
 add in additional function calls for the actor index i.e. if it is the outer actor, if it is a edge, core, etc actor 
