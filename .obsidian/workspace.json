@@ -183,6 +183,8 @@
   },
   "active": "293645e939297681",
   "lastOpenFiles": [
+    "nathan_davis_lib_jettl-6.9.2.85.vip",
+    "src/jettl Tools/_Rescript/SubVI Terminals Duplicate.vi",
     "nathan_davis_lib_jettl-6.8.2.84.vip",
     "nathan_davis_lib_jettl-6.8.1.83.vip",
     "src/jettl Tools/_Rescript/Msg/Msg/Terminal Relation Msg Output.vi",
@@ -192,8 +194,6 @@
     "nathan_davis_lib_jettl-6.8.1.82.vip",
     "src/jettl Tools/_Rescript/Script Con And Wire.vi",
     "src/jettl Tools/_Rescript/Script Lib IO Wire.vi",
-    "src/jettl Tools/_Rescript/Msg/Msg/Script BunUnbun IO Wire.vi",
-    "src/jettl Tools/_Rescript/Script Name Wiring.vi",
     "README.md",
     "TO SORT/Ideas.md",
     "docs/immediate-changes/immediate-changes.md",

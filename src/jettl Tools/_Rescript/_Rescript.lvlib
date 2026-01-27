@@ -23,6 +23,7 @@
 		<Item Name="SubVI Terminals.vi" Type="VI" URL="../SubVI Terminals.vi"/>
 		<Item Name="Script Control To ConPane.vi" Type="VI" URL="../Script Control To ConPane.vi"/>
 		<Item Name="Script Con And Wire.vi" Type="VI" URL="../Script Con And Wire.vi"/>
+		<Item Name="SubVI Terminals Duplicate.vi" Type="VI" URL="../SubVI Terminals Duplicate.vi"/>
 	</Item>
 	<Item Name="_Rescript.lvclass" Type="LVClass" URL="../_Rescript/_Rescript.lvclass"/>
 	<Item Name="Type.lvclass" Type="LVClass" URL="../Type/Type.lvclass"/>
