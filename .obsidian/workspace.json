@@ -1,0 +1,234 @@
+{
+  "main": {
+    "id": "4130da6abe3f177e",
+    "type": "split",
+    "children": [
+      {
+        "id": "8085ddf0aecd57fb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "293645e939297681",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/immediate-changes/immediate-changes.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "immediate-changes"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3ae890022eb2fb19",
+    "type": "split",
+    "children": [
+      {
+        "id": "93dfec4be8249558",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6711ac2464fafc74",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "dd874e99bbe4cdd8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "d885b476ed6e2168",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 335.51240158081055,
+    "collapsed": true
+  },
+  "right": {
+    "id": "cfdf850b734605cd",
+    "type": "split",
+    "children": [
+      {
+        "id": "a481dd13aaaa1a58",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8066a1e5a709c653",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "4e45b997e612fd46",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "00c9af19932aa01a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "0c21103cdb45c404",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "379b318c0b90cbd0",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "293645e939297681",
+  "lastOpenFiles": [
+    "nathan_davis_lib_jettl-6.9.2.86.vip",
+    "nathan_davis_lib_jettl-6.9.2.85.vip",
+    "src/jettl Tools/_Rescript/SubVI Terminals Duplicate.vi",
+    "nathan_davis_lib_jettl-6.8.2.84.vip",
+    "nathan_davis_lib_jettl-6.8.1.83.vip",
+    "src/jettl Tools/_Rescript/Msg/Msg/Terminal Relation Msg Output.vi",
+    "src/jettl Tools/_Rescript/Msg/Msg/Terminal Relation Msg Input.vi",
+    "src/jettl Tools/_Rescript/Msg/Msg/Terminal Relation.ctl",
+    "src/jettl Tools/_Rescript/Msg/Msg/Msg Input Relation.vi",
+    "nathan_davis_lib_jettl-6.8.1.82.vip",
+    "src/jettl Tools/_Rescript/Script Con And Wire.vi",
+    "README.md",
+    "TO SORT/Ideas.md",
+    "docs/immediate-changes/immediate-changes.md",
+    "docs/debug/debug.md",
+    "TO SORT/1 Notes.md",
+    "docs/docs.md",
+    "docs/tools/tools.md",
+    "TO SORT/2 Notes.md",
+    "TO SORT/TeX Document/Images/assembler-hierarchy.png",
+    "TO SORT/TeX Document/Images/Creation.png",
+    "TO SORT/TeX Document/Images/Hello-World.png",
+    "TO SORT/TeX Document/Images/justACS_ui_events.png",
+    "TO SORT/TeX Document/Images/labview_dmitry_message _transport.png",
+    "TO SORT/TeX Document/Images/Observer-idea.png",
+    "TO SORT/TeX Document/Images/project-screenshot.png",
+    "TO SORT/TeX Document/Images/queue-mailbox-duplicates.png",
+    "TO SORT/TeX Document/Images/wrapping-idea.png",
+    "docs/spawning/spawning.md",
+    "docs/images/actor-transport-queue.png",
+    "docs/design-patterns/design-patterns.md",
+    "docs/benchmarking/benchmarking.md",
+    "docs/attributes/attributes.md",
+    "docs/actor/actor.md",
+    "docs/readability-guidelines/readability-guidelines.md",
+    "docs/reuse-actors/reuse-actors.md",
+    "docs/ppl/ppl.md",
+    "docs/reentrancy/reentrancy.md",
+    "TO SORT/Further Ideas/To Organize.md",
+    "docs/unit-tests/unit-tests.md",
+    "docs/resources/resources.md",
+    "docs/ideas-that-could-be-implemented/ideas-that-could-be-implemented.md",
+    "docs/features/features.md",
+    "docs/overview/overview.md",
+    "TO SORT/IPC Actor.md",
+    "docs/ipc/ipc.md",
+    "Untitled.canvas"
+  ]
+}

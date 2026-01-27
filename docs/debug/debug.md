@@ -1,0 +1,2 @@
+Debug with probes
+Way for the hierarchy debug to link to custom probes before running to view how particular pieces of data change with reentrant VIs. Is there a way the editor can grab into the code base to find custom probes and display their internals on some other front panel?

@@ -18,8 +18,8 @@
 		<Item Name="Template.vi" Type="VI" URL="../Template.vi"/>
 		<Item Name="_Rename.lvlib" Type="Library" URL="../_Rename/_Rename.lvlib"/>
 		<Item Name="Rename.vi" Type="VI" URL="../Rename.vi"/>
-		<Item Name="_Msg Rescript.lvlib" Type="Library" URL="../_Msg Rescript/_Msg Rescript.lvlib"/>
-		<Item Name="Msg Rescript.vi" Type="VI" URL="../Msg Rescript.vi"/>
+		<Item Name="_Rescript.lvlib" Type="Library" URL="../_Rescript/_Rescript.lvlib"/>
+		<Item Name="Rescript.vi" Type="VI" URL="../Rescript.vi"/>
 		<Item Name="_Shared.lvlib" Type="Library" URL="../_Shared/_Shared.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies"/>
 		<Item Name="Build Specifications" Type="Build"/>

@@ -13,10 +13,10 @@
 	<Item Name="Name Library File Path.ctl" Type="VI" URL="../Name Library File Path.ctl"/>
 	<Item Name="Project Path.vi" Type="VI" URL="../Project Path.vi"/>
 	<Item Name="Get Project Types.vi" Type="VI" URL="../Get Project Types.vi"/>
-	<Item Name="Immediate Children.vi" Type="VI" URL="../Immediate Children.vi">
+	<Item Name="Map STUFF.vi" Type="VI" URL="../Map STUFF.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="class To lvlib File Path.vi" Type="VI" URL="../class To lvlib File Path.vi">
+	<Item Name="Immediate Children.vi" Type="VI" URL="../Immediate Children.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Controls Enable.vi" Type="VI" URL="../Controls Enable.vi"/>
@@ -25,7 +25,6 @@
 	<Item Name="OK Pressed.vi" Type="VI" URL="../OK Pressed.vi"/>
 	<Item Name="Tree.lvlib" Type="Library" URL="../Tree/Tree.lvlib"/>
 	<Item Name="Project Stuff.lvclass" Type="LVClass" URL="../Project Stuff/Project Stuff.lvclass"/>
-	<Item Name="Panel.lvlib" Type="Library" URL="../Panel/Panel.lvlib"/>
 	<Item Name="Name Specs.lvclass" Type="LVClass" URL="../Name Specs/Name Specs.lvclass"/>
 	<Item Name="Name Stuff.ctl" Type="VI" URL="../Name Stuff.ctl"/>
 </Library>
