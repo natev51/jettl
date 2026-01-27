@@ -21,4 +21,3 @@ For the developer code, add comments that explain if can modify and touch or DO 
 
 ---
 
-too long of message when loading, change back to saving..
