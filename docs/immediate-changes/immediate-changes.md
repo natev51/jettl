@@ -21,12 +21,4 @@ For the developer code, add comments that explain if can modify and touch or DO 
 
 ---
 
-ctrl k all private methods in the msg.
-rename them as necessary
-add functions as necessary
-add comments as necessary
-
-create the accompanying function calls in actor
-
-to condition
-to script
+too long of message when loading, change back to saving..
