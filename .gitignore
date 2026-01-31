@@ -1,0 +1,41 @@
+# Libraries
+*.lvlibp
+*.llb
+*.vip
+*.vipc
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+
+# Metadata
+*.aliases
+*.lvlps
+.cache/
+
+# Obsidian files to ignore
+.obsidian/workspace
+.obsidian/workspace-MOBILE
+.obsidian/workspace.json
+.obsidian/backups/
+.obsidian/autosave.json
+.obsidian/sync/
+.obsidian/plugins/*/data.json
+.obsidian/plugins/*/data.json-MOBILE
+.obsidian/smarter-links.json
+.obsidian/daily-notes.json
+.obsidian/templates.json
+.obsidian/appearance.json
+.obsidian/core-plugins.json
+.obsidian/community-plugins.json
+.obsidian/hotkeys.json
+.obsidian/starred.json
+
+# Operating System generated files
+.DS_Store
+Thumbs.db
