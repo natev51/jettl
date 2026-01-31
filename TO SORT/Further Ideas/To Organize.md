@@ -1,171 +1,96 @@
-Debug
-
-In the Spawn Logic.vi, can decorate the Core Actor with some debug Actor that gets DDd at runtime depending on the debug implementation. This could occur ONLY for the Spawn Root though so that it only needs to occur in one place for an application.
-Inputs for Actor Layers and Application Actor Layers i.e. all layers have these layered actors for every actor i.e. Debug Actor wraps Core Actor.
 
 
-
-Aside, maybe the Spawn and Spawn Root have their own functions that couple directly into that function, just like the Panel Actor has inputs from other function calls to initialize it.
-So a potential Debug Actor could be a DETT actor.
-
-
-On the topic of debug, care has been taken to not include any diagram disable structures yo prevent unnecessary build issues.
 
 ---
 
-Creating references in parent before child spins up is a recipe for disaster since when the parent stops, the reference since created in the parent (but still used by the child) will be released leading to the child actor doing operations on a released reference.
-Best practice: create and release references in the same actor.
 
-It’s the reason jettl always creates its own event references. Lifetime is guaranteed.
 
----
 
-State Pattern
-
-https://www.youtube.com/watch?v=N12L5D78MAA
-https://www.youtube.com/watch?v=HewNBC4TjKs
-https://www.youtube.com/watch?v=IM8ZU1af6wQ&list=PLvDxiIkwuMQsxPk5KC9B1kdJboV-9GJKh&index=22
-
-This is true, you would have to drop the Entry from Actor Core.. keep Exit in Actor Core works.. it gets tricky since Entry and Exit are DD output terminals. It makes sense because you want the same object coming out of Entry and Exit: but what if you wanted to change state WITHIN Entry? Then Entry would need to have a SD output terminal since this is not the same object coming out. This could be addressed if the AF was instead a composed class instead of inherited class (since you need to change the parent actor data with substitute actor). I think I'm just rambling now.. I will say though, Allen, that the Entry and Exit can be put into their own interface. And then implementation could occur in the concrete classes (ie Context AND concrete states)
-“Not allowing a state change in Entry or Exit was intentional. Logically, you need to fully enter or exit a state before you can change states. So that infinite transitioning of states cannot occur”
-
-https://www.youtube.com/watch?v=GRDoyn1mNAI&list=PLvDxiIkwuMQtGtstTGKpYpoMVi1Lj07EP&index=18
-https://www.youtube.com/watch?v=yVzT5ZqUuVU&list=PLvDxiIkwuMQtGtstTGKpYpoMVi1Lj07EP&index=19
 
 ---
 
-Add in a Spawn Msg in the jettl library which is just a wrapper for the Spawn function.
+
 
 ---
 
-TDSM
 
-note a presentation by Ethan stern
-Something like all around periodic message
-So actor is launched for timing, but the actor that spawned it holds the truth for the state of the periodic message in case of timing issues where the child sends another message after sending. This behavior can be handled in the inspect override.
 
 ---
 
-TDMS idea from CButch
 
-I mostly use TDSM internally, but one thing to possibly note is that it sends a message periodically - that doesn't imply that they are executed periodically. In particular, if the duration of the message execution can become long, or the Actor might be busy with other things (consider, perhaps, sporadically unavailable hardware with a significant timeout period for messaging, which you want to reconnect to when available), then you might have a very large queue allocated before you reconnect. That has consequences for memory usage and also the time taken to process a large number of messages (even if individually quick) once reconnected or whatever.
-In those cases, I tend to send a normal message and have it send a TDSM at the end with only one copy, rather than an infinite number - this ensures there's only ever one copy in the queue, regardless of execution time.
 
 ---
 
-Maybe instead of monitoring the queue, etc
-The tell messages are (in a wrapper actor!) put into a log and marked as not read (organized by timestamp), then when the message is being acted upon, then the “listened to msg” = True for the message matching the timestamp can be marked as read. This will allow the system to properly allow for knowing how many msgs haven’t been executed, etc.
 
 
-Also, for an inter actor system, can wrap around Core Actor (using spawn root) the functionality of holding DVRs as some mediator process to allocate sending messages across the tree via user events. This is a single application only method for publisher-subscriber, by using the decorated actor methodology.
+
+
 
 ---
 
-Intra application LabVIEW, with non-jettl code:
 
-before spawn, pass in the queue or event references you want it to use to send out any data.
 
 ---
 
-Notes on building exes:
 
-One of the checkboxes removes unused VIs from libraries. That one is particularly pernicious.
-
-Also check for Conditional Disable Structures that have broken code in the `RUN_TIME_ENGINE==TRUE` frame.
-
-Unchecking Disconnect type definition and remove unused polymorhic instance solved the issue
 
 ---
 
-For the stuff, have a tree with the path to the fright as well.
 
 
-Also, note the tools do allow changes to occur on dependencies! Just what is in the project under development.
 
-Creating an actor after an actor has already been created can ONLY be placed in the private folder for the actor already created.
-What about messages? Well, maybe a message can ONLY be created after an actor has been created and must be placed in either the public or private folder? If this isn’t the case, what’s the use case for having messages be standalone? So here’s a reason: no coupling the message to the actor. So where would this exist then, just on its own? But then there’s a potential namespacing issue right? Maybe an option when creating a TEMPLATE Msg to either be 1. in the project, 2. Private msg folder of actor library, 3. Public msg folder of actor library.
-On this topic, actor has the same options, with stipulation that only one top level actor library can be in a project.
+
+
+
 
 ---
 
-Msg Forwarding:
 
-Read Parent Attributes to Read Unified Msg Set to see if parent implements the msg.
-> "Is there a clean way to check if a message belongs to a certain interface?
-check incoming messages and forward them to parent if they are part of a certain interface (think messages from nested GUI actors that simply want to be routed to main controller)"
 
-https://www.vipm.io/package/zyah_solutions_lib_zyah_af_msg_forwarding/
-Our method depends on the Msg being created by the scripting tools and put in the default location relative to the interface:
-![[Images/Msg Forward.png]]
+
+
+
+
 
 ---
 
-jettl Feature: Ability for other actors to be spawned in setup!!!!!!!!!!
+
 
 ---
 
-RT Testing
 
-justACS
-Wherever possible, decouple your RT actors from the hardware and RT APIs - wrap those calls in a class, and then create abstract parent classes or interfaces for them. Then, replace those classes with mock objects and unit test the actors extensively on your desktop target. You can't test for timing, obviously, or for issues arising from hardware calls, but you can eliminate issues related to your control logic.
 
 ---
 
-Reentry section:
-Everything is shared clone except for:
-`………`
 
-Notable methods that deal with reentry to be talked about:
-`………`
 
 ---
 
-System designer
-
-jettl does this:
-identify when an actor calls a "Tell Self.vi", etc. This works to visualize messages between Actors since jettl mandatorily needs to know where the message goes at edit time i.e. the relative actor relation!
-
-2. Being able to point it to a Project and have it statically analyze and create the diagram.
-3. Being able to turn on a "highlight execution" mode to visually see messages as they are sent and received.
 
 
 
-Aside:
-option on creation of the Message to make the message a
-1. private internal Message, 
-2. fully public Message.
 
 
-Aside on msgs:
-*All Messages are tied to an Interface*
-Even though as developers of the actor, we know that the message is to be returned to itself (by using Tell Self), so from the message point of view, it's still abstract in that it is being sent out to *somewhere..*, it just so happens that the message comes back to yourself.
+
+
+
+
+
 
 ---
 
-jettl Tools (msg Rescript tool):
-Make a private map for the VI Refs for the name to the index to easily use for scripting instead of the arbitrary indexes.
 
-Good info in here, old news though from 10/2024
-![[Images/DBomm Interfaces.png]]
+
 
 ---
 
-Panel stuff
+---
 
-+1 Panel Actors spin off that doesn't have monitored actor inheritance and embedded Events for UI Actors Indicators creation. Allows scripting for events along with UI capability that Panel Actors has. Package on Allen’s gitlab.
+
 
 ---
 
-Generic Documentation:
-Use the ideas presented by Q before linked here.
-Automatic genreation of stuff from the error methods.
-These errors don't actually need the Error at the end, rather just look in the proper virtual folder that the scripting tools use.
-use of anit-doc.
 
----
-
-In spawn, get the Persistent Actor instances from the private data to decorate.
-Persistent is the same throughout the application.
 
 ---
 
@@ -221,13 +146,12 @@ developer could "select" which functionalities to add to the unified actor
 
 
 Msg forwarding:
-this new iteration replaces forwarding directions/instructions by actor inheritance with explicit registration for forwarding
+
+`Read Parent Attributes` to `Read Unified Msgs` to see if parent implements the msg, can recurse the parents, parents, parent, etc.
+OR
+Explicit registration for forwarding on `Setup.vi`.
 
 
-
-
-Call (have Booleans for before and after in Inspect.vi)
-So that case structure afterwards can call “Call Non-Unified Msg.vi” DD.
 
 
 

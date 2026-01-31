@@ -362,3 +362,79 @@ DD output terminal on the `Actor.vi` prevents the object wire from changing
 
 ---
 
+
+
+---
+---
+
+Error:
+Don’t have terminals on error IO unless they are errors.
+This is the same philosophy used for the object IO terminals.
+
+---
+
+Fundamentally, a message cannot be sent to an actor that cannot implement that msg.
+Also, a tool for determining if a message can be sent to sel like if there are multiple actor layers and a message sent to self but can receive locally but can in another layer.
+
+---
+
+Instead of class inheritance, the decorator pattern already has the methods overridden with functionality. So you don’t have to create a new override method, just move the method to the extended virtual folder (for developer experience) and append functionality as necessary.
+jettl does not require ever modifying class inheritance since class inheritance is not recommended. Recommended practice is using interface implementation for all classes mixed with dependency inversion.
+
+---
+
+Revert back to 2020 (not SP1!)
+
+---
+
+jettl is a typed frameworks, you cannot send a message not in the msg set of the receiving actor (the type system prevents it)
+
+
+
+
+---
+
+the inline is good because it doesn't spawn an async process. This can be beneficial in case such as:
+Can get outputs from the inline call i.e. Actor state and error information. This can help with dataflow to let some top level application know that the actor has stopped, wiring it's state/error for serialization to a user event, etc. No user event is needed to let the application know the actor has stopped, just wait for event after the actor has finished.
+- You can have multiple of these in the same application, if you wish.
+
+---
+
+Readability: Connector Pane
+
+Confirm that a VI adheres to connector-pane layout matches the expected pattern:
+* **Object terminals (class/interface terminals)**: top-left and top-right
+* **Error terminals**: bottom-left (**error in**) and/or bottom-right (**error out**).
+* **Typical inputs**: two left middle and/or bottom middle terminals.
+* **Object Specific Inputs**: top middle inputs for functions/methods specifically designed to wrap functionality of an object.
+* **Outputs**: right middle terminals. Place **outputs** on the **right side** (typically two terminals).
+
+A Static Analyzer can ensure those reserved terminals contain **only** the expected types (e.g., prevents unrelated controls/indicators from occupying the object/error positions).
+
+Follow this rule that an object in MUST be an object passed out for the same color wire horizontally across the method / function call.
+[Your LabVIEW Code Is a Work of Art... But I Can't Read It by Darren Nattinger. GDevCon N.A. 2024](https://www.youtube.com/watch?v=AHOZ7fiuWCA)@00:45:21
+
+Input and output on conn pane:
+[An End to Brainless Programming - Darren Nattinger](https://www.youtube.com/watch?v=pS1UBZzKl9k)@00:23:59
+
+—-
+Message Destination
+
+Actor messages are only sent to actors that have the msg in their “unified msgs” valid recipients:
+* Determines where messages are allowed to go for a given actor (e.g., **self**, **parent**, **child**) based on static selection a polymorphic message destination at edit time. Uses that knowledge to prevent invalid message paths if the relationship required by a message is not satisfied, an error will be generated at runtime preventing runtime messaging errors.
+
+A Static Analyzer test can eliminate these runtime errors where a message is sent to an actor that cannot handle it.
+
+`Not In Unified Msgs.vi`: Even if the framework filters messages correctly at runtime, add a defensive fallback by decorating the message-handling code in a case structure that safely handles “received but not implemented” messages. This should never occur under normal operation, but it provides a clear debugging signal if a framework or configuration defect allows an unexpected message through.
+
+**Static Child UIDs**
+
+The goal is a fully static, deterministic system that still supports dynamic behavior. In practice, that means the `Static Child UIDs.ctl` is static.
+
+Under the hood, UIDs are stored as strings in `Child Attributes Map.ctl`, but the `Static Child UIDs.ctl` enum is the developer-facing abstraction. The enum represents the different UIDs used for child actors. Because each actor defines its own private enum, the runtime mechanism is a string mapping that can be validated to ensure it only maps enum elements to their corresponding string values.
+
+This provides two benefits:
+* Actor code uses enums exclusively, avoiding the fragility of stringly-typed identifiers.
+* The internal string representation remains compatible with mapping needs.
+
+The enum currently is edited manually.

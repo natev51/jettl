@@ -21,11 +21,17 @@ Communicating between targets
 
 ![](../images/broker-startup-scratch.jpeg)
 
+---
+
+Also, for an inter actor system, can wrap around Core Actor (using spawn root) the functionality of holding DVRs as some mediator process to allocate sending messages across the tree via user events. This is a single application only method for publisher-subscriber, by using the decorated actor methodology.
 
 ### Bridge Actors
 
 Used to connect to non-jettl code via user events.
 Bridge Actors between jettl and non jettl LabVIEW Applications.
+
+Intra application LabVIEW, with non-jettl code:
+before spawn, pass in the queue or event references you want it to use to send out any data. To establish bidirectional communication.
 
 ---
 ---
@@ -96,3 +102,16 @@ If the calling code is NOT a QMH, then I wouldn't forward messages (since the ca
 **THEN test with the UE code.**
 maybe some kind of user event that comes with jettl that creates user events for the Stop Msg and the Stopped Msg?
 These user events can then come native with jettl in case of IPC communication.
+
+### Periodic Messaging
+
+This has to come from another entity that determines timing of when to tell a message. Ethan Stern has a presentation on this topic somewhere on all around periodic message 
+
+A specialty actor is spawned for timing. The actor that spawned it holds the truth for the state of the periodic message in case of timing issues where the child sends another message after sending. This behavior can be handled in the `Inspect.vi` override.
+
+Tells a message periodically doesn't imply that the messages are executed periodically.
+Tell a message and have it tell with only one copy, this ensures there's only ever one copy in the queue.
+
+### Monitor Msg Traffic
+
+Since one cannot monitor a queue status, overriding the tell messages in a wrapper actor can each be put into a log and marked as not read (organized by timestamp). Then when the message is being acted upon i.e.  `Listened To Msg` = `True` for the message matching the timestamp can be marked as read. This will allow the system to properly allow for knowing how many Msgs haven’t been executed i.e. how many are in the queue since the message destination is known before the message is told.

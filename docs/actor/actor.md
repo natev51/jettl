@@ -15,3 +15,7 @@
 ---
 
 `No Relation`: Defined more formally as not having the same root.
+
+---
+
+the edge actors and core actors are persistent for every actor in the application. That means that if the root actor spawned has the `Debug jettl Actor` as one of the actors in the `Core Actors` input, this instance of the `Debug jettl Actor` will be used for each of the child actors that are spawned. The actor that is always persistent is the `Base jettl Actor`.

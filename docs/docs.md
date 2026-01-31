@@ -21,4 +21,7 @@ These are the links to documentation for jettl. They are presented in no particu
 - [attributes](attributes/attributes.md)
 - [spawning](spawning/spawning.md)
 - [debug](debug/debug.md)
+- [references](references/references.md)
+- [rt](rt/rt.md)
+- [documentation](documentation/documentation.md)
 

@@ -4,6 +4,14 @@ Please place them in this common location, helping developers easily find your t
 
 ---
 
+## Notes Across the Board
+
+Tools do allow changes to occur on dependencies. Only those selected under the target specified.
+
+---
+
+could add: Have in the tree the path to the right as well.
+
 ## Current Native Tools
 ### Rescript
 
@@ -36,6 +44,14 @@ Moving Actors and Msgs on disk.
 also in project explorer into the correct destination
 - into Private Msg Folder of an actor, or
 - out of any library to the top level target.
+
+Creating an actor after an actor has already been created can only be placed in the private folder for the actor already created.
+What about messages? Well, maybe a message can ONLY be created after an actor has been created and must be placed in either the public or private folder? If this isn’t the case, what’s the use case for having messages be standalone? So here’s a reason: no coupling the message to the actor. So where would this exist then, just on its own? But then there’s a potential name spacing issue right? Maybe an option when creating a TEMPLATE Msg to either be 1. in the project, 2. Private msg folder of actor library, 3. Public msg folder of actor library.
+On this topic, actor has the same options, with stipulation that only one top level actor library can be in a project.
+
+Make the message a
+1. private internal Message, 
+2. fully public Message.
 ### Forward Msg
 
 By further accessing parents parents, can look at the `Read Root.vi` to find if the parent is the root.

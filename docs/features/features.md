@@ -28,3 +28,11 @@ Internally, Child Actor UIDs (Unique Identifiers) are automatically inserted int
 ### Useful Things To Know
 
 Attributes are static for an actor and are only instantiated when spawned.
+
+---
+
+jettl does not include any diagram disable structures.
+
+---
+
+Actors can be spawned in `Setup.vi`
