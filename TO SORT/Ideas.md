@@ -65,52 +65,11 @@
 
 ---
 
-Mediator / Assembler Wrapper  
-  
-Mediator pattern is data flow friendly and DOES NOT cause memory leaks since a created Actor only occurs once at a time, through the mediator.
-
-A Non-reentrant vi can be within the override of Spawn so that only one can occur at a time.
-
-  
-And can only shut down if the mediator says that the Actor should shut down.  
-The mediator knows who has whose reference to send messages.  
-This helps establish the observer pattern too.  
-No deadlocks can occur since the mediator operates one by one.  
-It is the all-knowing for the application, only forwarding messages to references that the message is intended for.  
-An actor ever only knows about the mediator.  
-  
-Kind of the same framework you currently have.. just that the messages interact with a mediator that then (since it has references to everything) sends the message to the necessary actor.  
-Note the Self Actor still has references to its Self, Parent, and Children.. it's just that the mediator ALSO knows who has these references and easily sends the message to those who have the reference that the message is going to has.  
-This provides well for the observer pattern i.e. publisher and subscriber.  
-There are effectively two places references are saved: Mediator and Self Actor.  
-The Mediator always has the references and shares the necessary duplicates of references that pertain to the Self Actor since these are references to identify the Actor and how the mediator should allow the actor to interact with other actors (though, remember, the Actor doesn't know other actors exist.. only that there is a mediator).  
-Further, the mediator knows which methods are messages of the actor through the Unified Msgs.  
-This is known at compile time since messages are all through interfaces, allowing the mediator to know which messages the actor can execute by checking which interfaces the actor implements.  
-This check happens in the mediator, not in the actor.  
-  
-Just thinking out loud, here is a concrete component that basically handles the business logic of the system with other sub business logic components that are more specialized / reusable. This can be thought of as some top level actor.  
-  
-Multiple application instances Idea:  
-Application mediator that is between all.  
-Or there is always a double layer of mediators?  
-Where the top layer facilitates what the lower mediator does.. and when there is another application instance (which has its two mediators), the top mediators of both communicate to each other.  
-The top mediators know about each other's references, so they can communicate with each other.  
-  
-If two applications are talking with each other, there now exist two mediators.  
-An idea for this: there is again a mediator that is *above?* these two mediators?  
-  
-Assembler strictly for passing references to other Actors for the Observer Pattern.  
-  
-have to ASK the Assembler to create these.
-
----
-
 
 
 ---
 
-Philosophy:
-Always assume you cannot control the order that messages execute.
+
 
 ---
 
@@ -119,9 +78,11 @@ Always assume you cannot control the order that messages execute.
 ---
 
 
-General Best Practice:
-If a function has output object, it SHOULD be wired.
-> VI analyzer test that looks if that terminal has an associated wire connection.
+
+---
+
+
+
 
 ---
 
@@ -180,7 +141,7 @@ Initialization requires:
 - Parent Attributes
 Note: Child information is redundant information since can construct everything with Self and Parent Attributes. Think relative relations.
 
-After sending message, logs to file the **Time**
+After telling message, logs to file the **Time**
 After listening to a message (in ‘Inspect.vi’ with ‘Msg Listened To.vi’), logs to file the **Listened Time**
 
 ---
@@ -277,7 +238,7 @@ Revert back to 2020 (not SP1!)
 
 ---
 
-jettl is a typed frameworks, you cannot send a message not in the msg set of the receiving actor (the type system prevents it)
+jettl is a typed frameworks, you cannot tell a message not in the msg set of the receiving actor (the type system prevents it)
 
 
 

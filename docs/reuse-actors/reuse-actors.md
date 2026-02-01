@@ -38,6 +38,45 @@ Can put a non-reentrant method call in `Setup.vi` for a given actor which can pu
 
 Sending events across the tree via the No Relation type
 
+---
+
+Mediator / Assembler Wrapper
+
+A mediator-based design is inherently dataflow-friendly and avoids memory leaks because actor creation is serialized and coordinated through the mediator. Each actor instance is created at most once at a time under mediator control.
+
+Actor spawning can be enforced by placing a non-reentrant VI inside the `Spawn` override, ensuring that concurrent instantiation cannot occur.
+
+Actors may only shut down when explicitly instructed by the mediator. The mediator maintains authoritative knowledge of all actor references and determines which actors are permitted to send messages to which recipients. This centralized reference management naturally supports observer-style interactions, including publisher–subscriber relationships.
+
+Deadlocks cannot occur because the mediator processes interactions sequentially. While this introduces a potential bottleneck, that tradeoff is intrinsic to mediator or broker-based architectures and is often acceptable for the guarantees it provides.
+
+The mediator functions as the system’s routing authority: it forwards messages only to actors holding valid references for the intended interaction. Individual actors are isolated from one another and are aware only of the mediator—not of other actors in the system.
+
+Conceptually, this resembles the existing framework, with the key distinction that messages are routed through the mediator. Because the mediator holds references to all actors, it can forward messages to the appropriate recipients based on those references. The actor itself still maintains references to its own `Self`, `Parent`, and `Children`; however, the mediator also tracks these relationships and governs how references may be used. The actor does not know other actors exist—it only interacts with the mediator.
+
+This architecture supports the observer pattern cleanly. Actor references exist in exactly two places: the mediator and the actor itself. The mediator always retains the authoritative set of references and provides actors with only the references necessary for their permitted interactions.
+
+Additionally, the mediator knows which messages an actor can handle through a unified messaging model. Because messages are defined via interfaces, the mediator can determine—at edit time—which messages an actor supports by inspecting the interfaces it implements. Message validation and routing decisions occur in the mediator, not in the actor.
+
+At a higher level, this mediator can be viewed as a concrete component that encapsulates application-level business logic, coordinating a set of more specialized and reusable subcomponents. In practice, this mediator often corresponds to a top-level actor.
+
+---
+
+Multiple Application Instances
+
+For multi-application scenarios, one approach is to introduce an application-level mediator that coordinates communication between individual application mediators. This suggests a layered mediator structure:
+- Each application instance contains its own internal mediator.
+- A higher-level mediator facilitates communication between application mediators.
+- When multiple application instances are running, their top-level mediators exchange references and coordinate cross-application messaging.
+
+If two applications need to communicate, each retains its own mediator. One possible extension is an additional mediator layer above both, responsible for managing inter-application interactions.
+
+---
+
+Assembler Role
+
+An assembler may be used strictly to construct actors and distribute references required for observer-style relationships. Actors request construction and reference wiring through the assembler, rather than directly creating or discovering other actors.
+
 ### Bridge Actors
 
 Used to connect to non-jettl code via user events.

@@ -49,8 +49,14 @@ Shared clone
 
 ---
 
+**Object IO and Error IO**
+
 The top left and top right connector panes are reserved for the containing object input and object output
 The bottom left and bottom right connector panes are reserved for error input and object output
+
+
+If a function has output object, it SHOULD be wired by the developer.
+> VI analyzer test that looks if that terminal has an associated wire connection i.e. wire reference is valid from scripting.
 
 ---
 

@@ -27,4 +27,5 @@ These are the links to documentation for jettl. They are presented in no particu
 - [inspiration](inspiration/inspiration.md)
 - [presentations](presentations/presentations.md)
 - [errors](errors/errors.md)
+- [philosophy](philosophy/philosophy.md)
 
