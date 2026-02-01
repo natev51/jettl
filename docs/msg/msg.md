@@ -50,5 +50,27 @@ If the parent does not care about listening to any messages from the child, it i
 
 ---
 
-Details of Interest:
 Msgs can be sent to Self and Parent (and any children spawned) in Setup.vi.
+
+---
+
+Unified Msgs:
+Msgs are decoupled between layers telling a message defined in an internal layer but not the outer actor or core actor still means the message would be in 'Unified Msgs'.
+
+---
+
+Fundamentally, a message can be told to an actor that has not implemented that msg. This behavior can be modified in `Core Actors`.
+
+---
+
+`Unhandled Msgs`
+Convincing yourself of Unhandled Msgs working
+put `Panel Close?` Event with `Stop Tell Self` followed by another `Stop Tell Self`
+See that the second Stop Msg was the Unhandled Msg ie 1bd with array of Msgs.
+
+---
+
+**Messages have the ability to output data!**
+Rationale: It enables layered actors (actors that delegate to other layered actors) to use another inner layers output. For example, if an inner actor executes a method and produces analyzed data as its output, the wrapper layer can consume that output for purposes such as logging, auditing, metrics, or trace enrichment—without requiring the wrapper to re-compute or re-derive the same data or have to tell that data to a different actor.
+
+> I would consider having a common output for all messages, such as a log interface output, on terminal 1, that can be dependency injected for the particular logging a developer would like to implement i.e. they would write their own concrete implementation.

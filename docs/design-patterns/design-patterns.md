@@ -10,11 +10,6 @@ SPaIC: Subtype Polymorphism and Interface Composition
 
 ---
 
-AF Static Class Inheritance
-Panel Actor
-Actor
-Your Actor
-
 jettl Dynamic Decorator Pattern
 Note you can swap around the Way these are wrapped!
 Your Actor

@@ -12,6 +12,15 @@ Usefulness of having `Actor Ref` as an input before `Setup.vi` and `Start.vi` al
 Inspiration:
 [MGI Panel Manager - Unmonitored](https://gitlab.com/justACS/mgi-panel-manager-unmonitored)
 
+Sub Panels
+After the child has spawned, the parent has access to Child Attributes, which has ‘VI Ref’, so can easily put this VI Ref into a Sub Panel here. And further, since you directly have access to the VI Ref of the Child Attributes, can modularize where front panels are in Actor front panel of Self i.e. changing around panels.
+Advanced Application: Interchangeable front panels where you have two created actors, and ability to toggle front panel displays as either being in the subpanel.
+
+Open in Start
+Close in Teardown
+
+Of course Queue Actors and Notifier Actors can have front panels. Though, there shouldn't be control and indicator terminals since this would be functionality specific for an event actor. Instead, the Queue Actor would primarily have subpanel control references.
+
 ### Broker
 
 Resources:
@@ -134,22 +143,9 @@ If the caller is **not** message-driven:
   * Command VIs that send messages to the bridge.
   * Data access VIs that read from DVRs or queues.
 This pattern cleanly encapsulates the actor interaction while presenting a conventional API to non-jettl code.
----
----
 
 ---
----
-First, note that you can launch and send a message to an actor from any LabVIEW code, not just other actors. The tricky part is getting answers *back* from that actor. This is where the bridge (or adapter, or shim code) comes in.
-Start off by creating a proper actor. It does whatever you need it to do (perhaps it handles hardware), and follows all the rules - no data communication except through actor queues, and no reply messages! This lets you reuse the actor in pure jettl applications as well as your current mixed environment.
-Then you create the bridge/adapter actor. This actor sits between your calling code and your 'pure' actor. It interacts with the pure actor in a strict jettl style. But since its caller isn't an actor, you can break the rules when sending data to that caller.
-Give the bridge/adapter a set of standard messages that match the ones you will send to its nested actor. (This is trivial if you use interfaces.) These are just pass-throughs; the bridge will just forward them to its nested actor.
-Also give the bridge one or more reference objects. Use DVRs for tags, or queues for telling data or messages. The calling code can create these objects and pass them to the bridge at startup, or the bridge can create them and send them to the caller, perhaps as a message. (The former is easier, but you may need to do the latter if the calling VI goes out of memory before the actor terminates - this is common in TestStand systems.)
-When the pure nested actor sends data to the bridge, the bridge stores that data in the appropriate reference object.
-The calling code pulls data from those reference objects as and where it needs to do so. For example, if the caller is a regular queue driven message handler, you might pass the QMH queue into the bridge actor. When the bridge actor receives a message from its nested actor, it creates a message for the QMH, gives it the data from the nested actor, and sends the message to the QMH.
-If the calling code is NOT a QMH, then I wouldn't forward messages (since the caller isn't message driven). I would wrap all of the code to talk to the bridge in a class, with Create/Destroy VIs to launch the bridge actor, VIs that send commands (by sending a message), and VIs that read data (by accessing DVRs or queues).
 
----
----
 
 **THEN test with the UE code.**
 maybe some kind of user event that comes with jettl that creates user events for the Stop Msg and the Stopped Msg?
@@ -193,3 +189,11 @@ But there would be interruptions in the event loop, which would cause the event 
 ### Monitor Msg Traffic
 
 Since one cannot monitor a queue status, overriding the tell messages in a wrapper actor can each be put into a log and marked as not read (organized by timestamp). Then when the message is being acted upon i.e.  `Listened To Msg` = `True` for the message matching the timestamp can be marked as read. This will allow the system to properly allow for knowing how many Msgs haven’t been executed i.e. how many are in the queue since the message destination is known before the message is told.
+
+Initialization requires:
+- Self Attributes
+- Parent Attributes
+Note: Child information is redundant information since can construct everything with Self and Parent Attributes. Think relative relations.
+
+After telling message, logs to file the **Time**
+After listening to a message (in `Call Inspect.vi` with `Msg Listened To.vi`), logs to file the **Listened Time**

@@ -58,15 +58,36 @@ The bottom left and bottom right connector panes are reserved for error input an
 If a function has output object, it SHOULD be wired by the developer.
 > VI analyzer test that looks if that terminal has an associated wire connection i.e. wire reference is valid from scripting.
 
+Connector Pane
+* **Object IO (class/interface terminals)**: top-left and/or top-right
+* **Error IO**: bottom-left and/or bottom-right.
+* **Typical inputs**: two left middle and/or bottom middle terminals.
+* **Object Specific Inputs**: top middle inputs for functions/methods specifically designed to wrap functionality of an object.
+* **Outputs**: right middle terminals.
+
+A Static Analyzer can ensure those reserved terminals contain **only** the expected types (e.g., prevents unrelated controls/indicators from occupying the object/error positions).
+
+[An End to Brainless Programming - Darren Nattinger](https://www.youtube.com/watch?v=pS1UBZzKl9k)@23:59
+Input and output on conn pane.
+
+[Your LabVIEW Code Is a Work of Art... But I Can't Read It by Darren Nattinger. GDevCon N.A. 2024](https://www.youtube.com/watch?v=AHOZ7fiuWCA)@45:21
+Follow this rule that an object in MUST be an object passed out for the same color wire horizontally across the method / function call.
+
 ---
 
 Virtual folders are not saved on disc.
 These are only convenience in the LabVIEW project.
+Organizing virtual folder contents, very helpful with keeping name spacing consistent. [Large LabVIEW Project Development Techniques](https://youtu.be/7zS3Q_K71XY?si=VZXcWRaCqc0C4tWh)@:14:08-14:46
 
 ---
 
 **Color scheme**
 
+Coloring
+Banner colors, easy to see if interface method is on the class object wire since they’re different colors! And ALWAYS the same colors for banner and object wire!
+[Your LabVIEW Code Is a Work of Art... But I Can't Read It by Darren Nattinger. GDevCon N.A. 2024](https://www.youtube.com/watch?v=AHOZ7fiuWCA)@40:34
+
+jettl coloring scheme:
 Purple Library: RGB (166,153,182)
 Blue Interface: RGB (104,136,190)
 Green Class: RGB (110,149,108)
