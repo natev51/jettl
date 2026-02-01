@@ -47,3 +47,8 @@ Suppose an actor is intended to be used as a child actor which communicates with
 For this to work, the parent must implement the interface methods that the child uses for message communication. This requirement is communicated to other developers through the generated documentation for the child actor, which explicitly lists the messages the actor can tell to the parent and messages the child actor has implemented.
 
 If the parent does not care about listening to any messages from the child, it is not required to implement the interface, and the message methods are effectively no-ops. This can be handled either in the parent by overriding `Call Inspect.vi`, or in the child by overriding `Tell Parent Inspect.vi`, depending on where the default behavior is most appropriate.
+
+---
+
+Details of Interest:
+Msgs can be sent to Self and Parent (and any children spawned) in Setup.vi.

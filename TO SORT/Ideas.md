@@ -41,81 +41,27 @@
 
 
 
-
-
-—-
-
-Readability:
-
-The top left and top right connector panes are reserved for the containing object input and object output
-The bottom left and bottom right connector panes are reserved for error input and object output
-
-
-Virtual folders are not saved on disc.
-These are only convenience in the LabVIEW project.
-
-—-
-
-Color scheme
-
-"Look down at the green grass, look up to the blue sky, and look further to the purple galaxy."
-
-Purple Library: RGB (166,153,182)
-Blue Interface: RGB (104,136,190)
-Green Class: RGB (110,149,108)
-
-Icons
-
-Banner
-Shows library/interface/class name.
-Color of banner name text indicates access scope of containing library/interface/class.
-Color of banner indicates a library/interface/class container.
-Text of method name.
-Color of method name text indicates access scope of method/control
+---
 
 ---
 
-Access Scope
-
-Only public and private.
-Interfaces, classes, and methods have text in the banner/icon that are black (public) and red (private).
-
-Classes icon for private data is blank entirely. Nonetheless, if something is added ensure the text is red since the private data is a private control.
-
-Emphasis is put on encapsulated classes are classes (maybe container libraries) marked private.
-Class encapsulation. Any class should be marked as private to the library containing them.
-That way, developers are not allowed to use the classes outside of the containing library, leading to use of dependency inversion with interfaces and help with mitigating circular dependencies.
-Further, libraries contained within other libraries should be marked private.
-
-Rules:
-Nested Libraries should be marked private, otherwise, put the nested library outside the containing library.
-Classes should be contained in at least one library
-Interfaces and classes must be contained in at least one library
-
-—-
-
-Errors
-
-No error goes unrecognized.
-
-Why are there are so many error case structures?
-All functions/methods in are assumed to run unconditionally when they are called.
-
-Also, no serialization of errors.
 
 
-Abandoning IO Serialization:
-An indication that the data in the data type will *potentially* be manipulated is when a data type is being passed in and out through a method.
-Unless a data type can be manipulated in an Interface, then the data type should not have an output.
+---
 
-If a method must be serialized, embrace the flat sequence structure / error case structure.
-DO NOT pass a data type from the input to the output of the method for the *sole purpose* of serialization.
-Understand that other developers will not know your intent and will assume that the data in the datatype will be manipulated.
-Not wiring the outputs gets rid of this thinking entirely for better readability.
-Further, do not serialize by using an error cluster input and output.
-This provides difficulty for readability since the developer does not know if the error is being manipulated by the method.
 
-No error goes unnoticed in the framework, everything is reported (except for releasing references).
+
+
+
+---
+
+
+
+
+
+
+
+
 
 ---
 
@@ -159,8 +105,7 @@ have to ASK the Assembler to create these.
 
 ---
 
-Helper Loops
-Instead of helper loops, spawn a child actor. This maintains a single loop within an actor. This emphasizes not branching the actor object to different loops.
+
 
 ---
 
@@ -169,8 +114,7 @@ Always assume you cannot control the order that messages execute.
 
 ---
 
-Details of Interest:
-Msgs can be sent to Self and Parent (and any children spawned) in Setup.vi.
+
 
 ---
 
