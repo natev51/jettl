@@ -70,3 +70,13 @@ Best Practices jettl
 5. In `Setup.vi`, an actor can tell itself, it's parent, and any spawned children messages since resources have been setup before executing `Setup.vi`.
 6. Only call functions and methods on the palettes.
 7. Setup references in `Setup.vi`. These are async processes. If references are created in an actor (Actor A), but used in another actor (Actor B). If Actor A is destroyed (without closing the reference), but the reference is still being used in Actor B.. the reference will be destroyed leading to confusion of the developer since they hadn’t closed the reference in the Actor B. Takeaway: create and destroy references in the same actor. This is the exact reason the Self Attributes references are created in the actor being spawned. Because if the parent is stopped, the child actor will still have its references alive. In particular, when initializing the actor, take care to not create references in `Init.vi`, if you expect to destroy the references in the child actor, due to reasons above. Rather, move the creation of these references to `Setup.vi`.
+
+---
+
+The Teller and Attributes libraries are implemented as libraries containing interfaces and classes rather than collections of typedef clusters.
+- **Encapsulation and controlled initialization**  
+    Classes encapsulate private data. Using `Init.vi`, the class private data is instantiated a single time, after which multiple **read-only** methods provide access. This enforces the intended lifecycle and prevents developers from directly modifying the underlying data (a risk that is difficult to avoid with typedef clusters).
+- **Read-only access can be enforced with interfaces**  
+    Interfaces allow us to define and enforce read-only access patterns through method contracts. Typedef clusters do not provide a comparable mechanism to restrict writes—any caller with the cluster can modify it.
+- **Accessor discoverability and maintainability**  
+    A common best practice is to avoid clusters in favor of objects with explicit accessor methods, since access points are easier to locate and reason about. These accessors are implemented as **method calls**, not property nodes.

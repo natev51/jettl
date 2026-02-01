@@ -29,4 +29,3 @@ These are the links to documentation for jettl. They are presented in no particu
 - [errors](errors/errors.md)
 - [philosophy](philosophy/philosophy.md)
 - [lifetime](lifetime/lifetime.md)
-

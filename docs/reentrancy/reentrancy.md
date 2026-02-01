@@ -11,3 +11,10 @@ Everything is shared clone except for:
 
 Notable methods that deal with reentry to be talked about:
 `………`
+
+---
+
+Actor methods should be shared clone reentrant by default
+
+---
+

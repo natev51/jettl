@@ -129,5 +129,16 @@ Further, libraries contained within other libraries should be marked private unl
 Rules:
 - Interfaces and classes must be contained in at least one library
 
+Public vs. private methods/functions
+Public: only the actor’s API surface—i.e., messages and actor API methods that define how other components interact with the actor.
+Private: any additional helper methods or functions created to implement behavior should be private to the actor.
+
 ---
 
+Class/Interface ownership terminals. The upper-left terminal (and upper-right, if present) indicates the class/interface wire that owns the banner method. This signals to the developer that the VI is a method contained by that class/interface. Reserve the upper-left and upper-right connector pane terminals only for the class/interface wire for the method that the class/interface contains. Library functions are not methods and are not contained by a class/interface. As a result, library functions must not use the upper-left/upper-right object terminals.
+
+Mutability and readability conventions. If the same object type comes in and is passed out horizontally, callers should assume that object may have been mutated (whether it actually was or not).This convention most commonly applies to the class/interface wire (upper-left to upper-right) and the error cluster (lower-left to lower-right).
+
+Immutable pass-through is an antipattern. If the input object is immutable and you are only wiring it to the output to preserve dataflow/serialization, that is an antipattern because it falsely implies mutation. In this case, do not wire the immutable object to the connector pane output. If you need sequencing (for example, to serialize operations), use a Flat Sequence Structure rather than passing the object through solely for serialization.
+
+Apply the same rule to the error wire, the error wire should not be used for serialization. If you need explicit sequencing without implying mutation, embrace the Flat Sequence Structure (or another explicit sequencing construct) rather than relying on the error wire.

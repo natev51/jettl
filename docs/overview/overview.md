@@ -16,3 +16,15 @@ What jettl aims to accomplish for developers:
 ---
 
 Need a convention for folder structure and naming, virtual folder names.
+
+---
+
+Symmetry across the lifecycle pairs:
+* **Spawn and Stopped**
+* **Setup and Teardown**
+* **Start and Stop**
+
+**Unified Definitions**
+- An **actor** represents a single layer.
+- A **unified actor** represents the unification of multiple layer actors.
+- This maps cleanly to having both a **Msgs** (per layer) and a **Unified Msgs** (across the unified actor).

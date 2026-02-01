@@ -75,3 +75,46 @@ Actor layers where actors decorate each other:
 - otherwise not implementing a Msg means the Msg is a no-op when it is called since it's not implemented.
 
 This is how the `Msg or Recurse.vi` works: checks `Msgs` and determines if that actor layer has implemented that messages method or recurse to the next actor layer, reiterating until the innermost layer is called.
+
+---
+
+Idea for Two actor types for development
+
+To reinforce separation of concerns, support two kinds of actors:
+
+- Pure business logic.
+- No front panel requirement.
+and
+- UI and event handling wrappers.
+- Responsible for user interaction, message routing, and presentation concerns.  
+
+A reusable Actor can wrap actors that do not have a front panel, providing a consistent UI/event-handling shell without coupling to the the actor layer with UI requirements.
+
+---
+
+Designing an actor
+Start from the abstract. In architecture work, the high-level structure matters more than low-level implementation details. The objective is to define modular components and the relationships between them so they compose into a cohesive system.
+
+A common decomposition includes **acquisition**, **analysis**, **presentation/display**, and **logging**. These concerns are often coordinated as a sequence, but they should remain **decoupled**: each has a distinct responsibility and should be able to function independently of the others. This lets you define system behavior (contracts) before committing to specific implementations.
+
+Design **from interfaces to classes**. Begin by specifying interfaces that capture the required behavior, then implement those interfaces with concrete classes.
+
+Prefer strong, static structure and clear boundaries. Keep components modular and independent wherever possible. Dependencies are inevitable, but they should point to **abstractions** (interfaces), which tend to change less frequently than concrete implementations.
+
+Method access scope: The default should be that all methods are marked private (except DD methods).
+
+Standardize rescripted methods/functions on the 4x2x2x4 connector pane pattern, consistent with connector pane guidelines.
+
+Keep signatures small: excluding the object reference and error terminals, methods/functions should have 0–2 inputs and 0-2 outputs. If additional inputs are required, bundle them into a typedef cluster rather than expanding the connector pane.
+
+Class private data Icons
+Remove the default cube/box element from class icons.
+Rely on banner and wire color conventions for identification; the cube provides minimal semantic value and is not needed to distinguish classes from interfaces.
+
+---
+
+Spawning an actor:
+[Errors are Values; Please Treat Them That Way (Ethan Stern)](https://www.youtube.com/watch?v=8vhYLlaXaQU&list=PLvDxiIkwuMQtiOZ_WWbk6ZCXfeAKxtwo-)@17:28
+Constructors (Init Actor.vi and Init Msg.vi) do not throw errors. Fundamentally, when an object is instantiated, there should not be an error that occurs.
+
+Constructors should not throw errors. In particular any work that might fail (I/O, resource acquisition, configuration validation, etc.) should be moved into a separate method such as `Setup.vi`, where failures can be handled explicitly as part of the actor’s startup.

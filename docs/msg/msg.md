@@ -74,3 +74,27 @@ See that the second Stop Msg was the Unhandled Msg ie 1bd with array of Msgs.
 Rationale: It enables layered actors (actors that delegate to other layered actors) to use another inner layers output. For example, if an inner actor executes a method and produces analyzed data as its output, the wrapper layer can consume that output for purposes such as logging, auditing, metrics, or trace enrichment—without requiring the wrapper to re-compute or re-derive the same data or have to tell that data to a different actor.
 
 > I would consider having a common output for all messages, such as a log interface output, on terminal 1, that can be dependency injected for the particular logging a developer would like to implement i.e. they would write their own concrete implementation.
+
+
+---
+
+jettl enforces a strongly typed messaging system where the message destination is known at edit time.
+
+An edit-time analysis (either VI Analyzer or Actor layer) can determine which actors are allowed to spawn which other actors based on message contracts in both directions:
+- What the parent can **tell to** and **listen to** its child.
+- What the child can **tell to** and **listen to** its parent.
+
+This reduces runtime errors by enforcing the contract between a launching actor and the actor it spawns. In other words, if an actor spawns another actor, the type system and analyzer checks ensure the parent abides by the child’s message interface—and the child abides by the parent’s interface—before anything runs.
+
+Additionally, documentation tooling can leverage these static contracts to show exactly which messages flow to and from `Self`, and where they are used.
+
+With respect to `Self`, there are five meaningful categories of messages:
+- `Self → Self`
+- `Parent → Self`
+- `Child (with UID) → Self`
+- `Self → Parent`
+- `Self → Child (with UID)`
+(`Self ← Self` is redundant and can be omitted.)
+
+> **Scripting constraint:** Only the two left input terminals are valid for scripting message inputs. Other inputs are ignored during scripting.  
+> If more than two inputs are required, define a typedef cluster in the message library
