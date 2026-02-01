@@ -24,4 +24,7 @@ These are the links to documentation for jettl. They are presented in no particu
 - [references](references/references.md)
 - [rt](rt/rt.md)
 - [documentation](documentation/documentation.md)
+- [inspiration](inspiration/inspiration.md)
+- [presentations](presentations/presentations.md)
+- [errors](errors/errors.md)
 

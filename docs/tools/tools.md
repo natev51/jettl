@@ -12,6 +12,10 @@ Tools do allow changes to occur on dependencies. Only those selected under the t
 
 could add: Have in the tree the path to the right as well.
 
+---
+
+Requirement for tools: supports PPLs.
+
 ## Current Native Tools
 ### Rescript
 
@@ -35,9 +39,7 @@ take the library(s) it is contained in and properly put them in a hierarchical m
 
 None
 ## Tool Ideas
-### Actor Rescript
 
-could be a actor rescript for rescripting the Init.vi to Init.vi where the inputs are the same.
 ### Moving Msg and Actor Libraries
 
 Moving Actors and Msgs on disk.
@@ -62,6 +64,15 @@ An actor can recurse through it's parents parents parents, etc at look each pare
 
 to child:
 Or going down the tree can look at the unified msg set of the children it has, then it's children, etc.
+
+
+`Read Parent Attributes` to `Read Unified Msgs` to see if parent implements the msg, can recurse the parents, parents, parent, etc.
+OR
+Explicit registration for forwarding on `Setup.vi`.
+
+in order to use a forwarding tool, messages still need to be in the `Unified Msgs`. But must register for the messages before setup to put these “non-implemented” messages in the `Msgs`. Or some other `msgs`? That way these messages being told still need to be validated that certain messages are in the `Unified msgs` OR `Non-Implemented Msgs`. Yes, there can be overlapped msgs in both msgs!! In case not in `unified msgs`, then check if in `non-implemented msgs`.
+
+The non-implemented msgs can of course be dynamic since inserting or removing from set can happen depending on which external actor you’re communicating with.
 ### Generate Implemented Msg
 
 1. Select Actor
@@ -69,6 +80,8 @@ Or going down the tree can look at the unified msg set of the children it has, t
 3. in msg overrides -> default virtual folder, override interface method
 4. put the poly of that msg with recurse selected
 5. wire up recurse as necessary
+
+Effectively developer could "select" which Msgs to add to the actor.
 
 This combats when many interfaces and classes loaded and one wants to have actor implement a msg that is tied to interface.
 This tool would bypass all classes not tied to a message and have a dropdown of only messages one can implement.
@@ -86,6 +99,19 @@ $
 ```
 
 where the UID is generated when creating the TEMPLATE Msg.
+
+---
+
+Msg renaming idea, actors that implement the message
+Have a unique hash for the interface message and have that be generated in the overridden method description, etc. so that the method itself KNOWS (not necessarily where to look for the message) but at least can find what the message is (if loaded into memory).
+Unique interface message identifier in description.
+Maybe instead, have it be in the library description. Can have other information here for uniquely identifying if the message has been scripted.
+
+---
+
+When creating the implemented msg with `Recurse.vi`:
+Make sure that the controls and indicators are in the correct positions so that it is easy for the developer to properly change the control / indicator position.
+For the Actor override, have this be consistent location for control / indicators.
 ### Un-Generate Implemented Msg
 
 Removes message from actor.
@@ -118,3 +144,18 @@ Also, note that it is probably best to script the methods (for user events) as p
 Also, if you play nicely, this can lead to an easier distributed broker since the reference and the scripted value change events are public.
 Tool above for scripting the events.
 is it better to have these user events from the scripting to be messages??
+
+### Navigating Msg Methods
+
+- Right click a `Method.vi`, finds the interface it's overridden from and goes to the parent method in the interface.
+- Right clicking the interface method finds all instances where the method is implemented.
+
+This will have to deal with the polymorphic method calls rather than just the interface method for better understanding of the system.
+
+### Actor Browser
+
+Per Actor based window that allows you to scroll through the
+- Actor Overrides
+- Msg Overrides
+
+Looks in the respective virtual folder.

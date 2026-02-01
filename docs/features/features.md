@@ -36,3 +36,12 @@ jettl does not include any diagram disable structures.
 ---
 
 Actors can be spawned in `Setup.vi`
+
+---
+
+jettl does not include:
+- xnodes
+- malleable VIs
+
+---
+

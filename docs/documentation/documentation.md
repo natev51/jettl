@@ -5,4 +5,17 @@ Being able to point it to an actor and have it statically analyze and create the
 
 ---
 
-anti-doc integration.
+Antidoc integration.
+
+- Msg method browser
+- Msg destination browser
+
+- Actor spawning hierarchy (display actor hierarchy and where they are spawned. This is known when the `Start` has executed.)
+- Msg Browser
+
+Documentation:
+- Messages an actor can implement
+- Messages an actor can tell to `Self`, `Parent`, and `Children`
+
+
+Diagram could be built by static analysis of code or analysis of DETT output.

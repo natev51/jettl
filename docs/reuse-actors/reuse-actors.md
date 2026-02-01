@@ -9,6 +9,9 @@ Wire in as a persistent layer.
 
 Usefulness of having `Actor Ref` as an input before `Setup.vi` and `Start.vi` allows for the Parent to have access to the `Actor Ref`, that means that the Parent has access to put that method in its subpanel instead of sending the child across the parents subpanel.
 
+Inspiration:
+[MGI Panel Manager - Unmonitored](https://gitlab.com/justACS/mgi-panel-manager-unmonitored)
+
 ### Broker
 
 Resources:
@@ -24,6 +27,16 @@ Communicating between targets
 ---
 
 Also, for an inter actor system, can wrap around Core Actor (using spawn root) the functionality of holding DVRs as some mediator process to allocate sending messages across the tree via user events. This is a single application only method for publisher-subscriber, by using the decorated actor methodology.
+
+---
+
+Just like spawning, the observer pattern used will have a blocking call when subscribing / registering for a topic by creating its own child actor, with the necessary private data internal to talk with the broker and it’s child actors.
+This could be a `Core Actor`.
+Can put a non-reentrant method call in `Setup.vi` for a given actor which can put setup information to a by-reference `thing` in the application.
+
+---
+
+Sending events across the tree via the No Relation type
 
 ### Bridge Actors
 
@@ -111,6 +124,32 @@ A specialty actor is spawned for timing. The actor that spawned it holds the tru
 
 Tells a message periodically doesn't imply that the messages are executed periodically.
 Tell a message and have it tell with only one copy, this ensures there's only ever one copy in the queue.
+
+---
+
+Init.vi Inputs:  
+- Msg Strategy
+- Period
+
+Process.vi
+- unbundle Period
+- timeout case: unbundle Msg to send to Creator.vi
+
+---
+
+An actor should not have in its own timeout way to do something periodically such as send itself a message every 100 ms.
+Instead it must create a periodic messaging actor which in its timeout sends the message to the actor that requires the periodic message. Separate the concerns.
+
+
+
+time delayed send message. Could be some actor that is created that periodically sends out a trigger message with some kind of unique data input that signifies to the parent that this is the action that needs to be taken for periodic message handling.
+This way the concerns are separated and the handling of messages is strictly governed by the parent actor itself.
+
+---
+
+This could be an event actor, but notifiers work well with timing.
+If it was an event actor, then the event actor would have to wait for the next event to occur via the timeout case in the event loop.
+But there would be interruptions in the event loop, which would cause the event actor to not be able to send messages at the correct time.
 
 ### Monitor Msg Traffic
 
