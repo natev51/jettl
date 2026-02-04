@@ -29,19 +29,19 @@
 	<Item Name="Init Msg Output.vi" Type="VI" URL="../Init Msg Output.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$S!!!!!Q!%!!!!EE"Q!"Y!!(!08V2F&lt;8"M982F,GRW&lt;'FC$V2F&lt;8"M982F=SZM&gt;GRJ9BB525V14%&amp;523"K:82U&lt;#".=W=O&lt;(:M;7):6%6.5%R"6%5A48.H)%^V&gt;("V&gt;#ZM&gt;GRJ9BN525V14%&amp;523".=W=A4X6U=(6U,GRW9WRB=X-!!"&gt;525V14%&amp;523".=W=A4X6U=(6U)'^V&gt;!"5!0!!$!!!!!!!!!!"!!!!!!!!!!!!!!!!!!!!!!)!!(A!!!!!!!!!!!!!!!!!!!E!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"!!)!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">16777216</Property>
 		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
 		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-		<Property Name="NI.ClassItem.State" Type="Int">1082139136</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1342713856</Property>
 	</Item>
 	<Item Name="Read Msg Output.vi" Type="VI" URL="../Read Msg Output.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$S!!!!!Q!%!!!!EE"Q!"Y!!(!08V2F&lt;8"M982F,GRW&lt;'FC$V2F&lt;8"M982F=SZM&gt;GRJ9BB525V14%&amp;523"K:82U&lt;#".=W=O&lt;(:M;7):6%6.5%R"6%5A48.H)%^V&gt;("V&gt;#ZM&gt;GRJ9BN525V14%&amp;523".=W=A4X6U=(6U,GRW9WRB=X-!!":525V14%&amp;523".=W=A4X6U=(6U)'FO!!"5!0!!$!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1)!!(A!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!%!!!!!!"!!)!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">1090519040</Property>
 		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
 		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-		<Property Name="NI.ClassItem.State" Type="Int">1082139136</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1342713856</Property>
 	</Item>
 </LVClass>
