@@ -52,7 +52,7 @@
 		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
 		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-		<Property Name="NI.ClassItem.State" Type="Int">1115685392</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1117782544</Property>
 	</Item>
 	<Item Name="Init Msg.vi" Type="VI" URL="../Init Msg.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$W!!!!"!!%!!!!:%"Q!"Y!!%M,;G6U&gt;'QO&lt;(:M;7)85X2P=("F:#"K:82U&lt;#".=W=O&lt;(:M;7)25X2P=("F:#".=W=O&lt;(:M;7)45X2P=("F:#".=W=O&lt;(:D&lt;'&amp;T=Q!05X2P=("F:#".=W=A&lt;X6U!$*!=!!?!!!@#WJF&gt;(2M,GRW&lt;'FC%5VT:S"*&lt;H"V&gt;#ZM&gt;G.M98.T!!F.=W=A37ZQ&gt;81!6!$Q!!Q!!!!!!!!!!1!!!!!!!!!!!!!!!!!#!!!#!!"Y!!!!!!!!!!!!!!!!!!!*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!%A!!!!!!!!!!!1!$!!!!!!</Property>
