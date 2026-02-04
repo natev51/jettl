@@ -89,11 +89,11 @@
 	<Item Name="Write Msg.vi" Type="VI" URL="../Write Msg.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$C!!!!"1!%!!!!,E"Q!"Y!!"M,;G6U&gt;'QO&lt;(:M;7).17.U&lt;X)O&lt;(:D&lt;'&amp;T=Q!*17.U&lt;X)A&lt;X6U!#:!=!!?!!!:#WJF&gt;(2M,GRW&lt;'FC#UVT:SZM&gt;G.M98.T!!..=W=!,E"Q!"Y!!"M,;G6U&gt;'QO&lt;(:M;7).17.U&lt;X)O&lt;(:D&lt;'&amp;T=Q!)17.U&lt;X)A;7Y!!&amp;1!]!!-!!!!!!!!!!%!!!!!!!!!!!!!!!!!!A!$!A!!?!!!!!!!!!!!!!!!!!!!D1M!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"!!!!#1!!!!!!%!"!!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-		<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">1090519168</Property>
 		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
 		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-		<Property Name="NI.ClassItem.State" Type="Int">1342710272</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1082130944</Property>
 	</Item>
 	<Item Name="Read Msg.vi" Type="VI" URL="../Read Msg.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!#U!!!!"!!%!!!!*E"Q!"Y!!"E,;G6U&gt;'QO&lt;(:M;7),48.H,GRW9WRB=X-!!UVT:Q!O1(!!(A!!'QNK:82U&lt;#ZM&gt;GRJ9AV"9X2P=CZM&gt;G.M98.T!!B"9X2P=C"J&lt;A!!6!$Q!!Q!!!!!!!%!!!!!!!!!!!!!!!!!!!!!!!)#!!"Y!!!!!!!!!!!!!!E!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*!!!!!!!1!$!!!!!!</Property>
