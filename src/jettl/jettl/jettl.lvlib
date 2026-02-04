@@ -89,9 +89,6 @@
 			<Item Name="Actor.vi" Type="VI" URL="../Actor.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
-			<Item Name="Count.vi" Type="VI" URL="../Count.vi">
-				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-			</Item>
 		</Item>
 		<Item Name="Actor" Type="Folder">
 			<Item Name="Decorators" Type="Folder">
