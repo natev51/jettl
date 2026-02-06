@@ -16,10 +16,10 @@
 	<Item Name="Stopped.vi" Type="VI" URL="../Stopped.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!(:!!!!$!!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AF&amp;=H*P=C"P&gt;81!"!!!!&amp;Z!=!!?!!!`#WJF&gt;(2M,GRW&lt;'FC&amp;V.U&lt;X"Q:71A;G6U&gt;'QA48.H,GRW&lt;'FC'6.U&lt;X"Q:71A;G6U&gt;'QA48.H,GRW9WRB=X-!&amp;6.U&lt;X"Q:71A;G6U&gt;'QA48.H)'^V&gt;!!O1(!!(A!!(!NK:82U&lt;#ZM&gt;GRJ9AZ5:7RM:8)O&lt;(:D&lt;'&amp;T=Q!!"F2F&lt;'RF=A!!&amp;E"1!!-!!!!"!!))28*S&lt;X)A;7Y!!"*!5!!$!!!!!1!#"56S=G^S!#J!=!!?!!!&lt;#WJF&gt;(2M,GRW&lt;'FC$5&amp;D&gt;'^S,GRW9WRB=X-!"5&amp;D&gt;'^S!&amp;Z!=!!?!!!`#WJF&gt;(2M,GRW&lt;'FC&amp;V.U&lt;X"Q:71A;G6U&gt;'QA48.H,GRW&lt;'FC'6.U&lt;X"Q:71A;G6U&gt;'QA48.H,GRW9WRB=X-!&amp;&amp;.U&lt;X"Q:71A;G6U&gt;'QA48.H)'FO!!"5!0!!$!!$!!1!"!!&amp;!!1!"!!'!!1!"Q!)!!E!#A)!!(A!!!E!!!!!!!!!!!!!!)U,!!!!!!!!!!!!!!A!!!!!!!!!#!!!!"!!!!!1!!!!E!!!!!!"!!M!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">1073741984</Property>
 		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
 		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-		<Property Name="NI.ClassItem.State" Type="Int">1342710272</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1350578176</Property>
 	</Item>
 </LVClass>

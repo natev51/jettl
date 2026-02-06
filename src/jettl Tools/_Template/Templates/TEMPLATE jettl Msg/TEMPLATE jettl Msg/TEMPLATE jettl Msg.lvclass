@@ -17,10 +17,10 @@
 	<Item Name="TEMPLATE.vi" Type="VI" URL="../TEMPLATE.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!(,!!!!#A!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AF&amp;=H*P=C"P&gt;81!"!!!!(:!=!!?!!"6$V^5:7VQ&lt;'&amp;U:3ZM&gt;GRJ9A^5:7VQ&lt;'&amp;U:8-O&lt;(:M;7)96%6.5%R"6%5A;G6U&gt;'QA48.H,GRW&lt;'FC'F2&amp;46"-162&amp;)'JF&gt;(2M)%VT:SZM&gt;G.M98.T!":525V14%&amp;523"K:82U&lt;#".=W=A&lt;X6U!!!O1(!!(A!!(!NK:82U&lt;#ZM&gt;GRJ9AZ5:7RM:8)O&lt;(:D&lt;'&amp;T=Q!!"F2F&lt;'RF=A!!&amp;E"1!!-!!!!"!!))28*S&lt;X)A;7Y!!(2!=!!?!!"6$V^5:7VQ&lt;'&amp;U:3ZM&gt;GRJ9A^5:7VQ&lt;'&amp;U:8-O&lt;(:M;7)96%6.5%R"6%5A;G6U&gt;'QA48.H,GRW&lt;'FC'F2&amp;46"-162&amp;)'JF&gt;(2M)%VT:SZM&gt;G.M98.T!"6525V14%&amp;523"K:82U&lt;#".=W=A;7Y!6!$Q!!Q!!Q!%!!1!"1!%!!1!"A!%!!=!"!!%!!A#!!"Y!!!*!!!!!!!!!!!!!!#.#Q!!!!!!!!!!!!!)!!!!!!!!!!A!!!!!!!!!!!!!!*!!!!!!!1!*!!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">1073741984</Property>
 		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
 		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-		<Property Name="NI.ClassItem.State" Type="Int">1082139136</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1350578176</Property>
 	</Item>
 </LVClass>

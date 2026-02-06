@@ -30,29 +30,29 @@
 	<Item Name="Setup.vi" Type="VI" URL="../Setup.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!&amp;@!!!!#!!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AF&amp;=H*P=C"P&gt;81!"!!!!'*!=!!?!!""#WJF&gt;(2M,GRW&lt;'FC'%ZP&gt;'FG;76S)&amp;2S97ZT='^S&gt;#ZM&gt;GRJ9BJ/&lt;X2J:GFF=C"5=G&amp;O=X"P=H1O&lt;(:D&lt;'&amp;T=Q!74G^U;7:J:8)A6(*B&lt;H.Q&lt;X*U)'^V&gt;!!!9%"Q!"Y!!%%,;G6U&gt;'QO&lt;(:M;7)94G^U;7:J:8)A6(*B&lt;H.Q&lt;X*U,GRW&lt;'FC'EZP&gt;'FG;76S)&amp;2S97ZT='^S&gt;#ZM&gt;G.M98.T!"6/&lt;X2J:GFF=C"5=G&amp;O=X"P=H1A;7Y!6!$Q!!Q!!Q!%!!1!"1!%!!1!"!!%!!1!"!!%!!9$!!"Y!!!*!!!!!!!!!!!!!!#.#Q!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*)!!!!!!1!(!!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">160</Property>
 		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
 		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-		<Property Name="NI.ClassItem.State" Type="Int">1082139152</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1350578192</Property>
 	</Item>
 	<Item Name="Tell.vi" Type="VI" URL="../Tell.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!%R!!!!#1!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AF&amp;=H*P=C"P&gt;81!"!!!!!Z!)1B1=GFP=GFU?1!!*E"Q!"Y!!"E,;G6U&gt;'QO&lt;(:M;7),48.H,GRW9WRB=X-!!UVT:Q"A1(!!(A!!11NK:82U&lt;#ZM&gt;GRJ9BB/&lt;X2J:GFF=C"5=G&amp;O=X"P=H1O&lt;(:M;7);4G^U;7:J:8)A6(*B&lt;H.Q&lt;X*U,GRW9WRB=X-!&amp;5ZP&gt;'FG;76S)&amp;2S97ZT='^S&gt;#"J&lt;A"5!0!!$!!$!!1!"!!%!!5!"!!%!!1!"!!%!!9!"Q-!!(A!!!E!!!!!!!!!!!!!!!!!!!!1!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!3!!!!E!!!!!!"!!A!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">1073741984</Property>
 		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
 		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-		<Property Name="NI.ClassItem.State" Type="Int">1082139152</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1350578192</Property>
 	</Item>
 	<Item Name="Teardown.vi" Type="VI" URL="../Teardown.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!%5!!!!"1!%!!!!/E"Q!"Y!!"E,;G6U&gt;'QO&lt;(:M;7),48.H,GRW9WRB=X-!&amp;WJF&gt;(2M,GRW&lt;'FC/EVT:SZM&gt;G.M98.T!"J!1!!"`````Q!"$&amp;6O;'6B=G1A48.H=Q!!9%"Q!"Y!!%%,;G6U&gt;'QO&lt;(:M;7)94G^U;7:J:8)A6(*B&lt;H.Q&lt;X*U,GRW&lt;'FC'EZP&gt;'FG;76S)&amp;2S97ZT='^S&gt;#ZM&gt;G.M98.T!"6/&lt;X2J:GFF=C"5=G&amp;O=X"P=H1A;7Y!6!$Q!!Q!!!!!!!)!!!!!!!!!!!!!!!!!!!!!!!-$!!"Y!!!!!!!!!!!!!!E!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*!!!!!!!1!%!!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">160</Property>
 		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
 		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-		<Property Name="NI.ClassItem.State" Type="Int">1082139152</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1350578192</Property>
 	</Item>
 	<Item Name="Init Transport.vi" Type="VI" URL="../Init Transport.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$#!!!!!Q!%!!!!9E"Q!"Y!!%%,;G6U&gt;'QO&lt;(:M;7)94G^U;7:J:8)A6(*B&lt;H.Q&lt;X*U,GRW&lt;'FC'EZP&gt;'FG;76S)&amp;2S97ZT='^S&gt;#ZM&gt;G.M98.T!":/&lt;X2J:GFF=C"5=G&amp;O=X"P=H1A&lt;X6U!!"5!0!!$!!!!!!!!!!"!!!!!!!!!!!!!!!!!!!!!!)!!(A!!!!!!!!!!!!!!!!!!!E!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"!!)!!!!!</Property>

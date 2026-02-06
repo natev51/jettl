@@ -19,12 +19,13 @@
 			<Item Name="jettl" Type="Packed Library">
 				<Property Name="Bld_autoIncrement" Type="Bool">true</Property>
 				<Property Name="Bld_buildCacheID" Type="Str">{9A172D9E-BD0A-4A33-8B71-D65CE416B91E}</Property>
+				<Property Name="Bld_buildSpecDescription" Type="Str">"jettl.lvlib [20.0]p" was the previous Target filename, it has been changed to "jettl.lvlibp". This could be revisited.</Property>
 				<Property Name="Bld_buildSpecName" Type="Str">jettl</Property>
 				<Property Name="Bld_excludeDependentDLLs" Type="Bool">true</Property>
 				<Property Name="Bld_excludeDependentPPLs" Type="Bool">true</Property>
 				<Property Name="Bld_localDestDir" Type="Path">/C/git/NI_AB_PROJECTNAME</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{894A0DEE-383B-4EBC-984D-19AD6485426C}</Property>
-				<Property Name="Bld_version.build" Type="Int">1</Property>
+				<Property Name="Bld_version.build" Type="Int">3</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">jettl.lvlibp</Property>
 				<Property Name="Destination[0].path" Type="Path">/C/git/NI_AB_PROJECTNAME/jettl.lvlibp</Property>
@@ -36,7 +37,7 @@
 				<Property Name="Destination[1].path.type" Type="Str">&lt;none&gt;</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="PackedLib_callersAdapt" Type="Bool">true</Property>
-				<Property Name="Source[0].itemID" Type="Str">{EF11CE6A-7D32-4359-8B24-4054DF002DD0}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{6DD84C68-52E6-4383-AE49-5C41D9AF38C6}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/jettl.lvlib</Property>
