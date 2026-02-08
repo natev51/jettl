@@ -43,4 +43,4 @@ To talk with the community, join the [Discord](https://discord.gg/tVkvTyBxqa)
 
 To talk to me, message me on [Discord](https://discord.com/users/445084342931423232) or [LinkedIn](https://www.linkedin.com/in/nathan-davis-0b020a348/)
 
-![](palette.png)
+![](docs/Images/palette.png)
