@@ -35,7 +35,7 @@ To find the examples in VIPM:
 3. `Get Info`
 4. `Show Examples`
 
-To learn by reading, navigate the [docs](docs/docs.md)
+To learn by reading, navigate the [jettl Documentation](jettl%20Documentation.md)
 
 To learn by watching, check the [YouTube](https://www.youtube.com/@nathandavis6612)
 
@@ -43,4 +43,4 @@ To talk with the community, join the [Discord](https://discord.gg/tVkvTyBxqa)
 
 To talk to me, message me on [Discord](https://discord.com/users/445084342931423232) or [LinkedIn](https://www.linkedin.com/in/nathan-davis-0b020a348/)
 
-![](docs/images/palette.png)
+![](palette.png)
