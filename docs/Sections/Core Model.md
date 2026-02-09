@@ -221,7 +221,7 @@ Certain messages are intended to be private (self-messages) and not told by exte
 #### Concepts
 
 - Messages are decoupled between layers.
-- Telling a message defined in an internal layer but not in the outer actor or Core Actor still means the message appears in `Unified Msgs`.
+- Telling a message to an actor defined in only one actor layer but not in all other actor layers  still means the message appears in `Unified Msgs`. This basic cases is the `Stop` and `Stopped` messages are implemented in the Base Actor, but maybe not implemented in the other actor layers. Nonetheless, these two messages are in the `Unified Msgs`.
 
 ### Telling Unimplemented Messages
 
@@ -235,10 +235,10 @@ A message can be told to an actor that has not implemented that message. This be
 
 A practical test for validating `Unhandled Msgs` behavior:
 
-1. Add a `Panel Close?` event.
-2. Tell `Stop` to `Self`.
-3. Tell `Stop` to `Self` again.
-4. Verify the second `Stop` message is captured as an unhandled message (e.g., 1bd with an array of messages).
+1. Add a `Panel Close?` event to an event actor.
+2. Tell `Stop` to `Self` here.
+3. Tell `Stop` to `Self` after the above `Stop`.
+4. Verify the second `Stop` message is captured as an unhandled message (e.g., 1bd with an array of messages) to confirm one of the `Stop` message was not handled, since the actor received the stop already and is otherwise stopping and will not execute any more messages.
 
 ### Messages Producing Output Data
 
@@ -248,20 +248,21 @@ Messages can output data.
 
 #### Rationale
 
-This enables wrapper layers to consume inner-layer outputs for logging, auditing, metrics, or trace enrichment without re-computing or re-deriving the same data.
+This enables wrapper layers to consume inner-layer outputs for things such as logging, auditing, metrics, or trace enrichment without re-computing or re-deriving the same data in other method calls. For example, an analysis is performed and used in an actor layer. If that analyzed data is also apart of the messages output, then that data, can be used in another actors layers implemented message method of the same type.
 
 #### Ideas
 
-- Consider a common output (e.g., a log interface output) on terminal 1 that can be dependency injected with a developer-provided concrete implementation.
+- Consider an output (e.g., a log interface output) on terminal 1 that can be dependency injected with a developer-provided concrete implementation such as detected events for starting and stopping given a certain message outputs. 
 
 ### Strongly-Typed Message Destinations
 
 #### Contracts
 
-- jettl enforces a strongly typed messaging system where the message destination is known at edit time.
+- jettl enforces a strongly typed messaging system where the message destination is known at edit time i.e. to the relative parent, self, or child (with more specific enum analyzed for granular destination).
 - An edit-time analysis (e.g., via VI Analyzer or an actor-layer analyzer) SHOULD determine allowed spawn relationships by validating message contracts bidirectionally:
   - What the parent can **tell to** and **listen to** its child.
   - What the child can **tell to** and **listen to** its parent.
+  This will leads to documentation generation.
 
 #### Documentation Implications
 
@@ -270,15 +271,15 @@ Documentation tooling SHOULD be able to display which messages flow to and from 
 - `Self → Self`
 - `Parent → Self`
 - `Child (with UID) → Self`
-- `Self → Parent`
-- `Self → Child (with UID)`
+- `Parent <- Self`
+- `Child (with UID) <- Self`
 
 (`Self ← Self` is redundant and can be omitted.)
 
 #### Scripting Constraints
 
 - Only the two left input terminals are valid for scripting message inputs; other inputs are ignored.
-- If more than two inputs are required, define a typedef cluster in the message library.
+	- If more than two inputs are required, define a typedef cluster in the message library.
 - Only the two right output terminals are valid for scripting message outputs; other outputs are ignored.
 
 ## Lifetime Model
@@ -296,18 +297,18 @@ The lifetime is expressed as symmetric pairs:
 #### Contracts
 
 - `Stop.vi`:
-  - MUST start as `False`.
-  - MUST only be changed to `True` inside `Stop.vi`.
-  - MUST NOT be changed back to `False`.
+  - Starts as `False`.
+  - Only be changed to `True` inside `Stop.vi`.
+  - Cannot be changed back to `False`.
 
 - `Should Stop.vi`:
-  - MUST stop when `Stop` is `TRUE` **OR** an error occurs.
-  - MUST output `Can Stop = TRUE` when stopping conditions are met.
+  - Stops when `Stop` is `TRUE` **OR** an error occurs.
+  - Outputs `Can Stop = TRUE` when stopping conditions are met.
   - An error from `Finalize.vi` MUST imply the actor should stop; `Stop.vi` will be called if not already called.
 
 ## Spawning Model
 
-### Inline vs Async Spawning
+### Inline vs Async Spawning of Root
 
 #### Concepts
 
@@ -315,9 +316,13 @@ Inline spawning exists to support resource setup in the Main actor. If reference
 
 #### Notes
 
-- Inline does not spawn an async process.
-- Inline can be used to obtain outputs (actor state and error information) after the call completes, enabling straightforward dataflow signaling that an actor has stopped.
-- Multiple inline spawns can exist in the same application.
+- Inline does not spawn an async actor.
+- Inline can be used to obtain outputs (actor state and error information) after the call completes, enabling straightforward dataflow signaling that the root actor has stopped.
+- Multiple inline spawns can exist in the same application i.e. multiple roots can occur in the same application.
+
+### Spawning Children
+
+All children are spawned asynchronously.
 
 ### Reference Lifetime and Ownership
 
@@ -325,22 +330,24 @@ Inline spawning exists to support resource setup in the Main actor. If reference
 
 - Prefer creating and destroying references in the same actor.
 - If a reference is created in Actor A and used in Actor B, define ownership explicitly:
-  - Who is responsible for closing it.
-  - Which actor is allowed to outlive the other.
-- Prefer creating references in `Setup.vi` (not `Init.vi`) when the reference lifetime should match the actor lifetime.
+  - Actor A should be responsible for closing it.
+  - Actor A should outlive Actor B.
+- Prefer creating references in `Setup.vi` (not `Init.vi`) when the reference lifetime should match the actor lifetime. This is because Setup is the first method call that exists in the actors lifetime that allows extended functionality.
 
 #### Rationale
 
-If a parent actor creates a reference that a child actor uses, and the parent actor stops while the child continues to run, the reference can become invalid in a way that is difficult to diagnose. Treat reference ownership as part of the actor contract: the creator should typically be the owner and should close it, unless ownership is explicitly transferred.
+If a parent actor creates a reference that a child actor uses, and the parent actor stops while the child continues to run, the reference can become invalid. An actor should manage it's own state. Treat reference ownership as part of the actor contract: the creator should typically be the owner and should close it, unless ownership is explicitly transferred.
 
 Additional rationale (practical framing):
 
-- This is why jettl actors create and own their own event references and release their own references: the actor lifetime is guaranteed for those references.
-- Creating references in a parent before a child spawns is usually a bad practice: when the parent stops, references created in the parent (but still used by the child) can be released, leading to the child performing operations on an invalid reference.
+- This is why jettl actors create and own their own event references and release their own references within the framework: the actor lifetime is guaranteed for those references.
+- Creating references in a parent before a child spawns is usually a bad practice: when the parent stops, references created in the parent (but still used by the child) will be released, leading to the child performing operations on an invalid reference.
 
 > **TODO:** Capture explicit ownership patterns you want to bless (keep it small).
+> 
+> What do you mean by bless?
 >
-> - **Common ownership pattern 1**:
+> - **Common ownership pattern 1**: An actor should manage it's own references and not use references owned by other actors.
 > - **Common ownership pattern 2**:
 > - **Common ownership pattern 3**:
 
@@ -350,7 +357,7 @@ Additional rationale (practical framing):
 
 #### Contracts
 
-- All errors that can occur in jettl MUST be documented in `jettl.lvlib:Error.lvlib`.
+- All errors that can occur in jettl are documented in `jettl.lvlib:Error.lvlib`.
 
 ### Error Handling Principles
 
@@ -362,13 +369,13 @@ Additional rationale (practical framing):
 #### Concepts
 
 - Unless a function/method has an error input, it is assumed to run unconditionally when called.
+	View this resource on error handling: [How I Approach Errors and Multiple Error Collection in LabVIEW](https://www.youtube.com/watch?v=2Vjk3of5d1Q&list=LL&index=1)
 
 ### Serialization and Error Wires
 
 #### Contracts
 
-- Errors MUST NOT be used for serialization.
-- A datatype MUST NOT be passed from input to output solely for serialization.
+- Errors MUST NOT intentionally be used for serialization i.e. A datatype MUST NOT be passed from input to output solely for serialization. The most common type is the error wire.
 
 #### Guidelines
 
@@ -378,9 +385,7 @@ Additional rationale (practical framing):
 
 #### Guidelines
 
-- Errors SHOULD be handled by the method or layer that introduces the error, unless a different layer explicitly owns the recovery policy.
-- A decorating layer MAY handle errors from inner layers when that layer is explicitly responsible for policy (e.g., `Error Handling jettl Actor`), logging, or translation.
-- A decorating layer SHOULD NOT silently swallow errors from inner layers unless that behavior is an explicit part of its contract.
+- Errors SHOULD be handled by the method or layer that introduces the error, unless a different layer explicitly owns the recovery policy i.e. a decorating layer MAY handle errors from inner layers when that layer is explicitly responsible for policy (e.g., `Error Handling jettl Actor`), logging, or translation. A decorating layer SHOULD NOT silently swallow errors from inner layers unless that behavior is an explicit part of its contract.
 
 #### Implementation Notes
 
@@ -389,7 +394,7 @@ A generalized error-handling Core Actor can override default behavior (e.g., cle
 ### Wiring Readability
 
 ![](../Images/clean-propagation.png)  
-*Minimal bend wiring philosophy: prioritize readability. Keep the error wire pushed to the back. Avoid wires crossing over the object wire. Prefer explicit serialization structures over error-wire serialization.*
+*Minimal bend wiring philosophy: prioritize readability. Keep the error wire pushed to the back. Avoid wires crossing over the object wire. Prefer explicit serialization structures over error-wire serialization (this is not shown in the image).*
 
 ## Attributes
 
@@ -398,30 +403,33 @@ A generalized error-handling Core Actor can override default behavior (e.g., cle
 
 ### Concepts
 
-Actors allow `Self`, `Parent`, and `Child` relations to inspect unified actor state after start. This is useful for persistent actors, debugging, and comparing current state to an earlier snapshot.
+Actors allow `Self`, `Parent`, and `Child` relations to inspect unified actor state after start. This is useful for persistent actors, debugging, and comparing current state to an earlier snapshot after start / teardown when starting.
 
 One example: if an actor is spawned with its front panel shown, the parent can determine whether the child panel should also be displayed as a subpanel.
 
 ### Contracts
 
-- Attributes MUST be instantiated when the actor is spawned.
-- Attribute access MUST be read-only via method calls (no direct mutation by callers).
+- Most Attributes are be instantiated when the actor is spawned.
+	The remaining Attributes are instantiated just before Setup and after Start / Teardown in Starting.
+- Attribute access are read-only via method calls.
 
 ### Visibility and Timing
 
-| Item | Value |
-|---|---|
-| Who can read attributes | `Self`, `Parent`, and `Child` relations that share the same Root. Actors with **No Relation** MUST NOT be able to read attributes. |
-| When attributes become readable | Most attributes are readable during `Setup.vi` and `Start.vi`. The unified actor is updated after start completes; if `Setup.vi` throws an error, the actor state is updated after teardown completes. |
-| Mutability rules | Read-only method calls only. |
-| Thread-safety / by-value rules | Attribute data is by-value, except for reference-like fields (e.g., App Ref, VI Ref). |
-| Introspection chains considered stable | All attribute introspection chains are considered stable. |
+| Item                                   | Value                                                                                                                                                                                                                                                                                                                       |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Who can read attributes                | `Self`, `Parent`, and `Child` relations that share the same Root. Actors with **No Relation** MUST NOT be able to read attributes.                                                                                                                                                                                          |
+| When attributes become readable        | Most attributes are readable during `Setup.vi` and `Start.vi` / `Teardown` in Starting and `Actors` field instantiated in Attributes afterward, but before handling messages. The unified actor is updated after start completes; if `Setup.vi` throws an error, the actor state is still updated after teardown completes. |
+| Mutability rules                       | Read-only method calls only.                                                                                                                                                                                                                                                                                                |
+| Thread-safety / by-value rules         | Attribute data is by-value, except for reference-like fields (e.g., App Ref, VI Ref).                                                                                                                                                                                                                                       |
+| Introspection chains considered stable | All attribute introspection chains are considered stable.                                                                                                                                                                                                                                                                   |
 
 > **TODO:** If “when readable” needs to be precise per field, add a table:
+> 
+> I don't know what this means, can you please be more specific with an example?
 
 | Attribute Field | First Valid Phase | Updated Phase | Notes |
-|---|---|---|---|
-|  |  |  |  |
+| --------------- | ----------------- | ------------- | ----- |
+|                 |                   |               |       |
 
 ### Rationale: Teller and Attributes Libraries
 
@@ -429,10 +437,10 @@ The Teller and Attributes libraries are implemented as libraries containing inte
 
 - **Encapsulation and controlled initialization**  
   Classes encapsulate private data. Using `Init.vi`, the class private data is instantiated a single time, after which multiple **read-only** methods provide access. This enforces the intended lifecycle and prevents developers from directly modifying the underlying data.
-- **Read-only access can be enforced with interfaces**  
-  Interfaces define and enforce read-only access patterns through method contracts. Typedef clusters do not provide a comparable mechanism to restrict writes.
+- **Read-only access enforced with interfaces**  
+  Interfaces define and enforce read-only access patterns through method contracts. Typedef clusters do not provide a comparable mechanism to restrict writes from being written to.
 - **Accessor discoverability and maintainability**  
-  Avoid clusters in favor of objects with explicit accessor methods, since access points are easier to locate and reason about. These accessors are implemented as **method calls**, not property nodes.
+  Avoid clusters in favor of objects with explicit accessor methods (Anemic classes), since access points are easier to locate and reason about. These accessors are implemented as **method calls**, not property nodes.
 
 ## Reentrancy
 
@@ -451,20 +459,20 @@ A goal of jettl is to use only reentrant method calls to preserve true asynchron
 
 > **TODO:** Fill in concrete exceptions and the rationale.
 >
-> - **Non-reentrant calls allowed in jettl (if any)**:
-> - **Methods forced to Shared (non-DD)**:
-> - **Methods forced to Preallocated (no inline)**:
+> - **Non-reentrant calls allowed in jettl (if any)**: None.
+> - **Methods forced to Shared (non-DD)**: Those found from description using `reentrancy` lookup.
+> - **Methods forced to Preallocated (no inline)**: Those found from description using `reentrancy` lookup.
 > - **Bookmark tag used for decisions**: `reentrancy`
 
 ## Feedback Questions
 
 > Answer these to tighten the normative contract and reduce ambiguity.
 
-- **What does “Turn” mean in each transport (Queue/Event/Notifier)?**:
-- **Does jettl guarantee “at-most-once” delivery for a told message? If not, what are the failure modes?**:
-- **What is the canonical definition of “unhandled message” (and when is it recorded)?**:
-- **Which introspection chains are guaranteed stable across releases?**:
-- **Which behaviors are intentionally transport-specific vs transport-invariant?**:
-- **What error policy is part of the framework contract vs intentionally left to Core Actors?**:
-- **Which attributes are guaranteed readable during `Setup.vi` vs only after `Start.vi`?**:
-- **What is the minimum test suite required to validate “Core Model compliance”?**:
+- **What does “Turn” mean in each transport (Queue/Event/Notifier)?**: It means the same thing as the definition outlined.
+- **Does jettl guarantee “at-most-once” delivery for a told message? If not, what are the failure modes?**: Yes, a told message is always delivered, not necessary handled though. This stems from this being an asynchronous messaging framework. The exception is the Notifier transport which has not been extensively tested.
+- **What is the canonical definition of “unhandled message” (and when is it recorded)?**: Unhandled messages are not listened to. An actor finishes it's message handling before all messages have been listened to, hence they are unhandled and the developer can override functionality in `Teardown` to explicitly handle the unhandled messages.
+- **Which introspection chains are guaranteed stable across releases?**: All. Can you be more specific?
+- **Which behaviors are intentionally transport-specific vs transport-invariant?**: Look in the transport section for this.
+- **What error policy is part of the framework contract vs intentionally left to Core Actors?**: This is found in the `Should Stop.vi` which has already been detailed.
+- **Which attributes are guaranteed readable during `Setup.vi` vs only after `Start.vi`?**: Both are the same Attributes that can be readable, only the `Actors` has not been written to, this occurs after `Start`, or if `Setup` threw an error, then after `Teardown` in `Starting.vi`.
+- **What is the minimum test suite required to validate “Core Model compliance”?**: I do not have a test suite, do you have recommendations of how I can do this?
