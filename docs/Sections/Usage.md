@@ -77,7 +77,7 @@ Resources:
 
 Communicating between targets:
 
-![Broker startup scratch](../Images/broker-startup-scratch.jpeg)
+![](../Images/broker-startup-scratch.jpeg)
 
 Also, for an inter-actor system, you can wrap around a Core Actor (using spawn root) the functionality of holding DVRs as some mediator process to allocate telling messages across the tree via user events.
 
@@ -286,9 +286,9 @@ After listening to a message, log the **Listened Time**.
 
 SPaIC: Subtype Polymorphism and Interface Composition
 
-![Decorator pattern 1](../Images/dec_1.jpeg)  
-![Decorator pattern 2](../Images/dec_2.jpeg)  
-![Decorator pattern 3](../Images/dec_3.jpeg)
+![](../Images/dec_1.jpeg)  
+![](../Images/dec_2.jpeg)  
+![](../Images/dec_3.jpeg)
 
 jettl dynamic decorator pattern:
 

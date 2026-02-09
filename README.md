@@ -41,6 +41,6 @@ To learn by watching, check the [YouTube](https://www.youtube.com/@nathandavis66
 
 To talk with the community, join the [Discord](https://discord.gg/tVkvTyBxqa)
 
-To talk to me, message me on [Discord](https://discord.com/users/445084342931423232) or [LinkedIn](https://www.linkedin.com/in/nathan-davis-0b020a348/)
+To talk to me personally, message me on [Discord](https://discord.com/users/445084342931423232) or [LinkedIn](https://www.linkedin.com/in/nathan-davis-0b020a348/)
 
 ![](docs/Images/palette.png)

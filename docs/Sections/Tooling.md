@@ -426,6 +426,15 @@ For clarity and maintainability, keep message routing as static as possible:
 
 ## Readability and Style Guide
 
+> Please find a home for these other readability and style guidelines:
+> 
+> For the full style guide on icons, connector panes, access scope, and wiring conventions.
+> 
+> These are non-normative guidelines.
+> 
+> - All Boolean logic is positive logic.
+> - `Read*` and `Write*` methods should do only what their name implies: read or write with no additional behavior.
+
 ### No Helper Loops
 
 **NO helper loops.**

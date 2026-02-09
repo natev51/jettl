@@ -65,11 +65,25 @@ To change a class to use the PPL version of jettl:
 - Change the implemented interface to the PPL interface.
 - Compose in the PPL interface.
 
+This has not been directly tested and should be cautioned for the time being. This section will be updated when tooling becomes more mature.
+
+![](../Images/jettl-ppl.png)
+*jettl PPL API. Note that the functions are not shown, there are many in here with details in their comments.*
+
 > **TODO:** Fill in the exact migration steps for your repo layout.
 >
 > 1. :
 > 2. :
 > 3. :
+
+
+![](../Images/actor-ppl.png)
+*Actor PPL API. After a primary build, the next build took 9 seconds.*
+
+![](../Images/msg-ppl.png)
+*Msg PPL API. After a primary build, the next build took 8 seconds.*
+
+Notice how the API of the PPL beautifully encapsulates all private functionality, leaving the Public API.
 
 ### PPL + Executable Validation Checklist
 

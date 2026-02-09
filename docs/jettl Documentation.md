@@ -40,11 +40,11 @@ Documents under **Reference** are normative unless a section is explicitly label
 
 ## Feedback Questions
 
-> Fill these in directly as the docs mature.
+- **Primary audience (1–2 sentences)**: The primary audience are LabVIEW developers with a familiarity with object oriented programming in LabVIEW. Both beginners and experts benefit since the API internals are fully abstracted away from the developer.
+- **What a new user should accomplish in 30 minutes**: Understand how to implement a Hello World example by creating an actor and creating a message.
+- **What a new user should accomplish in 2 hours**: create a two actor system with bidirectional communication by using the native tools that come with jettl.
+- **What a new user should accomplish in 2 days**: Develop a four actor system with best practices with a few messages with Type Defs and become intimate with the native tools that encourage continuous refactoring.
+- **Top 5 misconceptions to prevent**: This is a great question that I need to think more about, can you please give example misconceptions?
+- **What belongs in Reference vs Usage vs Non-Normative**: I don't have a preference for what goes in which section, or if these names are appropriate. This works for now and I am open to suggestions.
 
-- **Primary audience (1–2 sentences)**:
-- **What a new user should accomplish in 30 minutes**:
-- **What a new user should accomplish in 2 hours**:
-- **What a new user should accomplish in 2 days**:
-- **Top 5 misconceptions to prevent**:
-- **What belongs in Reference vs Usage vs Non-Normative**:
+`Find place for these new additions:`

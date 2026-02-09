@@ -12,31 +12,26 @@ Sections marked **Guidelines**, **Ideas**, or **Notes** are non-normative.
 - **Actor Layer**: Synonym for **Actor** when discussing layering explicitly.
 - **Unified Actor**: The unified view of a running actor, formed by composing multiple actor layers.
 - **Msgs**: The set of message methods implemented by a single actor layer.
-- **Unified Msgs**: The union of messages implemented across all layers in the unified actor.
+- **Unified Msgs**: The union of messages implemented across all layers for the unified actor.
 - **Turn**: One execution cycle of an actor.
 - **Finalize**: A lifecycle hook invoked at the end of each actor execution turn.
-- **Root**: The root actor of an application actor tree.
-- **No Relation**: Two actors are “No Relation” when they do not have the same Root.
-- **Core Actors**: A Root-scoped set of persistent actor layers that are composed into every descendant actor spawned under that Root.
-- **Edge Actors**: A Root-scoped set of persistent actor layers that are composed into every descendant actor spawned under that Root, typically used for “outer boundary” concerns.
-- **Base Actor**: The built-in, innermost actor layer provided by jettl. It is always present in every unified actor.
-
-> **TODO:** If “Core Actors” vs “Edge Actors” has a sharper semantic boundary than “inner set vs outer set,” capture it here.
->
-> - **Core Actors semantic boundary**:
-> - **Edge Actors semantic boundary**:
+- **Root**: The root unified actor of an application actor tree.
+- **No Relation**: Two actors are “No Relation” when they do not have the same Root and do not have a parent - child relationship.
+- **Core Actors**: A Root-scoped set of persistent actor layers that are composed into every child actor spawned under that Root.
+- **Edge Actors**: A Root-scoped set of persistent actor layers that are composed into every child actor spawned under that Root, typically used for “outer boundary” concerns. These are for seen as advanced use cases and are to be avoided for beginners.
+- **Base Actor**: The built-in, innermost actor layer provided by jettl. It is always present in every unified actor, unless the developer develops their own Base Actor, which would effectively change the internal logic of the jettl framework. The extension could be used for testing / debugging purposes.
 
 ## Actor Model
 
 ### Actor Transports
 
-![Queue Actor transport](../Images/actor-transport-queue.png)  
+![](../Images/actor-transport-queue.png)  
 *Queue Actor.*
 
-![Event Actor transport](../Images/actor-transport-event.png)  
+![](../Images/actor-transport-event.png)  
 *Event Actor.*
 
-![Notifier Actor transport](../Images/actor-transport-notifier.png)  
+![](../Images/actor-transport-notifier.png)  
 *Notifier Actor.*
 
 #### Guidelines
@@ -49,52 +44,48 @@ Sections marked **Guidelines**, **Ideas**, or **Notes** are non-normative.
 
 > **TODO:** Add a short “when to use each transport” decision guide.
 >
-> - **Default transport recommendation**:
-> - **When to pick Queue**:
-> - **When to pick Event**:
-> - **When to pick Notifier**:
+> - **Default transport recommendation**: Event.
+> - **When to pick Queue**: Performance.
+> - **When to pick Event**: Default, front panel events or other events that need to be dynamically registered
+> - **When to pick Notifier**: specialized cases such as timing or notification like values independent of a FIFO.
 
-> **TODO:** Fill in acceptance tests for each transport.
-
-| Transport | Required Test | Expected Result | Notes |
-|---|---|---|---|
-| Queue |  |  |  |
-| Event |  |  |  |
-| Notifier |  |  |  |
+Acceptance tests have not been performed or explored in the present writing.
 
 ### Persistence: Core Actors, Edge Actors, and Base Actor
 
 #### Contracts
 
-- `Core Actors` and `Edge Actors` MUST be persistent layers for every actor in the application.
-- If the Root actor is spawned with `Debug jettl Actor` included in `Core Actors`, then that instance of `Debug jettl Actor` MUST be used for each child actor spawned under that Root.
-- `Base jettl Actor` MUST be the innermost layer of the unified actor.
+- `Core Actors` and `Edge Actors` are persistent layers for every actor in the application that are descendants of the same `Root`.
+- For example, if the Root actor is spawned with `Debug jettl Actor` included in `Core Actors`, then that instance of `Debug jettl Actor` is used for each child actor spawned under that Root.
+- `Base jettl Actor` MUST be the innermost layer of the unified actor, unless an advanced developer creates their own Base which effectively changes the internal logic that the Base otherwise has implemented in the decorator methods.
 
 ### Introspection and the Unified Actor
 
 #### Concepts
 
-The jettl API exposes public read-only accessors that can be used to read internals. Wrapped actors can use these read-only method chains to obtain the necessary information from the `Unified Actor`.
+The jettl API exposes public read-only accessors that can be used to read internals to the framework. Wrapped actors can use these read-only method chains to obtain the necessary information from the `Unified Actor` i.e. shared between actor layers that comprise the `Unfied Actor`.
 
 > **TODO:** List the “blessed” introspection chains (by intent), and which ones are stable contracts vs internal conveniences.
+> 
+> **I do not know what blessed means, can you please be more specific?**
 >
 > Duplicate the row for additional chains.
 
-| Intent | Example Call Chain | Stability (Stable/Internal) | Notes |
-|---|---|---|---|
-|  |  |  |  |
+| Intent                                                                                    | Example Call Chain                | Stability (Stable/Internal)                                                                                       | Notes |
+| ----------------------------------------------------------------------------------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----- |
+| Find the VI Ref for a child actor to place that actors front panel into the parent actor. | Attributes.lvclass:Read VI Ref.vi | Stable, but internal implementation abstracted from the developer, but just an unbundle since a Read method call. |       |
 
 ### Private Actors
 
 #### Contracts
 
-- A library MAY contain multiple actors.
-- Only one actor SHOULD be the primary entry point.
+- A library MAY contain multiple actors that are marked private to the containing actor such as in the `Private Actors` virtual folder.
+- Only one actor SHOULD be the primary entry point for an actor library, hence the actors closely coupled to the public actor are private to that containing public actor.
 - Supporting actors in the library SHOULD be Private to the containing actor library.
 
 #### Guidelines
 
-- Enforce “supporting actors are private” via a VI Analyzer rule.
+- Future tool MAY give ability to enforce “supporting actors are private” via a VI Analyzer test.
 
 ### Actor Layers
 
@@ -105,23 +96,23 @@ Actors can decorate each other in layers.
 - If a layer implements a Message, functionality will be extended in that layer.
 - If a layer does not implement a Message, that Message is effectively a no-op at that layer.
 
-`Msg or Recurse.vi` checks `Msgs` and determines whether the current layer implements the message method. If not implemented, it recurses to the next layer until the innermost layer is called.
+`Msg or Recurse.vi` checks `Msgs` for that layer, and additional appended logic will determine whether the current layer implements the message method. If not implemented, it recurses to the next layer until the innermost layer is called which in most cases is the Base.
 
 ### Child UIDs
 
 #### Contracts
 
-- `Child UIDs.ctl` MUST be static (developer-facing abstraction).
+- `Child UIDs.ctl` enum is a static developer-facing string used for keeping track of Child UIDs that are static in the system, not necessarily persistent for the application, but known at edit time.
 
 #### Implementation Notes
 
 - Internally, UIDs are stored as strings in `Child Attributes Map.ctl`.
 - Each actor defines its own private enum for child UIDs.
-- A runtime string mapping MAY be validated to ensure it only maps enum elements to their corresponding string values.
+	- A runtime string mapping MAY be validated to ensure it only maps enum elements to their corresponding string values via the `Format Into String` primitive.
 
 #### Rationale
 
-- Actor code uses enums exclusively, avoiding stringly-typed identifiers.
+- Actor code uses enums exclusively, avoiding stringly-typed identifiers, which are common to mistype and do not propagate for other string constants of the same string.
 - The internal string representation remains compatible with mapping needs.
 
 #### Guidelines
@@ -137,12 +128,12 @@ Overrides such as `Tell Self Inspect.vi`, `Tell Parent Inspect.vi`, and `Tell Ch
 
 #### Contracts
 
-- If a Message requires a relationship that is not satisfied, an error MUST be generated at runtime to prevent invalid message paths.
-- A static analyzer test SHOULD eliminate these runtime errors by catching invalid messaging paths earlier.
+- If a Message requires a relationship that is not satisfied, an error MUST be generated at runtime to prevent invalid message paths, if desired.
+- A future static analyzer test SHOULD eliminate these runtime errors by catching invalid messaging paths earlier from tests. This would be done by programatically finding which message interfaces an actor implements and through child relationships, determines which bidirectional message would otherwise transport between the two actors. If these messages are not implemented in the respective actor, then the tool will convey this.
 
 #### Implementation Notes
 
-A defensive fallback can be implemented by decorating message handling in a case structure that safely handles “received but not implemented” messages by allowing an unexpected message through.
+A defensive fallback can be implemented by decorating message handling in a case structure that safely handles “received but not implemented” messages by allowing an unexpected message through. This is done by use of a Core Actor (that is persistent for all actors that are descendants of the same Root) that has overrides for the necessary method calls to correctly parse message inputs for certain messages, before being executed with checks in the private data that would propagate to other override methods in the same turn.
 
 ## Messaging Model
 
@@ -150,12 +141,12 @@ A defensive fallback can be implemented by decorating message handling in a case
 
 #### Contracts
 
-- All Messages MUST come from an interface.
-- Messages follow the Interface Segregation Principle: one Message method belongs to one interface.
+- All Messages come from an interface. This is a scripted action.
+- Messages follow the Interface Segregation Principle: one Message method belongs to one interface. This allows scripting tools to find message implementations for actors, giving rise to documentation generation, message validation upon telling messages preventing runtime errors, and testing.
 
 #### Guidelines
 
-- If naming conflicts appear, treat them as a signal that module boundaries and packaging need adjustment.
+- If naming conflicts appear for message naming, treat them as a signal that module boundaries and packaging need adjustment. This is encouraged to immediately refactor readily with the tools that are designed for this including the renaming and rescripting tools which take care of all the refactoring for you.
 
 ### Scheduling and Ordering
 
@@ -166,11 +157,11 @@ A defensive fallback can be implemented by decorating message handling in a case
 
 For priority semantics (if any), see [Scheduling and Priority](Runtime.md#scheduling-and-priority).
 
-### Message Inputs and Type Definitions
+### Message Inputs, Outputs, and Type Definitions
 
 #### Contracts
 
-- Type definitions used as Message inputs SHOULD be located in the Message library.
+- Type definitions used as Message inputs SHOULD be located in the containing Message library, if possible. This prevents circular dependencies, centralizing the message with the type def.
 
 #### Rationale
 
@@ -178,14 +169,16 @@ This supports dependency inversion and avoids circular dependencies.
 
 ### Polymorphic Selection and Implementation
 
-![Polymorphic Message selection](../Images/msg-poly-selection.png)  
+![](../Images/msg-poly-selection.png)  
 *Polymorphic Message.*
 
-![Message implementation and recursion](../Images/msg-implemented-recurse.png)  
+![](../Images/msg-implemented-recurse.png)  
 *Message implementation.*
 
 > **TODO:** If these images drift from the current implementation, update:
->
+> 
+> Why is this here? What do I need to do?
+> 
 > - `../Images/msg-poly-selection.png`:
 > - `../Images/msg-implemented-recurse.png`:
 
@@ -193,7 +186,7 @@ This supports dependency inversion and avoids circular dependencies.
 
 #### Concepts
 
-Certain messages are intended to be private (self-messages) and not told by external actors.
+Certain messages are intended to be private (self-messages) and not told by external actors. Place these messages in the `Private Msgs` virtual folder so that they are private to the containing actors library, hence not being able to be called external to the actor.
 
 #### Contracts
 
@@ -204,23 +197,23 @@ Certain messages are intended to be private (self-messages) and not told by exte
 
 #### Definitions
 
-- **No-Children Actor**: An actor that cannot spawn children. It only messages with its parent and cannot have child messaging relationships.
+- **No-Children Actor**: An actor that cannot spawn children. It only messages with its parent and cannot have child messaging relationships. These are fundamental actors that should perform tasks in a reuse capacity, but not always.
 
 #### Contracts
 
 - If a Parent spawns a Child, the Parent SHOULD implement all interfaces required by the Child for Child → Parent messaging.
-- A runtime check MAY prevent spawning if the Parent does not implement required Child → Parent messages.
+- A runtime check MAY prevent spawning if the Parent does not implement required Child → Parent messages. This could be a VI Analyzer test.
 - If the Parent does not implement an interface, message methods are effectively no-ops, and default behavior MAY be handled in the Parent (`Call Inspect.vi`) or the Child (`Tell Parent Inspect.vi`).
 
 #### Implementation Notes
 
-- `Call Inspect.vi` SHOULD internally use `Read Listened To Msg.vi` to ensure the message being inspected was listened to and not normally called inline.
+- `Call Inspect.vi` SHOULD internally use `Read Listened To Msg.vi` to ensure the message being inspected was listened to and not normally called inline with the `Call.vi` for that particular message.
 
 ### Setup-Time Messaging
 
 #### Contracts
 
-- Messages MAY be told to Self and Parent (and any children spawned) in `Setup.vi`.
+- Messages MAY be told to Self and Parent (and any children spawned) in `Setup.vi` since actors can child actors can spawn in Setup as well as the parent attributes are already known in setup, so messages can be send to the parent as well as any spawned children. Therefore, children can be spawned, and if there is an error spawning the child, then the parent will consequently not spawn. This is a major feature since an entire actor hierarchy can be spawned without the root / parent fully spawning. This gives rise to more design patterns due to an implicit synchronization of spawning. Note spawning is the only synchronous relationship between two actors, after that the processes are fully asynchronous. Synchronous behavior is an advanced concept not natively handled by the framework as it is discouraged due to race conditions, etc.
 - Actors MAY be spawned in `Setup.vi`.
 
 ### Unified Messages
@@ -395,10 +388,13 @@ A generalized error-handling Core Actor can override default behavior (e.g., cle
 
 ### Wiring Readability
 
-![Minimal bend wiring philosophy](../Images/clean-propagation.png)  
+![](../Images/clean-propagation.png)  
 *Minimal bend wiring philosophy: prioritize readability. Keep the error wire pushed to the back. Avoid wires crossing over the object wire. Prefer explicit serialization structures over error-wire serialization.*
 
 ## Attributes
+
+> Please find a place where to put this:
+> Rationale for the Teller and Attributes libraries
 
 ### Concepts
 
