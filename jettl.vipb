@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-08-18 10:28:19" Modified_Date="2026-02-05 18:23:20" Creator="Erik" Comments="" ID="39ddacfb3981b37c37f736dfcb8cc0a1">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-08-18 10:28:19" Modified_Date="2026-02-11 08:31:36" Creator="Erik" Comments="" ID="d9863f81a79ba310976b1a4857425a28">
   <Library_General_Settings>
     <Package_File_Name>Nathan_Davis_lib_jettl</Package_File_Name>
-    <Library_Version>6.11.4.93</Library_Version>
+    <Library_Version>6.12.0.94</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>.</Library_Output_Folder>
@@ -136,6 +136,9 @@ GitHub: https://github.com/natev51/jettl</Description>
       </Exclusions>
       <Exclusions>
         <Path>.gitignore</Path>
+      </Exclusions>
+      <Exclusions>
+        <Path>.obsidian</Path>
       </Exclusions>
       <Place_Folder_Contents>
         <Path/>
@@ -280,7 +283,7 @@ MIT</Text_to_Add>
           <Column>1</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>src\jettl\jettl\Read Self Attributes.vi</Path>
+        <Path>src\jettl\jettl\Actor\Read Self Attributes.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -507,7 +510,7 @@ MIT</Text_to_Add>
         <Path>src\jettl\jettl\Attributes\Read Core Actors.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>3ED299FE86676DDB4C38EFD4C1F57A2F</GUID>
+      <GUID>3CF6FB31CC7870EBF9EBC7F814421BFD</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -528,7 +531,7 @@ MIT</Text_to_Add>
         <Synchronyze_with_Directory>false</Synchronyze_with_Directory>
         <Synchronize_Directory_Path/>
       </Synchronization_Info>
-      <GUID>645EEA4406FB4FD93B22B2A6061DE77B</GUID>
+      <GUID>97216EDF96B53191D7FC81DCCF09D4F6</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -549,7 +552,7 @@ MIT</Text_to_Add>
         <Synchronyze_with_Directory>false</Synchronyze_with_Directory>
         <Synchronize_Directory_Path/>
       </Synchronization_Info>
-      <GUID>DE57B2B30FB07A92863A98745D0853E2</GUID>
+      <GUID>317B83CD09837A4C048E5540F40C8766</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>

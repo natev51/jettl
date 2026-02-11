@@ -32,6 +32,15 @@
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 		<Property Name="NI.ClassItem.State" Type="Int">1350578176</Property>
 	</Item>
+	<Item Name="Write Teller Metadata.vi" Type="VI" URL="../Write Teller Metadata.vi">
+		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!%!!!!!"1!%!!!!-E"Q!"Y!!"Q,;G6U&gt;'QO&lt;(:M;7)/6'6M&lt;'6S,GRW9WRB=X-!!!J5:7RM:8)A&lt;X6U!!!_1(!!(A!!*1NK:82U&lt;#ZM&gt;GRJ9B&gt;5:7RM:8)A476U972B&gt;'%O&lt;(:D&lt;'&amp;T=Q!06'6M&lt;'6S)%VF&gt;'&amp;E982B!$"!=!!?!!!=#WJF&gt;(2M,GRW&lt;'FC$F2F&lt;'RF=CZM&gt;G.M98.T!!!*6'6M&lt;'6S)'FO!&amp;1!]!!-!!!!!!!!!!%!!!!!!!!!!!!!!!!!!A!$!A!!?!!!!!!!!!!!!!!!!!!!D1M!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"!!!!#1!!!!!!%!"!!!!!!</Property>
+		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
+		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
+		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
+		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1342709760</Property>
+	</Item>
 	<Item Name="Read Teller Metadata.vi" Type="VI" URL="../Read Teller Metadata.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$/!!!!"!!%!!!!0E"Q!"Y!!#5,;G6U&gt;'QO&lt;(:M;7)86'6M&lt;'6S)%VF&gt;'&amp;E982B,GRW9WRB=X-!$V2F&lt;'RF=C".:82B:'&amp;U91!Q1(!!(A!!(!NK:82U&lt;#ZM&gt;GRJ9AZ5:7RM:8)O&lt;(:D&lt;'&amp;T=Q!!#62F&lt;'RF=C"J&lt;A"5!0!!$!!!!!!!!1!!!!!!!!!!!!!!!!!!!!!!!A)!!(A!!!!!!!!!!!!!#1!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!E!!!!!!"!!-!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>

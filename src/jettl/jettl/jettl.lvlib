@@ -92,30 +92,6 @@
 			</Item>
 		</Item>
 		<Item Name="Actor" Type="Folder">
-			<Item Name="Decorators" Type="Folder">
-				<Item Name="Invariant" Type="Folder">
-					<Item Name="Write Msg.vi" Type="VI" URL="../Write Msg.vi"/>
-					<Item Name="Read Msg.vi" Type="VI" URL="../Read Msg.vi"/>
-					<Item Name="Read Stop.vi" Type="VI" URL="../Read Stop.vi"/>
-					<Item Name="Read Safe Stop.vi" Type="VI" URL="../Read Safe Stop.vi"/>
-					<Item Name="Write Self Attributes.vi" Type="VI" URL="../Write Self Attributes.vi"/>
-					<Item Name="Read Self Attributes.vi" Type="VI" URL="../Read Self Attributes.vi"/>
-					<Item Name="Write All Child Attributes.vi" Type="VI" URL="../Write All Child Attributes.vi"/>
-					<Item Name="Read All Child Attributes.vi" Type="VI" URL="../Read All Child Attributes.vi"/>
-				</Item>
-				<Item Name="Variant" Type="Folder">
-					<Item Name="Spawn.vi" Type="VI" URL="../Spawn.vi"/>
-					<Item Name="Setup.vi" Type="VI" URL="../Setup.vi"/>
-					<Item Name="Start.vi" Type="VI" URL="../Start.vi"/>
-					<Item Name="Call Inspect.vi" Type="VI" URL="../Call Inspect.vi"/>
-					<Item Name="Tell Self Inspect.vi" Type="VI" URL="../Tell Self Inspect.vi"/>
-					<Item Name="Tell Parent Inspect.vi" Type="VI" URL="../Tell Parent Inspect.vi"/>
-					<Item Name="Tell Child Inspect.vi" Type="VI" URL="../Tell Child Inspect.vi"/>
-					<Item Name="Finalize.vi" Type="VI" URL="../Finalize.vi"/>
-					<Item Name="Teardown.vi" Type="VI" URL="../Teardown.vi"/>
-					<Item Name="Inject Teller Metadata.vi" Type="VI" URL="../Inject Teller Metadata.vi"/>
-				</Item>
-			</Item>
 			<Item Name="Find Msgs.vi" Type="VI" URL="../Find Msgs.vi"/>
 			<Item Name="Find Actors.vi" Type="VI" URL="../Find Actors.vi"/>
 			<Item Name="Update Attributes A.vi" Type="VI" URL="../Update Attributes A.vi">
@@ -131,16 +107,11 @@
 		<Item Name="Msg" Type="Folder">
 			<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>
 			<Item Name="Recurse.vi" Type="VI" URL="../Recurse.vi"/>
-			<Item Name="Execute Or Recurse.vi" Type="VI" URL="../Execute Or Recurse.vi">
-				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-			</Item>
+			<Item Name="Execute Or Recurse.vi" Type="VI" URL="../Execute Or Recurse.vi"/>
 			<Item Name="Tell Self.vi" Type="VI" URL="../Tell Self.vi"/>
 			<Item Name="Tell Parent.vi" Type="VI" URL="../Tell Parent.vi"/>
 			<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi"/>
 			<Item Name="Tell Reply.vi" Type="VI" URL="../Tell Reply.vi"/>
-			<Item Name="Tell If Stopped.vi" Type="VI" URL="../Tell If Stopped.vi">
-				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-			</Item>
 		</Item>
 		<Item Name="Misc" Type="Folder">
 			<Item Name="Find Child Attributes.vi" Type="VI" URL="../Find Child Attributes.vi"/>
@@ -149,9 +120,9 @@
 			<Item Name="Default Implementation.vi" Type="VI" URL="../Default Implementation.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
-			<Item Name="Valid Teller Metadata.vi" Type="VI" URL="../Valid Teller Metadata.vi"/>
-			<Item Name="Msg Listened To.vi" Type="VI" URL="../Msg Listened To.vi"/>
 			<Item Name="Write Teller In Msg.vi" Type="VI" URL="../Write Teller In Msg.vi"/>
+			<Item Name="Write Teller Metadata In Msg.vi" Type="VI" URL="../Write Teller Metadata In Msg.vi"/>
+			<Item Name="Valid Teller Metadata.vi" Type="VI" URL="../Valid Teller Metadata.vi"/>
 		</Item>
 		<Item Name="Error" Type="Folder">
 			<Item Name="UID Already Exists--error.vi" Type="VI" URL="../UID Already Exists--error.vi">
