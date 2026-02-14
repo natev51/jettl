@@ -11,16 +11,16 @@ Sections marked **Guidelines**, **Ideas**, or **Notes** are non-normative.
 - All external tools belong in the same common location: `Tools -> jettl Tools`.
   - If a tool is company/name specific and credit should be preserved, place it under a subfolder, for example: `Tools -> jettl Tools -> YOURNAME -> YOURTOOLNAME`.
 
-- Tool scripting can change dependencies. Only those selected under the chosen target are affected.
+- Tool scripting cannot change items in the dependencies. Only those selected under the chosen target are affected i.e. My Computer or a RT Target.
 
-- **Requirement:** tools MUST support PPL workflows.
+- **Requirement:** tools MUST support PPL workflows. This is being actively developed.
 
 > **TODO:** Tool UI improvement idea:
 >
 > - **Show the on-disk path in the tree view (right side column)**:
 
 > **TODO:** Define the minimum tool quality bar.
->
+> Can you please be more detailed with examples and ideas?
 > - **Supports PPLs**:
 > - **Supports source-distribution (non-PPL)**:
 > - **Does not break VI Analyzer**:
@@ -34,14 +34,14 @@ Sections marked **Guidelines**, **Ideas**, or **Notes** are non-normative.
 
 How to use:
 
-- Only the left two inputs can be scripted.
-- Only the right two outputs can be scripted.
+- Only the left two inputs on the interface method can be scripted.
+- Only the right two outputs on the interface method can be scripted.
 
-Future cleanup idea: `Script Msg.vi`:
-- Clean up wire via invoke node: `wire -> CleanUpWire`.
+Future cleanup idea in `Script Msg.vi`:
+- Clean up wire via invoke node: `Wire -> CleanUpWire`.
 
 > **TODO:** Document:
->
+> Can you please be more detailed with examples and ideas?
 > - **Tool location (palette + on-disk)**:
 > - **Supported connector panes**:
 > - **Common failure modes**:
@@ -51,23 +51,23 @@ Future cleanup idea: `Script Msg.vi`:
 
 Both actor and message renaming:
 
-- Take the library(s) it is contained in and properly put them in a hierarchical map where the names are unique depending on their path/hierarchy of library(s).
+- Takes the library(s) and properly puts them in a hierarchical map where the names are unique depending on their path/hierarchy of library(s).
 
 > **TODO:** Document:
 >
-> - **Scope of rename (actor only / msg only / both)**:
-> - **How uniqueness is determined**:
-> - **How collisions are resolved**:
-> - **What is *not* renamed**:
+> - **Scope of rename (actor only / msg only / both)**: Both are available.
+> - **How uniqueness is determined**: path and name.
+> - **How collisions are resolved**: Collisions cannot occur due to the tool checking preexisting names and paths before a rename of the same name is trying to be fulfilled.
+> - **What is *not* renamed**: Can you please be more detailed with examples and ideas?
 
 #### Template
 
 > **TODO:** Fill in the template tool behavior.
 >
-> - **What it generates**:
-> - **Where it places files**:
-> - **How it picks names**:
-> - **How it handles existing items**:
+> - **What it generates**: Template for the actor or msg.
+> - **Where it places files**: In the projects directory, this cannot be changed due to best practice.
+> - **How it picks names**: defaults to `TEMPLATE`.
+> - **How it handles existing items**: if the name already exists in memory, the TEMPLATE cannot be created due to a validation check.
 
 ### Current External Tools
 
@@ -84,8 +84,6 @@ Moving actors and msgs on disk, and also in Project Explorer into the correct de
 - into Private Msgs folder of an actor, or
 - out of any library to the top level target.
 
-Creating an actor after an actor has already been created can only be placed in the private folder for the actor already created.
-
 Messages creation questions:
 
 - Maybe a message can ONLY be created after an actor has been created and must be placed in either the public or private folder?
@@ -93,11 +91,11 @@ Messages creation questions:
 
 Possible template msg placement options:
 
-1. In the project
-2. Private msg folder of actor library
-3. Public msg folder of actor library
+1. In the project under target
+2. Private msg virtual folder of actor library
+3. Public msg virtual folder of actor library
 
-Actor creation has similar options, with the stipulation that only one top-level actor library can be in a project.
+Actor creation has similar options. Idea: Only one top-level actor library can be in a project. Creating an actor in the same project after an actor has already been created can only be placed in the private folder for the actor already created.
 
 Message classification idea:
 
@@ -106,22 +104,22 @@ Message classification idea:
 
 #### Forward Msg
 
-By further accessing parent-of-parent relations, use `Read Root.vi` to determine whether a parent is the root.
+Since an actor can access it's parents parent relation (and so forth), use `Read Root.vi` to determine whether a parent (grandparent, etc) is the root.
 
 This can show if a parent above has access to a message or if a message is registered.
 
 Two forwarding strategies:
 
-- **Static registration**: defined during `Setup.vi`.
+- **Static registration**: defined during `Setup.vi` / `Spawn.vi`.
 - **Dynamic lookup**: tell the message to the parent and let the parent decide whether it can route it based on what it has registered.
 
 How msg forwarding can be implemented to parent:
 
-- An actor can recurse through `Parent -> Parent -> ...` and look at each parent unified msg set.
+- An actor can recurse through `Parent -> Parent -> ...` and look at each parent `Unified Msgs`.
 
 To child:
 
-- Going down the tree can look at the unified msg set of the children it has, then its children, etc.
+- Going down the tree can look at the `Unified Msgs` of the children it has, then its children, etc.
 
 Possible implementation sketch:
 
@@ -129,58 +127,51 @@ Possible implementation sketch:
 
 Or:
 
-- Explicit registration for forwarding on `Setup.vi`.
+- Explicit registration for forwarding on `Setup.vi` / `Spawn.vi`.
 
 Forwarding constraints:
 
 - In order to use a forwarding tool, messages still need to be in the `Unified Msgs`.
-- Consider a `Non-Implemented Msgs` set:
+- Consider a `Non-Implemented Msgs`:
   - Forwarded messages appear in `Non-Implemented Msgs`.
   - Overlap is allowed: a msg can exist in both `Unified Msgs` and `Non-Implemented Msgs`.
   - If not in `Unified Msgs`, check `Non-Implemented Msgs`.
 
 The `Non-Implemented Msgs` set can be dynamic (depending on external actors).
 
-#### Generate Implemented Msg
+#### Implement Msg
+
+##### Generate Implemented Msg
 
 Workflow idea:
 
 1. Select actor.
-2. Select interface msg to implement.
-3. In msg overrides -> default virtual folder, override interface method.
+2. Select msg to implement, tied to single interface.
+3. In `Msg Overrides` virtual folder, override interface method.
 4. Put the poly of that msg with recurse selected.
 5. Wire up recurse as necessary.
 
-Effectively: developers could “select” which msgs to add to the actor.
+Effectively: developers could “select” which msgs an actor can implement.
 
-This combats the case where many interfaces/classes are loaded and one wants to implement a msg tied to an interface.
+This combats the case where many interfaces/classes are loaded and one wants to implement a msg tied to an interface, but would otherwise need to scroll through a long inheritance hierarchy, attempting to find the interface. This tool would bypass non-msg classes and provide a dropdown of only messages one can implement, filtered and sorted alphabetically
 
-This tool would bypass non-msg classes and provide a dropdown of only messages one can implement.
+Descriptions can help message naming:
 
-Descriptions for message naming:
-
-Use `.ini` parsing to get the unique identifier associated with a message in the description.
+Use parsing to get the unique identifier associated with a message in the description.
 
 Example:
 
-```text
-$  
-[Msg]  
-"UID": e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  
-$
-```
+"Msg UID: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 
-where the UID is generated when creating the TEMPLATE Msg.
+where the Msg UID is generated when creating the TEMPLATE Msg and here within ""s. 
 
 Msg renaming idea:
 
-- Actors that implement the message can be found via the unique hash.
-- Have a unique interface message identifier in description.
-- Alternative: store the identifier in the library description (useful for tracking whether a msg has been scripted).
+- Actors that implement the message can be found in the `Interface Message Method` description via the unique hash. Store the identifier in the message method description for the interface. Useful for tracking whether a msg has been scripted an tied to the `Interface Message Method`.
 
 When creating the implemented msg with `Recurse.vi`:
 
-- Ensure controls/indicators are positioned consistently so developers can quickly adjust them.
+- (Would be nice) Ensure controls/indicators are positioned consistently so developers can quickly adjust them.
 
 Implement message interface AND populate that interface’s message method with `Recurse.vi` and necessary wiring.
 
@@ -188,27 +179,30 @@ Reference:
 
 - [Programmatically add a parent interface to a class](https://forums.ni.com/t5/LabVIEW/Programmatically-add-a-parent-interface-to-a-class/td-p/4239580)
 
-#### Un-Generate Implemented Msg
+##### Un-Generate Implemented Msg
 
-Removes a message from an actor.
+Removes a message from an actor that doesn't anymore implement the message interface.
 
 Additionally:
 
-- If the developer un-implements the interface tied to the overridden method, then this becomes a non-interface-tied message method.
+- If the developer un-implements the interface tied to the overridden method, then this becomes a non-interface-tied message method, an action should be taken at this step to remove the message method override.
 
 Side idea:
 
-- Static tool to find “implemented message methods” where the class does not implement the interface.
-  - Clarify whether such a method can ever be executed.
+- Static tool to find “implemented message methods” (where the class does not implement the message method's interface), this occurs using the UID within the interface message method.
+  - This message method can never be executed without an interface to dynamic dispatch into this message method.
 
 #### Msg Destination Viewer
 
-Where messages go, relative to the actor (both to and from):
+Where messages go, relative to an individual actor (both to and from):
 
-- Implemented messages
-- Outbound messages to `Parent`, `Child`, `Reply`
+- Implemented messages (by searching implemented interfaces)
+- Outbound messages to `Parent`, `Child`, `Reply` (found by finding `Tell Self`, etc for particular messages.)
 
-This can be done only within the method call being enacted since that is where the teller interface comes from. Tracing through subVI calls may be required.
+
+> I DO NOT UNDERSTAND WHY YOU HAVE REFORMATTED THIS SENTENCE THIS WAY, CAN YOU BE EXPLICIT WITH WHY THIS IS HERE? This can be done only within the method call being enacted since that is where the teller interface comes from.
+
+Tracing through subVI calls may be required for `Tell Child.vi` since the exact child is currently not linked in it's own encapsulated method call.
 
 #### PPL Conversion
 

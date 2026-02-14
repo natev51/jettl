@@ -145,6 +145,20 @@ Creating references in a parent before a child spawns is a bad practice since wh
 - For developer code, add comments that explain whether code can be modified or is framework-owned (“DO NOT MODIFY”).
   - Example: `Init Actor` — DO NOT MODIFY!
 - Add another object to Attributes called **Attributes Metadata**.
+- Msg object passthrough
+	- better performance (test by creating subVI around instantiation and bundling to see which takes more time to do, if it is the instantiation, then we change to pass the object around (same for output.. sad) have to have output object as well.)
+	- that dumb trick for arrays from the init reads to happen for the Msg Object as well! So the reordering of the front panel connections. Could just be explicit and have a map for input and output.
+	- instantiates the object once and passes as input datatype.
+	- this means to manipulate the object back in and write the data back in (override currently what is in the object private data).
+- replace TEMPLATE.vi in all methods with the private one. This may help with the circular dependency issue for inlining the preallocated.
+
+- Cool change that can be made, implement a msgs input that executes these messages in their order before the main message handling loop, this is helpful for configuration data that is coupled through a message that otherwise wouldn't be need to be bundled into actor input. This would require another input for the actor input, so would need another function that has inputs for the `Actor Instantiation.vi` of `Edge Actors`, `Mid Actors`, and `Core Actors`. WHoas! Have this initial thing be a Queue driver msg handling, have there be an enum flag depending on which msg handler is handling. Oh...
+- that means change the spawn function calls to have the necessary inputs. One Root interface method for edge, mid, and core. just the edge inputs for the Child. Maybe these three functions should be apart of the same poly. Function for `Setup Messages.vi` tied to interface that creates the message calls for each. wire in the init msg to the actor init.
+
+- for the tools menu, could include sections for
+	- Scripting
+	- Debug
+  what is the way to make "artificial" menu items without making more libraries?
 
 > **TODO:** For each “immediate change,” define:
 >

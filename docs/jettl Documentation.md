@@ -48,3 +48,9 @@ Documents under **Reference** are normative unless a section is explicitly label
 - **What belongs in Reference vs Usage vs Non-Normative**: I don't have a preference for what goes in which section, or if these names are appropriate. This works for now and I am open to suggestions.
 
 `Find place for these new additions:`
+
+Please ensure that things are not repeated across documentation, links are helpful, but instead of repeating information that is stated in a different section (due to changes in the future would require changing the information in two places), instead write a quick sentence with a link to show where more details would be found.
+I am also adding in the README.md file which is in the same directory as `docs`, therefore any images in README.md will also come from the `docs\images` folder.
+Please make the necessary changes for a simple README.md that belongs on a GitHub page. Please give suggestions and ideas in the README.md that I can respond to.
+Please also incorporate any changes that are under the `Find place for these new additions:` in the `jettl Documentation.md`. Please ask clarifying questions where they should go with a TODO comment in the markdown file they are inserted in. Please make future suggestions in the markdown files under a TODO that I can respond to there. Any high level suggestions, you make make this apart of your response.
+I have responded in all capital letters for my responses (such as CAN YOU PLEASE EXPLAIN THIS) so that you can easily understand my direct responses to you, opposed to general edits I have made in the documentation. Is responding in all capital letters good? What formatting is easiest for you? Making the all capital letters bold? italicized? underlined? How would it be easiest to discern these?
