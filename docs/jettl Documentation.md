@@ -1,56 +1,113 @@
 # jettl Documentation
 
-This documentation is organized in reading order. Start with Orientation, then read the Core Model.
+This documentation is organized in reading order. Start with Orientation, then use the Glossary and Core Model as your reference for definitions and contracts.
 
-Documents under **Reference** are normative unless a section is explicitly labeled **Guidelines**, **Ideas**, or **Notes**.
+Sections marked **Guidelines**, **Ideas**, or **Notes** are non-normative.
 
-> **Doc layout**
->
-> - Pages live in `Sections/`
-> - Images live in `Images/`
+> Note: Pages live in `docs/Sections/`. Images live in `docs/Images/`.
 
-## Start Here
+## Start here
 
 - [Orientation](Sections/Orientation.md)  
   What jettl is, why it exists, and how to read these docs.
 
 ## Reference
 
+- [Glossary](Sections/Glossary.md)  
+  Canonical definitions. Other pages link here rather than redefining terms.
 - [Core Model](Sections/Core%20Model.md)  
-  Actors, Messages, Lifetime, and the core behavioral contracts.
+  Normative semantics: actors, messaging, lifetime/stop contract, errors, attributes, and reentrancy.
 - [Runtime](Sections/Runtime.md)  
-  Execution semantics, scheduling, and runtime-specific behavior (RT, PPL, executables).
+  Runtime behavior and deployment constraints (RT, PPLs, executables, benchmarking).
+- [API Reference](Sections/API%20Reference.md)  
+  The public surface area: palettes, interfaces, classes, and stability notes.
 
-## Developer Workflow
+## Developer workflow
 
 - [Tooling](Sections/Tooling.md)  
-  Tooling, packaging, debugging, testing, and documentation generation.
-- [Readability and Style Guide](Sections/Tooling.md#readability-and-style-guide)  
-  Coding conventions and readability rules used across jettl.
+  Build, package, debug, test, document, and maintain jettl-based systems.
 
-## How-To
+## How-to
 
 - [Usage](Sections/Usage.md)  
   Patterns, examples, and practical recipes.
 
-## Non-Normative
+## Non-normative
 
 - [Non-Normative](Sections/Non-Normative.md)  
-  Ideas, inspirations, references, and material that is explicitly not part of the formal contract.
+  Ideas, inspiration, external references, and backlog material that is explicitly not part of the formal contract.
 
-## Feedback Questions
+## Documentation conventions
 
-- **Primary audience (1–2 sentences)**: The primary audience are LabVIEW developers with a familiarity with object oriented programming in LabVIEW. Both beginners and experts benefit since the API internals are fully abstracted away from the developer.
-- **What a new user should accomplish in 30 minutes**: Understand how to implement a Hello World example by creating an actor and creating a message.
-- **What a new user should accomplish in 2 hours**: create a two actor system with bidirectional communication by using the native tools that come with jettl.
-- **What a new user should accomplish in 2 days**: Develop a four actor system with best practices with a few messages with Type Defs and become intimate with the native tools that encourage continuous refactoring.
-- **Top 5 misconceptions to prevent**: This is a great question that I need to think more about, can you please give example misconceptions?
-- **What belongs in Reference vs Usage vs Non-Normative**: I don't have a preference for what goes in which section, or if these names are appropriate. This works for now and I am open to suggestions.
+### Canonical ownership and cross-links
 
-`Find place for these new additions:`
+Concepts are defined once, in a single authoritative section. Everywhere else:
 
-Please ensure that things are not repeated across documentation, links are helpful, but instead of repeating information that is stated in a different section (due to changes in the future would require changing the information in two places), instead write a quick sentence with a link to show where more details would be found.
-I am also adding in the README.md file which is in the same directory as `docs`, therefore any images in README.md will also come from the `docs\images` folder.
-Please make the necessary changes for a simple README.md that belongs on a GitHub page. Please give suggestions and ideas in the README.md that I can respond to.
-Please also incorporate any changes that are under the `Find place for these new additions:` in the `jettl Documentation.md`. Please ask clarifying questions where they should go with a TODO comment in the markdown file they are inserted in. Please make future suggestions in the markdown files under a TODO that I can respond to there. Any high level suggestions, you make make this apart of your response.
-I have responded in all capital letters for my responses (such as CAN YOU PLEASE EXPLAIN THIS) so that you can easily understand my direct responses to you, opposed to general edits I have made in the documentation. Is responding in all capital letters good? What formatting is easiest for you? Making the all capital letters bold? italicized? underlined? How would it be easiest to discern these?
+- Use a one-sentence summary.
+- Link to the canonical definition/contract section.
+
+> TODO: Confirm the canonical ownership map below (edit inline if you disagree).
+>
+> - **Definitions (terms):** Glossary  
+> - **Normative behavior contracts:** Core Model  
+> - **Deployment / performance behavior:** Runtime  
+> - **Developer workflows + coding conventions:** Tooling  
+> - **Patterns + examples:** Usage  
+> - **Future ideas / inspiration:** Non-Normative
+
+### TODO and collaboration workflow
+
+All TODOs use fill-in templates so you can answer inline without restructuring the document.
+
+Recommended response format (so your replies are machine-searchable and visually distinct):
+
+```markdown
+> **RESPONSE:** YOUR TEXT HERE (YOU CAN USE ALL CAPS IF YOU WANT)
+```
+
+> TODO: Confirm the response marker you want to standardize on.
+>
+> - **Preferred marker format**:
+> - **Do you want date stamps on replies?**:
+> - **Do you want question IDs (e.g., Q-CORE-01)?**:
+
+### Link and image rules
+
+File names include capitalization and spaces; links must match exactly.
+
+- Encode spaces in links as `%20`.
+- GitHub paths are case-sensitive: `Images/` ≠ `images/`.
+
+Image rules (debugging-friendly):
+
+- The alt text matches the image base name.
+- No empty `[]` remains.
+
+For pages under `docs/Sections/`:
+
+```markdown
+![image-name](../Images/image-name.png)
+```
+
+For this file under `docs/`:
+
+```markdown
+![image-name](Images/image-name.png)
+```
+
+For `README.md` at repo root:
+
+```markdown
+![image-name](docs/Images/image-name.png)
+```
+
+## Find place for these new additions
+
+If you temporarily park scratch notes here, treat this as an inbox. Each item should be relocated into its canonical section and replaced with a short link.
+
+> TODO: Paste new additions here as bullet points (one per line), then annotate with the intended destination.
+>
+> - **Addition:**  
+>   **Proposed destination:** (Orientation / Glossary / Core Model / Runtime / Tooling / Usage / Non-Normative)  
+>   **Notes:**  
+>   > TODO: If ambiguous, write the question here.

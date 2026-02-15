@@ -1,335 +1,294 @@
 # Usage
 
-This document collects practical patterns, recipes, and example-oriented guidance for building systems with jettl.
+This document collects practical patterns and examples for using jettl.
 
-Sections marked **Guidelines**, **Ideas**, or **Notes** are non-normative.
+Normative semantics are defined in the [Core Model](Core%20Model.md). If a section below depends on a contract, it links to the canonical contract rather than restating it.
 
 ## Examples
 
-### Continuous Measurement and Logging
+### Continuous measurement and logging
 
-> **TODO:** Define:
+> TODO: Define the canonical “continuous measurement + logging” example.
 >
-> - **What is being measured**:
-> - **Where measurements are recorded**:
-> - **Message shape (typedef)**:
-> - **Expected rates / throughput targets**:
+> - **Actors involved (Acquisition / Analysis / Logging / UI)**:
+> - **Message flow (high-level)**:
+> - **Transport choice (Queue/Event/Notifier) and why**:
+> - **Expected throughput goal**:
 
 ### Hello World
 
-Don't need to tell yourself `Stop` for Hello World. Just have `Stop` itself at the end of the Hello World msg.
-
-> **TODO:** Link to a concrete Hello World example (code + screenshot).
->
-> - **Example location (repo path or VIPM example name)**:
-> - **What the user should observe**:
-
-> Note: For VIPM/Example Finder distribution details, see [Examples Packaging Notes](Tooling.md#examples-packaging-notes).
-
-## Reuse Actors
-
-This section goes over reuse actors that have either been implemented or can be implemented, external to the core library.
-
-### Panel Actors
-
-Separate repo that has this reuse actor.
-
-Common functionality to update the front panel state:
-
-- includes window operations and subpanels
-- unique passing of actor ref reference to the parent (from when it spawns as a child), no need to pass around the subpanel reference
-- wire in as a persistent layer
-
-Usefulness of having `Actor Ref` as an input before `Setup.vi` and `Start.vi`:
-
-- allows for the parent to have access to the `Actor Ref`
-- that means the parent has access to put that method in its subpanel instead of passing the child across the parent's subpanel
-
-Inspiration:
-
-- [MGI Panel Manager - Unmonitored](https://gitlab.com/justACS/mgi-panel-manager-unmonitored)
-
-Subpanels notes:
-
-- After the child has spawned, the parent has access to Child Attributes, which has `VI Ref`, so it can place that VI ref into a subpanel.
-- Since you directly have access to the VI ref of the Child Attributes, you can modularize where front panels are in the actor front panel of `Self` by changing around panels.
-- Advanced application: interchangeable front panels where you have two created actors, and the ability to toggle front panel displays as either being in the subpanel.
-
-Lifecycle convention:
-
-- Open in `Start`
-- Close in `Teardown`
-
-Queue actors and notifier actors can also have front panels. Though, there shouldn't be control and indicator terminals since this would be functionality specific for an event actor. Instead, a queue actor would primarily have subpanel control references.
-
-> **TODO:** Document:
->
-> - **Where Panel Actors live (repo / package name)**:
-> - **Which layer (Core vs Edge) they belong in**:
-> - **Minimal example**:
-
-### Broker
-
-Resources:
-
-- https://bitbucket.org/composedsystems/mva-framework/src/master/
-- https://bitbucket.org/composedsystems/stream/src/master/
-
-Communicating between targets:
-
-![](../Images/broker-startup-scratch.jpeg)
-
-Also, for an inter-actor system, you can wrap around a Core Actor (using spawn root) the functionality of holding DVRs as some mediator process to allocate telling messages across the tree via user events.
-
-This is a single-application-only method for publisher-subscriber, by using the decorated actor methodology.
-
-#### Observer-style subscription
-
-Just like spawning, the observer pattern used will have a blocking call when subscribing/registering for a topic by creating its own child actor, with the necessary private data internal to talk with the broker and its child actors.
-
-This could be a `Core Actor`.
-
-You can put a non-reentrant method call in `Setup.vi` for a given actor which can put setup information to a by-reference “thing” in the application.
-
-Telling events across the tree via the No Relation type.
-
-#### Mediator / Assembler Wrapper
-
-A mediator-based design is inherently dataflow-friendly and avoids memory leaks because actor creation is serialized and coordinated through the mediator. Each actor instance is created at most once at a time under mediator control.
-
-Actor spawning can be enforced by placing a non-reentrant VI inside the `Spawn` override, ensuring that concurrent instantiation cannot occur.
-
-Actors may only shut down when explicitly instructed by the mediator. The mediator maintains authoritative knowledge of all actor references and determines which actors are permitted to tell messages to which recipients. This centralized reference management naturally supports observer-style interactions, including publisher–subscriber relationships.
-
-Deadlocks cannot occur because the mediator processes interactions sequentially. While this introduces a potential bottleneck, that tradeoff is intrinsic to mediator or broker-based architectures and is often acceptable for the guarantees it provides.
-
-The mediator functions as the system’s routing authority: it forwards messages only to actors holding valid references for the intended interaction. Individual actors are isolated from one another and are aware only of the mediator—not of other actors in the system.
-
-Conceptually, this resembles the existing framework, with the key distinction that messages are routed through the mediator. Because the mediator holds references to all actors, it can forward messages to the appropriate recipients based on those references.
-
-The actor itself still maintains references to its own `Self`, `Parent`, and `Children`; however, the mediator also tracks these relationships and governs how references may be used. The actor does not know other actors exist—it only interacts with the mediator.
-
-This architecture supports the observer pattern cleanly. Actor references exist in exactly two places: the mediator and the actor itself. The mediator always retains the authoritative set of references and provides actors with only the references necessary for their permitted interactions.
-
-Additionally, the mediator knows which messages an actor can handle through a unified messaging model. Because messages are defined via interfaces, the mediator can determine—at edit time—which messages an actor supports by inspecting the interfaces it implements. Message validation and routing decisions occur in the mediator, not in the actor.
-
-At a higher level, this mediator can be viewed as a concrete component that encapsulates application-level business logic, coordinating a set of more specialized and reusable subcomponents. In practice, this mediator often corresponds to a top-level actor.
-
-##### Multiple Application Instances
-
-For multi-application scenarios, one approach is to introduce an application-level mediator that coordinates communication between individual application mediators. This suggests a layered mediator structure:
-
-- Each application instance contains its own internal mediator.
-- A higher-level mediator facilitates communication between application mediators.
-- When multiple application instances are running, their top-level mediators exchange references and coordinate cross-application messaging.
-
-If two applications need to communicate, each retains its own mediator. One possible extension is an additional mediator layer above both, responsible for managing inter-application interactions.
-
-##### Assembler Role
-
-An assembler may be used strictly to construct actors and distribute references required for observer-style relationships. Actors request construction and reference wiring through the assembler, rather than directly creating or discovering other actors.
-
-> **TODO:** Decide whether “Broker/Mediator” belongs in:
->
-> - **Usage (as a reusable pattern)**, or
-> - **Non-Normative (as a roadmap idea)**.
->
-> If it moves, keep a short summary here and link to the canonical page.
-
-### Bridge Actors
-
-Used to connect to non-jettl code via user events.
-
-Bridge actors connect jettl and non-jettl LabVIEW applications.
-
-Intra-application LabVIEW with non-jettl code:
-
-- Before spawn, pass in the queue or event references you want it to use to publish any data, to establish bidirectional communication.
-
-You can spawn an actor and tell it messages from any LabVIEW code, not only from other actors. The primary challenge is receiving messages from that actor. This is the role of a **bridge (adapter or shim)**.
-
-#### 1. Create a pure actor
-
-Start by creating a proper actor that performs the required work (for example, hardware interaction). This actor must strictly follow jettl rules:
-
-- All communication occurs through actor messaging.
-- No shared data access.
-- No reply messages to non-actors.
-
-By keeping this actor “pure,” it remains reusable in fully jettl–based applications as well as in mixed environments.
-
-#### 2. Create a bridge (adapter) actor
-
-Next, introduce a bridge actor that sits between the calling (non-actor) code and the pure actor.
-
-- Toward the pure actor, the bridge behaves like a normal jettl actor and follows all jettl rules.
-- Toward the caller, the bridge is allowed to break jettl rules, since the caller is not an actor.
-
-This separation preserves correctness and reusability while enabling integration with legacy or non-jettl code.
-
-#### 3. Define pass-through command messages
-
-The bridge actor should expose a set of standard messages that mirror those accepted by the nested pure actor.
-
-- These messages are simple pass-throughs.
-- The bridge forwards them directly to the pure actor.
-- This is straightforward to implement when using interfaces.
-
-#### 4. Establish return paths using reference objects
-
-Because the caller is not message-driven in the jettl sense, returned data must flow through reference objects:
-
-- Use **DVRs** for tagged or state-style data.
-- Use **queues** for telling data or asynchronous notifications.
-
-These references can be:
-
-- Created by the calling code and passed to the bridge at startup (simplest approach), or
-- Created by the bridge and returned to the caller (useful when the caller VI may go out of memory before the actor shuts down, which is common in TestStand-based systems).
-
-#### 5. Handle data from the pure actor
-
-When the nested pure actor produces data for the bridge:
-
-- The bridge receives the message.
-- The bridge stores the data in the appropriate reference object (DVR or queue).
-
-#### 6. Consume data in the calling code
-
-The calling code retrieves data from the reference objects as needed.
-
-For example:
-
-- If the caller is a **QMH**, pass the QMH queue into the bridge.
-- When the bridge receives data from the pure actor, it constructs a QMH message and enqueues it with the received data.
-
-If the caller is **not** message-driven:
-
-- Do not forward messages directly.
-- Instead, wrap all bridge interaction in a class that provides:
-  - Create/Destroy VIs to launch and shut down the bridge actor.
-  - Command VIs that tell messages to the bridge.
-  - Data access VIs that read from DVRs or queues.
-
-This pattern encapsulates the actor interaction while presenting a conventional API to non-jettl code.
-
-Bridge validation note:
-
-- Then test with the user event code.
-- Possibly: provide a user event helper that creates user events for `Stop Msg` and `Stopped Msg` (useful for IPC-style integrations).
-
-> **TODO:** Capture the canonical bridge pattern as a diagram and a minimal working example.
-
-### Periodic Messaging
-
-This has to come from another entity that determines timing of when to tell a message. Ethan Stern has a presentation on periodic messaging.
-
-A specialty actor is spawned for timing. The actor that spawned it holds the truth for the state of the periodic message in case of timing issues where the child tells another message after telling. This behavior can be handled in the `Inspect.vi` override.
-
-“Tells a message periodically” does not imply the messages are executed periodically.
-
-Tell a message and have it tell with only one copy; this ensures there's only ever one copy in the queue.
-
-Sketch:
-
-Init.vi inputs:
-
-- Msg strategy
-- Period
-
-Process.vi:
-
-- unbundle Period
-- timeout case: unbundle Msg to tell to `Creator.vi`
+Goal: a minimal actor that starts, handles one message, and stops cleanly.
 
 Guideline:
 
-- An actor should not have in its own timeout way to do something periodically such as tell itself a message every 100 ms.
-- Instead it must create a periodic messaging actor which in its timeout tells the message to the actor that requires the periodic message. Separate the concerns.
+- You do not need to tell `Stop` to `Self` in a trivial “Hello World” example. Instead, have the actor stop itself at the end of the Hello World message.
 
-Additional notes:
-
-- This could be an event actor, but notifiers work well with timing.
-- If it was an event actor, it would have to wait for the next event to occur via the timeout case in the event loop.
-- Interruptions in the event loop can prevent correct periodic timing.
-
-### Monitor Msg Traffic
-
-Since one cannot monitor a queue status, overriding the tell messages in a wrapper actor can put each told message into a log and mark as not read (organized by timestamp).
-
-Then when the message is being acted upon (in `Call Inspect.vi` with `Msg Listened To.vi`), the matching timestamp can be marked as read.
-
-This allows the system to infer how many msgs haven’t been executed (how many are effectively “in the queue”) since the message destination is known before the message is told.
-
-Initialization requires:
-
-- Self Attributes
-- Parent Attributes
-
-Note: child information is redundant since you can construct everything with Self and Parent Attributes.
-
-After telling a message, log the **Time**.
-
-After listening to a message, log the **Listened Time**.
-
-> **TODO:** Define:
+> TODO: Link the canonical Hello World example.
 >
-> - **Log schema**:
-> - **Correlation IDs**:
-> - **How to handle message cancellation / stop**:
+> - **Example name**:
+> - **Location (repo path or VIPM Example Finder name)**:
+> - **What the user should observe**:
 
-## Design Patterns
+### Timer / periodic trigger example
 
-### Decorator Pattern
+A timer example is a strong introductory example because it demonstrates:
 
-**Class Inheritance to SPaIC**
+- periodic message telling
+- stop behavior
+- comparison points to other frameworks
 
-SPaIC: Subtype Polymorphism and Interface Composition
+There is a relevant presentation by Darren Nattinger on timers/periodic messaging (use it as a learning reference).
 
-![](../Images/dec_1.jpeg)  
-![](../Images/dec_2.jpeg)  
-![](../Images/dec_3.jpeg)
+> TODO: Specify the timer example behavior.
+>
+> - **Tick interval**:
+> - **Drift expectations**:
+> - **Stop semantics**:
+> - **How the timer is tested**:
 
-jettl dynamic decorator pattern:
+### Example discovery (VIPM)
 
-- You can swap around the way these are wrapped.
-- Example conceptual stack:
-  - Your actor
-  - Panel actor
-  - Base actor
+Example distribution is a packaging concern (canonical discussion belongs in [Tooling → VIPM](Tooling.md#vipm)).
 
-### State Pattern
+> TODO: Decide how examples are discovered.
+>
+> - **VIPM Example Finder keywords**:
+> - **Example folder path (repo)**:
+> - **Which example appears first in search results**:
 
-Resources:
+## Reusable actors
 
-- [State Pattern – Design Patterns (ep 17)](https://www.youtube.com/watch?v=N12L5D78MAA)
-- [State of Grace - The State Pattern in LabVIEW](https://www.youtube.com/watch?v=HewNBC4TjKs)
-- [Powerful Design with the Gang of Four - Tom McQuillan and Sam Taggart](https://www.youtube.com/watch?v=IM8ZU1af6wQ&list=PLvDxiIkwuMQsxPk5KC9B1kdJboV-9GJKh&index=22)
-- [A Class Act: Simple Design Patterns to Improve Code Quality, Allen C Smith - GDevCon N.A. 2023](https://www.youtube.com/watch?v=GRDoyn1mNAI&list=PLvDxiIkwuMQsxPk5KC9B1kdJboV-9GJKh&index=18)
-- [A Class Act - Allen C Smith(JustACS) - GDevCon#4](https://www.youtube.com/watch?v=yVzT5ZqUuVU&list=PLvDxiIkwuMQsxPk5KC9B1kdJboV-9GJKh&index=19)
+This section lists reusable actor components implemented outside the core library (or intended to be).
 
-State must not be modified in `Entry.vi`.
+### Panel actors
 
-Disallowing state transitions in both `Entry.vi` and `Exit.vi` is intentional. A state must be fully entered or fully exited before a transition is permitted. This constraint prevents infinite state transitions and enforces a well-defined state lifecycle.
+A reusable “panel actor” can standardize common UI concerns:
 
-Context classes should be private, since only interface objects should be composed into a class.
+- updating front panel state
+- window operations
+- subpanel hosting
+- consistent parent/child setup
 
-Dependency Inversion Principle:
+Guideline:
 
-Since the context class is private to the library it is in (and the State Interface with its concrete state classes), public static dispatch methods can be used in the context class AND concrete state classes without worrying that they'll be used outside the library since the context class is private.
+- A panel actor can be a persistent layer in the unified actor stack.
 
-### Factory Pattern
+> TODO: Fill in the canonical reference for panel actors.
+>
+> - **Repo / package name**:
+> - **Where documentation lives**:
+> - **Minimum feature set**:
+> - **How it integrates with message contracts**:
 
-The Factory Pattern is used to create instances of actors without specifying the exact class of the actor that will be created.
+## Integration patterns
 
-This allows for greater modularity in the actor design.
+### Bridge (adapter) actors
 
-Easy Factory pattern integration with actor interface for plug-and-play architectures such as PPLs.
+Bridge actors adapt non-jettl code (or legacy architectures) to jettl’s actor/message model.
 
-## Feedback Questions
+This is an integration pattern (not a reusable actor by itself).
 
-- **Which 3 examples are “required reading” for new users?**:
-- **Which reuse actors are already implemented vs only planned?**:
-- **For each reuse actor, what is the stable API surface?**:
-- **Which patterns should be enforced vs only recommended?**:
-- **Which of the “Broker/Mediator” ideas do you want to commit to in the near term?**:
+> TODO: Confirm the primary integration targets.
+>
+> - **Primary legacy integration target (QMH/TestStand/UI loop/other)**:
+> - **Primary IPC mechanism (queues/user events/DVRs/other)**:
+
+#### Key idea
+
+You can spawn an actor and tell it messages from any LabVIEW code, not only from other actors. The primary challenge is receiving data *from* that actor. This is the role of a **bridge (adapter/shim)**.
+
+#### Pattern steps
+
+1. **Create a pure actor**  
+   Create an actor that performs the required work (for example: hardware interaction). This actor should be “pure”:
+
+   - all communication occurs through actor messaging
+   - no shared data access
+   - no direct callbacks to non-actors
+
+   By keeping this actor pure, it remains reusable in fully jettl-based applications and in mixed environments.
+
+2. **Create a bridge actor**  
+   Introduce a bridge actor that sits between the calling (non-actor) code and the pure actor.
+
+   - toward the pure actor, the bridge behaves like a normal jettl actor and follows all jettl rules
+   - toward the caller, the bridge is allowed to break jettl rules, since the caller is not an actor
+
+3. **Define pass-through command messages**  
+   The bridge actor should expose a set of messages that mirror those accepted by the nested pure actor.
+
+   - these are pass-through messages
+   - the bridge forwards them directly to the pure actor
+   - interfaces make this straightforward
+
+4. **Establish return paths using reference objects**  
+   Because the caller is not message-driven in the jettl sense, returned data usually flows through reference objects:
+
+   - **DVRs** for tagged/state-style data
+   - **queues** for streaming or asynchronous notifications
+   - **user events** for UI integrations
+
+   These references can be:
+
+   - created by the calling code and passed to the bridge at startup (simplest), or
+   - created by the bridge and returned to the caller (useful when the caller VI may go out of memory before the actor shuts down, common in TestStand systems)
+
+5. **Handle data from the pure actor**  
+   When the pure actor produces data, it tells messages to the bridge. The bridge receives the message and writes the data to the appropriate reference object (DVR/queue/user event).
+
+6. **Consume data in the calling code**  
+   The calling code retrieves data from the reference objects as needed.
+
+   Example (QMH integration):
+
+   - pass the QMH queue into the bridge
+   - when the bridge receives data from the pure actor, it constructs a QMH message and enqueues it with the received data
+
+   If the caller is not message-driven:
+
+   - do not forward messages directly into the caller
+   - wrap the bridge interaction in a class that provides:
+     - Create/Destroy VIs to launch and shut down the bridge actor
+     - command VIs that tell messages to the bridge
+     - data access VIs that read from DVRs/queues
+
+> TODO: Add a concrete bridge example and keep it working.
+>
+> - **Pure actor responsibility**:
+> - **Bridge actor responsibility**:
+> - **References created by caller vs by bridge**:
+> - **What is the shutdown sequence**:
+>
+> TODO: If you want jettl to ship helper utilities for this pattern, specify them.
+>
+> - **Helper VIs/classes desired**:
+> - **Which reference types to support (DVR/queue/user event)**:
+> - **Where they live (core vs tooling)**:
+
+### Broker / mediator pattern
+
+A broker / mediator design is discussed as a non-normative idea in:
+
+- [Non-Normative → Broker / Mediator](Non-Normative.md#broker--mediator)
+
+This avoids duplicating speculative architecture in the usage guide.
+
+### Periodic messaging
+
+Periodic triggers must come from an entity responsible for timing.
+
+Guidelines:
+
+- Do not put periodic work inside an actor’s own timeout case as “tell Self every 100 ms.”
+- Instead, create a **periodic messaging actor** (or wrapper layer) whose single responsibility is timing, and have it tell a trigger message to the actor that owns the behavior.
+
+Key nuance:
+
+- Telling a message periodically does not imply the message is *executed* periodically (see: [Scheduling and Ordering](Core%20Model.md#scheduling-and-ordering)).
+- If you want “at most one outstanding tick,” design the tick message/transport so only one copy can be pending.
+
+Implementation sketch (template):
+
+- `Init.vi` inputs:
+  - **Msg strategy**:
+  - **Period**:
+- `Process.vi`:
+  - unbundle `Period`
+  - in timeout case: unbundle the message to tell to the creator/owner
+
+Transport note:
+
+- This could be an Event Actor, but Notifiers can work well for timing semantics.
+- For an Event Actor, the event loop timeout defines tick cadence, but event handling can introduce jitter.
+
+> TODO: Choose one canonical periodic messaging approach and document it fully.
+>
+> - **Canonical approach (timer actor vs wrapper layer)**:
+> - **Why**:
+> - **How “at most one outstanding tick” is enforced**:
+> - **Acceptance test for jitter/drift**:
+
+### Monitor message traffic
+
+Since one cannot directly monitor queue depth in a robust way, one approach is to override the tell operations in a wrapper actor and log:
+
+- the time a message is told (timestamp)
+- the time it is listened to (timestamp)
+
+This enables derived metrics like “messages not yet executed” by comparing told vs listened timestamps.
+
+A workable instrumentation approach:
+
+- Initialization requires:
+  - **Self attributes**
+  - **Parent attributes**
+- Child information is redundant if you can derive it from Self and Parent attributes.
+
+Logging idea:
+
+- After telling a message: log **Tell Time**
+- When listening to a message (for example, in `Call Inspect.vi` with `Msg Listened To.vi`): log **Listened Time**
+
+> TODO: Decide whether this belongs in a built-in debug layer or a separate add-on.
+>
+> - **Owner (Core/Edge add-on vs external package)**:
+> - **Log sink (file/UI/queue)**:
+> - **Performance overhead budget**:
+> - **How to enable/disable per actor**:
+
+## Design patterns
+
+These patterns are used heavily in jettl-based systems.
+
+### Decorator pattern
+
+jettl uses dynamic decoration: actor layers wrap other actor layers through a common `Actor` interface.
+
+![dec_1](../Images/dec_1.jpeg)
+
+![dec_2](../Images/dec_2.jpeg)
+
+![dec_3](../Images/dec_3.jpeg)
+
+> TODO: Add a short “decoration walkthrough” that ties the pictures to concrete jettl concepts.
+>
+> - **Which example actor stack is shown**:
+> - **Which layer is considered “user actor”**:
+> - **Which layers are Core vs Edge**:
+> - **One message call traced through the layers**:
+
+### State pattern
+
+Use the state pattern when:
+
+- an actor’s behavior changes based on a small, explicit set of states
+- you want to keep message methods small by delegating to state objects
+
+> TODO: Provide one concrete state machine example.
+>
+> - **States**:
+> - **State transitions**:
+> - **Which messages trigger transitions**:
+
+### Factory pattern
+
+Factory patterns are useful when:
+
+- an actor must select which implementation to spawn based on configuration
+- a plugin architecture selects from multiple concrete implementations
+
+See also: [Runtime → Plugin architectures](Runtime.md#plugin-architectures).
+
+> TODO: Provide the canonical factory example and explain how it interacts with typed destinations.
+>
+> - **Factory inputs**:
+> - **Spawned actor variants**:
+> - **How message contracts are enforced**:
+
+## Feedback questions
+
+> TODO: Answer these to guide which examples and patterns should become first-class docs.
+>
+> - **Top 3 examples you want new users to run first**:
+> - **Top 3 integration patterns you see in real projects**:
+> - **Most confusing part of the framework for new users**:
