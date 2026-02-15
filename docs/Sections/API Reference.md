@@ -1,95 +1,181 @@
 # API Reference
 
-This page is the **canonical index** of the public surface area of jettl: palettes, interfaces, classes, tools, and stability notes.
+This page is a concrete “what do I call?” map for jettl.
 
-It is intentionally structured so you can keep conceptual documentation (Orientation/Core Model/Runtime) clean while still giving developers a concrete “what do I call?” reference.
+- **Conceptual semantics** live in the Core Model: see [Core Model](Core%20Model.md).
+- **Runtime behavior and deployment constraints** live in Runtime: see [Runtime](Runtime.md).
+- This file is intentionally organized by **call surface**, not by conceptual layering.
 
-> TODO: Confirm whether this file should be normative (“public contract”) or descriptive (“what exists today”).
+## Stability / maturity labels
+
+Use these labels consistently for every public entry in this file.
+
+- **Stable** — backwards compatible (or a documented migration path exists).
+- **Beta** — expected to change; used by early adopters.
+- **Experimental** — may be removed or redesigned without notice.
+- **Deprecated** — supported for now but scheduled for removal.
+
+> TODO: Define how you want to express versioned stability.
 >
-> - **Status (Normative / Descriptive)**:
-> - **If normative, what is the compatibility policy?**:
+> - **Do you want semantic versioning (SemVer) for the VIPM package?**  
+> - **If yes, what triggers MAJOR vs MINOR vs PATCH?**  
 
-## Stability levels
+## Module / palette index
 
-Recommended categories:
+Fill this in as a discoverability map. The goal is: “I need X → which palette/module contains it?”.
 
-- **Stable:** intended for application developers; breaking changes are exceptional.
-- **Internal:** may change as implementation evolves; avoid calling directly.
-- **Experimental:** available for feedback; expect iteration.
+| Module / Palette | Purpose | Primary entry points | Notes |
+|---|---|---|---|
+| **Actor** |  |  |  |
+| **Messaging (Msgs)** |  |  |  |
+| **Teller (Tell APIs)** |  |  |  |
+| **Attributes / Introspection** |  |  |  |
+| **Errors** |  |  |  |
+| **Tooling** |  |  |  |
 
-> TODO: Confirm the stability labels you want to standardize on.
->
-> - **Allowed labels**:
-> - **How labels are surfaced (doc tags, VI descriptions, palettes)**:
+> TODO: Add any missing modules you expose publicly (for example: Transports, Testing, Debug).
 
-## Palettes
-
-> TODO: List palette categories exactly as they appear in LabVIEW and map them to canonical responsibilities.
->
-> | Palette path | Purpose | Stability | Notes |
-> |---|---|---|---|
-> | Data Communication → jettl → … | | | |
+---
 
 ## Actor API
 
-> TODO: List the canonical actor-facing VIs/methods.
+### Spawn / construction
+
+> TODO: List the canonical spawn calls and their intent.
 >
-> | Name | Type (VI/DD/Interface) | Purpose | Inputs | Outputs | Stability |
-> |---|---|---|---|---|---|
-> | Spawn… | | | | | |
-> | Stop… | | | | | |
-> | Stopped… | | | | | |
+> - **Inline spawn Root (VI name):**  
+> - **Async spawn Root (VI name):**  
+> - **Async spawn Child (VI name):**  
+> - **Blocking behavior (if any):**  
 
-Key concepts:
+#### Template (copy/paste per call)
 
-- Relationships are explicit (`Self`, `Parent`, `Child`) — see [Glossary](Glossary.md).
-- Normative contracts for lifetime and errors live in [Core Model](Core%20Model.md).
+```markdown
+#### CALL NAME
+
+- **Stability:** Stable | Beta | Experimental | Deprecated  
+- **Purpose:**  
+- **When to use:**  
+- **Inputs:**  
+- **Outputs:**  
+- **Errors:**  
+- **Threading / reentrancy notes:**  
+- **Related concepts:** (link to Core Model sections)  
+- **Examples:** (link to Usage examples, screenshots)  
+```
+
+### Lifecycle hooks
+
+This section maps the lifecycle methods you override/implement and how they relate.
+
+> TODO: Confirm the canonical names and ordering.
+>
+> - **Init hook(s):**  
+> - **Setup hook(s):**  
+> - **Start hook(s):**  
+> - **Stop hook(s):**  
+> - **Teardown hook(s):**  
+> - **Finalize hook(s):**  
+
+### Actor “layer” API (decoration)
+
+> TODO: List the public extension points for wrapper layers.
+>
+> - **Decorator method(s) that wrappers override:**  
+> - **Rules for calling recurse / next layer:**  
+> - **Where output data from messages is consumed:**  
+
+---
 
 ## Messaging API
 
-> TODO: Describe the canonical “message shape” and how developers create and tell messages.
+### Tell APIs (Self / Parent / Child)
+
+This is the most common “what do I call?” question.
+
+> TODO: Fill in the exact VI names for tell calls.
 >
-> - **Message interface rule (one method per interface)**:
-> - **How message classes are named**:
-> - **How polymorphic tell VIs are used**:
-> - **How recursion works (Msg or Recurse)**:
+> - **Tell Self:**  
+> - **Tell Parent:**  
+> - **Tell Child:**  
+> - **Tell No Relation (if supported):**  
 
-See normative semantics in: [Messaging Model](Core%20Model.md#messaging-model).
-
-## Attributes and introspection API
-
-> TODO: List the stable read-only accessors and how to use them safely.
+> TODO: Capture any optional knobs (priority, timeout, error policy, validation).
 >
-> | Intent | Call chain | Stability | Notes |
+> - **Priority exposed?**  
+> - **Validation behavior when a message is not implemented:**  
+> - **Where policy lives (Core Actors vs Base Actor vs caller):**  
+
+### Message creation / scripting
+
+> TODO: Document the generated artifacts and where they live.
+>
+> - **Message interface naming pattern:**  
+> - **Message class naming pattern:**  
+> - **Where typedef inputs should live:** (link to Core Model)  
+
+### Message outputs
+
+Messages can return outputs for wrapper layers.
+
+- Canonical contract: see [Messages Producing Output Data](Core%20Model.md#messages-producing-output-data).
+
+> TODO: Decide whether you want a *convention* for output terminal usage across all messages.
+>
+> - **Output terminal 1 reserved for:**  
+> - **Output terminal 2 reserved for:**  
+
+---
+
+## Attributes / introspection
+
+- Canonical semantics: see [Attributes](Core%20Model.md#attributes).
+
+> TODO: List the stable introspection chains you want to guarantee long-term.
+>
+> | Intent | Example chain | Stability | Notes |
 > |---|---|---|---|
-> | Read unified msgs | | | |
-> | Read actor relations | | | |
-> | Read attributes | | | |
+> |  |  |  |  |
 
-See: [Introspection and the Unified Actor](Core%20Model.md#introspection-and-the-unified-actor).
+---
 
 ## Errors
 
-- Canonical error catalog: `jettl.lvlib:Error.lvlib`  
-  See: [Error Catalog](Core%20Model.md#error-catalog)
+- Canonical semantics: see [Error Model](Core%20Model.md#error-model).
 
-> TODO: Add a table of errors that users should expect, with “when it happens” guidance.
+### Error catalog
+
+> TODO: Link to the error library and list the “top 10” errors new users hit.
 >
-> | Error code | Meaning | Typical cause | Typical fix |
-> |---|---|---|---|
+> - **Error library path:**  
+> - **Top error #1:**  
+> - **Top error #2:**  
+> - **…**  
+
+---
 
 ## Tools API
 
-> TODO: List the tooling entry points (Rescript/Rename/Templates/etc.) and document safety constraints.
+This section maps “editor tooling” to how developers discover and run it.
+
+> TODO: Fill in a tool index.
 >
-> | Tool | Purpose | Safe usage checklist | PPL compatibility | Notes |
+> | Tool | Menu location | Purpose | Inputs | Outputs |
 > |---|---|---|---|---|
+> | Rescript | Tools → jettl Tools →  |  |  |  |
+> | Rename | Tools → jettl Tools →  |  |  |  |
+> | Template | Tools → jettl Tools →  |  |  |  |
 
-See: [Tooling](Tooling.md).
+---
 
-## Interfaces and classes index
+## Interfaces / classes index
 
-> TODO: Create a complete index of public interfaces/classes. This is the piece that prevents “mystery APIs.”
+This section is a names-only index for fast lookup.
+
+> TODO: Populate the index from your public surface.
 >
-> | Name | Kind (Interface/Class/Library) | Owned by (Core/Tooling/etc.) | Stability | Notes |
-> |---|---|---|---|---|
+> - **Interfaces**
+>   - 
+> - **Classes**
+>   - 
+

@@ -1,294 +1,228 @@
 # Usage
 
-This document collects practical patterns and examples for using jettl.
+This document collects practical patterns, recipes, and example-oriented guidance for building systems with jettl.
 
-Normative semantics are defined in the [Core Model](Core%20Model.md). If a section below depends on a contract, it links to the canonical contract rather than restating it.
+- For the core semantic contract, see [Core Model](Core%20Model.md).
+- For runtime behavior and performance constraints, see [Runtime](Runtime.md).
+- For tooling workflows and readability conventions, see [Tooling](Tooling.md).
 
 ## Examples
 
+### Hello world
+
+Minimal goal: spawn an actor and stop it.
+
+> TODO: Link to a concrete Hello World example (code + screenshot).
+>
+> - **Example location (repo path or VIPM example name):**  
+> - **What the user should observe:**  
+> - **Screenshot image (if available):** `../Images/...`
+
+Notes:
+
+- You do not need to tell `Stop` to `Self` for the simplest hello world. If the hello world message ends by transitioning the actor into a stopped state, the second tell is redundant.
+
+> TODO: Confirm the exact recommended hello world pattern.
+>
+> - **Preferred pattern (1–2 sentences):**  
+> - **Does the message call Stop internally, or does the caller tell Stop?**  
+
 ### Continuous measurement and logging
 
-> TODO: Define the canonical “continuous measurement + logging” example.
+> TODO: Define the canonical measurement/logging example.
 >
-> - **Actors involved (Acquisition / Analysis / Logging / UI)**:
-> - **Message flow (high-level)**:
-> - **Transport choice (Queue/Event/Notifier) and why**:
-> - **Expected throughput goal**:
+> - **What is being measured:**  
+> - **Where measurements are recorded:**  
+> - **Message shape (typedef):**  
+> - **Expected rates / throughput targets:**  
 
-### Hello World
-
-Goal: a minimal actor that starts, handles one message, and stops cleanly.
-
-Guideline:
-
-- You do not need to tell `Stop` to `Self` in a trivial “Hello World” example. Instead, have the actor stop itself at the end of the Hello World message.
-
-> TODO: Link the canonical Hello World example.
+> TODO: Decide whether this example ships in VIPM and the Example Finder.
 >
-> - **Example name**:
-> - **Location (repo path or VIPM Example Finder name)**:
-> - **What the user should observe**:
+> - **VIPM keyword(s):**  
+> - **Example Finder category:**  
+> - **Example name shown to users:**  
 
-### Timer / periodic trigger example
+### Example distribution checklist (pointer)
 
-A timer example is a strong introductory example because it demonstrates:
+For VIPM/Example Finder distribution details, see [Tooling → Examples packaging notes](Tooling.md#examples-packaging-notes).
 
-- periodic message telling
-- stop behavior
-- comparison points to other frameworks
-
-There is a relevant presentation by Darren Nattinger on timers/periodic messaging (use it as a learning reference).
-
-> TODO: Specify the timer example behavior.
->
-> - **Tick interval**:
-> - **Drift expectations**:
-> - **Stop semantics**:
-> - **How the timer is tested**:
-
-### Example discovery (VIPM)
-
-Example distribution is a packaging concern (canonical discussion belongs in [Tooling → VIPM](Tooling.md#vipm)).
-
-> TODO: Decide how examples are discovered.
->
-> - **VIPM Example Finder keywords**:
-> - **Example folder path (repo)**:
-> - **Which example appears first in search results**:
-
-## Reusable actors
-
-This section lists reusable actor components implemented outside the core library (or intended to be).
-
-### Panel actors
-
-A reusable “panel actor” can standardize common UI concerns:
-
-- updating front panel state
-- window operations
-- subpanel hosting
-- consistent parent/child setup
-
-Guideline:
-
-- A panel actor can be a persistent layer in the unified actor stack.
-
-> TODO: Fill in the canonical reference for panel actors.
->
-> - **Repo / package name**:
-> - **Where documentation lives**:
-> - **Minimum feature set**:
-> - **How it integrates with message contracts**:
+---
 
 ## Integration patterns
 
-### Bridge (adapter) actors
+### Bridge actors (connecting non-jettl code)
 
-Bridge actors adapt non-jettl code (or legacy architectures) to jettl’s actor/message model.
+You can spawn an actor and tell it messages from any LabVIEW code, not only from other actors. The primary challenge is returning data back to non-actor code. A **bridge actor** (adapter/shim) is the standard pattern.
 
-This is an integration pattern (not a reusable actor by itself).
+#### Pattern summary
 
-> TODO: Confirm the primary integration targets.
+1. **Create a pure actor** that performs the required work. This actor follows jettl rules strictly.
+2. **Create a bridge actor** that translates between non-actor callers and the pure actor.
+3. **Expose pass-through command messages** on the bridge that forward to the pure actor.
+4. **Return data via reference objects** (queues, user events, DVRs), because non-actor callers are not listening to jettl messages.
+
+> TODO: Capture the canonical bridge pattern as a diagram and a minimal working example.
 >
-> - **Primary legacy integration target (QMH/TestStand/UI loop/other)**:
-> - **Primary IPC mechanism (queues/user events/DVRs/other)**:
+> - **Diagram image:** `../Images/...`  
+> - **Minimal example location:**  
+> - **Which reference type(s) are recommended (queue, user event, DVR) and why:**  
 
-#### Key idea
+#### Step-by-step template
 
-You can spawn an actor and tell it messages from any LabVIEW code, not only from other actors. The primary challenge is receiving data *from* that actor. This is the role of a **bridge (adapter/shim)**.
-
-#### Pattern steps
-
-1. **Create a pure actor**  
-   Create an actor that performs the required work (for example: hardware interaction). This actor should be “pure”:
-
-   - all communication occurs through actor messaging
-   - no shared data access
-   - no direct callbacks to non-actors
-
-   By keeping this actor pure, it remains reusable in fully jettl-based applications and in mixed environments.
-
-2. **Create a bridge actor**  
-   Introduce a bridge actor that sits between the calling (non-actor) code and the pure actor.
-
-   - toward the pure actor, the bridge behaves like a normal jettl actor and follows all jettl rules
-   - toward the caller, the bridge is allowed to break jettl rules, since the caller is not an actor
-
-3. **Define pass-through command messages**  
-   The bridge actor should expose a set of messages that mirror those accepted by the nested pure actor.
-
-   - these are pass-through messages
-   - the bridge forwards them directly to the pure actor
-   - interfaces make this straightforward
-
-4. **Establish return paths using reference objects**  
-   Because the caller is not message-driven in the jettl sense, returned data usually flows through reference objects:
-
-   - **DVRs** for tagged/state-style data
-   - **queues** for streaming or asynchronous notifications
-   - **user events** for UI integrations
-
-   These references can be:
-
-   - created by the calling code and passed to the bridge at startup (simplest), or
-   - created by the bridge and returned to the caller (useful when the caller VI may go out of memory before the actor shuts down, common in TestStand systems)
-
-5. **Handle data from the pure actor**  
-   When the pure actor produces data, it tells messages to the bridge. The bridge receives the message and writes the data to the appropriate reference object (DVR/queue/user event).
-
-6. **Consume data in the calling code**  
-   The calling code retrieves data from the reference objects as needed.
-
-   Example (QMH integration):
-
-   - pass the QMH queue into the bridge
-   - when the bridge receives data from the pure actor, it constructs a QMH message and enqueues it with the received data
-
-   If the caller is not message-driven:
-
-   - do not forward messages directly into the caller
-   - wrap the bridge interaction in a class that provides:
-     - Create/Destroy VIs to launch and shut down the bridge actor
-     - command VIs that tell messages to the bridge
-     - data access VIs that read from DVRs/queues
-
-> TODO: Add a concrete bridge example and keep it working.
+> TODO: Fill in the details for your canonical bridge implementation.
 >
-> - **Pure actor responsibility**:
-> - **Bridge actor responsibility**:
-> - **References created by caller vs by bridge**:
-> - **What is the shutdown sequence**:
->
-> TODO: If you want jettl to ship helper utilities for this pattern, specify them.
->
-> - **Helper VIs/classes desired**:
-> - **Which reference types to support (DVR/queue/user event)**:
-> - **Where they live (core vs tooling)**:
+> - **Bridge actor responsibilities:**  
+> - **Pure actor responsibilities:**  
+> - **Startup contract (what the caller must provide):**  
+> - **Shutdown contract:**  
+> - **How errors are surfaced to the caller:**  
 
-### Broker / mediator pattern
+---
 
-A broker / mediator design is discussed as a non-normative idea in:
+## Reuse actors
 
-- [Non-Normative → Broker / Mediator](Non-Normative.md#broker--mediator)
+This section covers reusable actors that exist (or can exist) outside the core library.
 
-This avoids duplicating speculative architecture in the usage guide.
+### Panel actors
 
-### Periodic messaging
+A panel actor family provides common UI/front-panel functionality.
 
-Periodic triggers must come from an entity responsible for timing.
+Notes (preserved and organized):
 
-Guidelines:
+- Separate repo/package: this is a reuse actor family rather than core library functionality.
+- Common functionality:
+  - Update and coordinate front panel state.
+  - Window operations and subpanels.
+  - Passing the spawned actor ref to the parent (from when it spawns as a child) so you do not need to plumb subpanel references around manually.
+  - Often composed as a persistent layer when UI observability is desired.
 
-- Do not put periodic work inside an actor’s own timeout case as “tell Self every 100 ms.”
-- Instead, create a **periodic messaging actor** (or wrapper layer) whose single responsibility is timing, and have it tell a trigger message to the actor that owns the behavior.
+Subpanels:
 
-Key nuance:
+- After the child has spawned, the parent can access Child Attributes, which includes a `VI Ref`. This can be inserted into a subpanel without additional glue.
+- This enables interchangeable front panels: you can spawn multiple actors and toggle which child panel is shown in a subpanel.
 
-- Telling a message periodically does not imply the message is *executed* periodically (see: [Scheduling and Ordering](Core%20Model.md#scheduling-and-ordering)).
-- If you want “at most one outstanding tick,” design the tick message/transport so only one copy can be pending.
+Lifecycle convention:
 
-Implementation sketch (template):
-
-- `Init.vi` inputs:
-  - **Msg strategy**:
-  - **Period**:
-- `Process.vi`:
-  - unbundle `Period`
-  - in timeout case: unbundle the message to tell to the creator/owner
+- Open panel in `Start`.
+- Close panel in `Teardown`.
 
 Transport note:
 
-- This could be an Event Actor, but Notifiers can work well for timing semantics.
-- For an Event Actor, the event loop timeout defines tick cadence, but event handling can introduce jitter.
+- Queue actors and notifier actors can have front panels, but avoid adding control/indicator terminals that imply UI/event behavior.
+- A queue actor is often paired with a UI/event wrapper (for example, a panel actor) that owns UI terminals and event logic.
 
-> TODO: Choose one canonical periodic messaging approach and document it fully.
+Inspiration:
+
+- [MGI Panel Manager - Unmonitored](https://gitlab.com/justACS/mgi-panel-manager-unmonitored)
+
+> TODO: Document:
 >
-> - **Canonical approach (timer actor vs wrapper layer)**:
-> - **Why**:
-> - **How “at most one outstanding tick” is enforced**:
-> - **Acceptance test for jitter/drift**:
+> - **Where panel actors live (repo / package name):**  
+> - **Which layer they belong in (Core vs Edge vs non-persistent):**  
+> - **Minimal example:**  
+> - **Lifecycle convention (open/close hook names):**  
 
-### Monitor message traffic
+### Broker / mediator (canonical home)
 
-Since one cannot directly monitor queue depth in a robust way, one approach is to override the tell operations in a wrapper actor and log:
+A broker/mediator pattern is a larger architectural commitment.
 
-- the time a message is told (timestamp)
-- the time it is listened to (timestamp)
+- Canonical discussion lives in [Non-Normative → Broker/Mediator](Non-Normative.md#broker-mediator).
 
-This enables derived metrics like “messages not yet executed” by comparing told vs listened timestamps.
+---
 
-A workable instrumentation approach:
+## Scheduling patterns
 
-- Initialization requires:
-  - **Self attributes**
-  - **Parent attributes**
-- Child information is redundant if you can derive it from Self and Parent attributes.
+### Periodic messaging
 
-Logging idea:
+A periodic message should usually be driven by a dedicated timing actor, rather than by a timeout case inside the actor that owns the business logic. “Told periodically” does not imply “handled periodically”.
 
-- After telling a message: log **Tell Time**
-- When listening to a message (for example, in `Call Inspect.vi` with `Msg Listened To.vi`): log **Listened Time**
-
-> TODO: Decide whether this belongs in a built-in debug layer or a separate add-on.
+> TODO: Capture the canonical periodic messaging actor API.
 >
-> - **Owner (Core/Edge add-on vs external package)**:
-> - **Log sink (file/UI/queue)**:
-> - **Performance overhead budget**:
-> - **How to enable/disable per actor**:
+> - **Init inputs (period, strategy, other):**  
+> - **How drift/jitter is handled:**  
+> - **How cancellation/stop is handled:**  
+> - **Transport recommendation (queue/event/notifier) and why:**  
+
+
+Notes (preserved and organized):
+
+- Timing should come from another entity that determines *when* to tell a message. A dedicated timing actor is the usual solution.
+- The actor that spawns the timing actor holds the truth for periodic state (for example, cancellation and “only one in flight”).
+- “Told periodically” does not imply “handled periodically”. For throughput-sensitive designs, consider policies that ensure only one copy is outstanding.
+
+Sketch (keep concrete when you turn this into code):
+
+- `Init.vi` inputs:
+  - Period
+  - Message strategy
+- `Process.vi`:
+  - Unbundle Period
+  - Timeout case: unbundle the message to tell and forward it to the creator/target
+
+Transport intuition:
+
+- Notifiers can work well for timing/“last value wins”.
+- Event-based timing often suffers from event loop interruptions; document drift/jitter behavior if you choose this.
+
+---
+
+## Observability patterns
+
+### Monitor message traffic (canonical home)
+
+This pattern is primarily a debugging/diagnostics story.
+
+- Canonical write-up lives in [Tooling → Runtime message inspection](Tooling.md#runtime-message-inspection).
+
+---
 
 ## Design patterns
 
-These patterns are used heavily in jettl-based systems.
-
 ### Decorator pattern
 
-jettl uses dynamic decoration: actor layers wrap other actor layers through a common `Actor` interface.
+- Canonical semantics for layering live in [Core Model → Actor layers](Core%20Model.md#actor-layers).
 
 ![dec_1](../Images/dec_1.jpeg)
-
 ![dec_2](../Images/dec_2.jpeg)
-
 ![dec_3](../Images/dec_3.jpeg)
 
-> TODO: Add a short “decoration walkthrough” that ties the pictures to concrete jettl concepts.
+> TODO: Add a short caption for each diagram and confirm the intended layering order.
 >
-> - **Which example actor stack is shown**:
-> - **Which layer is considered “user actor”**:
-> - **Which layers are Core vs Edge**:
-> - **One message call traced through the layers**:
+> - **dec_1 caption:**  
+> - **dec_2 caption:**  
+> - **dec_3 caption:**  
 
 ### State pattern
 
-Use the state pattern when:
+Resources:
 
-- an actor’s behavior changes based on a small, explicit set of states
-- you want to keep message methods small by delegating to state objects
+- [State Pattern – Design Patterns (ep 17)](https://www.youtube.com/watch?v=N12L5D78MAA)
+- [State of Grace - The State Pattern in LabVIEW](https://www.youtube.com/watch?v=HewNBC4TjKs)
+- [Powerful Design with the Gang of Four - Tom McQuillan and Sam Taggart](https://www.youtube.com/watch?v=IM8ZU1af6wQ&list=PLvDxiIkwuMQsxPk5KC9B1kdJboV-9GJKh&index=22)
+- [A Class Act: Simple Design Patterns to Improve Code Quality, Allen C Smith - GDevCon N.A. 2023](https://www.youtube.com/watch?v=GRDoyn1mNAI&list=PLvDxiIkwuMQtGtstTGKpYpoMVi1Lj07EP&index=18)
+- [A Class Act - Allen C Smith (JustACS) - GDevCon #4](https://www.youtube.com/watch?v=yVzT5ZqUuVU&list=PLvDxiIkwuMQtGtstTGKpYpoMVi1Lj07EP&index=19)
 
-> TODO: Provide one concrete state machine example.
->
-> - **States**:
-> - **State transitions**:
-> - **Which messages trigger transitions**:
+Guidelines:
+
+- State should not be modified in `Entry.vi`.
+- Disallowing state transitions in both `Entry.vi` and `Exit.vi` is intentional: a state must be fully entered or fully exited before a transition is permitted.
 
 ### Factory pattern
 
-Factory patterns are useful when:
+A factory pattern is used to create instances of actors without specifying the exact class of the actor that will be created.
 
-- an actor must select which implementation to spawn based on configuration
-- a plugin architecture selects from multiple concrete implementations
-
-See also: [Runtime → Plugin architectures](Runtime.md#plugin-architectures).
-
-> TODO: Provide the canonical factory example and explain how it interacts with typed destinations.
+> TODO: Provide a concrete factory pattern example tied to PPL/plugin usage.
 >
-> - **Factory inputs**:
-> - **Spawned actor variants**:
-> - **How message contracts are enforced**:
+> - **Example location:**  
+> - **How contracts are validated:**  
+
+---
 
 ## Feedback questions
 
-> TODO: Answer these to guide which examples and patterns should become first-class docs.
+> TODO: Answer these to keep the Usage section concrete and example-driven.
 >
-> - **Top 3 examples you want new users to run first**:
-> - **Top 3 integration patterns you see in real projects**:
-> - **Most confusing part of the framework for new users**:
+> - **Which 3 examples are “required reading” for new users?**  
+> - **Which reuse actors are already implemented vs only planned?**  
+> - **For each reuse actor, what is the stable API surface?**  
+> - **Which patterns should be enforced vs only recommended?**  

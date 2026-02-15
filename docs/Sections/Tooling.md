@@ -1,567 +1,422 @@
 # Tooling
 
-This document covers build, package, debug, test, document, and maintain workflows for jettl-based systems.
+This document covers the developer workflow for jettl: scripting tools, packaging, debugging, testing, documentation generation, and shared readability/style conventions.
 
-Normative semantics are defined in the [Core Model](Core%20Model.md). This page is mostly **guidelines** and **practices**.
-
-## Public API vs internal code
-
-A consistent contributor workflow depends on a clear distinction between:
-
-- **Public API**: what users are expected to call (palettes, documented VIs, stable interfaces).
-- **Internal code**: implementation details that may change.
-
-Guidelines:
-
-- Prefer calling functions and methods from palettes.
-- If a VI is not on a palette and not referenced by the [API Reference](API%20Reference.md), treat it as internal.
-
-> TODO: Define the stability policy in one place.
->
-> - **What counts as public API**:
-> - **What counts as internal**:
-> - **How breaking changes are communicated**:
+Sections explicitly marked **Guidelines**, **Ideas**, or **Notes** are non-normative.
 
 ## Tools
 
 ### Notes for all tools
 
-All external tools belong in the same common location:
+- All editor tools live under: `Tools → jettl Tools`.
+  - If a tool is company/name specific and credit should be preserved, place it under a subfolder, for example: `Tools → jettl Tools → YOURNAME → YOURTOOLNAME`.
+- Tools can modify dependencies; only the selected project/target should be affected.
+- **Requirement:** tools MUST support PPL workflows.
 
-- `Tools/`
-  - `jettl Tools/`
-    - `YOURNAME/`
-      - `YOURTOOLNAME/`
-
-This helps developers find tools quickly and consistently.
-
-Additional notes:
-
-- Tools may operate on dependencies, but only those selected under the specified target.
-- Tools SHOULD support PPL workflows.
-
-> TODO: Confirm whether “PPL support” is a hard requirement for every tool.
+> TODO: Define the minimum tool quality bar.
 >
-> - **Hard requirement? (Yes/No)**:
-> - **If yes, what does “PPL support” mean for a tool**:
-> - **How tooling is validated**:
+> - **Supports PPL workflows:**  
+> - **Supports source distribution (non-PPL):**  
+> - **Does not break VI Analyzer:**  
+> - **Can be run on a project subset:**  
+> - **Dry-run mode (if applicable):**  
+> - **Undo / rollback strategy:**  
+
+> TODO: Tool UI improvement idea.
+>
+> - **Show the on-disk path in the tool tree view (right-side column):**  
 
 ### Current native tools
 
 #### Rescript
 
-How to use:
-
-- Only the two left inputs can be scripted.
-- Only the two right outputs can be scripted.
-
-Future cleanup note:
-
-- `Script Msg.vi` could auto-clean wires by invoking `Clean Up Wire` (Invoke Node + wire reference).
-
-> TODO: Document Rescript’s exact scope (what it modifies and what it refuses to modify).
+> TODO: Document the Rescript tool.
 >
-> - **Inputs supported**:
-> - **Outputs supported**:
-> - **Connector pane requirements**:
-> - **Failure modes**:
+> - **Menu location:**  
+> - **What it does:**  
+> - **Supported connector panes:**  
+> - **Limitations:**  
+> - **Common failure modes:**  
+> - **Before/after example:**  
+
+Current notes:
+
+- Only the left two inputs can be scripted.
+- Only the right two outputs can be scripted.
 
 #### Rename
 
-Rename tool ideas/requirements:
-
-- Add a feature to include dependencies.
-- Add an option to include or exclude `.ctl` changes.
-
-> TODO: Define the Rename tool contract.
+> TODO: Document the Rename tool.
 >
-> - **What it renames**:
-> - **What it never renames**:
-> - **Dependency behavior**:
-> - **How it handles typedefs**:
+> - **Scope (actor only / msg only / both):**  
+> - **How uniqueness is determined:**  
+> - **How collisions are resolved:**  
+> - **What is not renamed:**  
+
+Current notes:
+
+- Renaming uses the library hierarchy to derive unique names.
 
 #### Template
 
-> TODO: Describe the template generator outputs.
+> TODO: Document the Template tool.
 >
-> - **Actor template name pattern**:
-> - **Message template name pattern**:
-> - **Where templates are placed in the project**:
-> - **How scoping rules are enforced**:
+> - **What it generates:**  
+> - **Where it places files:**  
+> - **How it chooses names:**  
+> - **How it handles existing items:**  
 
-### Current external tools
+### Tool ideas (non-normative)
 
-> TODO: List external tooling that jettl depends on or integrates with.
->
-> - **Tool name**:
-> - **Purpose**:
-> - **Link**:
-
-### Tool ideas
-
-The subsections below capture design exploration for future tools.
+> Use this section as a roadmap input. If a tool becomes a commitment, promote it into “Current native tools” with a stable contract.
 
 #### Moving message and actor libraries
 
-Tool idea: move actors and messages on disk and in project explorer into the correct destination:
+Move actors and message libraries on disk (and in Project Explorer) into the correct destination:
 
-- into a Private Msg folder for an actor, or
-- out of any library to the top-level target.
+- Into a `Private Msgs` folder of an actor, or
+- Out of a nested library to a top-level destination.
 
-Notes/questions:
-
-- Creating an actor after an actor has already been created may imply the new actor must be placed in the private folder for the existing actor.
-- Messages might be created:
-  1. at the project level (standalone),
-  2. in the Private Msg folder of an actor library, or
-  3. in the Public Msg folder of an actor library.
-
-This raises naming and coupling questions.
-
-> TODO: Decide the allowed creation locations for messages.
+> TODO: Decide the creation constraints.
 >
-> - **Standalone messages allowed? (Yes/No)**:
-> - **If yes, what are the constraints (naming, scoping, packaging)**:
-> - **If no, how do you prevent the tool from creating them**:
+> - **Can messages exist standalone (not coupled to an actor)?**  
+> - **If yes, where do they live to avoid naming collisions?**  
+> - **If no, what is the recommended workflow?**  
+
+#### Forward messages
+
+Idea: message forwarding by inspecting parent/child unified message sets.
+
+> TODO: Tighten into a concrete design.
 >
-> TODO: Decide the message visibility categories.
+> - **Forwarding strategy (static registration vs dynamic lookup):**  
+> - **How forwarding is declared (where):**  
+> - **How tooling discovers forwarding:**  
+> - **How failures are handled:**  
+
+#### Generate implemented message
+
+Workflow sketch:
+
+1. Select actor.
+2. Select interface message to implement.
+3. In `Msg Overrides/`, override interface method.
+4. Place the poly with recurse selected.
+5. Wire recurse as needed.
+
+> TODO: Decide how to uniquely identify a message across refactors.
 >
-> - **Private internal message**:
-> - **Fully public message**:
+> - **UID stored where (method description vs library description):**  
+> - **Migration strategy if a message is renamed/moved:**  
 
-#### Forward message tool
+#### Un-generate implemented message
 
-A tool that generates a forwarding message, allowing a parent to forward a message to a child.
+Removes a message override from an actor.
 
-> TODO: Define the exact generated artifact.
->
-> - **Generated message name pattern**:
-> - **Where the message lives**:
-> - **How forwarding preserves typed destinations**:
-
-#### Generate implemented messages documentation
-
-Idea: generate “Implemented Messages” documentation for an actor.
-
-Approach:
-
-- Hash all message methods (destination: Self/Parent/Child + interface method signature).
-- Compare hashed signatures against the actor’s implemented methods.
-- Output a view with:
-  - methods implemented by each actor layer
-  - union of methods implemented by the unified actor
-  - explicit destination constraints
-
-> TODO: Decide where this artifact lives and how it is consumed.
->
-> - **Output format (Markdown/HTML/UI)**:
-> - **Storage location**:
-> - **How it stays up to date**:
-
-#### Un-generate implemented messages
-
-Tool idea: undo generated artifacts cleanly.
-
-> TODO: Define what “un-generate” means (delete files, revert VIs, etc.).
->
-> - **Artifacts removed**:
-> - **Safety checks**:
+> TODO: Clarify how you detect “orphaned” overrides (override exists but interface not implemented).
 
 #### Message destination viewer
 
-Idea: a tool that lets you select an actor and visualize which messages it can:
+Static tool to show:
 
-- implement
-- tell to Self
-- tell to Parent
-- tell to each Child UID
+- Implemented messages
+- Outbound tells to `Self`, `Parent`, `Child`, `Reply`
 
-See also canonical constraints in [Strongly-typed message destinations](Core%20Model.md#strongly-typed-message-destinations).
-
-> TODO: Choose a first UI for this tool.
+> TODO: Define minimum viable output.
 >
-> - **UI form (tree, matrix, graph)**:
-> - **Minimum viable feature set**:
-> - **How it handles large projects**:
+> - **Per-actor report format:**  
+> - **Does it require tracing through subVIs?**  
 
-#### PPL conversion tool
+#### PPL conversion
 
-Tool idea: convert a project or library into a PPL-friendly structure.
+Convert an actor and its messages to a PPL-friendly distribution.
 
-> TODO: Define conversion scope.
+#### Create errors in a folder
+
+Create `placement--error.vi` style artifacts.
+
+> TODO: Define:
 >
-> - **Inputs**:
-> - **Outputs**:
-> - **What it refuses to modify**:
+> - **Where “placement errors” live:**  
+> - **Naming convention:**  
+> - **How tools discover them:**  
 
-#### Error generation tool
+---
 
-Tool idea: create errors inside a target folder.
+## Packaging and distribution
 
-> TODO: Define how error codes are allocated and how duplicates are prevented.
+### VIPM
+
+- This library is compatible with **LV 2020 and beyond**.
+- If using LV2020, consider LV 2020 SP1 (bug fix rollup).
+
+> TODO: Capture your supported LabVIEW version policy.
 >
-> - **Error code allocation strategy**:
-> - **Collision detection**:
-> - **Doc updates (Error catalog)**:
+> - **Minimum supported LabVIEW version:**  
+> - **Maximum tested LabVIEW version:**  
+> - **How compatibility is validated:**  
 
-#### Reference tools
+### Examples packaging notes
 
-Tool idea: tools that help manage refnum usage patterns.
+Examples should be discoverable through the LabVIEW Example Finder and through VIPM.
 
-- Replace ref clusters with explicit wiring where possible.
-- Audit ref lifetime ownership (link to canonical rule: [Reference Lifetime and Ownership](Core%20Model.md#reference-lifetime-and-ownership)).
-
-> TODO: Define which ref patterns you want to discourage.
+> TODO: Define the release checklist for examples.
 >
-> - **Ref cluster usage discouraged? (Yes/No)**:
-> - **Allowed ref patterns**:
-> - **Tool enforcement strategy**:
+> - **Example Finder category:**  
+> - **VIPM keywords:**  
+> - **Minimum number of examples per release:**  
+> - **Validation (mass compile, VI Analyzer, etc.):**  
 
-#### Navigating message methods
+---
 
-Tool idea: click from a message interface method to all implementing actors, and from an actor to all message methods it implements.
-
-> TODO: Define navigation entry points.
->
-> - **From interface → implementations**:
-> - **From actor → implemented interfaces**:
-> - **From tell site → destination actor**:
-
-#### Actor browser
-
-Tool idea: browse actor hierarchy and locate spawn sites.
-
-> TODO: Define the actor browser features.
->
-> - **Hierarchy view**:
-> - **Spawn-site links**:
-> - **Filtering/search**:
-
-## VIPM
-
-This library is compatible with **LabVIEW 2020 and later**.
-
-Note: if using LabVIEW 2020, consider using **LabVIEW 2020 SP1** due to bug fixes:
-- [LabVIEW 2020 SP1 Bug Fixes](https://www.ni.com/en/support/documentation/bugs/20/labview-2020-sp1-bug-fixes.html)
-
-> TODO: Confirm the supported LabVIEW version policy and where it is enforced.
->
-> - **Minimum supported version**:
-> - **Maximum tested version**:
-> - **RT constraints**:
-
-## Debug
+## Debugging
 
 ### Debug with probes
 
-Idea: hierarchy-aware debug tooling that links to custom probes before running, enabling inspection of how data changes across reentrant VIs.
-
-> TODO: Specify how probes are discovered and displayed.
+> TODO: Decide whether you want a canonical “debug story”.
 >
-> - **Probe discovery mechanism**:
-> - **Where probe UIs appear**:
-> - **How probes are attached**:
+> - **Primary mechanism (DETT vs logging vs probes):**  
+> - **When to use each mechanism:**  
 
-### DETT debug actor layer
+### DETT debug actor (idea)
 
-Idea: a `DETT Debug jettl Actor` layer.
+Sketch:
 
-Possible approach:
+- In `Spawn.vi`, if `Root = True`, start another async process which gets its data by reference.
+- All actors spawned afterward have a persistent core layer registered in their `Spawn.vi`.
+- Only do this for the outermost actor by checking `Actor Index`.
 
-- In `Spawn.vi`, if `Root = TRUE`, start an async process that receives data by reference.
-- Because all actors spawned under the Root share this persistent core layer, each actor registers into the debug layer.
-- The outermost actor can be detected by inspecting the unified actor stack length.
+> TODO: Confirm whether DETT data can be captured for the entire runtime set you care about (noting `vi.lib` limits).
 
-Note:
+### Base debug actor (idea)
 
-- DETT trace data cannot be captured from VIs in `vi.lib`.
+Event logger:
 
-> TODO: Decide whether DETT integration is a first-class feature.
+- Create a file for each actor in a central temp application directory.
+- Log timestamps with call chain / object hierarchy.
+
+> TODO: Decide:
 >
-> - **Feature priority**:
-> - **Minimum DETT artifacts desired (UML/sequence/trace)**:
-> - **How it is enabled/disabled**:
+> - **Default on/off behavior for debug layers:**  
+> - **Where logs are written:**  
+> - **Log format:**  
+> - **How logs are correlated across actors:**  
 
-### Advanced wrapping for testing/debugging
 
-Since `Actor.vi` is not itself a decorator method, only the outermost local actor’s `Actor.vi` executes.
 
-An advanced wrapping scheme can place the actor decorator method within wrapping layers, allowing only DD methods outside of `Actor.vi` to execute. This can enable advanced debugging and testing functionality.
+### Actor.vi decoration note (preserved)
 
-> TODO: Clarify whether you want to rely on this scheme or treat it as an internal trick.
+- `Actor.vi` is not a decorator method; only the outermost local actor’s `Actor.vi` runs.
+- An advanced scheme can wrap an “outer layer” where the wrapping layer(s) include the actor decorator method within. This allows only the DD methods outside `Actor.vi` to be executed, which can be useful for advanced debugging and testing.
+
+> TODO: Confirm whether you want to document this as:
 >
-> - **Publicly supported? (Yes/No)**:
-> - **If yes, how is it documented and tested**:
+> - a supported extension point, or
+> - an internal note for advanced developers only.
 
-### Base debug actor (event logger)
-
-Idea: an event logger that creates a separate file per actor in a central temp application directory, and logs timestamps with a call chain / object hierarchy.
-
-Rationale:
-
-- separate files avoid resource contention (no shared writer)
-- logs are easier to attribute per actor
-
-Additional idea:
-
-- incorporate a “Ping” message and intermediate debug libraries.
+### Runtime message inspection
 
 At runtime, messages can be inspected in `Call Inspect.vi` and timestamped.
 
-> TODO: Specify the log format and retention policy.
->
-> - **Log format (JSON/TDMS/text)**:
-> - **File naming scheme**:
-> - **Retention strategy**:
-> - **How logs are correlated across actors**:
+> TODO: Decide whether message inspection is part of the stable contract or an optional debug layer.
+
+---
 
 ## Unit tests
 
-Framework and ecosystem options mentioned:
+### Test frameworks
 
 - Caraya
 - LUnit
+- Approval tests
 
-### Approval tests
+### Unit testing with decoration
 
-Approval tests can work well when you can generate stable artifacts.
+Because the actor model is interface-composition based (decoration), unit testing can be implemented by decorating a core actor with a unit test actor.
 
-> TODO: Define the approval artifact(s) you want (and how they are generated).
+Preserved notes:
+
+- Unit-test wrapper layers can log the actor object before and after message method execution (and record message inputs) to support approval-style tests and regression baselines.
+
+
+> TODO: Decide which unit testing approach you want to bless.
 >
-> - **Artifact type**:
-> - **How it is generated**:
-> - **How diffs are reviewed**:
+> - **Blessed approach:** Decoration | harness VI | both  
+> - **Minimum required tests for a new release:**  
 
-### Generated test panel
 
-A tool-generated test panel is feasible:
 
-- an event structure with buttons for all messages the actor expects
-- the panel listens and displays payloads (serialized) from all methods defined in any interfaces the actor exposes
-
-### Decorating with a unit test actor
-
-Because jettl is interface-composition based with the decorator pattern, unit testing can be implemented by decorating one of the core actors with a unit test actor.
-
-### Logging actor state before/after method execution
-
-A wrapper actor can log:
-
-- actor object before execution
-- inputs
-- actor object after execution
-
-This can identify potential test cases.
-
-Note:
+### Actor.vi outputs for testing (preserved)
 
 - A DD output terminal on `Actor.vi` prevents the object wire from changing at runtime.
+- Output terminals are primarily for testing: when running an actor by itself, you can observe final state and error data without additional plumbing.
 
-> TODO: Decide whether the `Actor.vi` DD output is part of the official testing contract.
+> TODO: Confirm whether you want to state this as a rule.
 >
-> - **Is it required? (Yes/No)**:
-> - **If required, how is it enforced**:
-> - **If optional, how is it documented**:
+> - **Is `Actor.vi` allowed to omit outputs in production actors?**  
+> - **If outputs exist, should callers be required to wire them?**  
 
-## Documentation
+### Test panel generation (idea)
 
-### Actor/message documentation
+Automatically generate a test panel:
 
-Use `Tell Self.vi`, `Tell Parent.vi`, and `Tell Child.vi` to visualize messages between actors because jettl requires the destination relationship to be known at edit time.
+- Provide controls/inputs for all messages the actor expects.
+- Listen and display payloads from all message interfaces the actor exposes.
 
-Goal:
-
-- point a tool at an actor
-- statically analyze
-- create a diagram for each actor showing message relationships
-
-Potential integrations:
-
-- AntiDoc integration
-- message method browser
-- message destination browser
-- actor spawning hierarchy (spawn tree)
-- message browser
-
-Diagrams could be built by:
-
-- static analysis of code, or
-- analysis of DETT output
-
-> TODO: Pick the first “documentation generator” feature.
+> TODO: Specify:
 >
-> - **Feature**:
-> - **Output format**:
-> - **How it is validated**:
+> - **Tool name / menu location:**  
+> - **Payload serialization format:**  
+> - **Schema versioning strategy:**  
 
-### Tell Child destination problem
+---
 
-Because spawning children is dynamic, extra steps are required to understand where `Tell Child.vi` messages go.
+## Documentation tooling
 
-A static approach:
+### Message documentation
 
-- locate calls to `Tell Child.vi`
-- resolve the target child by tracing the input back through a `Format Into String` primitive wired from the `Child UIDs` enum
+Because destinations are known at edit time, tooling can visualize message flows based on `Tell Self`, `Tell Parent`, and `Tell Child`.
 
-This lets tooling determine the destination name statically, so it’s clear where the message will be told at runtime.
+Potential outputs:
 
-Constraints:
+- Messages an actor can implement
+- Messages an actor can tell to `Self`, `Parent`, and `Child`
+- Actor spawning hierarchy
 
-- this only works when the destination string is a straightforward `Format Into String` + enum pattern
-- if the string is modified elsewhere, built dynamically, or selected via conditional logic, the tool cannot reliably infer the destination
+> TODO: Decide:
+>
+> - **Do you prefer static analysis, DETT-based analysis, or both?**  
+> - **Which diagrams are required outputs (sequence, hierarchy, message matrix)?**  
 
-Guideline:
+### Tell Child destination inference
 
-- keep routing as static as possible when you want tooling to infer destinations
+Since spawning children is dynamic, tooling needs conventions to infer the destination.
 
-## Readability
+Recommended pattern:
 
-This section is a style guide. It is non-normative but strongly recommended for long-term maintainability.
+- Use an enum wired into `Format Into String` to represent the child target.
+- Avoid intermediate string manipulation or conditional destination selection when you want tooling to infer destinations.
+
+> TODO: Decide whether this pattern is:
+>
+> - **Recommended:**  
+> - **Required (enforced by analyzer):**  
+> - **Only used for tooling but not required:**  
+
+---
+
+## Readability and style guide
+
+This section is the canonical home for coding conventions referenced elsewhere.
 
 ### No helper loops
 
-Instead of helper loops, spawn a child actor. This maintains a single loop within an actor and avoids branching the actor object into multiple loops.
+**No helper loops.**
 
-Use Private Actor virtual folders to keep tightly coupled helper actors inside the main actor library.
+Best practice: instead of helper loops, spin up another actor (often a private child actor).
 
-### No property nodes (guideline)
+### No property nodes
 
-Property nodes are discouraged in jettl code. One motivation: property nodes can obscure visual cues like banner colors.
+Property nodes are discouraged (for example, banner color not displayed).
 
-Reference: [Using a Message Broker with DQMH Actors for High Speed/Throughput Data logging](https://www.youtube.com/watch?v=jNBAvNQJyO8&list=PLvDxiIkwuMQvrSQIqy_it5Q7-sGvM4XX8&index=3) @7:33
+### Nested libraries
 
-> TODO: Clarify the exact policy on property nodes (hard ban vs “avoid when possible”).
->
-> - **Policy**:
-> - **Allowed exceptions**:
+Nested libraries are a namespacing and access-scope tool. Each nested library defines its own access scope controlling which parts have access to other parts.
 
-### Nested libraries rationale
+### Composition over inheritance
 
-Each nested library defines its own access scope, which can hide internal components from the public surface and reduce namespace collisions.
-
-### Avoid inheritance for actors
-
-Fundamentally, class inheritance should not occur for actors.
-
-Instead, use dependency inversion with strategies to select implementations without introducing inheritance coupling.
-
-### Defaults for new VIs
-
-Default function:
-
-- icon: Ctrl+Shift+K, left-justified, not capital, red text
-- access scope: private
-- connector pane: error out
-- reentrancy: shared clone
-
-Default static dispatch method:
-
-- icon: Ctrl+Shift+K, left-justified, not capital, red text
-- access scope: private
-- connector pane: object in, error out
-- reentrancy: shared clone
-
-Default dynamic dispatch method:
-
-- icon: Ctrl+Shift+K, left-justified, not capital, black text
-- access scope: public (required for DD)
-- connector pane: object in, error out
-- reentrancy: shared clone
+Avoid class inheritance for actors. Prefer interface composition and dependency inversion.
 
 ### Connector pane conventions
 
-Reserved terminals:
+Reserved connector pane terminals:
 
-- **Object I/O (class/interface terminals)**: top-left and/or top-right
-- **Error I/O**: bottom-left and/or bottom-right
-- **Typical inputs**: left middle and/or bottom middle terminals
-- **Outputs**: right middle terminals
-- **Object-specific inputs**: top middle inputs for functions/methods that wrap object-specific behavior
+- Upper-left and upper-right terminals are reserved for the owning class/interface wire.
+- Lower-left and lower-right terminals are reserved for error in/error out.
 
-If a function has an output object, it SHOULD be wired by the developer.
+Guideline: excluding object and error terminals, keep signatures small (0–2 inputs, 0–2 outputs). If additional inputs are required, bundle them into a typedef cluster.
 
-> TODO: Define the analyzer rule to enforce connector pane reservation and wiring.
+> TODO: Decide whether you want to enforce connector-pane rules via VI Analyzer.
 >
-> - **Reserved terminal types (object/error)**:
-> - **How to detect violations**:
-> - **Rule exceptions (if any)**:
+> - **Rule enabled?**  
+> - **Exceptions allowed:**  
 
-References:
+### Serialization (pointer)
 
-- [An End to Brainless Programming - Darren Nattinger](https://www.youtube.com/watch?v=pS1UBZzKl9k) @23:59
-- [Your LabVIEW Code Is a Work of Art... But I Can't Read It - Darren Nattinger (GDevCon N.A. 2024)](https://www.youtube.com/watch?v=AHOZ7fiuWCA) @45:21
+One-sentence summary: do not use error wires (or pass-through object wires) solely to serialize operations; use an explicit sequencing structure.
 
-### Virtual folders
-
-Virtual folders are not saved on disk; they exist for organization in the LabVIEW project.
-
-They help keep namespacing consistent.
-
-Reference: [Large LabVIEW Project Development Techniques](https://youtu.be/7zS3Q_K71XY?si=VZXcWRaCqc0C4tWh) @14:08–14:46
+Canonical contract: see [Core Model → Serialization and Error Wires](Core%20Model.md#serialization-and-error-wires).
 
 ### Color scheme
 
-Banner colors enable quick identification of libraries/interfaces/classes and help verify object-wire ownership visually.
+Banner colors and object wire colors should match.
 
-Reference: [Your LabVIEW Code Is a Work of Art... But I Can't Read It - Darren Nattinger (GDevCon N.A. 2024)](https://www.youtube.com/watch?v=AHOZ7fiuWCA) @40:34
+- Purple library: RGB (166, 153, 182)
+- Blue interface: RGB (104, 136, 190)
+- Green class: RGB (110, 149, 108)
 
-jettl coloring scheme:
+Mnemonic: look down at the green grass, look up to the blue sky, and look further to the purple galaxy.
 
-- Purple Library: RGB (166,153,182)
-- Blue Interface: RGB (104,136,190)
-- Green Class: RGB (110,149,108)
 
-Memory aid:
 
-> “Look down at the green grass, look up to the blue sky, and look further to the purple galaxy.”
+### Icon, banner, and access scope conventions
 
-### Icons
+#### Access scope
 
-Banner:
+- Treat access scope as a two-value system: **public** and **private**.
+- Use banner/icon text color to signal access scope:
+  - **Black text** = public
+  - **Red text** = private
 
-- shows library/interface/class name
-- banner name text color indicates access scope
-- banner color indicates the container type
-- method name text
-- method name text color indicates access scope of the method
+> TODO: Confirm whether you want to treat “protected” as disallowed in the codebase.
+>
+> - **Allowed scopes:** public/private only?  
 
-### Function vs method terminology
+#### Function vs method
 
-- A **function** is a VI that does not have object I/O for the containing object.
-- A **method** is a VI that has one or both object I/O terminals for the containing object.
+- A **function** is a VI that does not have object IO terminals for the containing object.
+- A **method** is a VI that has one or both object IO terminals for the containing class/interface.
 
-### Access scope rules
+#### Default VI templates (house style)
 
-Guidelines:
+> TODO: Confirm the defaults you want tools to apply.
+>
+> - **Default function:** icon settings, connector pane, scope, reentrancy  
+> - **Default SD method:** icon settings, connector pane, scope, reentrancy  
+> - **Default DD method:** icon settings, connector pane, scope, reentrancy  
 
-- Prefer only public and private.
-- Interfaces, classes, and methods use banner text color:
-  - black = public
-  - red = private
+If you want the historical defaults captured verbatim, start here:
 
-Classes:
+- **Default function**: private, error out, shared clone
+- **Default SD**: private, object in + error out, shared clone
+- **Default DD**: public, object in + error out, shared clone
 
-- private data icons should typically be blank; if something is added, private text should be red.
+### LabVIEW virtual folder naming
 
-Encapsulation guidance:
+![project-view-actor](../Images/project-view-actor.png)  
+*Project view for an actor being developed.*
 
-- Classes are often marked private to the containing library to force dependency inversion through interfaces.
-- Only functions and interfaces should be exposed publicly when possible.
+> TODO: Fill in the recommended virtual folder layout.
+>
+> - **Actor library virtual folders:**
+>   - `Core Actors/`:
+>   - `Edge Actors/`:
+>   - `Base Actor/`:
+>   - `Private Actors/`:
+>   - `Msgs/`:
+>   - `Private Msgs/`:
+>   - `Unified Msgs/`:
 
-Rules:
+### Mutability and pass-through conventions
 
-- Interfaces and classes must be contained in at least one library.
-- Public methods/functions should be limited to the actor API surface (messages + actor API methods).
-- Helper VIs should be private.
+- If the same object type comes in and is passed out horizontally, callers should assume it *may* have been mutated.
+- Avoid pass-through outputs solely for serialization; prefer explicit sequencing structures.
 
-### Mutability and wiring conventions
+Canonical contract: see [Core Model → Serialization and Error Wires](Core%20Model.md#serialization-and-error-wires).
 
-If the same object type comes in and is passed out horizontally, callers should assume that object may have been mutated (even if it was not).
+---
 
-This applies most often to:
+## Cross-links
 
-- class/interface wires (top-left → top-right)
-
-If you need sequencing, use an explicit sequencing construct (flat sequence / case structure). Do not rely on error wiring as a sequencing mechanism; see the canonical contract:
-
-- [Error Model → Serialization and Error Wires](Core%20Model.md#serialization-and-error-wires)
+- Runtime constraints for PPLs/executables: see [Runtime](Runtime.md).
+- Patterns and examples: see [Usage](Usage.md).

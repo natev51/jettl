@@ -1,195 +1,214 @@
 # Non-Normative
 
-This page contains ideas, inspiration, and backlog material that is explicitly **not** part of the formal jettl contract.
+This page collects ideas, inspirations, and references that are explicitly **not** part of the normative jettl contract.
 
-If a concept becomes part of the formal contract, move it into the canonical document and replace it here with a short link.
+If a section becomes a real commitment, move it into the appropriate canonical document (Core Model / Runtime / Tooling / Usage) and replace it here with a link.
 
 ## Ideas that could be implemented
 
-### Channel wire message transport
+### Channel Wire message transport
 
-Idea: implement a Channel Wire-based message transport.
+Implement a Channel Wire message transport.
 
-> TODO: Specify the motivation and constraints.
+> TODO: Define the proposal precisely.
 >
-> - **Why Channel Wires (performance/safety/tooling)**:
-> - **Target platforms**:
-> - **Compatibility constraints**:
-> - **Acceptance tests**:
+> - **Problem this solves:**  
+> - **How it differs from Queue/Event/Notifier:**  
+> - **Transport-invariant contracts (if any):**  
+> - **Transport-specific behavior:**  
+> - **Minimum acceptance tests:**  
 
-### Spawn Parent
+### Spawn parent
 
-Idea: `Spawn Parent.vi` (Root input) so an actor can spawn its parent.
+Idea: `Spawn Parent.vi` (Root input), so an actor can spawn its parent.
 
-Use case: instead of launching an application “from the top,” an intermediate connection actor can run first, then spawn the Root actor, then spawn remaining actors from there.
+Would be used to start an intermediate actor first, then construct the Root actor and its subtree.
 
-> TODO: Define whether Spawn Parent is a real requirement or an exploration.
+> TODO: Clarify the semantics and constraints.
 >
-> - **Primary use case**:
-> - **How it interacts with typed message contracts**:
-> - **What invariants must still hold (Root uniqueness, No Relation)**:
+> - **Primary use case(s):**  
+> - **How this interacts with Root semantics:**  
+> - **What prevents cycles:**  
+> - **Ownership / lifetime rules:**  
 
-### Async Spawn Child message wrapper
+### Async spawn child message wrapper
 
-Idea: add an `Async Spawn Child` message in the core library as a wrapper for `Async Spawn Child.vi`.
+Add an `Async Spawn Child jettl Msg` that wraps `Async Spawn Child.vi`.
 
-> TODO: Specify the exact wrapper behavior.
+> TODO: Specify the UX improvement and the contract.
 >
-> - **Inputs**:
-> - **Outputs**:
-> - **Error behavior**:
-> - **Where it lives (Core Model vs Tooling)**:
+> - **What this standardizes (defaults, logging, error handling):**  
+> - **What it does not standardize:**  
+> - **How it is tested:**  
 
-### Error serialization improvements
+### Error serialization (second wire)
 
-Idea: add a structured mechanism for “more outputs” without abusing error wires as serialization.
+Idea: add a second explicit “serialization wire” terminal to encourage dataflow sequencing without abusing the error wire.
 
-Related canonical rule: [Error Model → Serialization and Error Wires](Core%20Model.md#serialization-and-error-wires).
-
-Notes:
-
-- consider explicit serialization nodes / sequence structures
-- explore typed “splitter” utilities for enforcing dataflow
-
-> TODO: Clarify what problem you are solving (and for which audience).
+> TODO: Tighten this into a concrete proposal.
 >
-> - **Current pain point**:
-> - **Preferred pattern**:
-> - **Where the pattern is documented**:
+> - **Problem statement:**  
+> - **Proposed API (sketch):**  
+> - **Compatibility constraints:**  
+> - **Migration strategy:**  
+> - **Prototype location:**  
 
-### Actor index helpers
+---
 
-Idea: add additional function calls for “actor index” style introspection:
+## Patterns (not yet committed)
 
-- whether this is the outer actor
-- whether it is an edge/core actor
-- etc.
+### Broker mediator
 
-> TODO: Define what “actor index” means canonically and where it is exposed.
->
-> - **Exact meanings**:
-> - **Public API or internal?**:
-> - **Tooling that consumes it**:
+This section captures the longer-form broker/mediator notes. Treat it as a roadmap idea until you explicitly commit to shipping a canonical broker actor.
 
-### Attributes metadata
+Resources:
 
-Idea: add a second object adjacent to Attributes called “Attributes Metadata”.
+- `mva-framework` (bitbucket): https://bitbucket.org/composedsystems/mva-framework/src/master/
+- `stream` (bitbucket): https://bitbucket.org/composedsystems/stream/src/master/
 
-> TODO: Define what metadata is required.
->
-> - **Metadata fields**:
-> - **Who reads it**:
-> - **How it is populated**:
-
-## Broker / mediator
-
-This section captures an architecture exploration for mediator/broker-based systems.
-
-Resources (external):
-
-- https://bitbucket.org/composedsystems/mva-framework/src/master/
-- https://bitbucket.org/composedsystems/stream/src/master/
-
-Communicating between targets (scratch):
+Communicating between targets:
 
 ![broker-startup-scratch](../Images/broker-startup-scratch.jpeg)
 
-Idea summary:
+#### Mediator / assembler wrapper (notes)
 
-- Wrap a Core Actor (via Root spawn) with a mediator process that holds DVRs and coordinates publisher/subscriber behavior via user events.
-- Subscribing/registering to a topic may be a blocking call that spawns its own child actor with private broker connection state.
-- The observer pattern is implemented via explicit subscription and explicit shutdown coordination.
+A mediator-based design can centralize reference ownership and message routing:
 
-Notes:
+- Actor creation can be serialized and coordinated through the mediator.
+- Each actor instance is created at most once at a time under mediator control.
+- Actors shut down only when explicitly instructed by the mediator.
+- The mediator holds authoritative knowledge of actor references and determines which actors are permitted to tell messages to which recipients.
 
-- “No Relation” messaging is a candidate mechanism for cross-tree communication (needs formal definition if adopted).
+Tradeoffs:
 
-Mediator / assembler wrapper idea:
+- The mediator becomes a bottleneck by design.
+- Correctness and observability improve, but peak throughput may decrease.
 
-- A mediator-based design is dataflow-friendly and avoids memory leaks because actor creation is serialized and coordinated through the mediator.
-- Actor spawning can be enforced by placing a non-reentrant VI inside the `Spawn` override, ensuring concurrent instantiation cannot occur.
-- Actors may only shut down when explicitly instructed by the mediator.
 
-> TODO: Decide whether this is in-scope for jettl (core) or belongs as a separate project.
+
+Additional notes (preserved):
+
+- For an inter-actor system, one approach is to wrap around the Root (for example by using a Root-spawn wrapper) and introduce a by-reference mediator process (DVRs + user events) that coordinates publisher–subscriber behavior within a single application instance.
+- Just like spawning, an observer pattern can use a blocking subscribe/register call that constructs a dedicated subscriber child actor holding the private data needed to talk with the broker and its children.
+- “No Relation” messaging (cross-root) can be used for cross-tree event delivery, but treat it as an advanced escape hatch and document the contracts carefully.
+
+Assembler role (preserved):
+
+- An **assembler** may be used strictly to construct actors and distribute references required for observer-style relationships.
+- Actors request construction and reference wiring through the assembler, rather than discovering other actors directly.
+
+#### Multiple application instances (notes)
+
+A layered mediator structure can coordinate multi-application messaging:
+
+- Each application instance contains its own internal mediator.
+- A higher-level mediator facilitates communication between application mediators.
+
+> TODO: Decide whether “Broker/Mediator” will become:
 >
-> - **In-scope? (Yes/No)**:
-> - **If separate, where it lives**:
-> - **If in-scope, which part is canonical (Core Model vs Runtime vs Usage)**:
+> - **A Usage pattern (shippable and supported)**, or
+> - **A library/reuse actor (versioned API)**, or
+> - **An out-of-scope idea.**
 >
-> TODO: If “No Relation” messaging becomes real, specify the rules.
->
-> - **What is allowed across No Relation**:
-> - **How identities are represented**:
-> - **Security / safety constraints (if any)**:
-> - **Acceptance tests**:
+> If it becomes committed, move it to the canonical home and leave a short summary here.
 
-## Inspiration
+---
 
-Ideas inspired by Actor Framework tooling and ecosystem:
+## Inspiration checklist
 
-- Network endpoint actors
-- Actor hierarchy inspector
-- Panel actor
-- Test panels / actor tester
-- Unit testing with Caraya
+Actor Framework tools and ecosystem ideas (as a checklist):
+
+- Network Endpoint Actors
+- Actor Hierarchy Inspector
+- Panel Actor
+- Test panels / Actor Tester
+- Unit tests with Caraya
 - Events for UI actor indicators
 - Documentation tooling (AntiDoc plugin)
 - DETT plugins for UML and sequence diagramming
-- Open AF payload tooling
-- Bowzer-style browsing tools
-- State pattern actor template
-- Example projects and CTIs
-- Message monitor (runtime message tells)
-- Actor system designer (system-level diagram of spawn hierarchy)
-- Message forwarding tooling
+- Open AF Payload
+- Bowzer the Browser
+- State pattern actor
+- Examples and CTI
+- Message monitor (logger/monitor showing run-time message tells)
+- Actor system designer (system-level diagram of actor spawning hierarchy)
+- Actor framework message forwarding
 
-> TODO: Group these into “implemented”, “planned”, and “inspiration only”.
+> TODO: For each item above, decide:
 >
-> - **Implemented**:
-> - **Planned**:
-> - **Inspiration only**:
+> - **Already exists in jettl:**  
+> - **Planned:**  
+> - **Out of scope:**  
+> - **Owner:**  
+
+---
 
 ## Presentations
 
-Working titles / talk ideas:
+### “So, you're on the jettl team”
 
-- “So, you're on the jettl team”
-- “Intro to jettl”
-
-> TODO: If you want the docs to reference talks, list canonical links.
+> TODO: Outline the talk.
 >
-> - **Talk title**:
-> - **Link**:
-> - **What section of the docs it supports**:
+> - **Audience:**  
+> - **Goal:**  
+> - **Key sections:**  
+> - **Demo(s):**  
+
+### “Intro to jettl”
+
+Most recent VIPM package note:
+
+- Download on VIPM and search `jettl`.
+
+Related channels:
+
+- GitHub
+- VIPM
+- YouTube
+
+> TODO: Add the minimum content.
+>
+> - **A VIPM screenshot (most recent):** `../Images/...`  
+> - **Install instructions (1–3 bullets):**  
+> - **The first demo:**  
+> - **Common pitfalls:**  
 
 Resources of inspiration:
 
 - [Introduction to DQMH](https://www.youtube.com/@ShireyStudios1)
 - [GLA Summit 2025: Introduction to Actor Framework by Casey May and Dan Hooks](https://www.youtube.com/watch?v=bTydOIjY84E)
 
-## References
+---
 
-Reference lifetime rationale is defined canonically in:
+## References (pointers)
 
-- [Reference Lifetime and Ownership](Core%20Model.md#reference-lifetime-and-ownership)
+Reference lifetime and ownership is defined canonically in [Core Model → Reference Lifetime and Ownership](Core%20Model.md#reference-lifetime-and-ownership).
+
+---
 
 ## Immediate changes
 
-*The following includes a list of changes to the framework that can be done immediately.*
+*This section is a short list of changes that could be done immediately. Keep it concrete and testable.*
 
-> TODO: Convert each item into a tracked issue with an owner and acceptance tests.
+> TODO: For each “immediate change,” define:
 >
-> - **Owner**:
-> - **Acceptance tests**:
-> - **Target release**:
+> - **Motivation:**  
+> - **Owner:**  
+> - **Acceptance test:**  
+> - **Target release:**  
 
-Ideas:
+- Add additional function calls for “actor index” (outer actor vs edge vs core).
+- Add comments in developer code that clarify whether code is framework-owned (“DO NOT MODIFY”).
+  - Example: `Init Actor` — DO NOT MODIFY!
+- Add another object to Attributes called **Attributes Metadata**.
 
-- Add editor-visible comments in developer-facing code to clarify what is safe to modify.
-  - `Init Actor`: DO NOT MODIFY (example rule)
-- Create a tool to generate project-level actor hierarchy diagrams.
-- Strengthen analyzer rules for library scoping and message visibility.
+---
 
 ## Resources
 
-> TODO: Add a curated list of links (talks, repos, papers) that directly informed the design.
+> TODO: Fill in curated links and repos.
+>
+> - **Official repo(s):**  
+> - **VIPM package:**  
+> - **Example repos:**  
+> - **Recommended talks (top 5):**  

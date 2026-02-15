@@ -1,98 +1,114 @@
 # jettl
 
-[![Image](https://www.vipm.io/package/nathan_davis_lib_jettl/badge.svg?metric=installs)](https://www.vipm.io/package/nathan_davis_lib_jettl/)
-[![Image](https://www.vipm.io/package/nathan_davis_lib_jettl/badge.svg?metric=stars)](https://www.vipm.io/package/nathan_davis_lib_jettl/)
-[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?logo=discord&logoColor=white)](https://discord.gg/tVkvTyBxqa)
+[![vipm-installs](https://www.vipm.io/package/nathan_davis_lib_jettl/badge.svg?metric=installs)](https://www.vipm.io/package/nathan_davis_lib_jettl/)
+[![vipm-stars](https://www.vipm.io/package/nathan_davis_lib_jettl/badge.svg?metric=stars)](https://www.vipm.io/package/nathan_davis_lib_jettl/)
+[![discord](https://img.shields.io/badge/Discord-%235865F2.svg?logo=discord&logoColor=white)](https://discord.gg/tVkvTyBxqa)
 
-A modern LabVIEW Actor Model implementation for building scalable applications.
+jettl is a modern LabVIEW actor model implementation for building scalable applications with interface-backed messaging and composable actor layers.
 
-*Dedicated to Stephen Loftus-Mercer, for his fantastic advancements in the LabVIEW development experience.*
-
-*Inspiration from NI Actor Framework.*
-
-> TODO: If you want this README to double as the “public contract,” fill in the following.
+> TODO: Tighten the one-sentence definition for the repo landing page.
 >
-> - **Primary audience (LabVIEW role / domain)**:
-> - **Supported LabVIEW versions**:
-> - **Supported targets (Desktop / RT)**:
-> - **Stability policy (SemVer? other?)**:
+> - **jettl is:**  
+> - **jettl is not:**  
 
-## Quick links
+---
 
-- **Documentation landing page:** [docs/jettl Documentation.md](docs/jettl%20Documentation.md)
-- Start here: [Orientation](docs/Sections/Orientation.md)
-- Reference:
-  - [Glossary](docs/Sections/Glossary.md)
-  - [Core Model](docs/Sections/Core%20Model.md)
-  - [Runtime](docs/Sections/Runtime.md)
-  - [API Reference](docs/Sections/API%20Reference.md)
-- Developer workflow: [Tooling](docs/Sections/Tooling.md)
-- How-to / patterns: [Usage](docs/Sections/Usage.md)
-- Ideas and inspiration: [Non-Normative](docs/Sections/Non-Normative.md)
 
-## What is jettl?
+## Acknowledgements
 
-jettl is an interface-driven actor framework for LabVIEW. It is built around:
+- Dedicated to [Stephen Loftus-Mercer](https://www.linkedin.com/in/stephen-loftus-mercer/) for pioneering work introducing interfaces to the LabVIEW environment.
+- Inspired by the [National Instruments Actor Framework](https://github.com/ni/actor-framework) and the community that has built tools and shared discussions around it.
 
-- **A strict actor tree**: every actor has `Self`, one `Parent`, and zero or more `Child` relations.
-- **Statically-typed message telling**: messages are defined by interfaces; the destination (`Self`, `Parent`, or `Child`) is chosen explicitly by the caller.
-- **Dynamic decoration**: a running actor is a *unified actor* composed of one or more *actor layers*.
+---
 
-If you are new to these terms, start with the [Glossary](docs/Sections/Glossary.md) and the [Orientation](docs/Sections/Orientation.md).
+## Documentation
 
-## Architecture at a glance
+Start here:
 
-jettl systems are easiest to reason about in three layers of documentation:
+- [docs/jettl Documentation](docs/jettl%20Documentation.md)
 
-1. **Orientation** — the mental model and reading path.  
-   See: [Orientation](docs/Sections/Orientation.md)
+Key pages (reading order):
 
-2. **Core Model** — the normative contracts for actors, messages, lifetime, errors, and introspection.  
-   See: [Core Model](docs/Sections/Core%20Model.md)
+- [Orientation](docs/Sections/Orientation.md)
+- [Glossary](docs/Sections/Glossary.md)
+- [Core Model](docs/Sections/Core%20Model.md)
+- [Runtime](docs/Sections/Runtime.md)
 
-3. **Runtime** — behavior and constraints that depend on deployment (RT, PPLs, executables) and performance goals.  
-   See: [Runtime](docs/Sections/Runtime.md)
+Side doors:
+
+- [API Reference](docs/Sections/API%20Reference.md)
+- [Tooling](docs/Sections/Tooling.md)
+- [Usage](docs/Sections/Usage.md)
+
+---
+
+## High-level architecture
+
+jettl is built around three ideas:
+
+1. **Actor tree (relative relations)** — each actor has `Self`, (usually) one `Parent`, and zero or more `Child` actors.
+2. **Layering (decoration)** — a running actor is a *unified actor* composed from multiple actor layers.
+3. **Messaging (tell APIs)** — messages are interface-backed and delivered via tell calls where destinations are expressed through relative relations.
+
+For the normative contract, see [Core Model](docs/Sections/Core%20Model.md).
+
+---
+
+## Example usage (minimal)
+
+Because jettl is a LabVIEW framework, “usage” is best expressed as a repeatable editor workflow.
+
+> TODO: Point this to a real example path in the repo once you add it.
+>
+> - **Hello world example path:**  
+
+Suggested minimal steps:
+
+1. Install via VIPM.
+2. Use the template tooling to create a new actor library.
+3. Create a message (interface + message class) and implement it on your actor.
+4. Spawn your actor and tell the message.
+5. Stop the actor and confirm `Stopped` is observed.
+
+For canonical examples and patterns, see [Usage](docs/Sections/Usage.md).
+
+---
 
 ## Installation
 
-Install via VIPM:
-
 - [Install on VIPM](https://www.vipm.io/package/nathan_davis_lib_jettl/)
 
-After install, find the palettes under:
+### Palettes
 
-- `Data Communication -> jettl`
+1. Open the palettes.
+2. `Data Communication` → `jettl`
 
-![palette](docs/Images/palette.png)
+### Tools menu
 
-> TODO: Confirm the palette location and add a screenshot for the current release.
->
-> - **Palette path (as it appears in LabVIEW)**: This is not necessary.
-> - **Screenshot filename (under docs/Images/)**: This is not necessary.
+1. `Tools` pull-down menu
+2. `jettl Tools`
 
-## Example usage
+### Examples
 
-This section is intentionally small and points to canonical examples in the docs.
+In LabVIEW:
 
-> TODO: Point to the canonical “Hello World” example and keep it working in CI (or a manual checklist).
->
-> - **Hello World example location (repo path or VIPM Example Finder name)**:
-> - **What a new user should observe**:
-> - **Screenshot filename (under docs/Images/)**:
+1. `Help` pull-down menu
+2. `Find Examples`
+3. Search for: `jettl`
 
-Typical workflow (conceptual):
+In VIPM:
 
-1. Create an actor library from a template.
-2. Define messages as **interfaces** (one message method per interface).
-3. Implement the message interface method in your actor layer.
-4. From `Self`, `Parent`, or `Child`, **tell** the message using the strongly-typed tell VIs.
-5. Use the lifetime contract (`Stop`/`Stopped`) to shut down cleanly.
+1. Search `jettl`
+2. Right click `jettl`
+3. `Get Info`
+4. `Show Examples`
 
-For the practical, step-by-step recipes, see [Usage](docs/Sections/Usage.md).
+---
+
+
+---
 
 ## Documentation structure
-
-The repository is organized so that the README stays concise and the full documentation lives under `docs/`.
 
 ```text
 README.md
@@ -104,54 +120,65 @@ docs/
         ├── Glossary.md
         ├── Core Model.md
         ├── Runtime.md
+        ├── API Reference.md
         ├── Tooling.md
         ├── Usage.md
-        ├── API Reference.md
         └── Non-Normative.md
 ```
 
+---
+
 ## Design philosophy
 
-- Prefer **explicit contracts** over emergent coupling.
-- Prefer **interface composition + decoration** over inheritance.
-- Prefer designs that do **not** depend on message execution order.  
-  (See: [Scheduling and Ordering](docs/Sections/Core%20Model.md#scheduling-and-ordering))
+- Assume you cannot control message execution order.
+- Prefer explicit contracts and static structure.
+- Prefer composition (interfaces + decoration) over inheritance.
+- Avoid using error wires or pass-through object wires solely for serialization.
 
-## Roadmap and open questions
+See [Orientation](docs/Sections/Orientation.md) and [Core Model](docs/Sections/Core%20Model.md).
 
-> TODO: Convert these into GitHub Issues (or a tracking board) once you agree on wording.
+---
+
+## Roadmap / open questions
+
+Answer these inline to tighten priorities and reduce drift:
+
+> TODO: Decide your near-term focus.
 >
-> - **Roadmap owner**:
-> - **Near-term milestone (next release)**:
-> - **Medium-term milestone (next 3–6 months)**:
-> - **Definition of done for a “stable” release**:
+> - **Top 3 adoption blockers today:**  
+> - **Top 3 framework changes to ship next:**  
+> - **Top 3 tooling changes to ship next:**  
 
-- [ ] **Static analysis**: define and enforce message contracts bidirectionally (Parent ↔ Child).  
-  > TODO: Decide the minimum analyzer guarantees.
-  >
-  > - **What invalid states must be rejected at edit time**:
-  > - **What is allowed to fail at runtime (if anything)**:
+> TODO: Decide your compatibility commitments.
+>
+> - **Minimum supported LabVIEW version:**  
+> - **Must-support targets:** Desktop | RT | executable | PPL | PPL-in-exe  
 
-- [ ] **Documentation generation**: actor hierarchy + message destination diagrams.  
-  > TODO: Choose the primary artifact(s).
-  >
-  > - **Diagram types (UML, sequence, custom)**:
-  > - **Source of truth (static analysis vs runtime traces)**:
-  > - **Where artifacts live (docs/Images vs generated folder)**:
+> TODO: Decide your stability policy.
+>
+> - **Do you want SemVer for the package?**  
+> - **What triggers breaking changes?**  
 
-- [ ] **Testing story**: unit tests, approval tests, and a generated test panel.  
-  > TODO: Define the testing stack.
-  >
-  > - **Unit test framework(s)**:
-  > - **What is tested on Desktop vs RT**:
-  > - **Minimum coverage goals**:
+---
 
-## Contributions and community
+## Community
 
+- YouTube: https://www.youtube.com/@nathandavis6612
 - Discord: https://discord.gg/tVkvTyBxqa
+- Contact: [Discord](https://discord.com/users/445084342931423232) or [LinkedIn](https://www.linkedin.com/in/nathan-davis-0b020a348/)
 
-> TODO: Add contribution rules and code-style expectations.
->
-> - **How to propose changes (PR process)**:
-> - **Coding conventions source (Tooling.md section link)**:
-> - **Review checklist**:
+---
+
+## Troubleshooting: images not rendering on GitHub
+
+Common causes:
+
+- Wrong relative path after moving files.
+- Case mismatch in filename (GitHub is case-sensitive).
+- Spaces in filenames not URL-encoded in links (`%20`).
+- Image extension mismatch (`.png` vs `.jpg` vs `.jpeg`).
+- Image not committed on the branch you are viewing.
+
+Palette reference:
+
+![palette](docs/Images/palette.png)

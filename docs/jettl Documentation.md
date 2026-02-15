@@ -1,31 +1,39 @@
 # jettl Documentation
 
-This documentation is organized in reading order. Start with Orientation, then use the Glossary and Core Model as your reference for definitions and contracts.
+This documentation is organized in reading order. Start with Orientation, then move into the Glossary and Core Model.
 
-Sections marked **Guidelines**, **Ideas**, or **Notes** are non-normative.
+Documents under **Reference** are normative unless a section is explicitly labeled **Guidelines**, **Ideas**, or **Notes**.
 
-> Note: Pages live in `docs/Sections/`. Images live in `docs/Images/`.
+> **Doc layout**
+>
+> - Pages live in `docs/Sections/`
+> - Images live in `docs/Images/`
 
 ## Start here
 
 - [Orientation](Sections/Orientation.md)  
   What jettl is, why it exists, and how to read these docs.
-
-## Reference
-
 - [Glossary](Sections/Glossary.md)  
-  Canonical definitions. Other pages link here rather than redefining terms.
+  Canonical definitions for shared terms.
+
+## Reference (normative)
+
 - [Core Model](Sections/Core%20Model.md)  
-  Normative semantics: actors, messaging, lifetime/stop contract, errors, attributes, and reentrancy.
+  Actors, messages, lifetime, errors, attributes, and the core behavioral contracts.
 - [Runtime](Sections/Runtime.md)  
-  Runtime behavior and deployment constraints (RT, PPLs, executables, benchmarking).
+  Deployment constraints, scheduling/priority, RT, PPLs, executables, and benchmarking.
+
+## API surface
+
 - [API Reference](Sections/API%20Reference.md)  
-  The public surface area: palettes, interfaces, classes, and stability notes.
+  A concrete “what do I call?” map (methods, functions, classes, interfaces).
 
 ## Developer workflow
 
 - [Tooling](Sections/Tooling.md)  
-  Build, package, debug, test, document, and maintain jettl-based systems.
+  Build, package, debug, test, generate docs, and enforce style.
+- [Readability and Style Guide](Sections/Tooling.md#readability-and-style-guide)  
+  Coding conventions and readability rules used across jettl.
 
 ## How-to
 
@@ -35,79 +43,77 @@ Sections marked **Guidelines**, **Ideas**, or **Notes** are non-normative.
 ## Non-normative
 
 - [Non-Normative](Sections/Non-Normative.md)  
-  Ideas, inspiration, external references, and backlog material that is explicitly not part of the formal contract.
+  Ideas, inspirations, and roadmap material that is explicitly not part of the formal contract.
 
-## Documentation conventions
+---
 
-### Canonical ownership and cross-links
+## Documentation ownership map (canonical)
 
-Concepts are defined once, in a single authoritative section. Everywhere else:
+This section prevents drift by making “who owns what” explicit.
 
-- Use a one-sentence summary.
-- Link to the canonical definition/contract section.
+- **Orientation.md** owns:
+  - reading path and mental model
+  - project constraints and non-goals (high-level)
+  - onboarding success path
+- **Glossary.md** owns:
+  - definitions for shared terms (actor, transport, message, tell, etc.)
+- **Core Model.md** owns:
+  - normative contracts (actors, messages, lifetime/stop, errors, attributes)
+  - invariants and MUST/SHOULD requirements
+- **Runtime.md** owns:
+  - runtime/deployment behavior (RT, PPL, executable)
+  - scheduling/priority semantics
+  - performance targets and benchmarks
+- **API Reference.md** owns:
+  - “what do I call?” maps (methods/functions/classes/interfaces)
+  - stability labels for the public surface
+- **Tooling.md** owns:
+  - editor tooling, packaging, debug/test workflows
+  - readability and style conventions
+- **Usage.md** owns:
+  - examples and patterns
+  - integration recipes (bridge actors, periodic messaging, etc.)
+- **Non-Normative.md** owns:
+  - ideas, inspirations, roadmap proposals
 
-> TODO: Confirm the canonical ownership map below (edit inline if you disagree).
+> TODO: If you add a new page, extend the ownership map and update the reading path.
+
+## Folder structure (repo)
+
+```text
+README.md
+docs/
+  ├── jettl Documentation.md
+  ├── Images/
+  └── Sections/
+        ├── Orientation.md
+        ├── Glossary.md
+        ├── Core Model.md
+        ├── Runtime.md
+        ├── API Reference.md
+        ├── Tooling.md
+        ├── Usage.md
+        └── Non-Normative.md
+```
+
+## Collaboration workflow
+
+When you answer TODO prompts, respond directly under the question using:
+
+```markdown
+> **RESPONSE:** YOUR TEXT HERE
+```
+
+This keeps your responses machine-detectable and avoids collisions with normal prose.
+
+## Feedback questions (for improving the doc set)
+
+> TODO: Answer these to tighten the docs and reduce ambiguity.
 >
-> - **Definitions (terms):** Glossary  
-> - **Normative behavior contracts:** Core Model  
-> - **Deployment / performance behavior:** Runtime  
-> - **Developer workflows + coding conventions:** Tooling  
-> - **Patterns + examples:** Usage  
-> - **Future ideas / inspiration:** Non-Normative
-
-### TODO and collaboration workflow
-
-All TODOs use fill-in templates so you can answer inline without restructuring the document.
-
-Recommended response format (so your replies are machine-searchable and visually distinct):
-
-```markdown
-> **RESPONSE:** YOUR TEXT HERE (YOU CAN USE ALL CAPS IF YOU WANT)
-```
-
-> TODO: Confirm the response marker you want to standardize on.
->
-> - **Preferred marker format**:
-> - **Do you want date stamps on replies?**:
-> - **Do you want question IDs (e.g., Q-CORE-01)?**:
-
-### Link and image rules
-
-File names include capitalization and spaces; links must match exactly.
-
-- Encode spaces in links as `%20`.
-- GitHub paths are case-sensitive: `Images/` ≠ `images/`.
-
-Image rules (debugging-friendly):
-
-- The alt text matches the image base name.
-- No empty `[]` remains.
-
-For pages under `docs/Sections/`:
-
-```markdown
-![image-name](../Images/image-name.png)
-```
-
-For this file under `docs/`:
-
-```markdown
-![image-name](Images/image-name.png)
-```
-
-For `README.md` at repo root:
-
-```markdown
-![image-name](docs/Images/image-name.png)
-```
-
-## Find place for these new additions
-
-If you temporarily park scratch notes here, treat this as an inbox. Each item should be relocated into its canonical section and replaced with a short link.
-
-> TODO: Paste new additions here as bullet points (one per line), then annotate with the intended destination.
->
-> - **Addition:**  
->   **Proposed destination:** (Orientation / Glossary / Core Model / Runtime / Tooling / Usage / Non-Normative)  
->   **Notes:**  
->   > TODO: If ambiguous, write the question here.
+> - **Primary audience (1–2 sentences):**  
+> - **What a new user should accomplish in 30 minutes:**  
+> - **What a new user should accomplish in 2 hours:**  
+> - **What a new user should accomplish in 2 days:**  
+> - **Top 5 misconceptions to prevent:**  
+> - **Top 5 “sharp edges” in the API today:**  
+> - **What belongs in Reference vs Usage vs Non-Normative (1–2 sentences):**  
