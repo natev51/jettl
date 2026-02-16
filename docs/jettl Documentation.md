@@ -1,119 +1,61 @@
 # jettl Documentation
 
-This documentation is organized in reading order. Start with Orientation, then move into the Glossary and Core Model.
+This documentation is organized in reading order. Start with **Orientation**, then read the **Glossary**, then move into the **Core Model**.
 
 Documents under **Reference** are normative unless a section is explicitly labeled **Guidelines**, **Ideas**, or **Notes**.
 
 > **Doc layout**
 >
-> - Pages live in `docs/Sections/`
-> - Images live in `docs/Images/`
+> - Pages live in `Sections/`
+> - Images live in `Images/`
 
-## Start here
+> **JUSTIFICATION**: The documentation set now includes a canonical Glossary and an API Reference page to match the ownership model (definitions live in one place; “what do I call?” lives in one place).
+
+## Quickstart
+
+1. Install jettl via VIPM.
+2. Open the shipped examples (Example Finder keyword: `jettl`).
+3. Read: Orientation → Glossary → Core Model.
+4. Build the smallest “hello world” actor, then extend it with one message interface and one implemented message override.
+
+## Start Here
 
 - [Orientation](Sections/Orientation.md)  
   What jettl is, why it exists, and how to read these docs.
 - [Glossary](Sections/Glossary.md)  
-  Canonical definitions for shared terms.
+  Canonical definitions for jettl terminology (single source of truth).
 
-## Reference (normative)
+## Reference
 
 - [Core Model](Sections/Core%20Model.md)  
-  Actors, messages, lifetime, errors, attributes, and the core behavioral contracts.
+  Actors, Msgs, Lifetime, and the core behavioral contracts.
 - [Runtime](Sections/Runtime.md)  
-  Deployment constraints, scheduling/priority, RT, PPLs, executables, and benchmarking.
-
-## API surface
-
+  Execution semantics, scheduling, and runtime-specific behavior (RT, PPL, executables).
 - [API Reference](Sections/API%20Reference.md)  
-  A concrete “what do I call?” map (methods, functions, classes, interfaces).
+  The public surface map: “what do I call?” (with stability labels).
 
-## Developer workflow
+## Developer Workflow
 
 - [Tooling](Sections/Tooling.md)  
-  Build, package, debug, test, generate docs, and enforce style.
+  Tooling, packaging, debugging, testing, and documentation generation.
 - [Readability and Style Guide](Sections/Tooling.md#readability-and-style-guide)  
   Coding conventions and readability rules used across jettl.
 
-## How-to
+## How-To
 
 - [Usage](Sections/Usage.md)  
   Patterns, examples, and practical recipes.
 
-## Non-normative
+## Non-Normative
 
 - [Non-Normative](Sections/Non-Normative.md)  
-  Ideas, inspirations, and roadmap material that is explicitly not part of the formal contract.
+  Ideas, inspirations, references, and material that is explicitly not part of the formal contract.
 
----
+## Feedback Questions
 
-## Documentation ownership map (canonical)
-
-This section prevents drift by making “who owns what” explicit.
-
-- **Orientation.md** owns:
-  - reading path and mental model
-  - project constraints and non-goals (high-level)
-  - onboarding success path
-- **Glossary.md** owns:
-  - definitions for shared terms (actor, transport, message, tell, etc.)
-- **Core Model.md** owns:
-  - normative contracts (actors, messages, lifetime/stop, errors, attributes)
-  - invariants and MUST/SHOULD requirements
-- **Runtime.md** owns:
-  - runtime/deployment behavior (RT, PPL, executable)
-  - scheduling/priority semantics
-  - performance targets and benchmarks
-- **API Reference.md** owns:
-  - “what do I call?” maps (methods/functions/classes/interfaces)
-  - stability labels for the public surface
-- **Tooling.md** owns:
-  - editor tooling, packaging, debug/test workflows
-  - readability and style conventions
-- **Usage.md** owns:
-  - examples and patterns
-  - integration recipes (bridge actors, periodic messaging, etc.)
-- **Non-Normative.md** owns:
-  - ideas, inspirations, roadmap proposals
-
-> TODO: If you add a new page, extend the ownership map and update the reading path.
-
-## Folder structure (repo)
-
-```text
-README.md
-docs/
-  ├── jettl Documentation.md
-  ├── Images/
-  └── Sections/
-        ├── Orientation.md
-        ├── Glossary.md
-        ├── Core Model.md
-        ├── Runtime.md
-        ├── API Reference.md
-        ├── Tooling.md
-        ├── Usage.md
-        └── Non-Normative.md
-```
-
-## Collaboration workflow
-
-When you answer TODO prompts, respond directly under the question using:
-
-```markdown
-> **RESPONSE:** YOUR TEXT HERE
-```
-
-This keeps your responses machine-detectable and avoids collisions with normal prose.
-
-## Feedback questions (for improving the doc set)
-
-> TODO: Answer these to tighten the docs and reduce ambiguity.
->
-> - **Primary audience (1–2 sentences):**  
-> - **What a new user should accomplish in 30 minutes:**  
-> - **What a new user should accomplish in 2 hours:**  
-> - **What a new user should accomplish in 2 days:**  
-> - **Top 5 misconceptions to prevent:**  
-> - **Top 5 “sharp edges” in the API today:**  
-> - **What belongs in Reference vs Usage vs Non-Normative (1–2 sentences):**  
+- **Primary audience (1–2 sentences)**: The primary audience are LabVIEW developers with a familiarity with object oriented programming in LabVIEW. Both beginners and experts benefit since the API internals are fully abstracted away from the developer.
+- **What a new user should accomplish in 30 minutes**: Understand how to implement a Hello World example by creating an actor and creating a message.
+- **What a new user should accomplish in 2 hours**: create a two actor system with bidirectional communication by using the native tools that come with jettl.
+- **What a new user should accomplish in 2 days**: Develop a four actor system with best practices with a few messages with Type Defs and become intimate with the native tools that encourage continuous refactoring.
+- **Top 5 misconceptions to prevent**: This is a great question that I need to think more about, can you please give example misconceptions?
+- **What belongs in Reference vs Usage vs Non-Normative**: I don't have a preference for what goes in which section, or if these names are appropriate. This works for now and I am open to suggestions.

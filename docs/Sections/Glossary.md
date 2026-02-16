@@ -1,143 +1,196 @@
 # Glossary
 
-This glossary is the **canonical** home for shared terminology across the jettl documentation.
+This page is the **canonical source of truth** for jettl terminology. Other pages should **link here** instead of redefining terms.
 
-## Collaboration workflow
-
-When you answer questions embedded in the docs, reply directly under the question using:
-
-```markdown
-> **RESPONSE:** YOUR TEXT HERE
-```
-
-## Terminology discipline (doc-wide)
-
-- Use **tell** (not “send”) when describing message delivery.
-- If a term is overloaded, refine it here by giving it a single precise definition and updating callers to link back to it.
-
----
+> **JUSTIFICATION**: The docs previously duplicated definitions across multiple pages (especially in *Core Model*). Centralizing terminology prevents drift and keeps each page focused on its purpose (e.g., *Core Model* = contracts, *Usage* = patterns).
 
 ## Actor
 
-A single layer in a decoration stack: one class instance that implements the `Actor` interface.
+One layer in the decoration stack: a single class instance that implements the `Actor` interface.
+
+> See also: [Actor Layer](#actor-layer), [Unified Actor](#unified-actor)
 
 ## Actor Layer
 
-A synonym for **Actor** when the layering/decoration context is important.
+Synonym for [Actor](#actor) when discussing layering explicitly.
+
+Use **Actor Layer** when you need to distinguish between:
+- a single decorated layer, and
+- the composed running unit (the [Unified Actor](#unified-actor)).
 
 ## Unified Actor
 
-The composed view of a running actor formed by stacking multiple **Actor Layers** together.
+The unified view of a running actor, formed by composing multiple [Actor Layers](#actor-layer) into a single execution unit.
 
-## Base Actor
+- A unified actor has one transport, one message-handling loop, and one set of runtime [Attributes](#attributes).
+- Messages may be implemented by any layer in the stack.
 
-The built-in innermost actor layer provided by jettl. It anchors the unified actor’s behavior and is present in every unified actor unless an advanced developer replaces it.
+## Actor Tree
 
-## Core Actors
+The strict hierarchical structure of actors in an application:
 
-A Root-scoped set of persistent actor layers that are composed into every descendant actor spawned under that Root.
-
-## Edge Actors
-
-A Root-scoped set of persistent actor layers that are composed into every descendant actor spawned under that Root, typically used for boundary/outer concerns.
+- one [Root](#root),
+- each actor has at most one [Parent](#parent) (except the Root),
+- each actor may have zero or more [Child](#child) actors.
 
 ## Root
 
 The root unified actor of an application actor tree.
 
+- All actors in a tree share the same Root.
+- Root identity is used to define relationships such as [No Relation](#no-relation).
+
 ## Self
 
-The current actor, used for relative relations and for `Tell Self`.
+The *relative actor relation* that refers to the current actor instance.
 
 ## Parent
 
-The actor that spawned (or otherwise owns the lifetime of) a child actor.
+The *relative actor relation* that refers to the actor that spawned the current actor.
+
+If the current actor is the [Root](#root), it has no Parent.
 
 ## Child
 
-A spawned actor that has a parent–child relationship with another actor.
+A spawned actor that is a direct descendant of a Parent in the [Actor Tree](#actor-tree).
 
+
+## No-Children Actor
+
+A leaf actor: an actor that does not spawn any child actors.
+
+This term is most often used when documenting Parent/Child message contracts: a leaf actor may still tell messages to its parent, but it does not have its own child-spawn responsibilities.
 ## No Relation
 
-Two actors are “No Relation” when they do not share the same Root and do not have a parent–child relationship.
+Two actors are **No Relation** when they do **not** share the same [Root](#root) and do **not** have a Parent/Child relationship.
 
-## Message
+## Base Actor
 
-An interface-backed unit of communication that an actor can **listen to** (handle) and that another actor (or non-actor caller) can **tell**.
+The built-in, innermost actor layer provided by jettl.
 
-## Msgs
+- It is always present in every [Unified Actor](#unified-actor) unless an advanced developer provides a replacement base layer (typically for testing/debugging or framework experimentation).
 
-The set of message methods implemented by a single actor layer.
+## Core Actors
 
-## Unified Msgs
+A Root-scoped set of persistent actor layers that are composed into every child actor spawned under that Root.
 
-The union of message methods implemented across all layers in a unified actor.
+These layers typically implement cross-cutting concerns (e.g., logging, metrics, debugging, policy enforcement).
 
-## Tell
+## Edge Actors
 
-To deliver a message to a destination actor through a jettl telling API (for example: `Tell Self`, `Tell Parent`, `Tell Child`).
+A Root-scoped set of persistent actor layers that are composed into every child actor spawned under that Root, typically used for “outer boundary” concerns.
+
+Edge layers are advanced and are typically avoided in beginner-focused designs.
+
+## Actor Index
+
+A runtime notion of where a layer sits in the decoration stack for a unified actor.
+
+Example intent: determine whether the currently executing layer is the outermost layer (useful for “only do this once per unified actor” behavior).
 
 ## Transport
 
-The mechanism an actor uses to carry messages at runtime (for example: Queue, Event, Notifier).
+The mechanism used to deliver told messages to an actor.
+
+jettl supports multiple transports (e.g., Queue, Event, Notifier). Transport selection affects delivery mechanics and performance characteristics, but does not change the high-level *messaging model* unless explicitly called out.
+
+## Msg
+
+A message object/class that represents a unit of asynchronous work to be executed by an actor.
+
+A Msg is always associated with an interface-defined message method.
+
+> Terminology discipline: use **Msg** (and **tell**) consistently; avoid the term “send”.
+
+## Msgs
+
+The set of message methods implemented by a single [Actor Layer](#actor-layer).
+
+## Unified Msgs
+
+The union of message methods implemented across all layers for a [Unified Actor](#unified-actor).
+
+## Tell
+
+To enqueue/emit a [Msg](#msg) to a destination actor relation (e.g., [Self](#self), [Parent](#parent), [Child](#child)) through the actor’s [Transport](#transport).
+
+A tell is conceptually “fire-and-forget”: it schedules work to occur later on the destination actor’s turn processing.
+
+## Destination
+
+The statically selected relationship used when telling a message:
+
+- **Self**
+- **Parent**
+- **Child** (usually with an additional identifier; see [Child UID](#child-uid))
+
+jettl’s “strongly typed destinations” discipline means the relative destination is known at edit time.
+
+## Child UID
+
+A developer-facing identifier used to name child relationships at edit time.
+
+In many jettl codebases this is represented as an enum (`Child UIDs.ctl`) that maps to an internal string key used to index child data (e.g., a child attributes map).
 
 ## Turn
 
-One execution cycle of an actor (one “loop pass” through its event/processing structure).
+One execution cycle of an actor’s message handling loop.
+
+A single turn typically includes: receiving/listening to a message (or timeout), executing the associated message method(s), and running end-of-turn hooks such as [Finalize](#finalize).
 
 ## Finalize
 
-A lifecycle hook invoked at the end of each actor execution turn.
+A lifecycle hook invoked at the end of each actor execution [Turn](#turn).
+
+## Stop
+
+The lifecycle action (and commonly also a message) that initiates actor shutdown.
+
+The normative shutdown semantics (monotonic stop flag, idempotence expectations, teardown behavior) are defined in the Core Model lifetime contract.
+
+## Stopped
+
+The lifecycle notification (and commonly also a message) that indicates an actor has finished stopping and is no longer processing turns.
+
+## Setup
+
+A lifecycle phase invoked during actor startup, before the actor begins normal message processing.
+
+## Start
+
+A lifecycle phase invoked after Setup when startup is successful enough to begin normal message processing.
+
+## Teardown
+
+A lifecycle phase invoked during startup failure recovery and/or shutdown sequences to release resources and unwind partial setup.
 
 ## Attributes
 
-Read-only metadata/state exposed for the Self/Parent/Child relations of an actor (for example: VI ref, actor refs, unified messaging data).
+Read-only runtime state made available for introspection.
 
-## Teller
+Actors can typically read:
+- **Self attributes**
+- **Parent attributes**
+- **Child attributes** (for known children)
 
-The API surface responsible for telling messages and enforcing destination/relationship rules.
+The Core Model defines visibility and timing rules for when specific attribute fields become valid.
 
-## Introspection chain
+## Listen
 
-A stable sequence of read-only calls used to obtain information from a unified actor (for example: `Attributes → Read VI Ref`).
+To accept a told message from the transport as the next unit of work to execute.
 
-## Unhandled message
+In some jettl implementations this is the moment a message transitions from “pending” to “being handled”.
 
-A message that was told to an actor but was not listened to/handled before the actor stopped or otherwise declined to process it.
+## Listened To Msg
 
-## Private Actor
+A message that has been listened to (accepted for execution) by the actor during a turn.
 
-A supporting actor that is intended to be used only within the library that contains it (and is typically marked private).
+This concept is frequently used by inspection tooling to distinguish:
+- messages that were merely told/enqueued, from
+- messages that were actually processed.
 
-## Private Message
+## Unhandled Msg
 
-A message intended to be told only by the actor itself (Self messaging) and not by external callers.
+A message that was delivered/told to an actor but was not listened to (and therefore not executed) before the actor stopped.
 
-## Bridge actor
-
-An adapter actor that connects non-jettl code to jettl actors. Toward jettl, it behaves like a normal actor; toward non-actors, it exposes conventional LabVIEW integration points (queues, user events, DVRs).
-
-## Decoration (decorator pattern)
-
-The mechanism for stacking multiple actor layers into a unified actor, where each layer may implement or extend message handling.
-
-## Broker / mediator (pattern)
-
-A coordination pattern where a central actor (or actor layer) owns routing and/or reference distribution. This is currently treated as non-normative unless explicitly committed in the docs.
-
----
-
-## Add a new term (template)
-
-Copy/paste this when you introduce a new glossary entry:
-
-```markdown
-## TERM NAME
-
-DEFINITION.
-
-> TODO: Clarify/confirm any ambiguity.
->
-> - **Open question:**  
-> - **Decision:**  
-```
+Some systems record unhandled messages during teardown to support diagnostics and acceptance tests.
