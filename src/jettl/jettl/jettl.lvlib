@@ -59,41 +59,62 @@
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 	</Item>
-	<Item Name="Functions" Type="Folder">
-		<Item Name="Spawning" Type="Folder">
-			<Item Name="Poly" Type="Folder">
-				<Item Name="Async Spawn Root.vi" Type="VI" URL="../Async Spawn Root.vi"/>
-				<Item Name="Async Spawn Child.vi" Type="VI" URL="../Async Spawn Child.vi"/>
-				<Item Name="Inline Spawn Root.vi" Type="VI" URL="../Inline Spawn Root.vi"/>
-			</Item>
-			<Item Name="Check Parent Actor.vi" Type="VI" URL="../Check Parent Actor.vi">
+	<Item Name="Spawning" Type="Folder">
+		<Item Name="Poly" Type="Folder">
+			<Item Name="Spawn.vi" Type="VI" URL="../Spawn.vi"/>
+			<Item Name="Async Root.vi" Type="VI" URL="../Async Root.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
-			<Item Name="Check Actors.vi" Type="VI" URL="../Check Actors.vi">
+			<Item Name="Async Child.vi" Type="VI" URL="../Async Child.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
-			<Item Name="Check UID Already Exists.vi" Type="VI" URL="../Check UID Already Exists.vi">
-				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-			</Item>
-			<Item Name="Check UID Empty.vi" Type="VI" URL="../Check UID Empty.vi">
-				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-			</Item>
-			<Item Name="Unify.vi" Type="VI" URL="../Unify.vi">
-				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-			</Item>
-			<Item Name="Unify Iterator.vi" Type="VI" URL="../Unify Iterator.vi">
-				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-			</Item>
-			<Item Name="Insert Child Attributes.vi" Type="VI" URL="../Insert Child Attributes.vi">
-				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-			</Item>
-			<Item Name="Async Actor.vi" Type="VI" URL="../Async Actor.vi">
-				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-			</Item>
-			<Item Name="Actor.vi" Type="VI" URL="../Actor.vi">
+			<Item Name="Call Root.vi" Type="VI" URL="../Call Root.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
 		</Item>
+		<Item Name="Root Actors" Type="Folder">
+			<Item Name="Root Actors.lvclass" Type="LVClass" URL="../Root Actors/Root Actors.lvclass"/>
+			<Item Name="Base Root Actors.lvlib" Type="Library" URL="../Base Root Actors/Base Root Actors.lvlib">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Init Root Actors.vi" Type="VI" URL="../Init Root Actors.vi"/>
+		</Item>
+		<Item Name="Msg Self" Type="Folder">
+			<Item Name="Msg Self.lvclass" Type="LVClass" URL="../Msg Self/Msg Self.lvclass"/>
+			<Item Name="Base Msg Self.lvlib" Type="Library" URL="../Base Msg Self/Base Msg Self.lvlib">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+			<Item Name="Init Msg Self.vi" Type="VI" URL="../Init Msg Self.vi"/>
+		</Item>
+		<Item Name="Check Parent Actor.vi" Type="VI" URL="../Check Parent Actor.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Check Actors.vi" Type="VI" URL="../Check Actors.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Check UID Already Exists.vi" Type="VI" URL="../Check UID Already Exists.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Check UID Empty.vi" Type="VI" URL="../Check UID Empty.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Unify.vi" Type="VI" URL="../Unify.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Unify Iterator.vi" Type="VI" URL="../Unify Iterator.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Insert Child Attributes.vi" Type="VI" URL="../Insert Child Attributes.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Async Actor.vi" Type="VI" URL="../Async Actor.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Actor.vi" Type="VI" URL="../Actor.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+	</Item>
+	<Item Name="Functions" Type="Folder">
 		<Item Name="Actor" Type="Folder">
 			<Item Name="Find Msgs.vi" Type="VI" URL="../Find Msgs.vi"/>
 			<Item Name="Find Actors.vi" Type="VI" URL="../Find Actors.vi"/>

@@ -217,7 +217,7 @@ See the definition of **No-Children Actor** in the [Glossary](Glossary.md#no-chi
 
 #### Implementation Notes
 
-- `Call Inspect.vi` SHOULD internally use `Read Listened To Msg.vi` to ensure the message being inspected was listened to and not normally called inline with `Call.vi` for that particular message.
+- `Call Inspect.vi` SHOULD internally use `Read Listened To Msg.vi` to ensure the message being inspected was listened to and not normally called with `Call.vi` for that particular message.
 
 ### Setup-Time Messaging
 
@@ -330,17 +330,17 @@ The lifetime is expressed as symmetric pairs:
 
 ## Spawning Model
 
-### Inline vs Async Spawning of Root
+### Call vs Async Spawning of Root
 
 #### Concepts
 
-Inline spawning exists to support resource setup in the Main actor. If references are created in Main and not closed, they are guaranteed to be alive for the application lifetime.
+Call spawning exists to support resource setup in the Main actor. If references are created in Main and not closed, they are guaranteed to be alive for the application lifetime.
 
 #### Notes
 
-- Inline does not spawn an async actor.
-- Inline can be used to obtain outputs (actor state and error information) after the call completes, enabling straightforward dataflow signaling that the root actor has stopped.
-- Multiple inline spawns can exist in the same application (multiple roots can occur in the same application).
+- Call does not spawn an async actor.
+- Call can be used to obtain outputs (actor state and error information) after the call completes, enabling straightforward dataflow signaling that the root actor has stopped.
+- Multiple call spawns can exist in the same application (multiple roots can occur in the same application).
 
 ### Spawning Children
 

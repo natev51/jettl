@@ -164,16 +164,7 @@ Resources of inspiration:
 - Root Loop issue outlined in:
   - [GDevCon ANZ #2 - Workers for LabVIEW: Building Modular, Scalable and Asynchronous Apps- Peter Scarfe](https://www.youtube.com/watch?v=wJg3K2tdSuQ)
 
-- Add additional functions for Actor Index i.e. = edge, = mid, = core actor, etc.
-
-- Add “Msg Self.vi” inputs of Pre-Setup Msgs, Post-Setup Msgs, and Actor Msgs and output “Msg Self.lvclass”. These are guaranteed to execute first, unless Priority is used.
-
-- Add “Root Actors.vi” inputs of Edge Actors, Mid Actors, and Core Actors and output “Root Actors.lvclass”.
-
-- `Spawn Poly` VI:
-	- `Async Root.vi` (private) (input: Root Actors, Msg Self)
-	- `Async Child.vi` (private) (input: Mid Actors, Msg Self)
-	- `Inline Root.vi` (private) (input: Root Actors, Msg Self)
+- Add additional functions for Actor Index i.e. = Edge, = Mid, = Core, etc. This will be by user request for common functionality.
 
 - Attributes Poly VIs:
 	- `Read Parent Attributes`

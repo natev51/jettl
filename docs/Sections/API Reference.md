@@ -33,7 +33,7 @@ The canonical way to discover callable APIs is the LabVIEW palettes:
 | `Spawn.vi` (override) | Internal | Actor-layer lifecycle hook during spawn. | Implemented/overridden inside actor layers. |
 | `Actor.vi` | Internal | Main actor loop entry point for an actor layer. | Only the outer layer typically owns the actual loop. |
 
-> **TODO:** Add the “inline root spawn” entry points used from `Main.vi`, including their exact VI names and connector pane expectations.
+> **TODO:** Add the “Call Root” entry points used from `Main.vi`, including their exact VI names and connector pane expectations.
 
 ### Lifetime
 
