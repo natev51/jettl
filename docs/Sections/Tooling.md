@@ -746,6 +746,7 @@ Apply the same rule to the error wire:
 - The error wire should not be used for serialization.
 - If you need explicit sequencing without implying mutation, use a Flat Sequence Structure rather than relying on the error wire.
 
+> **RESPONSE**: Please take the following Feedback Questions and integrate them into the documentation.
 ## Feedback Questions
 
 - **Which tooling items are “must ship” vs “nice to have”?**: All tools are must ship. Do you have suggestions for more tools?

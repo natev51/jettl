@@ -81,7 +81,7 @@ Common Lifecycle convention:
 - Open in `Start`
 - Close in `Teardown`
 
-Queue actors and notifier actors can also have front panels. Though, not strictly true, there shouldn't be control and indicator terminals for these actors since this would be functionality specific for an event actor. Instead, a queue actor would primarily have subpanel control references.
+Queue actors can have front panels. Though, not strictly true, there shouldn't be control and indicator terminals for these actors since this would be functionality specific for an event actor. Instead, a queue actor would primarily have subpanel control references.
 
 > **TODO:** Document:
 >
@@ -132,7 +132,6 @@ Guideline:
 
 Additional notes:
 
-- This is an event actor, but the notifier actor may work well with timing.
 - If it was an event actor, it would have to wait for the next event to occur via the timeout case in the event loop.
 - Interruptions in the event loop can prevent correct periodic timing; this must be thought about.
 
@@ -273,6 +272,7 @@ This allows for greater modularity in the actor design.
 
 Easy Factory pattern integration with actor interface for plug-and-play architectures such as PPLs.
 
+> **RESPONSE**: Please take the following Feedback Questions and integrate them into the documentation.
 ## Feedback Questions
 
 - **Which 3 examples are “required reading” for new users?**: All examples.

@@ -32,6 +32,7 @@
 		<Item Name="Base Attributes.lvlib" Type="Library" URL="../Base Attributes/Base Attributes.lvlib">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
+		<Item Name="Attributes Metadata.lvclass" Type="LVClass" URL="../Attributes Metadata/Attributes Metadata.lvclass"/>
 	</Item>
 	<Item Name="Async Elements" Type="Folder">
 		<Item Name="Async Elements.lvclass" Type="LVClass" URL="../Async Elements/Async Elements.lvclass"/>
@@ -43,7 +44,6 @@
 		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
 		<Item Name="Event Transport.lvlib" Type="Library" URL="../Event Transport/Event Transport.lvlib"/>
 		<Item Name="Queue Transport.lvlib" Type="Library" URL="../Queue Transport/Queue Transport.lvlib"/>
-		<Item Name="Notifier Transport.lvlib" Type="Library" URL="../Notifier Transport/Notifier Transport.lvlib"/>
 	</Item>
 	<Item Name="Type Defs" Type="Folder">
 		<Item Name="Child UIDs.ctl" Type="VI" URL="../Child UIDs.ctl"/>
@@ -51,6 +51,7 @@
 		<Item Name="Msgs.ctl" Type="VI" URL="../Msgs.ctl"/>
 		<Item Name="Teardown Location.ctl" Type="VI" URL="../Teardown Location.ctl"/>
 		<Item Name="All Child Attributes.ctl" Type="VI" URL="../All Child Attributes.ctl"/>
+		<Item Name="Lifetime.ctl" Type="VI" URL="../Lifetime.ctl"/>
 		<Item Name="Async Elements.ctl" Type="VI" URL="../Async Elements.ctl">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
@@ -60,6 +61,11 @@
 	</Item>
 	<Item Name="Functions" Type="Folder">
 		<Item Name="Spawning" Type="Folder">
+			<Item Name="Poly" Type="Folder">
+				<Item Name="Async Spawn Root.vi" Type="VI" URL="../Async Spawn Root.vi"/>
+				<Item Name="Async Spawn Child.vi" Type="VI" URL="../Async Spawn Child.vi"/>
+				<Item Name="Inline Spawn Root.vi" Type="VI" URL="../Inline Spawn Root.vi"/>
+			</Item>
 			<Item Name="Check Parent Actor.vi" Type="VI" URL="../Check Parent Actor.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
@@ -81,9 +87,6 @@
 			<Item Name="Insert Child Attributes.vi" Type="VI" URL="../Insert Child Attributes.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
-			<Item Name="Async Spawn Root.vi" Type="VI" URL="../Async Spawn Root.vi"/>
-			<Item Name="Async Spawn Child.vi" Type="VI" URL="../Async Spawn Child.vi"/>
-			<Item Name="Inline Spawn Root.vi" Type="VI" URL="../Inline Spawn Root.vi"/>
 			<Item Name="Async Actor.vi" Type="VI" URL="../Async Actor.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>

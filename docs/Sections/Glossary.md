@@ -92,7 +92,7 @@ Example intent: determine whether the currently executing layer is the outermost
 
 The mechanism used to deliver told messages to an actor.
 
-jettl supports multiple transports (e.g., Queue, Event, Notifier). Transport selection affects delivery mechanics and performance characteristics, but does not change the high-level *messaging model* unless explicitly called out.
+jettl supports multiple transports (e.g., Queue and Event). Transport selection affects delivery mechanics and performance characteristics, but does not change the high-level *messaging model* unless explicitly called out.
 
 ## Msg
 

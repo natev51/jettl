@@ -20,10 +20,12 @@ A modern LabVIEW Actor Model implementation for building scalable applications.
 1. Open the palettes.
 2. `Data Communication` → `jettl`
 
+![palette](docs/Images/palette.png)
+
 ### Tools
 
 1. `Tools` pull-down menu
-2. `jettl Tools`
+2. `jettl`
 
 ### Examples
 
@@ -46,14 +48,8 @@ In VIPM:
 - Start here: [jettl Documentation](docs/jettl%20Documentation.md)
 - Browse the docs folder: [`/docs`](docs/)
 
-> **JUSTIFICATION**: The documentation set is intentionally structured (Orientation → Glossary → Core Model). Pointing users at the entry page keeps onboarding consistent.
-
-#
-
 # Community
 
 - YouTube: https://www.youtube.com/@nathandavis6612
 - Discord: https://discord.gg/tVkvTyBxqa
 - Contact: [Discord](https://discord.com/users/445084342931423232) or [LinkedIn](https://www.linkedin.com/in/nathan-davis-0b020a348/)
-
-![palette](docs/Images/palette.png)

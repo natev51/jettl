@@ -20,22 +20,18 @@ Canonical term definitions live in the [Glossary](Glossary.md).
 ![actor-transport-event](../Images/actor-transport-event.png)  
 *Event Actor.*
 
-![actor-transport-notifier](../Images/actor-transport-notifier.png)  
-*Notifier Actor.*
-
 #### Guidelines
 
-| Transport | Best For | Avoid When | Notes |
-|---|---|---|---|
-| Queue | Performance / throughput | IPC / event-structure-centric designs | Message throughput tends to be better; implementation is independent of UI-thread event handling. |
-| Event | Front panel events and IPC | Maximum throughput is required | Use for event-structure-specific code, including dynamic event registration. |
-| Notifier | “Last value wins” notifications | You need proven behavior at scale | Specialty transport; feature exists but is not tested as extensively as Queue/Event. Treat as specialized/experimental until covered by tests and benchmarks. |
+| Transport | Best For                   | Avoid When                            | Notes                                                                                             |
+| --------- | -------------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Queue     | Performance / throughput   | IPC / event-structure-centric designs | Message throughput tends to be better; implementation is independent of UI-thread event handling. |
+| Event     | Front panel events and IPC | Maximum throughput is required        | Use for event-structure-specific code, including dynamic event registration.                      |
+|           |                            |                                       |                                                                                                   |
 
 > **TODO:** Add a short transport decision guide (keep it beginner-friendly):
 >
 > - **Default recommendation**: Event (especially for UI and user-event-centric designs)
 > - **When to pick Queue**: highest throughput and minimal coupling to event structures
-> - **When to pick Notifier**: “latest value” style notification where intermediate values can be dropped/coalesced
 
 Acceptance tests have not been performed or explored in the present writing.
 
@@ -151,7 +147,6 @@ One approach: a Core Actor layer overrides the necessary inspection hooks to par
   - “Successful” here means the tell API returns without error.
 - A told Msg is not guaranteed to be executed:
   - An actor may stop before listening to all pending messages.
-  - Some transports (for example, notifier-style “latest value”) may coalesce intermediate values by design.
 
 > **JUSTIFICATION**: The earlier draft implied “told messages are always delivered” without distinguishing *enqueue/delivery* from *execution*. This version makes the contract explicit: tell schedules work; execution depends on actor lifetime and transport semantics.
 
@@ -403,7 +398,7 @@ A generalized error-handling Core Actor can override default behavior (e.g., cle
 
 ## Reference Lifetime and Ownership
 
-This section defines ownership rules for reference-like resources (queues, notifiers, DVRs, user events, VI refs, app refs, etc.).
+This section defines ownership rules for reference-like resources (queues, DVRs, user events, VI refs, app refs, etc.).
 
 > **JUSTIFICATION**: Orientation referenced “Reference Lifetime and Ownership”, but the Core Model did not yet contain a canonical contract. Adding this section fulfills the ownership map requirement (“reference ownership rules” belong in Core Model).
 
@@ -499,12 +494,13 @@ References:
 > - **Methods forced to Preallocated (no inline)**:
 > - **Bookmark tag used for decisions**: `reentrancy`
 
+> **RESPONSE**: Please take the following Feedback Questions and integrate them into the documentation.
 ## Feedback Questions
 
 > Answer these to tighten the normative contract and reduce ambiguity.
 
-- **What does “Turn” mean in each transport (Queue/Event/Notifier)?**: It means the same thing as the definition outlined in the Glossary.
-- **Does jettl guarantee “at-most-once” delivery for a told message? If not, what are the failure modes?**: A successful tell enqueues exactly one Msg; however, execution is not guaranteed because an actor may stop before listening to all pending Msgs. Notifier-style transports may intentionally coalesce intermediate values.
+- **What does “Turn” mean in each transport (Queue/Event)?**: It means the same thing as the definition outlined in the Glossary.
+- **Does jettl guarantee “at-most-once” delivery for a told message? If not, what are the failure modes?**: A successful tell enqueues exactly one Msg; however, execution is not guaranteed because an actor may stop before listening to all pending Msgs.
 - **What is the canonical definition of “unhandled message” (and when is it recorded)?**: Unhandled messages are messages that were delivered/told but not listened to (and therefore not executed) before stop; they may be recorded during teardown for diagnostics.
 - **Which introspection chains are guaranteed stable across releases?**: All attribute accessor chains are intended to be stable. Non-attribute internal chains should be treated as internal unless documented in the API Reference.
 - **Which behaviors are intentionally transport-specific vs transport-invariant?**: Transport mechanics and performance are transport-specific; the messaging model (tell semantics, relative destinations, no ordering guarantees) is transport-invariant unless explicitly called out.

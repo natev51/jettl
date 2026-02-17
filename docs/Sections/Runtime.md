@@ -56,7 +56,7 @@ The core philosophy is: actors should assume they cannot control message executi
 > **TODO:** Confirm these semantics against the transport implementations and add acceptance tests.
 
 - **Does jettl expose message priority?**: Yes. It is a Boolean flag to either tell a message that is received in a FIFO (first-in-first-out) or with priority where the message is put at the front of the FIFO.
-- **If yes, where is it honored?**: *(fill in per transport; at minimum Queue vs Event vs Notifier)*
+- **If yes, where is it honored?**: *(fill in per transport; at minimum Queue vs Event)*
 - **What does priority guarantee?**: The message will be put at the front of the FIFO.
 - **What does priority NOT guarantee?**: If other messages also have priority, temporally, it is not guaranteed which will be listened to first.
 - **Acceptance tests**: *(fill in; see suggestions below)*
@@ -203,10 +203,11 @@ Tell messages up and down the tree and limit test it to find bottlenecks. Do thi
 | CPU usage | : | : | : | : |
 | Memory usage | : | : | : | : |
 
+> **RESPONSE**: Please take the following Feedback Questions and integrate them into the documentation.
 ## Feedback Questions
 
 - **What is the performance target for message throughput (Queue vs Event)?**: The performance throughput is 100 us.
 - **Which runtime targets must be supported (Desktop, RT, built executable, PPL, PPL-in-exe)?**: Desktop, RT, built executables, PPL, PPL-in-exe are targets that must be supported.
-- **Which transport is the default recommendation and why?**: Events since they are most often used with user events and panels. Queues are for performance and notifiers are specialty.
+- **Which transport is the default recommendation and why?**: Events since they are most often used with user events and panels. Queues are for performance.
 - **What part of the runtime behavior is considered a stable contract vs an implementation detail?**: *(TODO: fill in with examples; tie back to Core Model vs Runtime responsibilities)*
 - **What is your minimum supported LabVIEW version and how does it affect runtime behavior?**: LabVIEW 2020 is the minimum supported LabVIEW version. Runtime behavior is not affected between this version and the latest version of LabVIEW to current knowledge. LabVIEW 2020 is the minimum supported version since interfaces were introduced to the language in LV2020.

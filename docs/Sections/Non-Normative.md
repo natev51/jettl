@@ -6,33 +6,6 @@ Use this material as a scratchpad and roadmap input. If a section becomes a real
 
 ## Ideas That Could Be Implemented
 
-### Channel Wire Msg Transport
-
-Implement a Channel Wire message transport.
-
-> **TODO:** Define:
->
-> - **What problem the Channel Wire transport solves**: I am not sure, but they are a data type that acts as a queue advanced functionality that I am unaware of since I have not used them personally.
-> - **How it differs from Queue/Event/Notifier**: I am not entirely sure, they use queues under the hood and act differently that normal dataflow wiring.
-> - **What contracts would be transport-invariant vs transport-specific**: Can you be more specific?
-> - **Minimum acceptance tests**: I don't know.
-
-### Spawn Parent
-
-This one is likely not going to happen, but is here mostly as a thought experiment.
-
-Spawn Parent idea: `Spawn Parent.vi` (Root input), so an actor can spawn its parent.
-
-Would be used to spawn an actor and that actor can spawn its parent.
-
-That way, instead of launching the application “top down,” an intermediate connection can run first, then the Root actor and all other actors from there.
-
-> **TODO:** Clarify:
->
-> - **Why spawning a parent is needed (use cases)**: Not necessary to pass references to parent which is passed to child, child takes references and can pass up to the parent.
-> - **How this interacts with “Root” semantics**: the parent here is effectively the root.
-> - **What the ownership/lifetime rules are**: not entirely sure.
-> - **What prevents cycles**: not entirely sure.
 
 ### Async Spawn Child jettl Msg
 
@@ -44,7 +17,17 @@ Add this to jettl library which effectively wraps `Async Spawn Child.vi`.
 > - **What it standardizes (defaults, logging, error handling)**: Not entirely sure what this standardizes.
 > - **How it is tested**: No test is necessary, what do you think?
 
+### Faster Lookup for Default Instantiations
 
+This is a performance idea. Look ups for comparing default instantiations. Instead, use strings as they’re unique to the actor system. That way, you don’t have to instantiate objects, causing more overhead, and instead just pass out the string identifier. That means that the underlying “Msgs” and “Unified Msgs” are instead strings for faster lookup. That means adding a polymorphic with string output for the message name, used for quick lookup.
+
+### Init Msg Performance Boost
+
+The following has not been confirmed. Msg object passthrough may have better performance (test by creating subVI around instantiation and bundling to see which takes more time to do (VI Profiler), if it is the instantiation, then we change to pass the object around (same for output..) have to have output object as well.). instantiates the object once and passes as input datatype. This means to manipulate the object back in and write the data back in (override currently what is in the object private data). that dumb trick for arrays from the init reads to happen for the Msg Object as well! So the reordering of the front panel connections. Could just be explicit and have a map for input and output. Have the object manipulation be at the top of the message method for the interface.
+
+### Inline the preallocated execution methods
+
+Currently, all preallocated execution methods are not inlined. This should likely change for the future, but for now is used to benchmark where the most overhead is located using the `VI Profiler`. Most benchmarking tests must be conducted to optimize the framework for maximum throughput.
 ## Known Architectural Open Questions
 
 These questions are intentionally tracked here until they are resolved and moved into a canonical owner page (Core Model / Runtime / API Reference).
@@ -86,14 +69,6 @@ This could be a `Core Actor`.
 You can put a non-reentrant method call in `Setup.vi` for a given actor which can put setup information to a by-reference “thing” in the application.
 
 Telling events across the tree via the `No Relation` type, maybe this should be a strategy pattern with classes to allow more options developers can create more concrete instantiations.
-
----
----
-
-# Here
-
----
----
 
 ##### Mediator / Assembler
 
@@ -180,38 +155,42 @@ Resources of inspiration:
 *The following includes a list of changes to the framework that can be done immediately.*  
 *The order of items presented is in no particular order.*
 
-- Add additional functions for the Actor Index (for example: edge vs mid vs core actor).
-
-- Add another object to Attributes called **Attributes Metadata**.
-
-- Msg object passthrough may have better performance (test by creating subVI around instantiation and bundling to see which takes more time to do (VI Profiler), if it is the instantiation, then we change to pass the object around (same for output..) have to have output object as well.). instantiates the object once and passes as input datatype. This means to manipulate the object back in and write the data back in (override currently what is in the object private data). that dumb trick for arrays from the init reads to happen for the Msg Object as well! So the reordering of the front panel connections. Could just be explicit and have a map for input and output. Have the object manipulation be at the top of the message method for the interface.
-
-- replace TEMPLATE.vi in all methods with the private one. This may help with the circular dependency issue for inlining the preallocated, which will come later.
-
-- executes these messages in their order before the main message handling loop. this is helpful for configuration data that is coupled through a message that otherwise wouldn't be need to be bundled into “actor input.vi”. Uses Queue “Transport.vi” msg handling. have there be an enum (strategy pattern class?) depending on which msg handler is handling.
-
-- add more DD methods for changing the Lifetime Enum, these are decorators that are invariant.
-
-- add “Tell Self Msgs.vi” inputs of Pre-Setup, Post-Setup, and Actor and output “Tell Self Msgs.lvclass”.
-
-- add “Spawn Root Actors.vi” inputs of Edge Actors, Mid Actors, and Core Actors and output “Spawn Root Actors.lvclass”.
-
-- Spawn functions change to new inputs of interfaces (Mid input for “Async Spawn Child.vi”)
-
-- make three spawn functions apart of the same poly, functions changed to private.
+- change jettl Tools project name to Tools. change the jettl Tools menu to jettl. Add sub menus.
 
 - tools -> jettl, include menus for
-  - Scripting
-  - Debug
-
-- remove comments for the source code for reentrancy, unless method is not DD and is shared clone.
-
-- add Private and Public virtual folders under the Msg Overrides virtual folder.
+  - Edittime
+  - Runtime
 
 - Root Loop issue outlined in:
   - [GDevCon ANZ #2 - Workers for LabVIEW: Building Modular, Scalable and Asynchronous Apps- Peter Scarfe](https://www.youtube.com/watch?v=wJg3K2tdSuQ)
 
+- Add additional functions for Actor Index i.e. = edge, = mid, = core actor, etc.
+
+- Add “Msg Self.vi” inputs of Pre-Setup Msgs, Post-Setup Msgs, and Actor Msgs and output “Msg Self.lvclass”. These are guaranteed to execute first, unless Priority is used.
+
+- Add “Root Actors.vi” inputs of Edge Actors, Mid Actors, and Core Actors and output “Root Actors.lvclass”.
+
+- `Spawn Poly` VI:
+	- `Async Root.vi` (private) (input: Root Actors, Msg Self)
+	- `Async Child.vi` (private) (input: Mid Actors, Msg Self)
+	- `Inline Root.vi` (private) (input: Root Actors, Msg Self)
+
+- Attributes Poly VIs:
+	- `Read Parent Attributes`
+	- `Read Self Attributes`
+	- `Read Child Attributes` (UID input)
+	Have these Read methods be in here i.e. `VI Ref`, `Unified Msgs`, etc.
+
+- Stop message is reversible action, where the
+	- `Parent` is told the `Stopping jettl Msg`
+	- All `Children` are told the `Stopping jettl Msg`
+	- `Self` is put in the Lifetime of "Stopping", or if it has children, "Stopping Waiting On Children"
+
+- Change the palette to reflect the current changes.
+
 ## Resources
+
+> **RESPONSE**: Please take the following TODO and integrate them into the documentation.
 
 > **TODO:** Fill in curated links and repos.
 >
@@ -221,6 +200,7 @@ Resources of inspiration:
 > - **Recommended talks (top 5)**: None published so far.
 > - **Recommended Packages**: I need to do this, currently none exist, but this will be very useful.
 
+> **RESPONSE**: Please take the following Feedback Questions and integrate them into the documentation.
 ## Feedback Questions
 
 - **Which “Ideas” are highest leverage in the next 1–2 months?**: Good question, I can prioritize them?

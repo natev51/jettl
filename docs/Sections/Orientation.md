@@ -115,7 +115,7 @@ For the normative stop contract, see [Lifetime Model](Core%20Model.md#lifetime-m
 - **Interface Composition and Decoration** — wrap actors dynamically via the common `Actor` interface.
 - **By-Value Event Loop** — the central object wire flows through the event structure (by-value design); avoid branching the object wire.
 - **Message Output** — messages can return outputs to transfer information across layers without re-computation.
-- **Transport Agnostic** — Queue, Event, and Notifier transports.
+- **Transport Agnostic** — Queue and Event transports.
 - **Statically Typed Messaging** — interfaces + analyzers support static relationships known at edit time via strongly-typed tell APIs.
 - **Child UID Mapping** — child UIDs are statically named and mapped internally for convenience of Child Actor messaging.
 
@@ -167,6 +167,7 @@ These are non-normative guidelines.
 - **Best practice 5 rationale**: Template-support VIs may be public for technical reasons; using only palette/API-reference entry points reduces accidental coupling to internals.
 - **Best practice 6 rationale**: References created in a parent but used in a child do not have a guaranteed lifetime from the child’s perspective. Because actors are asynchronous, the child cannot assume the parent will outlive the reference.
 
+> **RESPONSE**: Please take the following Feedback Questions and integrate them into the documentation.
 ## Feedback Questions
 
 > Answer these in-line as the docs evolve. Short answers are fine.

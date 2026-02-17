@@ -97,7 +97,7 @@ Current native tools referenced in the docs:
 > **TODO:** Add an index of key framework types:
 >
 > - Actor interface
-> - Transport interfaces (Queue/Event/Notifier)
+> - Transport interfaces (Queue/Event)
 > - Teller interfaces/classes
 > - Attributes interfaces/classes
 > - Msg base type(s)
