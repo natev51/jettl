@@ -7,7 +7,7 @@ Use this material as a scratchpad and roadmap input. If a section becomes a real
 ## Ideas That Could Be Implemented
 
 
-### Async Spawn Child jettl Msg
+### Spawn Async Child jettl Msg
 
 Add this to jettl library which effectively wraps `Async Spawn Child.vi`.
 
@@ -166,18 +166,22 @@ Resources of inspiration:
 
 - Add additional functions for Actor Index i.e. = Edge, = Mid, = Core, etc. This will be by user request for common functionality.
 
-- Attributes Poly VIs:
+- **Implement the Msg Stuffs**
+
+- Attributes Poly VIs (put into libaries with same method name, all preallo)
 	- `Read Parent Attributes`
 	- `Read Self Attributes`
 	- `Read Child Attributes` (UID input)
 	Have these Read methods be in here i.e. `VI Ref`, `Unified Msgs`, etc.
 
-- Stop message is reversible action, where the
+- Stop message is not a reversible action, where the
 	- `Parent` is told the `Stopping jettl Msg`
 	- All `Children` are told the `Stopping jettl Msg`
 	- `Self` is put in the Lifetime of "Stopping", or if it has children, "Stopping Waiting On Children"
 
 - Change the palette to reflect the current changes.
+
+- checks for the Root Actors and Msg Self inputs are valid.
 
 ## Resources
 

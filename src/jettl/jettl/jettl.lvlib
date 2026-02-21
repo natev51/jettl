@@ -28,6 +28,15 @@
 		</Item>
 	</Item>
 	<Item Name="Attributes" Type="Folder">
+		<Item Name="Read Parent Attributes" Type="Folder">
+			<Item Name="Read Parent Attributes.vi" Type="VI" URL="../Read Parent Attributes.vi"/>
+		</Item>
+		<Item Name="Read Self Attributes" Type="Folder">
+			<Item Name="Read Self Attributes.vi" Type="VI" URL="../Read Self Attributes.vi"/>
+		</Item>
+		<Item Name="Read Child Attributes" Type="Folder">
+			<Item Name="Read Child Attributes.vi" Type="VI" URL="../Read Child Attributes.vi"/>
+		</Item>
 		<Item Name="Attributes.lvclass" Type="LVClass" URL="../Attributes/Attributes.lvclass"/>
 		<Item Name="Base Attributes.lvlib" Type="Library" URL="../Base Attributes/Base Attributes.lvlib">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
@@ -59,19 +68,7 @@
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 	</Item>
-	<Item Name="Spawning" Type="Folder">
-		<Item Name="Poly" Type="Folder">
-			<Item Name="Spawn.vi" Type="VI" URL="../Spawn.vi"/>
-			<Item Name="Async Root.vi" Type="VI" URL="../Async Root.vi">
-				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-			</Item>
-			<Item Name="Async Child.vi" Type="VI" URL="../Async Child.vi">
-				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-			</Item>
-			<Item Name="Call Root.vi" Type="VI" URL="../Call Root.vi">
-				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-			</Item>
-		</Item>
+	<Item Name="Spawn" Type="Folder">
 		<Item Name="Root Actors" Type="Folder">
 			<Item Name="Root Actors.lvclass" Type="LVClass" URL="../Root Actors/Root Actors.lvclass"/>
 			<Item Name="Base Root Actors.lvlib" Type="Library" URL="../Base Root Actors/Base Root Actors.lvlib">
@@ -86,6 +83,7 @@
 			</Item>
 			<Item Name="Init Msg Self.vi" Type="VI" URL="../Init Msg Self.vi"/>
 		</Item>
+		<Item Name="Spawn.lvlib" Type="Library" URL="../Spawn/Spawn.lvlib"/>
 		<Item Name="Check Parent Actor.vi" Type="VI" URL="../Check Parent Actor.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
