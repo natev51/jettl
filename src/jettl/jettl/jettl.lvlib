@@ -13,6 +13,7 @@
 		<Item Name="Msg Input.lvclass" Type="LVClass" URL="../Msg Input/Msg Input.lvclass"/>
 		<Item Name="Msg Output.lvclass" Type="LVClass" URL="../Msg Output/Msg Output.lvclass"/>
 		<Item Name="Stop jettl Msg.lvlib" Type="Library" URL="../Stop jettl Msg/Stop jettl Msg.lvlib"/>
+		<Item Name="Stopping jettl Msg.lvlib" Type="Library" URL="../Stopping jettl Msg/Stopping jettl Msg.lvlib"/>
 		<Item Name="Stopped jettl Msg.lvlib" Type="Library" URL="../Stopped jettl Msg/Stopped jettl Msg.lvlib"/>
 	</Item>
 	<Item Name="Actor" Type="Folder">
