@@ -71,13 +71,6 @@
 			</Item>
 			<Item Name="Init Root Actors.vi" Type="VI" URL="../Init Root Actors.vi"/>
 		</Item>
-		<Item Name="Msg Self" Type="Folder">
-			<Item Name="Msg Self.lvclass" Type="LVClass" URL="../Msg Self/Msg Self.lvclass"/>
-			<Item Name="Base Msg Self.lvlib" Type="Library" URL="../Base Msg Self/Base Msg Self.lvlib">
-				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-			</Item>
-			<Item Name="Init Msg Self.vi" Type="VI" URL="../Init Msg Self.vi"/>
-		</Item>
 		<Item Name="Async Elements" Type="Folder">
 			<Item Name="Async Elements.lvclass" Type="LVClass" URL="../Async Elements/Async Elements.lvclass"/>
 			<Item Name="Base Async Elements.lvlib" Type="Library" URL="../Base Async Elements/Base Async Elements.lvlib">
@@ -117,10 +110,10 @@
 		<Item Name="Actor" Type="Folder">
 			<Item Name="Find Msgs.vi" Type="VI" URL="../Find Msgs.vi"/>
 			<Item Name="Find Actors.vi" Type="VI" URL="../Find Actors.vi"/>
-			<Item Name="Update Attributes A.vi" Type="VI" URL="../Update Attributes A.vi">
+			<Item Name="Update Attributes Transport and VI Ref.vi" Type="VI" URL="../Update Attributes Transport and VI Ref.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
-			<Item Name="Update Attributes B.vi" Type="VI" URL="../Update Attributes B.vi">
+			<Item Name="Update Attributes Actors.vi" Type="VI" URL="../Update Attributes Actors.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
 			<Item Name="Setting Up.vi" Type="VI" URL="../Setting Up.vi"/>
@@ -135,7 +128,6 @@
 			<Item Name="Tell Self.vi" Type="VI" URL="../Tell Self.vi"/>
 			<Item Name="Tell Parent.vi" Type="VI" URL="../Tell Parent.vi"/>
 			<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi"/>
-			<Item Name="Tell Reply.vi" Type="VI" URL="../Tell Reply.vi"/>
 		</Item>
 		<Item Name="Misc" Type="Folder">
 			<Item Name="Find Child Attributes.vi" Type="VI" URL="../Find Child Attributes.vi"/>

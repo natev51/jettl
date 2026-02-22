@@ -31,7 +31,4 @@
 	<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Tell Reply.vi" Type="VI" URL="../Tell Reply.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
 </Library>
