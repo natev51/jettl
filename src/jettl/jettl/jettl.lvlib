@@ -44,12 +44,6 @@
 		</Item>
 		<Item Name="Attributes Metadata.lvclass" Type="LVClass" URL="../Attributes Metadata/Attributes Metadata.lvclass"/>
 	</Item>
-	<Item Name="Async Elements" Type="Folder">
-		<Item Name="Async Elements.lvclass" Type="LVClass" URL="../Async Elements/Async Elements.lvclass"/>
-		<Item Name="Base Async Elements.lvlib" Type="Library" URL="../Base Async Elements/Base Async Elements.lvlib">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-	</Item>
 	<Item Name="Transport" Type="Folder">
 		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
 		<Item Name="Event Transport.lvlib" Type="Library" URL="../Event Transport/Event Transport.lvlib"/>
@@ -83,6 +77,12 @@
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
 			<Item Name="Init Msg Self.vi" Type="VI" URL="../Init Msg Self.vi"/>
+		</Item>
+		<Item Name="Async Elements" Type="Folder">
+			<Item Name="Async Elements.lvclass" Type="LVClass" URL="../Async Elements/Async Elements.lvclass"/>
+			<Item Name="Base Async Elements.lvlib" Type="Library" URL="../Base Async Elements/Base Async Elements.lvlib">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
 		</Item>
 		<Item Name="Spawn.lvlib" Type="Library" URL="../Spawn/Spawn.lvlib"/>
 		<Item Name="Check Parent Actor.vi" Type="VI" URL="../Check Parent Actor.vi">
@@ -123,9 +123,10 @@
 			<Item Name="Update Attributes B.vi" Type="VI" URL="../Update Attributes B.vi">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 			</Item>
-			<Item Name="Starting.vi" Type="VI" URL="../Starting.vi"/>
+			<Item Name="Setting Up.vi" Type="VI" URL="../Setting Up.vi"/>
 			<Item Name="Listen To Msg.vi" Type="VI" URL="../Listen To Msg.vi"/>
-			<Item Name="Should Stop.vi" Type="VI" URL="../Should Stop.vi"/>
+			<Item Name="Finalize Check.vi" Type="VI" URL="../Finalize Check.vi"/>
+			<Item Name="Tearing Down.vi" Type="VI" URL="../Tearing Down.vi"/>
 		</Item>
 		<Item Name="Msg" Type="Folder">
 			<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>

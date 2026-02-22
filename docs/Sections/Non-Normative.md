@@ -168,7 +168,7 @@ Resources of inspiration:
 
 - **Implement the Msg Stuffs**
 
-- Attributes Poly VIs (put into libaries with same method name, all preallo)
+- Attributes Poly VIs (put into libraries with same method name, all preallo)
 	- `Read Parent Attributes`
 	- `Read Self Attributes`
 	- `Read Child Attributes` (UID input)
@@ -182,6 +182,11 @@ Resources of inspiration:
 - Change the palette to reflect the current changes.
 
 - checks for the Root Actors and Msg Self inputs are valid.
+
+- Stop is just a stop, common in the framework for procedurally leading to stopping the actor and all children actors by what is called **Orderly Stopping**. Because of **Orderly Stopping**, this means that the root actor will exist longer than any children it spawns. This gives rise to the `Terminate Msg`. This is a specialty message which by-passes jettl logic to terminate the program, mostly likely in case of an emergency. This `Terminate Msg`, which is told to one actor is immediately told to all actors with Priority in the tree hierarchy by telling the root, and propagating down the tree. It is therefore uncommon to use the Terminate Msg. But has been created for these emergency reasons. In this instance, the **Orderly Stopping** is still obeyed, but different instructions are carried out depending on developer code.
+	Aside: Code smell, if there are three actors in a system and they're grandparent, parent, child: if the parent stops and is waiting for child to stop (due to orderly stopping!) and the teardown for parent should execute fast (such as turning pumps to their zero set point speed **(critical)**), then this is probably a code smell since this logic of controlling the set point speed should itself be contained within it's own actor as a child. Basically, have a `Children Allowed` boolean flag on spawn methods. That way, these actors are identified as the lowest level control actors, controlling their own processes, not a high level entity that is a parent to other actors. This means these actors take direct responsibility for tearing down when stopping, without needing to wait on their children, because by definition they do not have any children. On the contrary, instead a private data boolean flag can be used in each individual layer and the unified actor takes the union of these booleans and determines if the actor as a whole can have children.
+
+- gRPC Actor idea: Since jettl uses the ISP, the messages are unique and because type defs are defined in the message, by best practice. This allows for easy finding for creating .proto files for gRPC. These are all messages in the same way so a proto file is effectively just a list of jettl Msg libraries
 
 ## Resources
 
