@@ -303,6 +303,17 @@ Documentation tooling SHOULD be able to display which messages flow to and from 
   - If more than two inputs are required, define a typedef cluster in the Msg library.
 - Only the two right output terminals are valid for scripting Msg outputs; other outputs are ignored.
 
+> **RESPONSE**: I have added this portion here, please find a way to integrate the rest of this quote  into this section Messaging Model (as normal text).
+>
+> When multiple messages are enqueued in rapid succession—such as repeated setpoint updates—earlier messages may become stale before they are processed. In cases where only the most recent value is relevant, enqueuing every update is inefficient and semantically incorrect.
+> 
+> A practical solution is to store the latest value in a **Data Value Reference (DVR)**. Actors read the DVR when processing, ensuring they operate on the most recent state rather than replaying outdated commands.
+> 
+> This approach:
+> - Prevents queue flooding
+> - Eliminates stale command execution
+> - Implements “last value wins” semantics intentionally
+
 ## Lifetime Model
 
 ### Lifecycle Pairs

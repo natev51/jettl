@@ -161,35 +161,9 @@ Resources of inspiration:
   - Edittime
   - Runtime
 
-- Root Loop issue outlined in:
-  - [GDevCon ANZ #2 - Workers for LabVIEW: Building Modular, Scalable and Asynchronous Apps- Peter Scarfe](https://www.youtube.com/watch?v=wJg3K2tdSuQ)
-
 - Add additional functions for Actor Index i.e. = Edge, = Mid, = Core, etc. This will be by user request for common functionality.
 
-- **Implement the Msg Stuffs**
-
-- Attributes Poly VIs (put into libraries with same method name, all preallo)
-	- `Read Parent Attributes`
-	- `Read Self Attributes`
-	- `Read Child Attributes` (UID input)
-	Have these Read methods be in here i.e. `VI Ref`, `Unified Msgs`, etc.
-
-- Stop message is not a reversible action, where the
-	- `Parent` is told the `Stopping jettl Msg`
-	- All `Children` are told the `Stopping jettl Msg`
-	- `Self` is put in the Lifetime of "Stopping", or if it has children, "Stopping Waiting On Children"
-
-- Change the palette to reflect the current changes.
-
-- checks for the Root Actors and Msg Self inputs are valid.
-
-- Stop is just a stop, common in the framework for procedurally leading to stopping the actor and all children actors by what is called **Orderly Stopping**. Because of **Orderly Stopping**, this means that the root actor will exist longer than any children it spawns. This gives rise to the `Terminate Msg`. This is a specialty message which by-passes jettl logic to terminate the program, mostly likely in case of an emergency. This `Terminate Msg`, which is told to one actor is immediately told to all actors with Priority in the tree hierarchy by telling the root, and propagating down the tree. It is therefore uncommon to use the Terminate Msg. But has been created for these emergency reasons. In this instance, the **Orderly Stopping** is still obeyed, but different instructions are carried out depending on developer code. So, when an actor is `Stopping With Children`, it can still receive messages and execute the same way since it is only marked as `Stopping With Children` it is not it's priority to stop itself, it's priority is to stop it's children. The children have been told that the parent is stopping and the children will stop themselves, hence telling back the stopping, then stopped msg. when a parent is in the `Stopping With Children` state with no more children, then the parent transitions into the `Stopping` state, then it tears down and stops as usual. Therefore, any actor ending teardown code belongs in teardown, not `Stop`.
-	Aside: Code smell, if there are three actors in a system and they're grandparent, parent, child: if the parent stops and is waiting for child to stop (due to orderly stopping!) and the teardown for parent should execute fast (such as turning pumps to their zero set point speed **(critical)**), then this is probably a code smell since this logic of controlling the set point speed should itself be contained within it's own actor as a child. `Children Allowed` boolean flag in private data for each actor. That way, these actors are identified as the lowest level control actors, controlling their own processes, not a high level entity that is a parent to other actors. This means these actors take direct responsibility for tearing down when stopping, without needing to wait on their children, because by definition they do not have any children. On the contrary, instead a private data boolean flag can be used in each individual layer and the unified actor takes the union of these booleans and determines if the actor as a whole can have children.
-
-- gRPC Actor idea: Since jettl uses the ISP, the messages are unique and because type defs are defined in the message, by best practice. This allows for easy finding for creating .proto files for gRPC. These are all messages in the same way so a proto file is effectively just a list of jettl Msg libraries
-
-- Idea: permanent Pre-Setup and Post-Setup, Actor Msgs. Necessary checks whether these msgs are valid according to if the msgs are implemented in the core or edge layers, otherwise an error will occur later. This initial checking error prevents downstream errors. The use case for these are certain messages wanting to execute depending on calling code which would throw an error, independent of the formal `Init` code.
-	The `Init` code should not produce errors, hence no error output. The `Init` code should only bundle in the input data, otherwise, operations should occur as messages in Pre-Setup or Post-Setup if the calling code needs to pass information to their inputs.
+- maybe the start method should be a message that is always, under the hood enqueued as the first message ( this is done before Setup, that way any messages that are enqueued in setup will come after the start message.)
 
 ## Resources
 
@@ -210,3 +184,253 @@ Resources of inspiration:
 - **Which “Ideas” are intentionally long-term?**: I don’t know, can you help me prioritize them?
 - **What should never become part of the normative contract?**: Suggestions?
 - **Which ecosystem/tooling features are most important for adoption?**: All specified, though I moved these to a different section.
+
+
+---
+---
+---
+---
+
+
+## `Stop` and **Orderly Stopping**
+
+`Stop` is a standard lifecycle signal that initiates **Orderly Stopping**.
+
+**Orderly Stopping Invariant**
+
+> A parent actor MUST outlive all of its children.
+
+This invariant is strictly enforced across the entire actor tree.
+
+### State Transitions
+
+When an actor receives `Stop`:
+
+1. **If the actor has children**
+   → Transition to `StoppingWithChildren`.
+
+2. **If the actor has no children**
+   → Transition directly to `StoppingWithoutChildren`.
+
+---
+
+### `StoppingWithChildren`
+
+In this state:
+
+* The actor instructs all direct children to stop.
+* The actor continues processing messages (including application messages).
+* The actor does *not* execute teardown yet.
+* The actor waits until all children report `Stopped`.
+
+Each child recursively applies the same logic:
+
+1. Stop its own children first.
+2. Execute teardown.
+3. Notify parent with `Stopped`.
+
+When the parent’s child set becomes empty:
+
+→ Transition to `StoppingWithoutChildren`.
+
+---
+
+### `StoppingWithoutChildren`
+
+In this state:
+
+* The actor executes teardown.
+* The actor notifies its parent that it has `Stopped`.
+* The actor terminates.
+
+---
+
+### Contractual Rule
+
+> All finalization logic MUST reside in teardown, never in `Stop`.
+
+`Stop` initiates lifecycle transition.
+Teardown performs cleanup.
+
+---
+
+## State Semantics Clarification
+
+### `StoppingWithChildren`
+
+An actor in this state:
+
+* Has begun the stopping process.
+* Has not executed teardown.
+* Continues processing application messages.
+* Is waiting for children to stop.
+* Cannot spawn new children (assumed invariant — see questions below).
+
+When children are exhausted:
+
+→ Transition to `StoppingWithoutChildren`.
+
+---
+
+### `StoppingWithoutChildren`
+
+* Teardown executes.
+* Actor reports `Stopped`.
+* Actor is stopped.
+
+---
+
+# Architectural Aside — Control Logic Smell
+
+Consider:
+
+```
+Grandparent
+  └── Parent
+        └── Child
+```
+
+If:
+
+* Parent receives `Stop`.
+* Parent must wait for Child to stop.
+* Parent teardown includes urgent safety logic (e.g., immediately setting pump speed to zero).
+
+This indicates architectural misplacement of responsibility.
+
+### Why This Is a Smell
+
+Urgent control logic should not depend on waiting for subordinate actors to terminate. If teardown latency matters, the control logic is positioned too high in the hierarchy.
+
+---
+
+## Corrective Principle — Leaf Actors
+
+A **Leaf Actor**:
+
+* Cannot have children.
+* Owns direct control of physical or critical processes.
+* Executes teardown immediately upon entering `StoppingWithoutChildren`.
+
+Critical, real-time responsibilities belong at leaf level.
+
+---
+
+## Structural Mechanism
+
+Each actor contains:
+
+```plaintext
+Leaf : boolean (private data)
+```
+
+### Corrected Semantics
+
+* `Leaf = true` → Actor CANNOT spawn children.
+* `Leaf = false` → Actor MAY spawn children.
+
+(Default must be explicitly defined.)
+
+This flag is static and determined at edit-time.
+
+### Unified Actor Rule
+
+For composite or layered actors:
+
+```
+UnifiedLeaf = OR(all layer Leaf flags)
+```
+
+If any layer requires leaf behavior, the unified actor is treated as a Leaf Actor.
+
+This ensures:
+
+* Explicit architectural intent.
+* Prevention of accidental hierarchy expansion.
+* Guaranteed immediate teardown capability for lowest-level controllers.
+
+---
+
+# Critical Clarifications Required
+
+Your answers resolved several design points, but there are still structural ambiguities that will matter in edge cases.
+
+---
+
+### 1. Message Processing During `StoppingWithChildren`
+
+You stated that application messages are still processed.
+
+**Clarification needed:**
+
+* May new children be spawned in this state?
+* If yes, Orderly Stopping can become non-terminating.
+* If no, this must be an enforced invariant.
+
+---
+
+### 2. Idempotency of `Stop`
+
+* If an actor already in `StoppingWithChildren` receives another `Stop`, is it ignored?
+* Should `Stop` be idempotent?
+
+---
+
+### 3. Child Acknowledgment Contract
+
+When a child reports `Stopped`:
+
+* Is this guaranteed exactly once?
+* What prevents duplicate or lost `Stopped` signals?
+* Is this framework-enforced or developer-enforced?
+
+---
+
+### 4. Teardown Determinism
+
+You stated full teardown always executes, even during termination.
+
+* Is teardown required to be synchronous and blocking?
+* Or may it be asynchronous and message-driven?
+* If asynchronous, how is termination completion defined?
+
+---
+
+# Toward Formalization
+
+You asked:
+
+> How can I formally model the lifecycle as a deterministic state machine?
+
+At minimum, you will need:
+
+### Explicit States
+
+* `Started`
+* `StoppingWithChildren`
+* `StoppingWithoutChildren`
+* `Stopped`
+
+### Explicit Guards
+
+* `children.count > 0`
+* `children.count == 0`
+* `received Stop`
+* `received Terminate`
+* `received ChildStopped`
+
+### Explicit Prohibitions
+
+* No child spawning in stopping states.
+* No state regression.
+* No teardown execution before children complete.
+
+Without these, formal verification is not possible.
+
+---
+
+# Follow-Up Questions
+
+**Q1:** Should child spawning be strictly forbidden once an actor has entered any stopping state?
+**Q2:** Should `Stop` and `Terminate` be modeled as distinct states, or as context flags within the same state machine?
+**Q3:** Do you intend to eventually prove termination of the actor tree under all shutdown scenarios, or is this a pragmatic contract rather than a formally verified guarantee?

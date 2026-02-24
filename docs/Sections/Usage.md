@@ -55,6 +55,11 @@ These reuse actors should live in their own repositories, that can be packaged u
 
 ### Do Not Yet Exist
 
+#### gRPC Actors
+
+> **RESPONSE**: I have added this section here, clean up as necessary:
+> 
+> Since jettl uses the ISP, the messages are unique and because type defs are defined in the message, by best practice. This allows for easy finding for creating .proto files for gRPC. These are all messages in the same way so a proto file is effectively just a list of jettl Msg libraries
 #### Panel Actors
 
 Common functionality to update the front panel state including those for window operations and subpanel operations:
@@ -138,6 +143,17 @@ Additional notes:
 ## Integration Patterns
 
 ### Bridge Actors
+
+> **RESPONSE**: I have added this portion here, please find a way to integrate the rest of this quote  into this section (as normal text).
+>
+> After the root actor has launched, sending messages to actors directly from non-actor code is considered a code smell. This bypasses the actor-to-actor messaging model and breaks encapsulation.
+> 
+> Instead, use a Bridge Actor that exposes a user event to the external environment. The event handler inside the Bridge Actor can then translate the external stimulus into the appropriate typed message and forward it to the correct relative actor through standard actor messaging.
+> 
+> This preserves:
+> - Actor isolation
+> - Supervision hierarchy integrity
+> - Consistent message routing semantics
 
 Bridge actors are used to connect jettl actors to **non-jettl** LabVIEW code (for example, QMHs, test harnesses, or legacy systems).
 

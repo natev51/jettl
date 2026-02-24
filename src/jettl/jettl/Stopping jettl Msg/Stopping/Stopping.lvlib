@@ -16,7 +16,7 @@
 	<Item Name="Init Msg Default.vi" Type="VI" URL="../Init Msg Default.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Call.vi" Type="VI" URL="../../../../../../../../Users/nathan.davis/Desktop/New folder/Stopping jettl Msg/Stopping/Call.vi">
+	<Item Name="Call.vi" Type="VI" URL="../Call.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Recurse.vi" Type="VI" URL="../Recurse.vi">
