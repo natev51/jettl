@@ -50,12 +50,12 @@ The canonical way to discover callable APIs is the LabVIEW palettes:
 
 ## Messaging API
 
-| API (VI) | Stability | Purpose | Notes |
+| API (VI) | Stability | Purpose | Notes                                         |
 |---|---|---|---|
-| `Tell Self.vi` | Stable | Tell a message to `Self`. | Destination is statically known (Self). |
-| `Tell Parent.vi` | Stable | Tell a message to `Parent`. | Requires a parent relationship. |
-| `Tell Child.vi` | Stable | Tell a message to a named child. | Usually paired with a `Child UID` mapping. |
-| `Call Inspect.vi` | Internal/Experimental (decide) | Runtime inspection hook for message execution. | Often used by debug/monitor layers. |
+| `Tell Self.vi` | Stable | Tell a message to `Self`. | Destination is statically known (Self).       |
+| `Tell Parent.vi` | Stable | Tell a message to `Parent`. | Requires a parent relationship.               |
+| `Tell Child.vi` | Stable | Tell a message to a named child. | Usually paired with a `Child Alias` mapping.  |
+| `Call Inspect.vi` | Internal/Experimental (decide) | Runtime inspection hook for message execution. | Often used by debug/monitor layers.           |
 | `Read Listened To Msg.vi` | Internal/Experimental (decide) | Determine whether an inspected message was listened to. | Used to validate “called vs told” invariants. |
 
 > **JUSTIFICATION**: The docs reference these VIs by name in multiple places. Centralizing them here reduces duplication and gives one place to attach stability labels.

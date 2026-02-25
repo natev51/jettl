@@ -31,7 +31,7 @@
 	<Item Name="Root.vi" Type="VI" URL="../Root.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="UID.vi" Type="VI" URL="../UID.vi">
+	<Item Name="Alias.vi" Type="VI" URL="../Alias.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Transport.vi" Type="VI" URL="../Transport.vi">

@@ -305,9 +305,9 @@ Use parsing to get the unique identifier associated with a message in the descri
 
 Example:
 
-"Msg UID: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+"Msg ID: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 
-where the Msg UID is generated when creating the TEMPLATE Msg and stored in the interface message method description.
+where the Msg ID is generated when creating the TEMPLATE Msg and stored in the interface message method description.
 
 Msg renaming idea:
 
@@ -333,7 +333,7 @@ Additionally:
 
 Side idea:
 
-- Static tool to find “implemented message methods” where the class does not implement the message method's interface. This occurs using the UID within the interface message method.
+- Static tool to find “implemented message methods” where the class does not implement the message method's interface. This occurs using the Msg ID within the interface message method.
   - This message method can never be executed without an interface to dynamic dispatch into this message method.
 
 ### Msg Destination Viewer
@@ -539,7 +539,7 @@ Define, at edit time, which messages are routed to which child actor.
 One approach:
 
 - Locate calls to `Tell Child.vi` → Find Callers.
-- Resolve the target child by tracing the destination input back through `Format Into String` to the associated `Child UIDs` enum (or encapsulate destination selection in dedicated methods).
+- Resolve the target child by tracing the destination input back through `Format Into String` to the associated `Child Aliases` enum (or encapsulate destination selection in dedicated methods).
 - This lets tooling determine the destination name statically, so it’s clear where the message will be told at run time.
 
 This approach only works when the destination string is a straightforward `Format Into String` + enum pattern.

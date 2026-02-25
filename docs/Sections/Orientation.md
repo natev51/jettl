@@ -52,7 +52,7 @@ What jettl aims to accomplish for developers:
   - Given an actor library, tooling can produce a page that lists:
     - the actor’s public messages (by interface),
     - the actor’s outbound tells (Self/Parent/Child),
-    - and the actor’s spawn relationships (child UIDs).
+    - and the actor’s spawn relationships (child aliases).
 - **Unit testing success criteria (suggested)**:
   - Each shipped example or reusable actor has at least one automated test project (desktop target) that runs headless.
 - **Visualization success criteria (suggested)**:
@@ -117,7 +117,7 @@ For the normative stop contract, see [Lifetime Model](Core%20Model.md#lifetime-m
 - **Message Output** — messages can return outputs to transfer information across layers without re-computation.
 - **Transport Agnostic** — Queue and Event transports.
 - **Statically Typed Messaging** — interfaces + analyzers support static relationships known at edit time via strongly-typed tell APIs.
-- **Child UID Mapping** — child UIDs are statically named and mapped internally for convenience of Child Actor messaging.
+- **Child Alias Mapping** — child aliases are statically named and mapped internally for convenience of Child Actor messaging.
 
 ## Constraints and Non-Goals
 

@@ -112,7 +112,7 @@ This Periodic Messaging jettl Actor is spawned for timing. The actor that spawne
 
 There probably needs to be a unique identifier of the Periodic Messaging jettl Actor in case another instance is spawned and there needs to be metadata in the message to discern where the message has come from / or if the Periodic Messaging jettl Actor has stopped, but another one has been spawned, sending another message.
 
-This is a different unique identifier, which could be tied to the actor instance which by LabVIEW definition will always be unique identifier. Further on this, a function could be made in the framework that gets the `Instance ID`, which is different from the `UID`.
+This is a different unique identifier, which could be tied to the actor instance which by LabVIEW definition will always be unique identifier. Further on this, a function could be made in the framework that gets the `Instance ID`, which is different from the `Alias`.
 
 “Tells a message periodically” does not imply the messages are executed periodically, but rather that the messages are told periodically. Of course the resolution is limited to 1 ms as the low end tell rate as defined through the event structure.
 

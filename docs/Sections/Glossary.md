@@ -122,15 +122,15 @@ The statically selected relationship used when telling a message:
 
 - **Self**
 - **Parent**
-- **Child** (usually with an additional identifier; see [Child UID](#child-uid))
+- **Child** (usually with an additional identifier; see [Child Alias](#child-alias))
 
 jettl’s “strongly typed destinations” discipline means the relative destination is known at edit time.
 
-## Child UID
+## Child Alias
 
 A developer-facing identifier used to name child relationships at edit time.
 
-In many jettl codebases this is represented as an enum (`Child UIDs.ctl`) that maps to an internal string key used to index child data (e.g., a child attributes map).
+In many jettl codebases this is represented as an enum (`Child Aliases.ctl`) that maps to an internal string key used to index child data (e.g., a child attributes map).
 
 ## Turn
 

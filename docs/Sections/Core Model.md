@@ -82,16 +82,16 @@ Actors can decorate each other in layers.
 
 `Msg or Recurse.vi` checks `Msgs` for the current layer. Additional appended logic determines whether the current layer implements the message method; if not, it recurses to the next layer until the innermost layer is called (typically the Base).
 
-### Child UIDs
+### Child Aliases
 
 #### Contracts
 
-- `Child UIDs.ctl` enum is a static developer-facing string used for keeping track of Child UIDs that are known at edit time.
+- `Child Aliases.ctl` enum is a static developer-facing string used for keeping track of Child Aliases that are known at edit time.
 
 #### Implementation Notes
 
-- Internally, UIDs are stored as strings in `Child Attributes Map.ctl`.
-- Each actor defines its own private enum for child UIDs.
+- Internally, Aliases are stored as strings in `Child Attributes Map.ctl`.
+- Each actor defines its own private enum for child Aliases.
   - A runtime string mapping MAY be validated to ensure it only maps enum elements to their corresponding string values via the `Format Into String` primitive.
 
 #### Rationale
@@ -142,7 +142,7 @@ One approach: a Core Actor layer overrides the necessary inspection hooks to par
 #### Contracts
 
 - A **tell** schedules a Msg for later execution on the destination actor (asynchronous work).
-- Destinations are chosen explicitly as a relative relationship: `Self`, `Parent`, or `Child` (with a specific Child UID mapping).
+- Destinations are chosen explicitly as a relative relationship: `Self`, `Parent`, or `Child` (with a specific Child Alias mapping).
 - A successful tell MUST enqueue/emit exactly one Msg instance into the destination transport.
   - “Successful” here means the tell API returns without error.
 - A told Msg is not guaranteed to be executed:
@@ -279,7 +279,7 @@ Example: a layer performs analysis and returns the analyzed data as part of the 
 
 #### Contracts
 
-- jettl enforces a strongly typed messaging system where the Msg destination is known at edit time (relative `Self`, `Parent`, or `Child` with a specific UID mapping).
+- jettl enforces a strongly typed messaging system where the Msg destination is known at edit time (relative `Self`, `Parent`, or `Child` with a specific Alias mapping).
 - An edit-time analysis (via VI Analyzer or an actor-layer analyzer) SHOULD determine allowed spawn relationships by validating message contracts bidirectionally:
   - What the parent can **tell to** and **listen to** its child.
   - What the child can **tell to** and **listen to** its parent.
@@ -291,9 +291,9 @@ Documentation tooling SHOULD be able to display which messages flow to and from 
 
 - `Self → Self`
 - `Parent → Self`
-- `Child (with UID) → Self`
+- `Child (with Alias) → Self`
 - `Parent ← Self`
-- `Child (with UID) ← Self`
+- `Child (with Alias) ← Self`
 
 (`Self ← Self` is redundant and can be omitted.)
 
