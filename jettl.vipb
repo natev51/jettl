@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-08-18 10:28:19" Modified_Date="2026-02-24 16:37:47" Creator="Erik" Comments="" ID="f69aeea0d9c7945f4b18b7a5e5a1eb46">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-08-18 10:28:19" Modified_Date="2026-02-25 14:00:11" Creator="Erik" Comments="" ID="cd825a3f78a8d00992d8b2335ac919df">
   <Library_General_Settings>
     <Package_File_Name>Nathan_Davis_lib_jettl</Package_File_Name>
-    <Library_Version>6.14.3.101</Library_Version>
+    <Library_Version>6.15.0.102</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>.</Library_Output_Folder>
@@ -443,7 +443,7 @@ MIT</Text_to_Add>
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Find Child UIDs.vi</NameSub_Menu_Name>
+        <NameSub_Menu_Name>Find Child Aliases.vi</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
@@ -451,10 +451,10 @@ MIT</Text_to_Add>
           <Column>9</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>src\jettl\jettl\Find Child UIDs.vi</Path>
+        <Path>src\jettl\jettl\Find Child Aliases.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E5A656E55D2D21917A0F798B689D1D3E</GUID>
+      <GUID>2CC918F235514E2243E14177445D1AEA</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>

@@ -142,6 +142,9 @@
 		<Item Name="Unified Spawn.ctl" Type="VI" URL="../Unified Spawn.ctl">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
+		<Item Name="Teller Elements.ctl" Type="VI" URL="../Teller Elements.ctl">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
 	</Item>
 	<Item Name="Error" Type="Folder">
 		<Item Name="Error Prefix.vi" Type="VI" URL="../Error Prefix.vi">

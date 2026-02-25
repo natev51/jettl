@@ -27,7 +27,7 @@
 				<Property Name="Bld_excludeDependentPPLs" Type="Bool">true</Property>
 				<Property Name="Bld_localDestDir" Type="Path">/C/git/NI_AB_PROJECTNAME</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{894A0DEE-383B-4EBC-984D-19AD6485426C}</Property>
-				<Property Name="Bld_version.build" Type="Int">3</Property>
+				<Property Name="Bld_version.build" Type="Int">5</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">jettl.lvlibp</Property>
 				<Property Name="Destination[0].path" Type="Path">/C/git/NI_AB_PROJECTNAME/jettl.lvlibp</Property>
@@ -39,7 +39,7 @@
 				<Property Name="Destination[1].path.type" Type="Str">&lt;none&gt;</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="PackedLib_callersAdapt" Type="Bool">true</Property>
-				<Property Name="Source[0].itemID" Type="Str">{6DD84C68-52E6-4383-AE49-5C41D9AF38C6}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{02C2310E-6A90-48D4-987F-DA12252E9BBD}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/jettl.lvlib</Property>
