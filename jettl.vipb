@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-08-18 10:28:19" Modified_Date="2026-02-24 14:50:49" Creator="Erik" Comments="" ID="e5c49df3180a41aa80cdfe0bdcbbf69f">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2025-08-18 10:28:19" Modified_Date="2026-02-24 16:37:47" Creator="Erik" Comments="" ID="f69aeea0d9c7945f4b18b7a5e5a1eb46">
   <Library_General_Settings>
     <Package_File_Name>Nathan_Davis_lib_jettl</Package_File_Name>
-    <Library_Version>6.14.1.99</Library_Version>
+    <Library_Version>6.14.3.101</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>.</Library_Output_Folder>
@@ -454,7 +454,7 @@ MIT</Text_to_Add>
         <Path>src\jettl\jettl\Find Child UIDs.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>89F23F1BAFEDAD019C9AC55B4A96A84B</GUID>
+      <GUID>E5A656E55D2D21917A0F798B689D1D3E</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>

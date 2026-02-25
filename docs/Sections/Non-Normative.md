@@ -163,8 +163,6 @@ Resources of inspiration:
 
 - Add additional functions for Actor Index i.e. = Edge, = Mid, = Core, etc. This will be by user request for common functionality.
 
-- maybe the start method should be a message that is always, under the hood enqueued as the first message ( this is done before Setup, that way any messages that are enqueued in setup will come after the start message.)
-
 ## Resources
 
 > **RESPONSE**: Please take the following TODO and integrate them into the documentation.
