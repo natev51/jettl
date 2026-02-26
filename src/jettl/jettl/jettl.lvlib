@@ -74,6 +74,10 @@
 		<Item Name="Tell Self.vi" Type="VI" URL="../Tell Self.vi"/>
 		<Item Name="Tell Parent.vi" Type="VI" URL="../Tell Parent.vi"/>
 		<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi"/>
+		<Item Name="Tell Arbitrary.vi" Type="VI" URL="../Tell Arbitrary.vi"/>
+		<Item Name="Tell.vi" Type="VI" URL="../Tell.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
 	</Item>
 	<Item Name="Actor" Type="Folder">
 		<Item Name="Refs.lvclass" Type="LVClass" URL="../Refs/Refs.lvclass"/>
@@ -133,6 +137,9 @@
 		<Item Name="Teardown Location.ctl" Type="VI" URL="../Teardown Location.ctl"/>
 		<Item Name="All Child Attributes.ctl" Type="VI" URL="../All Child Attributes.ctl"/>
 		<Item Name="Lifetime.ctl" Type="VI" URL="../Lifetime.ctl"/>
+		<Item Name="Teller Elements.ctl" Type="VI" URL="../Teller Elements.ctl">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
 		<Item Name="Async Elements.ctl" Type="VI" URL="../Async Elements.ctl">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
@@ -140,9 +147,6 @@
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 		<Item Name="Unified Spawn.ctl" Type="VI" URL="../Unified Spawn.ctl">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Teller Elements.ctl" Type="VI" URL="../Teller Elements.ctl">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 	</Item>

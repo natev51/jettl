@@ -68,7 +68,6 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="_Debug.vi" Type="VI" URL="../_Debug.vi"/>
 		<Item Name="_Template.lvlib" Type="Library" URL="../_Template/_Template.lvlib"/>
 		<Item Name="Template.vi" Type="VI" URL="../Template.vi"/>
 		<Item Name="_Rename.lvlib" Type="Library" URL="../_Rename/_Rename.lvlib"/>
