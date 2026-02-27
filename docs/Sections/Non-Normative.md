@@ -165,23 +165,27 @@ Resources of inspiration:
 
 - TEMPLATE TOOL: add in a function call in creating the template which creates in the library a SHA256 that is a for loop that outputs the "unique" value for the `Msg ID`.
 
-- Rename to `This VI`. All of the instances where it is used i.e. Transports and associated methods where its used as its inputs.
-
 - Message and actor naming limitation when using the rename Tool:
 	- We only allow "space" and capital/lowercase letters, that's it.
 	- There must contain at least one "space" within the name.
 Justifications, when reading messages for the outside world, these characters are not allowed. This helps name spacing and clarity of intent.
 
-- Read Lifetime, Rad Msg, etc. Poly VI for these that can be used in other actors (picture in phone).
-
 - `Equate Msg Inputs.vi`: two inputs and internal has the default instance with an equal output.
 
 - `Equate Actor Inputs.vi`: two inputs and internal has the default instance with an equal output.
 
-- put both of the above in the palette!
+- put all of the above in the palette.
 
-- Take out the `Told Alias` string, make input to `Inspect Tell`
-stipulation: "if this input is blank, it doesn't come from the `Tell Child`"
+- Add in the `Teller` Poly for the read teller methods. The goal should be to only use poly VIs for the framework, individual method calls should not be dropped onto the block diagram. If there is an inclination to drop them onto the block diagram, then this method likely shouldn't be dropped on the block diagram, or it is apart of a poly VI that should otherwise be used.
+Actor: (Read Lifetime, Rad Msg, etc. Poly VI for these that can be used in other actors (picture in phone))
+Msg
+Teller
+Attribute (these should instead be grouped into one poly and have layers for selecting the instance i.e Read Parent UID)
+**Take inspiration from the `Create Channel` DAQmx poly VI.**
+Each one has a Read or Find, etc name for the Poly menu name. This should be the name of the menus selected, but concatenated with a space.
+
+- RENAME TOOL: Excluded names, update the names for the template msg and actor for name spacing excluded names. This could instead be programmatic by checking the library under question for the VI names already present.
+
 ## Resources
 
 > **RESPONSE**: Please take the following TODO and integrate them into the documentation.

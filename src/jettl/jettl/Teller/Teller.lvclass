@@ -68,15 +68,6 @@
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 		<Property Name="NI.ClassItem.State" Type="Int">1350578176</Property>
 	</Item>
-	<Item Name="Read Told Alias.vi" Type="VI" URL="../Read Told Alias.vi">
-		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!#E!!!!"!!%!!!!&amp;%!Q`````QJ5&lt;WRE)%&amp;M;7&amp;T!!!Q1(!!(A!!(!NK:82U&lt;#ZM&gt;GRJ9AZ5:7RM:8)O&lt;(:D&lt;'&amp;T=Q!!#62F&lt;'RF=C"J&lt;A"5!0!!$!!!!!!!!1!!!!!!!!!!!!!!!!!!!!!!!A)!!(A!!!!!!!!!!!!!#1!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!E!!!!!!"!!-!!!!!</Property>
-		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
-		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
-		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-		<Property Name="NI.ClassItem.State" Type="Int">1342709760</Property>
-	</Item>
 	<Item Name="Read Called From Msg Library.vi" Type="VI" URL="../Read Called From Msg Library.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!#M!!!!"!!%!!!!(%!B&amp;U.B&lt;'RF:#"'=G^N)%VT:S"-;7*S98*Z!$"!=!!?!!!=#WJF&gt;(2M,GRW&lt;'FC$F2F&lt;'RF=CZM&gt;G.M98.T!!!*6'6M&lt;'6S)'FO!&amp;1!]!!-!!!!!!!"!!!!!!!!!!!!!!!!!!!!!!!#!A!!?!!!!!!!!!!!!!!*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#1!!!!!!%!!Q!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
