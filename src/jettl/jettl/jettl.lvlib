@@ -68,9 +68,6 @@
 		<Item Name="Within Msgs.vi" Type="VI" URL="../Within Msgs.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
-		<Item Name="Default Implementation.vi" Type="VI" URL="../Default Implementation.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
 		<Item Name="Tell Self.vi" Type="VI" URL="../Tell Self.vi"/>
 		<Item Name="Tell Parent.vi" Type="VI" URL="../Tell Parent.vi"/>
 		<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi"/>
@@ -93,7 +90,7 @@
 		</Item>
 		<Item Name="Setting Up.vi" Type="VI" URL="../Setting Up.vi"/>
 		<Item Name="Listen To Msg.vi" Type="VI" URL="../Listen To Msg.vi"/>
-		<Item Name="Finalize Check.vi" Type="VI" URL="../Finalize Check.vi"/>
+		<Item Name="Finalize Turn Check.vi" Type="VI" URL="../Finalize Turn Check.vi"/>
 		<Item Name="Tearing Down.vi" Type="VI" URL="../Tearing Down.vi"/>
 		<Item Name="Check Stopping.vi" Type="VI" URL="../Check Stopping.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>

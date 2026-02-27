@@ -163,13 +163,6 @@ Resources of inspiration:
 
 - Add additional functions for Actor Index i.e. = Edge, = Mid, = Core, etc. This will be by user request for common functionality.
 
-IN ATTRIBUTES:
-Clone ID
-Transport ID
-Need both of these for Teller.
-
-- Finalize Spawn.vi: input Attributes and Error, internally passes the error out.
-
 ## Resources
 
 > **RESPONSE**: Please take the following TODO and integrate them into the documentation.

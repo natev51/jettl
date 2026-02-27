@@ -95,6 +95,15 @@
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 		<Property Name="NI.ClassItem.State" Type="Int">269230080</Property>
 	</Item>
+	<Item Name="Read UID.vi" Type="VI" URL="../Read UID.vi">
+		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!#B!!!!"!!%!!!!#5!$!!.6351!/%"Q!"Y!!#!,;G6U&gt;'QO&lt;(:M;7)3182U=GFC&gt;82F=SZM&gt;G.M98.T!!!.182U=GFC&gt;82F=S"J&lt;A"5!0!!$!!!!!!!!1!!!!!!!!!!!!!!!!!!!!!!!A)!!(A!!!!!!!!!!!!!#1!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!E!!!!!!"!!-!!!!!</Property>
+		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
+		<Property Name="NI.ClassItem.Flags" Type="Int">16777344</Property>
+		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
+		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
+		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1342709760</Property>
+	</Item>
 	<Item Name="Read Transport.vi" Type="VI" URL="../Read Transport.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">)!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$+!!!!"!!%!!!!-E"Q!"Y!!"],;G6U&gt;'QO&lt;(:M;7)26(*B&lt;H.Q&lt;X*U,GRW9WRB=X-!#62S97ZT='^S&gt;!!Y1(!!(A!!)!NK:82U&lt;#ZM&gt;GRJ9B*"&gt;(2S;7*V&gt;'6T,GRW9WRB=X-!!!V"&gt;(2S;7*V&gt;'6T)'FO!&amp;1!]!!-!!!!!!!"!!!!!!!!!!!!!!!!!!!!!!!#!A!!?!!!!!!!!!!!!!!*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#1!!!!!!%!!Q!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
