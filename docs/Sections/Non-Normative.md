@@ -170,22 +170,25 @@ Resources of inspiration:
 	- There must contain at least one "space" within the name.
 Justifications, when reading messages for the outside world, these characters are not allowed. This helps name spacing and clarity of intent.
 
-- `Equate Msg Inputs.vi`: two inputs and internal has the default instance with an equal output.
-
-- `Equate Actor Inputs.vi`: two inputs and internal has the default instance with an equal output.
-
-- put all of the above in the palette.
-
-- Add in the `Teller` Poly for the read teller methods. The goal should be to only use poly VIs for the framework, individual method calls should not be dropped onto the block diagram. If there is an inclination to drop them onto the block diagram, then this method likely shouldn't be dropped on the block diagram, or it is apart of a poly VI that should otherwise be used.
-Actor: (Read Lifetime, Rad Msg, etc. Poly VI for these that can be used in other actors (picture in phone))
-Msg
-Teller
-Attribute (these should instead be grouped into one poly and have layers for selecting the instance i.e Read Parent UID)
-**Take inspiration from the `Create Channel` DAQmx poly VI.**
-Each one has a Read or Find, etc name for the Poly menu name. This should be the name of the menus selected, but concatenated with a space.
-Make sure to use the poly VIs in other poly VIs for completion i.e. the `Actor Self Attributes` instance should be used for the Attributes VIs, for completion.
-
 - RENAME TOOL: Excluded names, update the names for the template msg and actor for name spacing excluded names. This could instead be programmatic by checking the library under question for the VI names already present.
+
+- Reorder where the Read Attributes Metadata goes. Probably should go before Actors since this would be done in the Setup. This should be a good rule to follow. Change where this occurs i.e. in the folder structure, etc.
+- `Actors` should be renamed as `Post-Setup Actors`. `Find Actors` renamed to `Attain Post-Setup Actors`. Thats for the DD method and function.
+
+- `Spawn.vi`: Async Root, Async Child, Call Root.
+- `Actor.vi`: Read Leaf, Read Refs, Read Msgs, Read Actor Index, Read Lifetime, Read Msg, Read Self Attributes, Read All Child Attributes, Find Child Attributes, Find Child Aliases, Equate Actor Inputs
+- `Attribute.vi`: menu layers for selecting the instance i.e `Read Parent:UID`. Read Self Attributes Metadata, Read Self Unified Msgs, Read Self Unified Leaf, Read Self Edge Actors, Read Self Core Actors, Read Self Parent Attributes, Read Self Root, Read Self Alias, Read Self UID, Read Self Transport, Read Self This VI, Read Self Actors, Write Attributes Metadata, Valid Attributes Metadata.
+- `Msg.vi`: Call, Tell Self, Tell Parent, Tell Child, Tell No Relation, Equate Msg Inputs
+- `Teller.vi`: Read Priority, Read Time, Read UID, Read Alias, Read Valid Relation, Read Relation, Read Called From Msg Library, Read Teller Metadata, Write Teller Metadata, Valid Teller Metadata.
+
+docs:
+The goal should be to only use poly VIs when developing.
+> Code smell: Individual method calls should not be dropped onto the block diagram. If there is an inclination to drop them onto the block diagram, then this method likely shouldn't be dropped on the block diagram, or it is apart of a poly VI that should otherwise be used.
+
+**Take inspiration from the `Create Channel` DAQmx poly VI.**
+Mimic the menu name as the display name.
+Poly VIs in other poly VIs for completion i.e. the `Actor Self Attributes` instance should be used for the Attributes VIs.
+**On a side note, these should all be inlined and preallocated.**
 
 ## Resources
 

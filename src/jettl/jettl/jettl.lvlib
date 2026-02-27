@@ -60,7 +60,7 @@
 		<Item Name="Base jettl Actor.lvlib" Type="Library" URL="../Base jettl Actor/Base jettl Actor.lvlib"/>
 		<Item Name="Find Msgs.vi" Type="VI" URL="../Find Msgs.vi"/>
 		<Item Name="Find Actors.vi" Type="VI" URL="../Find Actors.vi"/>
-		<Item Name="Update Attributes Transport and VI Ref.vi" Type="VI" URL="../Update Attributes Transport and VI Ref.vi">
+		<Item Name="Update Attributes Transport and This VI.vi" Type="VI" URL="../Update Attributes Transport and This VI.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 		<Item Name="Update Attributes Actors.vi" Type="VI" URL="../Update Attributes Actors.vi">
@@ -86,7 +86,7 @@
 		<Item Name="Read Self Attributes.lvlib" Type="Library" URL="../Read Self Attributes/Read Self Attributes.lvlib"/>
 		<Item Name="Read Parent Attributes.lvlib" Type="Library" URL="../Read Parent Attributes/Read Parent Attributes.lvlib"/>
 		<Item Name="Read Child Attributes.lvlib" Type="Library" URL="../Read Child Attributes/Read Child Attributes.lvlib"/>
-		<Item Name="Write Attributes Metadata in Actor.vi" Type="VI" URL="../Write Attributes Metadata in Actor.vi"/>
+		<Item Name="Write Attributes Metadata.vi" Type="VI" URL="../Write Attributes Metadata.vi"/>
 		<Item Name="Valid Attributes Metadata.vi" Type="VI" URL="../Valid Attributes Metadata.vi"/>
 	</Item>
 	<Item Name="Msg" Type="Folder">
@@ -124,7 +124,7 @@
 		<Item Name="Write Teller In Msg.vi" Type="VI" URL="../Write Teller In Msg.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
-		<Item Name="Write Teller Metadata In Msg.vi" Type="VI" URL="../Write Teller Metadata In Msg.vi"/>
+		<Item Name="Write Teller Metadata.vi" Type="VI" URL="../Write Teller Metadata.vi"/>
 		<Item Name="Valid Teller Metadata.vi" Type="VI" URL="../Valid Teller Metadata.vi"/>
 	</Item>
 	<Item Name="Transport" Type="Folder">
