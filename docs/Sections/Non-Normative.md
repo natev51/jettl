@@ -163,6 +163,25 @@ Resources of inspiration:
 
 - Add additional functions for Actor Index i.e. = Edge, = Mid, = Core, etc. This will be by user request for common functionality.
 
+- TEMPLATE TOOL: add in a function call in creating the template which creates in the library a SHA256 that is a for loop that outputs the "unique" value for the `Msg ID`.
+
+- Rename to `This VI`. All of the instances where it is used i.e. Transports and associated methods where its used as its inputs.
+
+- Message and actor naming limitation when using the rename Tool:
+	- We only allow "space" and capital/lowercase letters, that's it.
+	- There must contain at least one "space" within the name.
+Justifications, when reading messages for the outside world, these characters are not allowed. This helps name spacing and clarity of intent.
+
+- Read Lifetime, Rad Msg, etc. Poly VI for these that can be used in other actors (picture in phone).
+
+- `Equate Msg Inputs.vi`: two inputs and internal has the default instance with an equal output.
+
+- `Equate Actor Inputs.vi`: two inputs and internal has the default instance with an equal output.
+
+- put both of the above in the palette!
+
+- Take out the `Told Alias` string, make input to `Inspect Tell`
+stipulation: "if this input is blank, it doesn't come from the `Tell Child`"
 ## Resources
 
 > **RESPONSE**: Please take the following TODO and integrate them into the documentation.

@@ -40,7 +40,7 @@
 	<Item Name="Transport.vi" Type="VI" URL="../Transport.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="VI Ref.vi" Type="VI" URL="../VI Ref.vi">
+	<Item Name="This VI.vi" Type="VI" URL="../This VI.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Actors.vi" Type="VI" URL="../Actors.vi">
