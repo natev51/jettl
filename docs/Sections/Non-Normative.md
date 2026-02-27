@@ -183,8 +183,11 @@ Teller
 Attribute (these should instead be grouped into one poly and have layers for selecting the instance i.e Read Parent UID)
 **Take inspiration from the `Create Channel` DAQmx poly VI.**
 Each one has a Read or Find, etc name for the Poly menu name. This should be the name of the menus selected, but concatenated with a space.
+Make sure to use the poly VIs in other poly VIs for completion i.e. the `Actor Self Attributes` instance should be used for the Attributes VIs, for completion.
 
 - RENAME TOOL: Excluded names, update the names for the template msg and actor for name spacing excluded names. This could instead be programmatic by checking the library under question for the VI names already present.
+
+- Consider changing the relative seconds to the TimeStamp that comes with LabVIEW which takes the current timestamp. Might be a performance hit, but well worth it for the long run. In case someone wants to change it, put this into a SubVI and put the get datetime seconds in here, which the user can then change as necessary to how ever they want to analyze time. 
 
 ## Resources
 

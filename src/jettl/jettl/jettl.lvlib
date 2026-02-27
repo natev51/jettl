@@ -75,6 +75,9 @@
 		<Item Name="Tell.vi" Type="VI" URL="../Tell.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
+		<Item Name="Find Time.vi" Type="VI" URL="../Find Time.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
 	</Item>
 	<Item Name="Actor" Type="Folder">
 		<Item Name="Refs.lvclass" Type="LVClass" URL="../Refs/Refs.lvclass"/>
