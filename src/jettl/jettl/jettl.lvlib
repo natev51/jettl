@@ -54,31 +54,6 @@
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 	</Item>
-	<Item Name="Msg" Type="Folder">
-		<Item Name="Msg.lvclass" Type="LVClass" URL="../Msg/Msg.lvclass"/>
-		<Item Name="Msg Input.lvclass" Type="LVClass" URL="../Msg Input/Msg Input.lvclass"/>
-		<Item Name="Msg Output.lvclass" Type="LVClass" URL="../Msg Output/Msg Output.lvclass"/>
-		<Item Name="Start jettl Msg.lvlib" Type="Library" URL="../Start jettl Msg/Start jettl Msg.lvlib"/>
-		<Item Name="Stop jettl Msg.lvlib" Type="Library" URL="../Stop jettl Msg/Stop jettl Msg.lvlib"/>
-		<Item Name="Stopping jettl Msg.lvlib" Type="Library" URL="../Stopping jettl Msg/Stopping jettl Msg.lvlib"/>
-		<Item Name="Stopped jettl Msg.lvlib" Type="Library" URL="../Stopped jettl Msg/Stopped jettl Msg.lvlib"/>
-		<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>
-		<Item Name="Recurse.vi" Type="VI" URL="../Recurse.vi"/>
-		<Item Name="Execute Or Recurse.vi" Type="VI" URL="../Execute Or Recurse.vi"/>
-		<Item Name="Within Msgs.vi" Type="VI" URL="../Within Msgs.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Tell Self.vi" Type="VI" URL="../Tell Self.vi"/>
-		<Item Name="Tell Parent.vi" Type="VI" URL="../Tell Parent.vi"/>
-		<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi"/>
-		<Item Name="Tell Arbitrary.vi" Type="VI" URL="../Tell Arbitrary.vi"/>
-		<Item Name="Tell.vi" Type="VI" URL="../Tell.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Find Time.vi" Type="VI" URL="../Find Time.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-	</Item>
 	<Item Name="Actor" Type="Folder">
 		<Item Name="Refs.lvclass" Type="LVClass" URL="../Refs/Refs.lvclass"/>
 		<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor.lvclass"/>
@@ -100,18 +75,7 @@
 		</Item>
 		<Item Name="Find Child Attributes.vi" Type="VI" URL="../Find Child Attributes.vi"/>
 		<Item Name="Find Child Aliases.vi" Type="VI" URL="../Find Child Aliases.vi"/>
-	</Item>
-	<Item Name="Teller" Type="Folder">
-		<Item Name="Teller Metadata.lvclass" Type="LVClass" URL="../Teller Metadata/Teller Metadata.lvclass"/>
-		<Item Name="Teller.lvclass" Type="LVClass" URL="../Teller/Teller.lvclass"/>
-		<Item Name="Base Teller.lvlib" Type="Library" URL="../Base Teller/Base Teller.lvlib">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Write Teller In Msg.vi" Type="VI" URL="../Write Teller In Msg.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Write Teller Metadata In Msg.vi" Type="VI" URL="../Write Teller Metadata In Msg.vi"/>
-		<Item Name="Valid Teller Metadata.vi" Type="VI" URL="../Valid Teller Metadata.vi"/>
+		<Item Name="Equate Actor Inputs.vi" Type="VI" URL="../Equate Actor Inputs.vi"/>
 	</Item>
 	<Item Name="Attributes" Type="Folder">
 		<Item Name="Attributes Metadata.lvclass" Type="LVClass" URL="../Attributes Metadata/Attributes Metadata.lvclass"/>
@@ -124,6 +88,44 @@
 		<Item Name="Read Child Attributes.lvlib" Type="Library" URL="../Read Child Attributes/Read Child Attributes.lvlib"/>
 		<Item Name="Write Attributes Metadata in Actor.vi" Type="VI" URL="../Write Attributes Metadata in Actor.vi"/>
 		<Item Name="Valid Attributes Metadata.vi" Type="VI" URL="../Valid Attributes Metadata.vi"/>
+	</Item>
+	<Item Name="Msg" Type="Folder">
+		<Item Name="Msg.lvclass" Type="LVClass" URL="../Msg/Msg.lvclass"/>
+		<Item Name="Msg Input.lvclass" Type="LVClass" URL="../Msg Input/Msg Input.lvclass"/>
+		<Item Name="Msg Output.lvclass" Type="LVClass" URL="../Msg Output/Msg Output.lvclass"/>
+		<Item Name="Start jettl Msg.lvlib" Type="Library" URL="../Start jettl Msg/Start jettl Msg.lvlib"/>
+		<Item Name="Stop jettl Msg.lvlib" Type="Library" URL="../Stop jettl Msg/Stop jettl Msg.lvlib"/>
+		<Item Name="Stopping jettl Msg.lvlib" Type="Library" URL="../Stopping jettl Msg/Stopping jettl Msg.lvlib"/>
+		<Item Name="Stopped jettl Msg.lvlib" Type="Library" URL="../Stopped jettl Msg/Stopped jettl Msg.lvlib"/>
+		<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>
+		<Item Name="Recurse.vi" Type="VI" URL="../Recurse.vi"/>
+		<Item Name="Execute Or Recurse.vi" Type="VI" URL="../Execute Or Recurse.vi"/>
+		<Item Name="Within Msgs.vi" Type="VI" URL="../Within Msgs.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Tell Self.vi" Type="VI" URL="../Tell Self.vi"/>
+		<Item Name="Tell Parent.vi" Type="VI" URL="../Tell Parent.vi"/>
+		<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi"/>
+		<Item Name="Tell No Relation.vi" Type="VI" URL="../Tell No Relation.vi"/>
+		<Item Name="Tell.vi" Type="VI" URL="../Tell.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Find Time.vi" Type="VI" URL="../Find Time.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Equate Msg Inputs.vi" Type="VI" URL="../Equate Msg Inputs.vi"/>
+	</Item>
+	<Item Name="Teller" Type="Folder">
+		<Item Name="Teller Metadata.lvclass" Type="LVClass" URL="../Teller Metadata/Teller Metadata.lvclass"/>
+		<Item Name="Teller.lvclass" Type="LVClass" URL="../Teller/Teller.lvclass"/>
+		<Item Name="Base Teller.lvlib" Type="Library" URL="../Base Teller/Base Teller.lvlib">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Write Teller In Msg.vi" Type="VI" URL="../Write Teller In Msg.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Write Teller Metadata In Msg.vi" Type="VI" URL="../Write Teller Metadata In Msg.vi"/>
+		<Item Name="Valid Teller Metadata.vi" Type="VI" URL="../Valid Teller Metadata.vi"/>
 	</Item>
 	<Item Name="Transport" Type="Folder">
 		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
