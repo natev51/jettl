@@ -59,7 +59,7 @@
 		<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor.lvclass"/>
 		<Item Name="Base jettl Actor.lvlib" Type="Library" URL="../Base jettl Actor/Base jettl Actor.lvlib"/>
 		<Item Name="Find Msgs.vi" Type="VI" URL="../Find Msgs.vi"/>
-		<Item Name="Find Actors.vi" Type="VI" URL="../Find Actors.vi"/>
+		<Item Name="Find Post-Setup Actors.vi" Type="VI" URL="../Find Post-Setup Actors.vi"/>
 		<Item Name="Update Attributes A.vi" Type="VI" URL="../Update Attributes A.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
@@ -116,11 +116,7 @@
 	</Item>
 	<Item Name="Teller" Type="Folder">
 		<Item Name="Teller Metadata.lvclass" Type="LVClass" URL="../Teller Metadata/Teller Metadata.lvclass"/>
-		<Item Name="Teller.lvclass" Type="LVClass" URL="../Teller/Teller.lvclass"/>
-		<Item Name="Base Teller.lvlib" Type="Library" URL="../Base Teller/Base Teller.lvlib">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Write Teller In Msg.vi" Type="VI" URL="../Write Teller In Msg.vi">
+		<Item Name="Write Teller.vi" Type="VI" URL="../Write Teller.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 		<Item Name="Write Teller Metadata.vi" Type="VI" URL="../Write Teller Metadata.vi"/>
@@ -139,9 +135,7 @@
 		<Item Name="Child Attributes.ctl" Type="VI" URL="../Child Attributes.ctl"/>
 		<Item Name="Lifetime.ctl" Type="VI" URL="../Lifetime.ctl"/>
 		<Item Name="Attributes.ctl" Type="VI" URL="../Attributes.ctl"/>
-		<Item Name="Teller Elements.ctl" Type="VI" URL="../Teller Elements.ctl">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
+		<Item Name="Teller.ctl" Type="VI" URL="../Teller.ctl"/>
 		<Item Name="Async Elements.ctl" Type="VI" URL="../Async Elements.ctl">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
