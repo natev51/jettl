@@ -60,10 +60,13 @@
 		<Item Name="Base jettl Actor.lvlib" Type="Library" URL="../Base jettl Actor/Base jettl Actor.lvlib"/>
 		<Item Name="Find Msgs.vi" Type="VI" URL="../Find Msgs.vi"/>
 		<Item Name="Find Actors.vi" Type="VI" URL="../Find Actors.vi"/>
-		<Item Name="Update Attributes Transport and This VI.vi" Type="VI" URL="../Update Attributes Transport and This VI.vi">
+		<Item Name="Update Attributes A.vi" Type="VI" URL="../Update Attributes A.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
-		<Item Name="Update Attributes Actors.vi" Type="VI" URL="../Update Attributes Actors.vi">
+		<Item Name="Update Attributes B.vi" Type="VI" URL="../Update Attributes B.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Update Attributes C.vi" Type="VI" URL="../Update Attributes C.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 		<Item Name="Setting Up.vi" Type="VI" URL="../Setting Up.vi"/>
@@ -79,10 +82,6 @@
 	</Item>
 	<Item Name="Attributes" Type="Folder">
 		<Item Name="Attributes Metadata.lvclass" Type="LVClass" URL="../Attributes Metadata/Attributes Metadata.lvclass"/>
-		<Item Name="Attributes.lvclass" Type="LVClass" URL="../Attributes/Attributes.lvclass"/>
-		<Item Name="Base Attributes.lvlib" Type="Library" URL="../Base Attributes/Base Attributes.lvlib">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
 		<Item Name="Read Self Attributes.lvlib" Type="Library" URL="../Read Self Attributes/Read Self Attributes.lvlib"/>
 		<Item Name="Read Parent Attributes.lvlib" Type="Library" URL="../Read Parent Attributes/Read Parent Attributes.lvlib"/>
 		<Item Name="Read Child Attributes.lvlib" Type="Library" URL="../Read Child Attributes/Read Child Attributes.lvlib"/>
@@ -137,15 +136,13 @@
 		<Item Name="Relation.ctl" Type="VI" URL="../Relation.ctl"/>
 		<Item Name="Msgs.ctl" Type="VI" URL="../Msgs.ctl"/>
 		<Item Name="Teardown Location.ctl" Type="VI" URL="../Teardown Location.ctl"/>
-		<Item Name="All Child Attributes.ctl" Type="VI" URL="../All Child Attributes.ctl"/>
+		<Item Name="Child Attributes.ctl" Type="VI" URL="../Child Attributes.ctl"/>
 		<Item Name="Lifetime.ctl" Type="VI" URL="../Lifetime.ctl"/>
+		<Item Name="Attributes.ctl" Type="VI" URL="../Attributes.ctl"/>
 		<Item Name="Teller Elements.ctl" Type="VI" URL="../Teller Elements.ctl">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 		<Item Name="Async Elements.ctl" Type="VI" URL="../Async Elements.ctl">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Attributes.ctl" Type="VI" URL="../Attributes.ctl">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 		<Item Name="Unified Spawn.ctl" Type="VI" URL="../Unified Spawn.ctl">

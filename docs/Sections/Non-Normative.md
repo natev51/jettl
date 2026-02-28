@@ -190,6 +190,14 @@ Mimic the menu name as the display name.
 Poly VIs in other poly VIs for completion i.e. the `Actor Self Attributes` instance should be used for the Attributes VIs.
 **On a side note, these should all be inlined and preallocated.**
 
+- Async Actor.vi
+Make non reentrant, put highlight execution on. What is the recreated execution for:
+1. Two Roots spawning at the same time?
+2. Root spawning child
+What are the executions for these? Because we want to leak the first reference. And we want to know what to do, in the nonreentrant case without having the uninitialized shift register.
+
+- Replace Attributes and Teller with Type Defs. Make the Attributes DVRs.
+  Remember to delete the DVR in Teardown.
 ## Resources
 
 > **RESPONSE**: Please take the following TODO and integrate them into the documentation.

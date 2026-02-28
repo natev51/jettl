@@ -10,9 +10,6 @@
 
 </Property>
 	<Item Name="Read Child Attributes.vi" Type="VI" URL="../Read Child Attributes.vi"/>
-	<Item Name="Attributes Metadata.vi" Type="VI" URL="../Attributes Metadata.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
 	<Item Name="Unified Msgs.vi" Type="VI" URL="../Unified Msgs.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
@@ -23,9 +20,6 @@
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Core Actors.vi" Type="VI" URL="../Core Actors.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="Parent Attributes.vi" Type="VI" URL="../Parent Attributes.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Root.vi" Type="VI" URL="../Root.vi">
@@ -43,7 +37,10 @@
 	<Item Name="This VI.vi" Type="VI" URL="../This VI.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Actors.vi" Type="VI" URL="../Actors.vi">
+	<Item Name="Attributes Metadata.vi" Type="VI" URL="../Attributes Metadata.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Post-Setup Actors.vi" Type="VI" URL="../Post-Setup Actors.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 </Library>

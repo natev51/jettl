@@ -16,5 +16,7 @@
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Setting Up.vi" Type="VI" URL="../Setting Up.vi"/>
-	<Item Name="Transport.vi" Type="VI" URL="../Transport.vi"/>
+	<Item Name="Transport.vi" Type="VI" URL="../Transport.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
 </Library>
