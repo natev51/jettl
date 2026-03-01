@@ -172,18 +172,12 @@ Justifications, when reading messages for the outside world, these characters ar
 
 - RENAME TOOL: Excluded names, update the names for the template msg and actor for name spacing excluded names. This could instead be programmatic by checking the library under question for the VI names already present.
 
-- Reorder where the Read Attributes Metadata goes. Probably should go before Actors since this would be done in the Setup. This should be a good rule to follow. Change where this occurs i.e. in the folder structure, etc.
-- `Actors` should be renamed as `Post-Setup Actors`. `Find Actors` renamed to `Attain Post-Setup Actors`. Thats for the DD method and function.
-
-- `Spawn.vi`: Async Root, Async Child, Call Root.
-- `Actor.vi`: Read Leaf, Read Refs, Read Msgs, Read Actor Index, Read Lifetime, Read Msg, Read Self Attributes, Read All Child Attributes, Find Child Attributes, Find Child Aliases, Equate Actor Inputs
-- `Attribute.vi`: menu layers for selecting the instance i.e `Read Parent:UID`. Read Self Attributes Metadata, Read Self Unified Msgs, Read Self Unified Leaf, Read Self Edge Actors, Read Self Core Actors, Read Self Parent Attributes, Read Self Root, Read Self Alias, Read Self UID, Read Self Transport, Read Self This VI, Read Self Actors, Write Attributes Metadata, Valid Attributes Metadata.
-- `Msg.vi`: Call, Tell Self, Tell Parent, Tell Child, Tell No Relation, Equate Msg Inputs
-- `Teller.vi`: Read Priority, Read Time, Read UID, Read Alias, Read Valid Relation, Read Relation, Read Called From Msg Library, Read Teller Metadata, Write Teller Metadata, Valid Teller Metadata.
+- `Attribute.vi`: menu layers for selecting the instance i.e `Read Parent:UID`. Read Self Unified Msgs, Read Self Unified Leaf, Read Self Edge Actors, Read Self Core Actors, Read Self Root, Read Self Alias, Read Self UID, Read Self Transport, Read Self This VI, Read Self Attributes Metadata, Read Self Post-Setup Actors, Write Attributes Metadata, Valid Attributes Metadata.
+- `Msg.vi`: Tell Self, Tell Parent, Tell Child, Tell No Relation
+- `Teller.vi`: Priority, Time, UID, Alias, Valid Relation, Relation, Called From Msg Library, Teller Metadata, Write Teller Metadata, Valid Teller Metadata.
 
 docs:
-The goal should be to only use poly VIs when developing.
-> Code smell: Individual method calls should not be dropped onto the block diagram. If there is an inclination to drop them onto the block diagram, then this method likely shouldn't be dropped on the block diagram, or it is apart of a poly VI that should otherwise be used.
+When developing, only use poly VIs found on the palette.
 
 **Take inspiration from the `Create Channel` DAQmx poly VI.**
 Mimic the menu name as the display name.
@@ -196,8 +190,8 @@ Make non reentrant, put highlight execution on. What is the recreated execution 
 2. Root spawning child
 What are the executions for these? Because we want to leak the first reference. And we want to know what to do, in the nonreentrant case without having the uninitialized shift register.
 
-- Replace Attributes and Teller with Type Defs. Make the Attributes DVRs.
-  Remember to delete the DVR in Teardown.
+- revist the spawn function calls.
+
 ## Resources
 
 > **RESPONSE**: Please take the following TODO and integrate them into the documentation.

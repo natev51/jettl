@@ -47,7 +47,13 @@
 		<Item Name="Insert Child Attributes.vi" Type="VI" URL="../Insert Child Attributes.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
+		<Item Name="Remove Child Attributes.vi" Type="VI" URL="../Remove Child Attributes.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
 		<Item Name="Async Actor.vi" Type="VI" URL="../Async Actor.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Start Async Non-Reentrant.vi" Type="VI" URL="../Start Async Non-Reentrant.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 		<Item Name="Actor.vi" Type="VI" URL="../Actor.vi">
@@ -55,6 +61,7 @@
 		</Item>
 	</Item>
 	<Item Name="Actor" Type="Folder">
+		<Item Name="Actor Specific.lvlib" Type="Library" URL="../Actor Specific/Actor Specific.lvlib"/>
 		<Item Name="Refs.lvclass" Type="LVClass" URL="../Refs/Refs.lvclass"/>
 		<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor.lvclass"/>
 		<Item Name="Base jettl Actor.lvlib" Type="Library" URL="../Base jettl Actor/Base jettl Actor.lvlib"/>
@@ -76,11 +83,9 @@
 		<Item Name="Check Stopping.vi" Type="VI" URL="../Check Stopping.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
-		<Item Name="Find Child Attributes.vi" Type="VI" URL="../Find Child Attributes.vi"/>
-		<Item Name="Find Child Aliases.vi" Type="VI" URL="../Find Child Aliases.vi"/>
-		<Item Name="Equate Actor Inputs.vi" Type="VI" URL="../Equate Actor Inputs.vi"/>
 	</Item>
 	<Item Name="Attributes" Type="Folder">
+		<Item Name="Attributes.lvlib" Type="Library" URL="../Attributes/Attributes.lvlib"/>
 		<Item Name="Attributes Metadata.lvclass" Type="LVClass" URL="../Attributes Metadata/Attributes Metadata.lvclass"/>
 		<Item Name="Read Self Attributes.lvlib" Type="Library" URL="../Read Self Attributes/Read Self Attributes.lvlib"/>
 		<Item Name="Read Parent Attributes.lvlib" Type="Library" URL="../Read Parent Attributes/Read Parent Attributes.lvlib"/>
@@ -89,6 +94,7 @@
 		<Item Name="Valid Attributes Metadata.vi" Type="VI" URL="../Valid Attributes Metadata.vi"/>
 	</Item>
 	<Item Name="Msg" Type="Folder">
+		<Item Name="Msg Specific.lvlib" Type="Library" URL="../Msg Specific/Msg Specific.lvlib"/>
 		<Item Name="Msg.lvclass" Type="LVClass" URL="../Msg/Msg.lvclass"/>
 		<Item Name="Msg Input.lvclass" Type="LVClass" URL="../Msg Input/Msg Input.lvclass"/>
 		<Item Name="Msg Output.lvclass" Type="LVClass" URL="../Msg Output/Msg Output.lvclass"/>
@@ -109,12 +115,9 @@
 		<Item Name="Tell.vi" Type="VI" URL="../Tell.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
-		<Item Name="Find Time.vi" Type="VI" URL="../Find Time.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Equate Msg Inputs.vi" Type="VI" URL="../Equate Msg Inputs.vi"/>
 	</Item>
 	<Item Name="Teller" Type="Folder">
+		<Item Name="Teller.lvlib" Type="Library" URL="../Teller/Teller.lvlib"/>
 		<Item Name="Teller Metadata.lvclass" Type="LVClass" URL="../Teller Metadata/Teller Metadata.lvclass"/>
 		<Item Name="Write Teller.vi" Type="VI" URL="../Write Teller.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
@@ -136,6 +139,7 @@
 		<Item Name="Lifetime.ctl" Type="VI" URL="../Lifetime.ctl"/>
 		<Item Name="Attributes.ctl" Type="VI" URL="../Attributes.ctl"/>
 		<Item Name="Teller.ctl" Type="VI" URL="../Teller.ctl"/>
+		<Item Name="jettl.ctl" Type="VI" URL="../jettl.ctl"/>
 		<Item Name="Async Elements.ctl" Type="VI" URL="../Async Elements.ctl">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
