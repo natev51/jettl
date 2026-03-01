@@ -44,12 +44,6 @@
 		<Item Name="Unify Iterator.vi" Type="VI" URL="../Unify Iterator.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
-		<Item Name="Insert Child Attributes.vi" Type="VI" URL="../Insert Child Attributes.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Remove Child Attributes.vi" Type="VI" URL="../Remove Child Attributes.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
 		<Item Name="Async Actor.vi" Type="VI" URL="../Async Actor.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
@@ -74,6 +68,12 @@
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 		<Item Name="Update Attributes C.vi" Type="VI" URL="../Update Attributes C.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Insert Child Attributes.vi" Type="VI" URL="../Insert Child Attributes.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Remove Child Attributes.vi" Type="VI" URL="../Remove Child Attributes.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 		<Item Name="Setting Up.vi" Type="VI" URL="../Setting Up.vi"/>
