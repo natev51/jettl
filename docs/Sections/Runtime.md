@@ -37,36 +37,6 @@ This approach cannot validate timing behavior or hardware-specific failure modes
 
 > **JUSTIFICATION**: The previous draft asked for “more detail with examples.” This rewrite provides a fill-in template that keeps the section actionable without inventing project-specific numbers.
 
-## Scheduling and Priority
-
-### Context
-
-The core philosophy is: actors should assume they cannot control message execution order (see [Scheduling and Ordering](Core%20Model.md#scheduling-and-ordering)).
-
-### Guidelines
-
-- Prefer designs that do not require ordering assumptions.
-- If you introduce message priority, define:
-  - what priority means,
-  - where it is honored,
-  - and what it does *not* guarantee.
-
-### Current Priority Semantics (As Documented)
-
-> **TODO:** Confirm these semantics against the transport implementations and add acceptance tests.
-
-- **Does jettl expose message priority?**: Yes. It is a Boolean flag to either tell a message that is received in a FIFO (first-in-first-out) or with priority where the message is put at the front of the FIFO.
-- **If yes, where is it honored?**: *(fill in per transport; at minimum Queue vs Event)*
-- **What does priority guarantee?**: The message will be put at the front of the FIFO.
-- **What does priority NOT guarantee?**: If other messages also have priority, temporally, it is not guaranteed which will be listened to first.
-- **Acceptance tests**: *(fill in; see suggestions below)*
-
-#### Suggested Acceptance Tests (Priority)
-
-1. Tell messages A, B, C (non-priority), then tell P (priority) → verify P is listened to before the remaining FIFO messages.
-2. Tell P1 (priority), P2 (priority) from different sources → verify no ordering guarantee between P1/P2 beyond “both are ahead of non-priority”.
-3. Verify transport-specific behavior (e.g., if Event transport ignores priority, document that explicitly).
-
 ## Packed Project Libraries (PPL)
 
 ### Overview

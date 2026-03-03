@@ -10,7 +10,4 @@
 
 </Property>
 	<Item Name="Msg Specific.vi" Type="VI" URL="../Msg Specific.vi"/>
-	<Item Name="Equate Inputs.vi" Type="VI" URL="../Equate Inputs.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
 </Library>

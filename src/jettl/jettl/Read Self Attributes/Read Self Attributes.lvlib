@@ -37,9 +37,6 @@
 	<Item Name="This VI.vi" Type="VI" URL="../This VI.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Attributes Metadata.vi" Type="VI" URL="../Attributes Metadata.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
 	<Item Name="Post-Setup Actors.vi" Type="VI" URL="../Post-Setup Actors.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>

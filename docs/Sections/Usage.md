@@ -107,6 +107,7 @@ This material is intentionally not committed as a recommended pattern in the nea
 #### Periodic Messaging jettl Actor
 
 Properly timed message streams have to come from another entity that determines timing of when to tell a message. Ethan Stern has a presentation where he talks about periodic messaging.
+[2019 ACLA Ethan Stern Complex AF Avoid The Pitfalls Of Bad Asynchronous Programming](https://www.youtube.com/watch?v=39E2LUGOBxc)@32:51.
 
 This Periodic Messaging jettl Actor is spawned for timing. The actor that spawned it holds the truth for the state of the periodic message in case of timing issues where the child tells another message after telling. This behavior can be handled in the `Inspect Call.vi` override by checking the state and ignoring messages received.
 

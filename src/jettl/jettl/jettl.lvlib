@@ -16,12 +16,6 @@
 			</Item>
 			<Item Name="Init Root Actors.vi" Type="VI" URL="../Init Root Actors.vi"/>
 		</Item>
-		<Item Name="Async Elements" Type="Folder">
-			<Item Name="Async Elements.lvclass" Type="LVClass" URL="../Async Elements/Async Elements.lvclass"/>
-			<Item Name="Base Async Elements.lvlib" Type="Library" URL="../Base Async Elements/Base Async Elements.lvlib">
-				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-			</Item>
-		</Item>
 		<Item Name="Spawn.lvlib" Type="Library" URL="../Spawn/Spawn.lvlib"/>
 		<Item Name="Check Parent Actor.vi" Type="VI" URL="../Check Parent Actor.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
@@ -78,52 +72,52 @@
 		</Item>
 		<Item Name="Setting Up.vi" Type="VI" URL="../Setting Up.vi"/>
 		<Item Name="Listen To Msg.vi" Type="VI" URL="../Listen To Msg.vi"/>
-		<Item Name="Finalize Turn Check.vi" Type="VI" URL="../Finalize Turn Check.vi"/>
+		<Item Name="Finalizing Turn.vi" Type="VI" URL="../Finalizing Turn.vi"/>
 		<Item Name="Tearing Down.vi" Type="VI" URL="../Tearing Down.vi"/>
 		<Item Name="Check Stopping.vi" Type="VI" URL="../Check Stopping.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 	</Item>
-	<Item Name="Attributes" Type="Folder">
+	<Item Name="Actor Attributes" Type="Folder">
 		<Item Name="Attributes.lvlib" Type="Library" URL="../Attributes/Attributes.lvlib"/>
-		<Item Name="Attributes Metadata.lvclass" Type="LVClass" URL="../Attributes Metadata/Attributes Metadata.lvclass"/>
 		<Item Name="Read Self Attributes.lvlib" Type="Library" URL="../Read Self Attributes/Read Self Attributes.lvlib"/>
 		<Item Name="Read Parent Attributes.lvlib" Type="Library" URL="../Read Parent Attributes/Read Parent Attributes.lvlib"/>
 		<Item Name="Read Child Attributes.lvlib" Type="Library" URL="../Read Child Attributes/Read Child Attributes.lvlib"/>
-		<Item Name="Write Attributes Metadata.vi" Type="VI" URL="../Write Attributes Metadata.vi"/>
-		<Item Name="Valid Attributes Metadata.vi" Type="VI" URL="../Valid Attributes Metadata.vi"/>
 	</Item>
 	<Item Name="Msg" Type="Folder">
 		<Item Name="Msg Specific.lvlib" Type="Library" URL="../Msg Specific/Msg Specific.lvlib"/>
 		<Item Name="Msg.lvclass" Type="LVClass" URL="../Msg/Msg.lvclass"/>
 		<Item Name="Msg Input.lvclass" Type="LVClass" URL="../Msg Input/Msg Input.lvclass"/>
 		<Item Name="Msg Output.lvclass" Type="LVClass" URL="../Msg Output/Msg Output.lvclass"/>
-		<Item Name="Start jettl Msg.lvlib" Type="Library" URL="../Start jettl Msg/Start jettl Msg.lvlib"/>
-		<Item Name="Stop jettl Msg.lvlib" Type="Library" URL="../Stop jettl Msg/Stop jettl Msg.lvlib"/>
-		<Item Name="Stopping jettl Msg.lvlib" Type="Library" URL="../Stopping jettl Msg/Stopping jettl Msg.lvlib"/>
-		<Item Name="Stopped jettl Msg.lvlib" Type="Library" URL="../Stopped jettl Msg/Stopped jettl Msg.lvlib"/>
 		<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>
-		<Item Name="Recurse.vi" Type="VI" URL="../Recurse.vi"/>
 		<Item Name="Execute Or Recurse.vi" Type="VI" URL="../Execute Or Recurse.vi"/>
-		<Item Name="Within Msgs.vi" Type="VI" URL="../Within Msgs.vi">
+		<Item Name="Tell Self.vi" Type="VI" URL="../Tell Self.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
-		<Item Name="Tell Self.vi" Type="VI" URL="../Tell Self.vi"/>
-		<Item Name="Tell Parent.vi" Type="VI" URL="../Tell Parent.vi"/>
-		<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi"/>
-		<Item Name="Tell No Relation.vi" Type="VI" URL="../Tell No Relation.vi"/>
+		<Item Name="Tell Parent.vi" Type="VI" URL="../Tell Parent.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
 		<Item Name="Tell.vi" Type="VI" URL="../Tell.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Init Msg Attributes.vi" Type="VI" URL="../Init Msg Attributes.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Forward Msg Attributes.vi" Type="VI" URL="../Forward Msg Attributes.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Check Name.vi" Type="VI" URL="../Check Name.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 	</Item>
 	<Item Name="Teller" Type="Folder">
 		<Item Name="Teller.lvlib" Type="Library" URL="../Teller/Teller.lvlib"/>
-		<Item Name="Teller Metadata.lvclass" Type="LVClass" URL="../Teller Metadata/Teller Metadata.lvclass"/>
 		<Item Name="Write Teller.vi" Type="VI" URL="../Write Teller.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
-		<Item Name="Write Teller Metadata.vi" Type="VI" URL="../Write Teller Metadata.vi"/>
-		<Item Name="Valid Teller Metadata.vi" Type="VI" URL="../Valid Teller Metadata.vi"/>
 	</Item>
 	<Item Name="Transport" Type="Folder">
 		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
@@ -131,20 +125,29 @@
 		<Item Name="Queue Transport.lvlib" Type="Library" URL="../Queue Transport/Queue Transport.lvlib"/>
 	</Item>
 	<Item Name="Type Defs" Type="Folder">
-		<Item Name="Child Aliases.ctl" Type="VI" URL="../Child Aliases.ctl"/>
-		<Item Name="Relation.ctl" Type="VI" URL="../Relation.ctl"/>
-		<Item Name="Msgs.ctl" Type="VI" URL="../Msgs.ctl"/>
-		<Item Name="Teardown Location.ctl" Type="VI" URL="../Teardown Location.ctl"/>
-		<Item Name="Child Attributes.ctl" Type="VI" URL="../Child Attributes.ctl"/>
-		<Item Name="Lifetime.ctl" Type="VI" URL="../Lifetime.ctl"/>
-		<Item Name="Attributes.ctl" Type="VI" URL="../Attributes.ctl"/>
-		<Item Name="Teller.ctl" Type="VI" URL="../Teller.ctl"/>
-		<Item Name="jettl.ctl" Type="VI" URL="../jettl.ctl"/>
-		<Item Name="Async Elements.ctl" Type="VI" URL="../Async Elements.ctl">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		<Item Name="Non-DVR" Type="Folder">
+			<Item Name="Independent" Type="Folder">
+				<Item Name="Msgs.ctl" Type="VI" URL="../Msgs.ctl"/>
+				<Item Name="Msg Names.ctl" Type="VI" URL="../Msg Names.ctl"/>
+				<Item Name="Child Aliases.ctl" Type="VI" URL="../Child Aliases.ctl"/>
+				<Item Name="Relation.ctl" Type="VI" URL="../Relation.ctl"/>
+				<Item Name="Teardown Location.ctl" Type="VI" URL="../Teardown Location.ctl"/>
+				<Item Name="Lifetime.ctl" Type="VI" URL="../Lifetime.ctl"/>
+			</Item>
+			<Item Name="Dependent" Type="Folder">
+				<Item Name="Async Elements.ctl" Type="VI" URL="../Async Elements.ctl"/>
+				<Item Name="Teller.ctl" Type="VI" URL="../Teller.ctl"/>
+				<Item Name="Layer.ctl" Type="VI" URL="../Layer.ctl"/>
+				<Item Name="Unified Layer.ctl" Type="VI" URL="../Unified Layer.ctl"/>
+			</Item>
 		</Item>
-		<Item Name="Unified Spawn.ctl" Type="VI" URL="../Unified Spawn.ctl">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		<Item Name="DVR" Type="Folder">
+			<Item Name="Actor.ctl" Type="VI" URL="../Actor.ctl"/>
+			<Item Name="Base Actor.ctl" Type="VI" URL="../Base Actor.ctl"/>
+			<Item Name="Actor Attributes.ctl" Type="VI" URL="../Actor Attributes.ctl"/>
+			<Item Name="Msg Attributes.ctl" Type="VI" URL="../Msg Attributes.ctl"/>
+			<Item Name="Child Actor Attributes Map.ctl" Type="VI" URL="../Child Actor Attributes Map.ctl"/>
+			<Item Name="Root Lifetime.ctl" Type="VI" URL="../Root Lifetime.ctl"/>
 		</Item>
 	</Item>
 	<Item Name="Error" Type="Folder">

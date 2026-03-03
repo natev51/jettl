@@ -34,10 +34,7 @@
 	<Item Name="Read Parent Attributes.vi" Type="VI" URL="../Read Parent Attributes.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Read Child Attributes.vi" Type="VI" URL="../Read Child Attributes.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="Equate Inputs.vi" Type="VI" URL="../Equate Inputs.vi">
+	<Item Name="Read Child Attributes Map.vi" Type="VI" URL="../Read Child Attributes Map.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Find Child Aliases.vi" Type="VI" URL="../Find Child Aliases.vi">

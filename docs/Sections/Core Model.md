@@ -150,15 +150,6 @@ One approach: a Core Actor layer overrides the necessary inspection hooks to par
 
 > **JUSTIFICATION**: The earlier draft implied “told messages are always delivered” without distinguishing *enqueue/delivery* from *execution*. This version makes the contract explicit: tell schedules work; execution depends on actor lifetime and transport semantics.
 
-### Scheduling and Ordering
-
-#### Guidelines
-
-- Callers SHOULD assume they cannot control the order that messages execute.
-- If ordering is required, serialize explicitly (e.g., a single message representing the sequence, a state machine, or an explicit serialization structure).
-
-For priority semantics (if any), see [Scheduling and Priority](Runtime.md#scheduling-and-priority).
-
 ### Message Inputs, Outputs, and Type Definitions
 
 #### Contracts

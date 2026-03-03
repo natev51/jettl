@@ -10,25 +10,28 @@
 
 </Property>
 	<Item Name="TEMPLATE.vi" Type="VI" URL="../TEMPLATE.vi"/>
-	<Item Name="Init Msg.vi" Type="VI" URL="../Init Msg.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="Init Msg Default.vi" Type="VI" URL="../Init Msg Default.vi">
+	<Item Name="Name.vi" Type="VI" URL="../Name.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Call.vi" Type="VI" URL="../Call.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Recurse.vi" Type="VI" URL="../Recurse.vi">
+	<Item Name="Tell Self Init.vi" Type="VI" URL="../Tell Self Init.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Tell Self.vi" Type="VI" URL="../Tell Self.vi">
+	<Item Name="Tell Self Forward.vi" Type="VI" URL="../Tell Self Forward.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Tell Parent.vi" Type="VI" URL="../Tell Parent.vi">
+	<Item Name="Tell Parent Init.vi" Type="VI" URL="../Tell Parent Init.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi">
+	<Item Name="Tell Parent Forward.vi" Type="VI" URL="../Tell Parent Forward.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Tell Child Init.vi" Type="VI" URL="../Tell Child Init.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Tell Child Forward.vi" Type="VI" URL="../Tell Child Forward.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 </Library>

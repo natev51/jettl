@@ -152,7 +152,7 @@ Documentation structure, virtual folder conventions, and image rules are maintai
 These are non-normative guidelines.
 
 1. Develop business logic in a separate library and use that library in actor code. This decouples logic from the actor and improves testability for the separate library, independent of the framework.
-2. Prefer designs that do not rely on message ordering. If you introduce priority messaging, also define ordering rules and acceptance tests (see [Scheduling and Priority](Runtime.md#scheduling-and-priority)).
+2. Prefer designs that do not rely on message ordering.
 3. Name message methods with enough context (often ~3–4 words) to reduce naming collisions when overriding message methods in actors.
 4. Do not split the central object wire, except in pure read methods (e.g., `Read X.vi`) that do not pass through the input object to the output.
 5. Prefer calling functions and methods from the palettes. Many VIs are public only because they are required by templates; treat the [API Reference](API%20Reference.md) as the canonical map for what is intended to be called directly.
@@ -179,4 +179,4 @@ These are non-normative guidelines.
 - **What is the smallest “hello world” actor tree worth documenting?**: One actor layer wrapping the Base Actor, with a single message (or UI action) that tells `Stop` and observes `Stopped`.
 - **What is the first “real” example you want new users to build?**: Continuous logging and measurement with mock objects (desktop), then swap mocks for real implementations.
 - **What part of the mental model is hardest for new users?**: Layering (unified actor vs actor layers) and the consequences of “no ordering guarantees”.
-- **Which terms are still ambiguous and need sharper definitions?**: Core vs Edge actor layers, what “priority” guarantees (if anything), and what behavior is transport-specific vs transport-invariant.
+- **Which terms are still ambiguous and need sharper definitions?**: Core vs Edge actor layers, and what behavior is transport-specific vs transport-invariant.

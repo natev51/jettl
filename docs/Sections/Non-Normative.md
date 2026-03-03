@@ -34,16 +34,15 @@ These questions are intentionally tracked here until they are resolved and moved
 
 > **JUSTIFICATION**: These questions previously existed as “out of band” notes. Recording them here makes the current uncertainty visible to readers and creates a clear backlog for tightening the contract.
 
-1. Is priority part of the public contract?
-2. Are Core Actors vs Edge Actors formally distinct or just conceptual?
-3. Is “No Relation” messaging supported or only conceptual?
-4. Is forwarding part of the framework or just a pattern?
-5. What stability policy applies to APIs?
-6. What minimum acceptance tests define Core Model compliance?
-7. Is the Stop contract fully specified for all failure modes?
-8. Should Channel Wire transport exist?
-9. Is plugin architecture first-class or user-land?
-10. Is Spawn Parent real or exploratory?
+1. Are Core Actors vs Edge Actors formally distinct or just conceptual?
+2. Is “No Relation” messaging supported or only conceptual?
+3. Is forwarding part of the framework or just a pattern?
+4. What stability policy applies to APIs?
+5. What minimum acceptance tests define Core Model compliance?
+6. Is the Stop contract fully specified for all failure modes?
+7. Should Channel Wire transport exist?
+8. Is plugin architecture first-class or user-land?
+9. Is Spawn Parent real or exploratory?
 ## Broker / Mediator
 
 Resources:
@@ -172,17 +171,8 @@ Justifications, when reading messages for the outside world, these characters ar
 
 - RENAME TOOL: Excluded names, update the names for the template msg and actor for name spacing excluded names. This could instead be programmatic by checking the library under question for the VI names already present.
 
-- `Attribute.vi`: menu layers for selecting the instance i.e `Read Parent:UID`. Read Self Unified Msgs, Read Self Unified Leaf, Read Self Edge Actors, Read Self Core Actors, Read Self Root, Read Self Alias, Read Self UID, Read Self Transport, Read Self This VI, Read Self Attributes Metadata, Read Self Post-Setup Actors, Write Attributes Metadata, Valid Attributes Metadata.
-- `Msg.vi`: Tell Self, Tell Parent, Tell Child, Tell No Relation
-- `Teller.vi`: Priority, Time, UID, Alias, Valid Relation, Relation, Called From Msg Library, Teller Metadata, Write Teller Metadata, Valid Teller Metadata.
-
 docs:
 When developing, only use poly VIs found on the palette.
-
-**Take inspiration from the `Create Channel` DAQmx poly VI.**
-Mimic the menu name as the display name.
-Poly VIs in other poly VIs for completion i.e. the `Actor Self Attributes` instance should be used for the Attributes VIs.
-**On a side note, these should all be inlined and preallocated.**
 
 - Async Actor.vi
 Make non reentrant, put highlight execution on. What is the recreated execution for:
@@ -190,7 +180,7 @@ Make non reentrant, put highlight execution on. What is the recreated execution 
 2. Root spawning child
 What are the executions for these? Because we want to leak the first reference. And we want to know what to do, in the nonreentrant case without having the uninitialized shift register.
 
-- revist the spawn function calls.
+- revisit the spawn function calls.
 
 ## Resources
 
@@ -461,3 +451,6 @@ Without these, formal verification is not possible.
 **Q1:** Should child spawning be strictly forbidden once an actor has entered any stopping state?
 **Q2:** Should `Stop` and `Terminate` be modeled as distinct states, or as context flags within the same state machine?
 **Q3:** Do you intend to eventually prove termination of the actor tree under all shutdown scenarios, or is this a pragmatic contract rather than a formally verified guarantee?
+
+
+maybe there is some merit to ONLY using a type def for the message input and only one input. This makes scripting much easier. This would also be easier for the gRPC since only the type def information will be sent across

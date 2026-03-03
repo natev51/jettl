@@ -20,4 +20,12 @@
 	<Item Name="TEMPLATE Msg Output.lvlib" Type="Library" URL="../TEMPLATE Msg Output/TEMPLATE Msg Output.lvlib">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
+	<Item Name="Init.vi" Type="VI" URL="../Init.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Forward.vi" Type="VI" URL="../Forward.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Input.ctl" Type="VI" URL="../Input.ctl"/>
+	<Item Name="Output.ctl" Type="VI" URL="../Output.ctl"/>
 </Library>
