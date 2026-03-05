@@ -462,12 +462,29 @@ Without these, formal verification is not possible.
 - `Root Lifetime` ensures lifetime of DVR is lifetime of the `Unified Actor`
 
 - DVR Specifics:
-Mark As Modifier ONLY used for DD method calls.
-All DVRs are Type Defs, no classes.
-These are found under the Type Defs virtual folder in the jettl library.
-
-- Rename `Attributes` to `Actor Attributes`
-
+All DVRs are Type Defs. But, some of the type defs have inside them interfaces (which are instantiated as classes at runtime). Therefore Mark As Modifier (on the IPES input) is not used in jettl unless:
+1. This is a write operation **AND**
+2. A dynamic dispatch method is called within the IPES.
+This could change in the future, note:
+https://lavag.org/topic/7761-in-place-element-structure-mark-as-modifier/
+https://lavag.org/topic/19685-dvr-and-error-handling/
+https://forums.ni.com/t5/LabVIEW/Mark-as-modifier-in-place-of-structure/td-p/2028072
+https://www.ni.com/docs/en-US/bundle/labview-api-ref/page/structures/in-place-element-structure.html#:~:text=You%20can%20right%2Dclick%20a,data%20and%20avoid%20race%20conditions
+https://forums.ni.com/t5/LabVIEW/Manipulating-DVR-Data-Is-this-correct/m-p/3211893
+https://forums.ni.com/t5/LabVIEW/quot-Data-Value-Reference-quot-and-quot-In-Place-Element/td-p/1558466
+https://www.ni.com/docs/en-US/bundle/labview/page/caveats-and-recommendations-for-using-in-place-element-structures.html
+https://www.ni.com/docs/en-US/bundle/labview/page/storing-data-and-reducing-data-copies-with-data-value-references.html#:~:text=Storing%20Data%20and%20Reducing%20Data%20Copies%20with,value%20references%20to%20store%20large%20data%20sets.
+https://medium.com/@thomas.zilliox/sharing-memory-between-modules-and-loops-in-labview-287e14e4039e
+https://www.youtube.com/watch?v=VIWzjnkqz1Q
+https://www.youtube.com/watch?v=lPwLTCtgYDo
+https://forums.ni.com/t5/LabVIEW/Anyone-else-having-DVR-In-place-element-structure-bug-error-1556/td-p/4320674
+https://forums.ni.com/t5/LabVIEW/Pointers-in-Labview/m-p/1242534#M525059
+https://forums.ni.com/t5/LabVIEW/Reference-to-a-variable/m-p/4038233#M1158672
+https://www.ni.com/docs/en-US/bundle/labview-api-ref/page/functions/data-value-reference-read-write-element.html?srsltid=AfmBOoonDb0eZCRmaWPO4N9VNUrYt9_UCMS-Xoeok8eylPlcB3ber5dI
+https://www.youtube.com/watch?v=DTbqR0H-e8g
+https://lavag.org/topic/10983-dvr-vs-pointer/
+https://www.ni.com/docs/en-US/bundle/labview/page/storing-data-and-reducing-data-copies-with-data-value-references.html?srsltid=AfmBOop8BAUarAnSy6KhSo8oJHJ-6_S7GbU5qGuWa3Pkd82RajZvUnJi
+and many other discussions on DVRs in LabVIEW.
 
 ---
 
@@ -500,4 +517,11 @@ Documentation generation where all messages are statically placed to their desti
 
 ---
 
-Find Post-Setup Actors.vi update this to use the DVR when available, not broken.
+PPLs. Idea: jettl is used ONLY as a PPL. If the developer is curious about the underlying functionality, then they should (as any other language) go to the git repository and examine the source code for further learning. Otherwise, the documentation is the source of truth for the framework for both decisions behind the design of the source code along with usability of the jettl framework.
+
+---
+
+OOP Access Scope gripe..:
+Even though their libraries are private, the interface can still be implemented (weird, but it works for some reason). **This is a weird rule with LabVIEW where, even if an interface is private to a library AND the interface is marked private, other classes outside the library can still implement the interface.** While interfaces themselves (as files) can be set to private access scope within a project library, this primarily restricts which other VIs can _use_ or _call_ the interface, not which classes can _implement_ it. The same can be said for classes.
+Now, where you can get in a tough spot! If your interface is marked private to a containing library and that library is built into a PPL, NOW the class that implements the interface (now a PPL, if then you start using the PPL version) is now not able to allow the class to implement the interface SINCE the interface is private to the PPL and is not available in the PPL since it was marked as private!
+SO. Best practice for code development, to side step this rule above in LabVIEW (that in my opinion should be more restrictive to not let others implement a class/interface if the class/interface is private to classes/interfaces outside of the containing library) is to not implement an interface or inherit from a class that is private to a containing library that that class/interface is not apart of.
