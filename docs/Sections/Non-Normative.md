@@ -525,3 +525,8 @@ OOP Access Scope gripe..:
 Even though their libraries are private, the interface can still be implemented (weird, but it works for some reason). **This is a weird rule with LabVIEW where, even if an interface is private to a library AND the interface is marked private, other classes outside the library can still implement the interface.** While interfaces themselves (as files) can be set to private access scope within a project library, this primarily restricts which other VIs can _use_ or _call_ the interface, not which classes can _implement_ it. The same can be said for classes.
 Now, where you can get in a tough spot! If your interface is marked private to a containing library and that library is built into a PPL, NOW the class that implements the interface (now a PPL, if then you start using the PPL version) is now not able to allow the class to implement the interface SINCE the interface is private to the PPL and is not available in the PPL since it was marked as private!
 SO. Best practice for code development, to side step this rule above in LabVIEW (that in my opinion should be more restrictive to not let others implement a class/interface if the class/interface is private to classes/interfaces outside of the containing library) is to not implement an interface or inherit from a class that is private to a containing library that that class/interface is not apart of.
+
+---
+
+DVR stuff.
+Rules that I made for jettl. Every Type Def is a DVR. I don't know why, but they are.

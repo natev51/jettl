@@ -140,32 +140,27 @@
 	</Item>
 	<Item Name="Transport" Type="Folder">
 		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
-		<Item Name="Event Transport.lvlib" Type="Library" URL="../Event Transport/Event Transport.lvlib"/>
-		<Item Name="Queue Transport.lvlib" Type="Library" URL="../Queue Transport/Queue Transport.lvlib"/>
+		<Item Name="Transport Teardown.vi" Type="VI" URL="../Transport Teardown.vi"/>
 	</Item>
 	<Item Name="Type Defs" Type="Folder">
-		<Item Name="Non-DVR" Type="Folder">
-			<Item Name="Independent" Type="Folder">
-				<Item Name="Msgs.ctl" Type="VI" URL="../Msgs.ctl"/>
-				<Item Name="Child Aliases.ctl" Type="VI" URL="../Child Aliases.ctl"/>
-				<Item Name="Relation.ctl" Type="VI" URL="../Relation.ctl"/>
-				<Item Name="Teardown Location.ctl" Type="VI" URL="../Teardown Location.ctl"/>
-				<Item Name="Lifetime.ctl" Type="VI" URL="../Lifetime.ctl"/>
-			</Item>
-			<Item Name="Dependent" Type="Folder">
-				<Item Name="Async Elements.ctl" Type="VI" URL="../Async Elements.ctl"/>
-				<Item Name="Layer.ctl" Type="VI" URL="../Layer.ctl"/>
-				<Item Name="Unified Layer.ctl" Type="VI" URL="../Unified Layer.ctl"/>
-			</Item>
-		</Item>
-		<Item Name="DVR" Type="Folder">
-			<Item Name="Actor.ctl" Type="VI" URL="../Actor.ctl"/>
-			<Item Name="Base Actor.ctl" Type="VI" URL="../Base Actor.ctl"/>
-			<Item Name="Actor Attributes.ctl" Type="VI" URL="../Actor Attributes.ctl"/>
-			<Item Name="Child Actor Attributes.ctl" Type="VI" URL="../Child Actor Attributes.ctl"/>
+		<Item Name="Independent" Type="Folder">
+			<Item Name="Msgs.ctl" Type="VI" URL="../Msgs.ctl"/>
+			<Item Name="Child Aliases.ctl" Type="VI" URL="../Child Aliases.ctl"/>
+			<Item Name="Relation.ctl" Type="VI" URL="../Relation.ctl"/>
+			<Item Name="Teardown Location.ctl" Type="VI" URL="../Teardown Location.ctl"/>
+			<Item Name="Lifetime.ctl" Type="VI" URL="../Lifetime.ctl"/>
 			<Item Name="Root Lifetime.ctl" Type="VI" URL="../Root Lifetime.ctl"/>
-			<Item Name="Msg Attributes.ctl" Type="VI" URL="../Msg Attributes.ctl"/>
+		</Item>
+		<Item Name="Dependent" Type="Folder">
+			<Item Name="Async Elements.ctl" Type="VI" URL="../Async Elements.ctl"/>
+			<Item Name="Layer.ctl" Type="VI" URL="../Layer.ctl"/>
+			<Item Name="Unified Layer.ctl" Type="VI" URL="../Unified Layer.ctl"/>
 			<Item Name="Teller.ctl" Type="VI" URL="../Teller.ctl"/>
+			<Item Name="Base Actor.ctl" Type="VI" URL="../Base Actor.ctl"/>
+			<Item Name="Child Actor Attributes.ctl" Type="VI" URL="../Child Actor Attributes.ctl"/>
+			<Item Name="Actor.ctl" Type="VI" URL="../Actor.ctl"/>
+			<Item Name="Actor Attributes.ctl" Type="VI" URL="../Actor Attributes.ctl"/>
+			<Item Name="Msg Attributes.ctl" Type="VI" URL="../Msg Attributes.ctl"/>
 		</Item>
 	</Item>
 	<Item Name="Error" Type="Folder">
