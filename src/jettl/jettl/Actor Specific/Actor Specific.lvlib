@@ -10,37 +10,13 @@
 
 </Property>
 	<Item Name="Actor Specific.vi" Type="VI" URL="../Actor Specific.vi"/>
-	<Item Name="Read Leaf.vi" Type="VI" URL="../Read Leaf.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="Read Refs.vi" Type="VI" URL="../Read Refs.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="Read Msgs.vi" Type="VI" URL="../Read Msgs.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="Read Actor Index.vi" Type="VI" URL="../Read Actor Index.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="Read Lifetime.vi" Type="VI" URL="../Read Lifetime.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="Read Msg.vi" Type="VI" URL="../Read Msg.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="Read Self Attributes.vi" Type="VI" URL="../Read Self Attributes.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="Read Parent Attributes.vi" Type="VI" URL="../Read Parent Attributes.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="Read Child Attributes Map.vi" Type="VI" URL="../Read Child Attributes Map.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
 	<Item Name="Find Child Aliases.vi" Type="VI" URL="../Find Child Aliases.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Find Child Attributes.vi" Type="VI" URL="../Find Child Attributes.vi">
+		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+	</Item>
+	<Item Name="Is Child Alias.vi" Type="VI" URL="../Is Child Alias.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 </Library>

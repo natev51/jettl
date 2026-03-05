@@ -453,4 +453,51 @@ Without these, formal verification is not possible.
 **Q3:** Do you intend to eventually prove termination of the actor tree under all shutdown scenarios, or is this a pragmatic contract rather than a formally verified guarantee?
 
 
-maybe there is some merit to ONLY using a type def for the message input and only one input. This makes scripting much easier. This would also be easier for the gRPC since only the type def information will be sent across
+
+
+- “Write Spawn Attributes” and “Read Spawn Attributes” (same as Actor Attributes, without DVR), make the DVR in “Setting Up”.
+
+- Decorator Methods (VF): Contains public functions for the DVR and DD methods for i.e. `Start.vi`, `Decorator.vi`, `Find Msgs.vi`, etc.
+
+- `Root Lifetime` ensures lifetime of DVR is lifetime of the `Unified Actor`
+
+- DVR Specifics:
+Mark As Modifier ONLY used for DD method calls.
+All DVRs are Type Defs, no classes.
+These are found under the Type Defs virtual folder in the jettl library.
+
+- Rename `Attributes` to `Actor Attributes`
+
+
+---
+
+Stopped is the final message that can be read by an actor (actor goes out of scope and releases DVRs of Msg Attributes told after Stooped). Lifetime of child actors, only when the parent receives Stopped will the actor be able to go out of scope. This guarantees lifetime of messages told before Stopped, but not after Stopped since the Msg Attributes are tied to a DVR, which is tied to the Child that goes out of scope after Stopped message.
+“Stopped Listened To:BoolQueue” AFTER Stopped as Dequeue (In Stopped reads “Stopped Listened To” and enqueues TRUE
+“Stopped Listened To” is created at the Update Attributes B of Child spawning.
+
+---
+
+Methods for the Forward to Self, Parent, Child that takes in the Msg and checks if that IS the message, then forwards it to the recipient without any data copies (note the DVR is destroyed here and created again to give lifetime to actor telling as well as writing the Teller again to update state AFTER new DVR is created.
+
+---
+
+Base Actor: If in the future there are input changes to Base Actor OR one chooses to use a substitute for the Base Actor (roll their own), then this can easily be implemented.
+
+---
+
+Messages that are told before when actor is spawning.
+
+---
+
+Tell.vi
+This changes the owner of this DVR to this actor.
+
+---
+
+What is my goal of this framework?
+High throughput of execution, hence the number of DVRs used.
+Documentation generation where all messages are statically placed to their destination at edit time.
+
+---
+
+Find Post-Setup Actors.vi update this to use the DVR when available, not broken.
