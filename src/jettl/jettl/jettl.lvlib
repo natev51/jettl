@@ -49,43 +49,11 @@
 		</Item>
 	</Item>
 	<Item Name="Actor" Type="Folder">
-		<Item Name="Invariant" Type="Folder">
-			<Item Name="Decorators" Type="Folder">
-				<Item Name="Write Actor.vi" Type="VI" URL="../Write Actor.vi"/>
-				<Item Name="Read Actor.vi" Type="VI" URL="../Read Actor.vi"/>
-				<Item Name="Write Base Actor.vi" Type="VI" URL="../Write Base Actor.vi"/>
-				<Item Name="Read Base Actor.vi" Type="VI" URL="../Read Base Actor.vi"/>
-				<Item Name="Write Self Actor Attributes.vi" Type="VI" URL="../Write Self Actor Attributes.vi"/>
-				<Item Name="Read Self Actor Attributes.vi" Type="VI" URL="../Read Self Actor Attributes.vi"/>
-				<Item Name="Write Parent Actor Attributes.vi" Type="VI" URL="../Write Parent Actor Attributes.vi"/>
-				<Item Name="Read Parent Actor Attributes.vi" Type="VI" URL="../Read Parent Actor Attributes.vi"/>
-				<Item Name="Write Child Actor Attributes.vi" Type="VI" URL="../Write Child Actor Attributes.vi"/>
-				<Item Name="Read Child Actor Attributes.vi" Type="VI" URL="../Read Child Actor Attributes.vi"/>
-				<Item Name="Write Root Lifetime.vi" Type="VI" URL="../Write Root Lifetime.vi"/>
-				<Item Name="Read Root Lifetime.vi" Type="VI" URL="../Read Root Lifetime.vi"/>
-			</Item>
-			<Item Name="Other" Type="Folder">
-				<Item Name="Find Msgs.vi" Type="VI" URL="../Find Msgs.vi"/>
-				<Item Name="Recurse.vi" Type="VI" URL="../Recurse.vi"/>
-			</Item>
-		</Item>
-		<Item Name="Variant" Type="Folder">
-			<Item Name="Spawn.vi" Type="VI" URL="../Spawn.vi"/>
-			<Item Name="Finalize Spawn.vi" Type="VI" URL="../Finalize Spawn.vi"/>
-			<Item Name="Setup.vi" Type="VI" URL="../Setup.vi"/>
-			<Item Name="Inspect Call.vi" Type="VI" URL="../Inspect Call.vi"/>
-			<Item Name="Inspect Tell.vi" Type="VI" URL="../Inspect Tell.vi"/>
-			<Item Name="Finalize Turn.vi" Type="VI" URL="../Finalize Turn.vi"/>
-			<Item Name="Teardown.vi" Type="VI" URL="../Teardown.vi"/>
-		</Item>
 		<Item Name="Actor Specific.lvlib" Type="Library" URL="../Actor Specific/Actor Specific.lvlib"/>
 		<Item Name="Refs.lvclass" Type="LVClass" URL="../Refs/Refs.lvclass"/>
 		<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor.lvclass"/>
 		<Item Name="Base jettl Actor.lvlib" Type="Library" URL="../Base jettl Actor/Base jettl Actor.lvlib"/>
-		<Item Name="Update Attributes A.vi" Type="VI" URL="../Update Attributes A.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Update Attributes B.vi" Type="VI" URL="../Update Attributes B.vi">
+		<Item Name="Update Actor Attributes.vi" Type="VI" URL="../Update Actor Attributes.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 		<Item Name="Insert Child Attributes.vi" Type="VI" URL="../Insert Child Attributes.vi">
@@ -94,10 +62,14 @@
 		<Item Name="Remove Child Attributes.vi" Type="VI" URL="../Remove Child Attributes.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
+		<Item Name="Find Msgs.vi" Type="VI" URL="../Find Msgs.vi"/>
 		<Item Name="Setting Up.vi" Type="VI" URL="../Setting Up.vi"/>
 		<Item Name="Calling.vi" Type="VI" URL="../Calling.vi"/>
 		<Item Name="Finalizing Turn.vi" Type="VI" URL="../Finalizing Turn.vi"/>
 		<Item Name="Tearing Down.vi" Type="VI" URL="../Tearing Down.vi"/>
+		<Item Name="Transport Teardown.vi" Type="VI" URL="../Transport Teardown.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
 		<Item Name="Check Stopping.vi" Type="VI" URL="../Check Stopping.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
@@ -109,38 +81,34 @@
 		<Item Name="Read Child Attributes.lvlib" Type="Library" URL="../Read Child Attributes/Read Child Attributes.lvlib"/>
 	</Item>
 	<Item Name="Msg" Type="Folder">
-		<Item Name="Msg Specific.lvlib" Type="Library" URL="../Msg Specific/Msg Specific.lvlib"/>
+		<Item Name="Self" Type="Folder">
+			<Item Name="Tell Self Init.vi" Type="VI" URL="../Tell Self Init.vi"/>
+			<Item Name="Tell Self Forward.vi" Type="VI" URL="../Tell Self Forward.vi"/>
+			<Item Name="Tell Self.vi" Type="VI" URL="../Tell Self.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+		</Item>
+		<Item Name="Parent" Type="Folder">
+			<Item Name="Tell Parent Init.vi" Type="VI" URL="../Tell Parent Init.vi"/>
+			<Item Name="Tell Parent Forward.vi" Type="VI" URL="../Tell Parent Forward.vi"/>
+			<Item Name="Tell Parent.vi" Type="VI" URL="../Tell Parent.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+		</Item>
+		<Item Name="Child" Type="Folder">
+			<Item Name="Tell Child Init.vi" Type="VI" URL="../Tell Child Init.vi"/>
+			<Item Name="Tell Child Forward.vi" Type="VI" URL="../Tell Child Forward.vi"/>
+			<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi">
+				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+			</Item>
+		</Item>
 		<Item Name="Msg.lvclass" Type="LVClass" URL="../Msg/Msg.lvclass"/>
 		<Item Name="Msg Input.lvclass" Type="LVClass" URL="../Msg Input/Msg Input.lvclass"/>
 		<Item Name="Msg Output.lvclass" Type="LVClass" URL="../Msg Output/Msg Output.lvclass"/>
 		<Item Name="Execute Or Recurse.vi" Type="VI" URL="../Execute Or Recurse.vi"/>
-		<Item Name="Tell Self.vi" Type="VI" URL="../Tell Self.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Tell Parent.vi" Type="VI" URL="../Tell Parent.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Tell Child Init.vi" Type="VI" URL="../Tell Child Init.vi"/>
-		<Item Name="Tell Child Forward.vi" Type="VI" URL="../Tell Child Forward.vi"/>
-		<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
 		<Item Name="Tell.vi" Type="VI" URL="../Tell.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
-		<Item Name="Check Msg.vi" Type="VI" URL="../Check Msg.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Init Msg Attributes.vi" Type="VI" URL="../Init Msg Attributes.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-	</Item>
-	<Item Name="Teller" Type="Folder">
-		<Item Name="Teller.lvlib" Type="Library" URL="../Teller/Teller.lvlib"/>
-	</Item>
-	<Item Name="Transport" Type="Folder">
-		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
-		<Item Name="Transport Teardown.vi" Type="VI" URL="../Transport Teardown.vi"/>
 	</Item>
 	<Item Name="Type Defs" Type="Folder">
 		<Item Name="Independent" Type="Folder">
@@ -200,5 +168,24 @@
 		<Item Name="Not In Started State.vi" Type="VI" URL="../Not In Started State.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
+	</Item>
+	<Item Name="DELETE" Type="Folder">
+		<Item Name="Write Base Actor.vi" Type="VI" URL="../Write Base Actor.vi"/>
+		<Item Name="Read Base Actor.vi" Type="VI" URL="../Read Base Actor.vi"/>
+		<Item Name="Write Self Actor Attributes.vi" Type="VI" URL="../Write Self Actor Attributes.vi"/>
+		<Item Name="Read Self Actor Attributes.vi" Type="VI" URL="../Read Self Actor Attributes.vi"/>
+		<Item Name="Write Parent Actor Attributes.vi" Type="VI" URL="../Write Parent Actor Attributes.vi"/>
+		<Item Name="Read Parent Actor Attributes.vi" Type="VI" URL="../Read Parent Actor Attributes.vi"/>
+		<Item Name="Write Child Actor Attributes.vi" Type="VI" URL="../Write Child Actor Attributes.vi"/>
+		<Item Name="Read Child Actor Attributes.vi" Type="VI" URL="../Read Child Actor Attributes.vi"/>
+		<Item Name="Write Root Lifetime.vi" Type="VI" URL="../Write Root Lifetime.vi"/>
+		<Item Name="Spawn.vi" Type="VI" URL="../Spawn.vi"/>
+		<Item Name="Finalize Spawn.vi" Type="VI" URL="../Finalize Spawn.vi"/>
+		<Item Name="Setup.vi" Type="VI" URL="../Setup.vi"/>
+		<Item Name="Inspect Call.vi" Type="VI" URL="../Inspect Call.vi"/>
+		<Item Name="Inspect Tell.vi" Type="VI" URL="../Inspect Tell.vi"/>
+		<Item Name="Finalize Turn.vi" Type="VI" URL="../Finalize Turn.vi"/>
+		<Item Name="Teardown.vi" Type="VI" URL="../Teardown.vi"/>
+		<Item Name="Read Root Lifetime.vi" Type="VI" URL="../Read Root Lifetime.vi"/>
 	</Item>
 </Library>
