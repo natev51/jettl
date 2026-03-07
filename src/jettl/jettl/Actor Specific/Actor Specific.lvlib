@@ -10,9 +10,6 @@
 
 </Property>
 	<Item Name="Actor Specific.vi" Type="VI" URL="../Actor Specific.vi"/>
-	<Item Name="Find Child Aliases.vi" Type="VI" URL="../Find Child Aliases.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
 	<Item Name="Find Child Attributes.vi" Type="VI" URL="../Find Child Attributes.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>

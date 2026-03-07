@@ -511,9 +511,9 @@ This changes the owner of this DVR to this actor.
 
 ---
 
-What is my goal of this framework?
-High throughput of execution, hence the number of DVRs used.
-Documentation generation where all messages are statically placed to their destination at edit time.
+Two clusters are implemented as DVRs:
+- `Unified Actor.ctl`
+- `Msg.ctl`
 
 ---
 
@@ -528,5 +528,60 @@ SO. Best practice for code development, to side step this rule above in LabVIEW 
 
 ---
 
-DVR stuff.
-Rules that I made for jettl. Every Type Def is a DVR. I don't know why, but they are.
+Add back in the Msg Attributes to Base Actor cluster
+
+Write Msg Attributes
+Here’s the thing, we cannot call a messages method in line, it must ALWAYS be Told.
+
+Eh….. make Base Actor private and launched internally, for the Spawn, add an input for the Base Actor inputs (some interface thing like the Root Actors input interface), this is in case I add data inputs the Base Actor in the future.
+
+
+Msg DVR
+DVRs for messages, memory copies being created when sending user events. He addressed this in the example with a DVR as the payload. Nonetheless, this gets back to the code smell of a different async process deleting a DVR once complete with the data. Though, if lifetimes are guaranteed and the deleting of DVRs occurs under the hood in the framework, this could provide as a benefit.
+https://youtu.be/zR6qe2POhFk?si=QVWJH4omuairiQLv @18:57
+
+SubVI for the Release Transport and put it RIGHT when the Actor shouldn’t handle anymore messages! ie right when “Stopping without children”.
+
+---
+
+Static type checking
+A message can only be told IF the actor that would listen to the message ALSO has that message in it’s “Inbound Msgs” set. This set is compiled from all calls to the Tell methods in a msg library ie
+
+Msgs
+- Inbound
+- Implemented (interface check)
+- Tell Forward Self
+- Tell Forward Parent
+- Tell Forward Child
+
+The three above are checked against the internal - “Unified Forward Self Msgs”
+- “Unified Parent Forward Msgs”
+- “Unified Child Forward Mags”
+“Other” DD method for forwarding messages by doing case structures around them to see which will be forwarded.
+
+NOTE an error will occur if trying to tell a message to an actor that doesn’t have it in it’s “Inbound Msgs” set
+
+
+Outbound
+- Tell Self Forward
+- Tell Parent Forward
+- Tell Child Forward
+- Tell Self Init
+- Tell Parent Init
+- Tell Child Init
+
+
+
+DD for Tell Forward
+DD for Tell Forward Self
+DD for Tell Forward Parent
+DD for Tell Forward Child
+
+
+
+Inbound
+
+
+
+
+UIDs are type casted from DVR.
