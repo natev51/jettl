@@ -584,8 +584,20 @@ Inbound
 
 
 
-UIDs are type casted from DVR.
+
 
 
 
 Implement DD Overrides in TEMPLATE and Base Actor.
+
+---
+
+Instead of configuration object:
+New DVR in Spawner and delete DVR in Spawnee, New DVR there.
+
+Messaging is purely hierarchical AND FAST due to DVRs. Minimize overhead when listening to messages and forwarding.
+
+---
+
+Finalize the Actor interface
+In accordance with the Base Actor private data.

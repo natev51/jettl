@@ -49,19 +49,25 @@
 		</Item>
 	</Item>
 	<Item Name="Actor" Type="Folder">
-		<Item Name="Actor Specific.lvlib" Type="Library" URL="../Actor Specific/Actor Specific.lvlib"/>
+		<Item Name="old" Type="Folder">
+			<Item Name="Read Unified Actor.lvlib" Type="Library" URL="../Read Unified Actor/Read Unified Actor.lvlib"/>
+			<Item Name="Read Base Actor.lvlib" Type="Library" URL="../Read Base Actor/Read Base Actor.lvlib"/>
+		</Item>
 		<Item Name="Refs.lvclass" Type="LVClass" URL="../Refs/Refs.lvclass"/>
 		<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor.lvclass"/>
 		<Item Name="Base jettl Actor.lvlib" Type="Library" URL="../Base jettl Actor/Base jettl Actor.lvlib">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
-		<Item Name="Update Actor Attributes.vi" Type="VI" URL="../Update Actor Attributes.vi">
+		<Item Name="Update Self Unified Actor.vi" Type="VI" URL="../Update Self Unified Actor.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
-		<Item Name="Insert Child Attributes.vi" Type="VI" URL="../Insert Child Attributes.vi">
+		<Item Name="Insert Child Unified Actor.vi" Type="VI" URL="../Insert Child Unified Actor.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
-		<Item Name="Remove Child Attributes.vi" Type="VI" URL="../Remove Child Attributes.vi">
+		<Item Name="Remove Child Unified Actor.vi" Type="VI" URL="../Remove Child Unified Actor.vi">
+			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
+		</Item>
+		<Item Name="Find Child Unified Actor.vi" Type="VI" URL="../Find Child Unified Actor.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 		<Item Name="Find Msgs.vi" Type="VI" URL="../Find Msgs.vi"/>
@@ -75,9 +81,6 @@
 		<Item Name="Check Stopping.vi" Type="VI" URL="../Check Stopping.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
-	</Item>
-	<Item Name="Read Unified Actor" Type="Folder">
-		<Item Name="Read Unified Actor.lvlib" Type="Library" URL="../Read Unified Actor/Read Unified Actor.lvlib"/>
 	</Item>
 	<Item Name="Msg" Type="Folder">
 		<Item Name="Self" Type="Folder">
@@ -102,44 +105,31 @@
 			</Item>
 		</Item>
 		<Item Name="Msg.lvclass" Type="LVClass" URL="../Msg/Msg.lvclass"/>
-		<Item Name="Msg Input.lvclass" Type="LVClass" URL="../Msg Input/Msg Input.lvclass"/>
-		<Item Name="Msg Output.lvclass" Type="LVClass" URL="../Msg Output/Msg Output.lvclass"/>
-		<Item Name="Execute Or Recurse.vi" Type="VI" URL="../Execute Or Recurse.vi"/>
+		<Item Name="Msg Contents.lvclass" Type="LVClass" URL="../Msg Contents/Msg Contents.lvclass"/>
+		<Item Name="Wrap Or Recurse.vi" Type="VI" URL="../Wrap Or Recurse.vi"/>
 		<Item Name="Tell.vi" Type="VI" URL="../Tell.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Check Valid Tell.vi" Type="VI" URL="../Check Valid Tell.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 	</Item>
 	<Item Name="Type Defs" Type="Folder">
 		<Item Name="Independent" Type="Folder">
-			<Item Name="Non-DVR" Type="Folder">
-				<Item Name="Msg Set.ctl" Type="VI" URL="../Msg Set.ctl"/>
-				<Item Name="Teardown Location.ctl" Type="VI" URL="../Teardown Location.ctl"/>
-				<Item Name="Unified Actor Relation.ctl" Type="VI" URL="../Unified Actor Relation.ctl"/>
-				<Item Name="Unified Actor Lifetime.ctl" Type="VI" URL="../Unified Actor Lifetime.ctl"/>
-			</Item>
+			<Item Name="Msg Set.ctl" Type="VI" URL="../Msg Set.ctl"/>
+			<Item Name="Teardown Location.ctl" Type="VI" URL="../Teardown Location.ctl"/>
+			<Item Name="Unified Actor Relation.ctl" Type="VI" URL="../Unified Actor Relation.ctl"/>
+			<Item Name="Unified Actor Lifetime.ctl" Type="VI" URL="../Unified Actor Lifetime.ctl"/>
 		</Item>
 		<Item Name="Dependent" Type="Folder">
-			<Item Name="Private" Type="Folder">
+			<Item Name="Unify.ctl" Type="VI" URL="../Unify.ctl">
 				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-				<Item Name="Unify.ctl" Type="VI" URL="../Unify.ctl"/>
 			</Item>
-			<Item Name="Non-DVR" Type="Folder">
-				<Item Name="Msgs.ctl" Type="VI" URL="../Msgs.ctl"/>
-				<Item Name="Teller.ctl" Type="VI" URL="../Teller.ctl"/>
-				<Item Name="Actor.ctl" Type="VI" URL="../Actor.ctl"/>
-			</Item>
-			<Item Name="DVR" Type="Folder">
-				<Item Name="Unified Actor.ctl" Type="VI" URL="../Unified Actor.ctl"/>
-				<Item Name="Msg.ctl" Type="VI" URL="../Msg.ctl"/>
-			</Item>
-			<Item Name="Uses DVR" Type="Folder">
-				<Item Name="Async Elements.ctl" Type="VI" URL="../Async Elements.ctl"/>
-				<Item Name="Child Unified Actor DVR Map.ctl" Type="VI" URL="../Child Unified Actor DVR Map.ctl"/>
-				<Item Name="Base Actor.ctl" Type="VI" URL="../Base Actor.ctl"/>
-			</Item>
+			<Item Name="Msgs.ctl" Type="VI" URL="../Msgs.ctl"/>
+			<Item Name="Teller.ctl" Type="VI" URL="../Teller.ctl"/>
+			<Item Name="Unified Actor.ctl" Type="VI" URL="../Unified Actor.ctl"/>
+			<Item Name="Child Unified Actor Map.ctl" Type="VI" URL="../Child Unified Actor Map.ctl"/>
+			<Item Name="Async Elements.ctl" Type="VI" URL="../Async Elements.ctl"/>
+			<Item Name="Msg.ctl" Type="VI" URL="../Msg.ctl"/>
+			<Item Name="Actor.ctl" Type="VI" URL="../Actor.ctl"/>
+			<Item Name="Base Actor.ctl" Type="VI" URL="../Base Actor.ctl"/>
 		</Item>
 	</Item>
 	<Item Name="Error" Type="Folder">
@@ -156,8 +146,5 @@
 		<Item Name="Cannot Spawn Children As Leaf.vi" Type="VI" URL="../Cannot Spawn Children As Leaf.vi"/>
 		<Item Name="Not In Started State.vi" Type="VI" URL="../Not In Started State.vi"/>
 		<Item Name="Msg Not In Inbound Msgs.vi" Type="VI" URL="../Msg Not In Inbound Msgs.vi"/>
-	</Item>
-	<Item Name="DELETE" Type="Folder">
-		<Item Name="Layer.ctl" Type="VI" URL="../Layer.ctl"/>
 	</Item>
 </Library>

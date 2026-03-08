@@ -14,10 +14,10 @@
 		<Item Name="Self Msgs.vi" Type="VI" URL="../Self Msgs.vi"/>
 		<Item Name="Self Leaf.vi" Type="VI" URL="../Self Leaf.vi"/>
 		<Item Name="Self Edge Actors.vi" Type="VI" URL="../Self Edge Actors.vi"/>
+		<Item Name="Self Mid Actors.vi" Type="VI" URL="../Self Mid Actors.vi"/>
 		<Item Name="Self Core Actors.vi" Type="VI" URL="../Self Core Actors.vi"/>
 		<Item Name="Self Root.vi" Type="VI" URL="../Self Root.vi"/>
 		<Item Name="Self Alias.vi" Type="VI" URL="../Self Alias.vi"/>
-		<Item Name="Self DVR UID.vi" Type="VI" URL="../Self DVR UID.vi"/>
 		<Item Name="Self Transport.vi" Type="VI" URL="../Self Transport.vi"/>
 		<Item Name="Self Address.vi" Type="VI" URL="../Self Address.vi"/>
 		<Item Name="Self This VI.vi" Type="VI" URL="../Self This VI.vi"/>
@@ -27,10 +27,10 @@
 		<Item Name="Parent Msgs.vi" Type="VI" URL="../Parent Msgs.vi"/>
 		<Item Name="Parent Leaf.vi" Type="VI" URL="../Parent Leaf.vi"/>
 		<Item Name="Parent Edge Actors.vi" Type="VI" URL="../Parent Edge Actors.vi"/>
+		<Item Name="Parent Mid Actors.vi" Type="VI" URL="../Parent Mid Actors.vi"/>
 		<Item Name="Parent Core Actors.vi" Type="VI" URL="../Parent Core Actors.vi"/>
 		<Item Name="Parent Root.vi" Type="VI" URL="../Parent Root.vi"/>
 		<Item Name="Parent Alias.vi" Type="VI" URL="../Parent Alias.vi"/>
-		<Item Name="Parent DVR UID.vi" Type="VI" URL="../Parent DVR UID.vi"/>
 		<Item Name="Parent Transport.vi" Type="VI" URL="../Parent Transport.vi"/>
 		<Item Name="Parent Address.vi" Type="VI" URL="../Parent Address.vi"/>
 		<Item Name="Parent This VI.vi" Type="VI" URL="../Parent This VI.vi"/>
@@ -40,10 +40,10 @@
 		<Item Name="Child Msgs.vi" Type="VI" URL="../Child Msgs.vi"/>
 		<Item Name="Child Leaf.vi" Type="VI" URL="../Child Leaf.vi"/>
 		<Item Name="Child Edge Actors.vi" Type="VI" URL="../Child Edge Actors.vi"/>
+		<Item Name="Child Mid Actors.vi" Type="VI" URL="../Child Mid Actors.vi"/>
 		<Item Name="Child Core Actors.vi" Type="VI" URL="../Child Core Actors.vi"/>
 		<Item Name="Child Root.vi" Type="VI" URL="../Child Root.vi"/>
 		<Item Name="Child Alias.vi" Type="VI" URL="../Child Alias.vi"/>
-		<Item Name="Child DVR UID.vi" Type="VI" URL="../Child DVR UID.vi"/>
 		<Item Name="Child Transport.vi" Type="VI" URL="../Child Transport.vi"/>
 		<Item Name="Child Address.vi" Type="VI" URL="../Child Address.vi"/>
 		<Item Name="Child This VI.vi" Type="VI" URL="../Child This VI.vi"/>

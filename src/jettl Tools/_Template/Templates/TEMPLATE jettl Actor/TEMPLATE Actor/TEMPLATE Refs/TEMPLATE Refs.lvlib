@@ -13,9 +13,6 @@
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 	<Item Name="Init Refs.vi" Type="VI" URL="../Init Refs.vi"/>
-	<Item Name="Read Refs.vi" Type="VI" URL="../Read Refs.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="Find Refs.vi" Type="VI" URL="../Find Refs.vi"/>
+	<Item Name="Read Refs.vi" Type="VI" URL="../Read Refs.vi"/>
 	<Item Name="Refs.ctl" Type="VI" URL="../Refs.ctl"/>
 </Library>

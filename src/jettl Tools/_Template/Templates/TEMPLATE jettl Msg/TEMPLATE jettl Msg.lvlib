@@ -23,18 +23,15 @@
 		<Item Name="Init.vi" Type="VI" URL="../Init.vi"/>
 	</Item>
 	<Item Name="Type Defs" Type="Folder">
-		<Item Name="Input.ctl" Type="VI" URL="../Input.ctl"/>
-		<Item Name="Output.ctl" Type="VI" URL="../Output.ctl"/>
+		<Item Name="Data.ctl" Type="VI" URL="../Data.ctl"/>
+		<Item Name="Metadata.ctl" Type="VI" URL="../Metadata.ctl"/>
 	</Item>
 	<Item Name="TEMPLATE.vi" Type="VI" URL="../TEMPLATE.vi"/>
 	<Item Name="TEMPLATE jettl Msg.lvclass" Type="LVClass" URL="../TEMPLATE jettl Msg/TEMPLATE jettl Msg.lvclass"/>
 	<Item Name="TEMPLATE Msg.lvclass" Type="LVClass" URL="../TEMPLATE Msg/TEMPLATE Msg.lvclass">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
-	<Item Name="TEMPLATE Msg Input.lvclass" Type="LVClass" URL="../TEMPLATE Msg Input/TEMPLATE Msg Input.lvclass">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="TEMPLATE Msg Output.lvclass" Type="LVClass" URL="../TEMPLATE Msg Output/TEMPLATE Msg Output.lvclass">
+	<Item Name="TEMPLATE Msg Contents.lvclass" Type="LVClass" URL="../TEMPLATE Msg Contents/TEMPLATE Msg Contents.lvclass">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 </Library>
