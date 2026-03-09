@@ -154,33 +154,16 @@ Resources of inspiration:
 *The following includes a list of changes to the framework that can be done immediately.*  
 *The order of items presented is in no particular order.*
 
-- change jettl Tools project name to Tools. change the jettl Tools menu to jettl. Add sub menus.
+---
+---
+---
 
-- tools -> jettl, include menus for
-  - Edittime
-  - Runtime
+Insert here.
 
-- Add additional functions for Actor Index i.e. = Edge, = Mid, = Core, etc. This will be by user request for common functionality.
 
-- TEMPLATE TOOL: add in a function call in creating the template which creates in the library a SHA256 that is a for loop that outputs the "unique" value for the `Msg ID`.
-
-- Message and actor naming limitation when using the rename Tool:
-	- We only allow "space" and capital/lowercase letters, that's it.
-	- There must contain at least one "space" within the name.
-Justifications, when reading messages for the outside world, these characters are not allowed. This helps name spacing and clarity of intent.
-
-- RENAME TOOL: Excluded names, update the names for the template msg and actor for name spacing excluded names. This could instead be programmatic by checking the library under question for the VI names already present.
-
-docs:
-When developing, only use poly VIs found on the palette.
-
-- Async Actor.vi
-Make non reentrant, put highlight execution on. What is the recreated execution for:
-1. Two Roots spawning at the same time?
-2. Root spawning child
-What are the executions for these? Because we want to leak the first reference. And we want to know what to do, in the nonreentrant case without having the uninitialized shift register.
-
-- revisit the spawn function calls.
+---
+---
+---
 
 ## Resources
 
@@ -209,11 +192,11 @@ What are the executions for these? Because we want to leak the first reference. 
 ---
 
 
-## `Stop` and **Orderly Stopping**
+## `Stop` and **Coordinated Shutdown**
 
-`Stop` is a standard lifecycle signal that initiates **Orderly Stopping**.
+`Stop` is a standard lifecycle signal that initiates **Coordinated Shutdown**.
 
-**Orderly Stopping Invariant**
+**Coordinated Shutdown Invariant**
 
 > A parent actor MUST outlive all of its children.
 
@@ -381,7 +364,7 @@ You stated that application messages are still processed.
 **Clarification needed:**
 
 * May new children be spawned in this state?
-* If yes, Orderly Stopping can become non-terminating.
+* If yes, Coordinated Shutdown can become non-terminating.
 * If no, this must be an enforced invariant.
 
 ---
@@ -452,17 +435,171 @@ Without these, formal verification is not possible.
 **Q2:** Should `Stop` and `Terminate` be modeled as distinct states, or as context flags within the same state machine?
 **Q3:** Do you intend to eventually prove termination of the actor tree under all shutdown scenarios, or is this a pragmatic contract rather than a formally verified guarantee?
 
+---
+---
+---
+---
+---
+---
+
+# jettl Tools
+
+Tools -> jettl Tools ->
+- Edittime
+- Runtime
+
+—
+Template Tool:“Msg ID Generator.vi”: creates in the library description (other places too) a SHA1 (string) that is a parallel for loop that comprise a Msg ID. JSON Format:[“Msg ID”: “”]
+—
+Any naming Tool (“Rename” / “Poly VI Alias” generation) must have:- one, two, or three words- no more than two spaces- cannot start with space- cannot have two spaces in a row- All words start with capital letter (could be enforced under the hood while typing)- only alphabetical letters allowed- total character limit of 200
+Why: Easy for icon text display for Actors and Msgs
+“Excluded Names.vi”: checked programmatically for the library for the (either)- VI names already present
+- Alias Names already present
+—
+
+# Coordinated Shutdown
+
+ONLY exists in the Root Actor.
+
+—
+
+Coordinated Shutdown guarantees that Root Actor always outlives Leaf Actors.
+
+—
+
+# Spawning
+
+Only Root needs to address the Root Loop problem since Leaf Actors will always will be spawned after Root has been spawned.
+
+Root Async Actor.vi
+Make non reentrant, put highlight execution on. What is the recreated execution for:
+- Two Roots spawning one after another?
+What are the executions for these? Because we want to leak the first reference. And we want to know what to do, in the nonreentrant case without having the uninitialized shift register.
+—
+New DVR in “Async Actor.vi”. In “Setting Up”, delete DVR in Leaf Actor, then New DVR. This ties the lifetime of the DVR to the Actor being spawned (Root or Leaf).
+Root Actor:- “Write Unified Root Actor”- “Read Unified Root Actor”
+Leaf Actor:- “Write Unified Root Actor”- “Read Unified Root Actor”
+—
+
+# Msgs
+
+- Always know what Base Root Actor and Base Leaf Actor messages are implemented.
+- Spawning Root Actor (with input of Core Actors), their messages can be saved as “Implemented Core Msgs”.
+UNFINISHED
+
+—
+
+Transport DVR
+
+—
+
+# General Actor Concepts
+
+Root should be HIGHLY functional, minimizing overhead of DD calls and other logic.
+
+—
+
+No recursion in Root Actor.
+
+—
+
+Root cannot use Tell Root (this one is the only one that instantiates classes)
+
+—
+
+Find Msgs can have a DD output?
+
+—
+
+# General
+
+Use of jettl:Some VIs in the jettl.lvlib are public since they’re used in the Actors. Some of these methods should not be used, though it is not clear which by inspecting the library.Therefore, we distinguish public function calls (no method calls) that can be used ans only those defined through polymorphic VIs, which are all found on the palette.
+—
+Delete “Root Call.vi”
+—
+Get rid of jettl in namesGet rid of Root Actor -> RootGet rid of Leaf Actor -> Leafs (Leaves correct spelling but let’s keep it “simple”)
+—
+Due to bugs with DVRs and classes, all DVRs are Type Def clusters.
+—
+DVR.. maybe don’t use read only parallel access, and only use the read/write with data wired through.This is more deterministic and not prone to race conditions.
+
+
+# Random
+
+Since unconditionally calling Async Elements in “Setting Up.vi”:Put Decorator for Actor.vi IN Actor.viThen the enqueue of Async Elements occurs in “Base Actor.lvclass”.
+—
+Shit, can do the same for the Find Msgs? And output an array of the Msgs, then can index the array to properly get the correct Msgs for each Actor.DON’T be afraid to append functionality to decorator methods.Think about rewriting Recurse where this is a decorator method.
+Think about rewriting Decorator -> Init Actor DVR
+—
+Avoid ANY UI Thread transfer:https://www.youtube.com/watch?v=Zc8Xx9AFqtc @22:59
+
+Google: Set Control Values By Index.Use THIS instead of property nodes by mapping the control ref to the indexes at initialization.Maybe.. Refs bundle at start ALSO has the This VI and App Ref.
+—
+The Actor.ctl doesn’t need to be DVR in private data!Or does wrapping in DVR provide faster performance?
+—
+But do take consideration to have pass through Object for Read methods TO avoid memory copieshttps://youtu.be/Zc8Xx9AFqtc?si=Di0mG8iJLwI-5Eif@31:24OR Just co sided being diligent and use flat sequence structure to enforce serial execution. As suggested in video (by Eli Kerry, not error wire though!, flat sequence)Single frame flat sequence enforced ordering to avoid memory copies.—
+https://www.youtube.com/watch?v=Zc8Xx9AFqtc @ 37:47Inline works for the Find Msgs VI with the inline setting since the block diagram is ABSORBED into the containing diagram, so the variant DOES work?
+—
+Greg NEVER changes the defaults for VI Properties
+https://www.youtube.com/watch?v=Zc8Xx9AFqtc @ 45:38
+
+# Msg DVR
+
+jettl strives to be the gold standard in DVRs, memory, and performance optimization.
+Application lifetime guarantee of Root and Leafs.
+Leaf Defines in it’s private data (outermost layer for fastest lookup without DD calls to innermost layer) the:- “Msg DVR Root Buffer DVR”:”Array of Msg DVRs”- “Msg DVR Leaf Buffer DVR”:”Array of Msg DVRs”
+
+All Actors are persistent for the application.
+“Lifetime Root:Queue” created in Root Actor and when all Leaf Actors have told their Stopped Msg, then the Root Actor enqueues this and all Leaf Actors can then finish executing. Otherwise they continue executing messages.
+
+Therefore, the Msg DVR lifetime is just in the Leaf Actor that created it. DVR is deleted in Root and the Msg.ctl is gotten there using “Swap Values.vi”.
+Notice that Leaf can only Tell Self and Tell Root by pulling from the “Msg DVR Leaf Buffer DVR”.In Leaf, there is a check to ensure the Msg DVR is at at least the specified “Msg DVR Root Buffer Size:I32” of preallocated Msg DVRs (as defined by Root, but in private data of Base Leaf).
+By framework definition, all Leaf Actors are persistent and spawned at the beginning of the Root Spawn. Therefore, Leafs have the same lifetime as Root. For the complete lifetime, refer to documentation. 
+
+Root does NOT create Msg DVRs.
+
+In the Leafs, a function is used to add Msg DVRs to the Buffers. Look into optimization by James Powell Memory in LabVIEW @build array section.
+Note to keep the Write to DVR time SMALL as to not lock resources from Root.Could be very smart and when filling the buffer back up creates New Msg DVRs (from parallel For Loop) and chucks a bunch into the “Msg DVR Root Buffers DVR”. 
+—
+
+Msg DVR preallocation in Leafs:Preallocate Msg DVRs to memory in the Leafs.Use “Swap Values.vi” with IPES delete from array at first index, wire in 0. But this changes size of array.. so that’s out. So is there a way to slide the array to the left, pop the 0th element (valid Msg DVR) and add a default Msg DVR to end of array. Remember, the goal is for the array to remain the same size (for performance reasons, not allocating more memory for different size arrays)) when ready to use the Msg DVR.
+NOTE: That means in Root, in the “Name.vi”, when Tell Leaf, for a given Leaf can only accept one message, otherwise will pull from same index.
+WAIT: Can parallel Reads happen in parallel? What is the most memory/performance efficient?https://forums.ni.com/t5/LabVIEW/DVR-Parallel-Read-Access/td-p/3645659
+Detail: always use the same SIZE array for Buffer, where the buffer chunk assigned (build array) never goes above array size defined, rest are always default Msg DVRs.Checks if (say) halfway point is a not a ref.https://lavag.org/topic/15546-are-you-misusing-the-not-a-refnum-function-and-putting-your-app-at-risk/
+Can be a debugging entity that readily checks the size of the buffers i.e. in “Finalizing Turn.vi”.
+These Msg DVR Buffers ARE themselves DVRs that (by definition) only the Root and Leaf have access to.Let’s see.. this asks the question how large of a buffer size should be preallocated (can LabVIEW handle / bottle neck of absolute message transport speed of Root) to each of the Leaf Buffers?
+James Powell Memory in LabVIEW:Build array memory optimized @ 1/4 timestamp.
+Maybe there’s a dedicated “Priority” message (under the hood) that tells Leaf to allocate more memory to Msg DVR Buffer.
+
+—
+Documentation:In Root Actor, since the Tell Leaf function calls are statically typed in the “Name.vi” in Root Actor, this directly determines WHERE messages are told from and to to fill out the entirety of the tree hierarchy of mesaaging
+
+# Memory
+
+https://www.youtube.com/watch?v=dIGHfybWCG4 @ 25:02
 
 
 
-- “Write Spawn Attributes” and “Read Spawn Attributes” (same as Actor Attributes, without DVR), make the DVR in “Setting Up”.
 
-- Decorator Methods (VF): Contains public functions for the DVR and DD methods for i.e. `Start.vi`, `Decorator.vi`, `Find Msgs.vi`, etc.
 
-- `Root Lifetime` ensures lifetime of DVR is lifetime of the `Unified Actor`
+# Working
 
+Two Interfaces in Msg Library:
+- Root:“TEMPLATE Root Msg.lvclass”- “TEMPLATE.vi”
+- Leaf:TEMPLATE Leaf Msg.lvclass”- “TEMPLATE Before.vi”- “TEMPLATE After.vi”
+Interfaces in jett:
+- “Root Execute.vi”
+- “Leaf Execute.vi”
+^^^^Have to come back to this..
+
+Huh…. Maybe no runtime checks as to not throw errors.. minimize errors that can be thrown in Root Actor. Here that means checks for if a Leaf can accept a message, whatever, just tell it. The Leaf will auto ignore it and delete the reference.
+
+—
+—
+
+—
 - DVR Specifics:
-All DVRs are Type Defs. But, some of the type defs have inside them interfaces (which are instantiated as classes at runtime). Therefore Mark As Modifier (on the IPES input) is not used in jettl unless:
+All DVRs are Type Def clusters. But, some of the type defs have inside them interfaces (which are instantiated as classes at runtime). Therefore Mark As Modifier (on the IPES input) is not used in jettl unless:
 1. This is a write operation **AND**
 2. A dynamic dispatch method is called within the IPES.
 This could change in the future, note:
@@ -488,116 +625,344 @@ and many other discussions on DVRs in LabVIEW.
 
 ---
 
-Stopped is the final message that can be read by an actor (actor goes out of scope and releases DVRs of Msg Attributes told after Stooped). Lifetime of child actors, only when the parent receives Stopped will the actor be able to go out of scope. This guarantees lifetime of messages told before Stopped, but not after Stopped since the Msg Attributes are tied to a DVR, which is tied to the Child that goes out of scope after Stopped message.
-“Stopped Listened To:BoolQueue” AFTER Stopped as Dequeue (In Stopped reads “Stopped Listened To” and enqueues TRUE
-“Stopped Listened To” is created at the Update Attributes B of Child spawning.
+Stopped is the final message that can be read by the Root Actor from a Leaf Actor.Leaf Actor lifetime: Only when the Root Actor listens to Stopped will the Leaf Actor be able to go out of scope (from a queue that is dequeued after the Tell Root Stopped Msg in “Tearing Down.vi”. This guarantees lifetime of messages told before Stopped, but not after Stopped since the Msg DVR (tied to the Leaf lifetime) goes out of scope after Stopped message.
+“Stopped Listened To:BoolQueue” AFTER Stopped as Dequeue (In Stopped reads “Stopped Listened To” and enqueues TRUE.
+Add “Stopped Listened To:boolQueue” to “Leaf Unified Actor.ctl” and is created and bundled at the “Update Unified Actor.vi” in “Setting Up.vi” for Leaf Actor.
 
 ---
 
-Methods for the Forward to Self, Parent, Child that takes in the Msg and checks if that IS the message, then forwards it to the recipient without any data copies (note the DVR is destroyed here and created again to give lifetime to actor telling as well as writing the Teller again to update state AFTER new DVR is created.
+Root listens to Msg, ALWAYS forwards to Leaf. There is a check in Leaf Actor that only allows Msgs to be told to Root if Root Implements that Msg (different interface, but nonetheless same library). 
 
----
+Care is taken to not create data copies anywhere in Root (hence the use of Msg DVR). Due to changing of the Msg DVR lifetime to the Root Actor, the Msg DVR is deleted and a new DVR with the same type def data, of course the Teller is updated again in Root. Rethink the Teller, since the Teller is only important in the Leaf Actors.
 
-Base Actor: If in the future there are input changes to Base Actor OR one chooses to use a substitute for the Base Actor (roll their own), then this can easily be implemented.
+--
 
----
-
-Messages that are told before when actor is spawning.
-
----
-
-Tell.vi
-This changes the owner of this DVR to this actor.
-
----
-
-Two clusters are implemented as DVRs:
-- `Unified Actor.ctl`
+Clusters implemented as DVRs:
+- `Root Actor.ctl`
+- `Leaf Actor.ctl`
+- `Base Root Actor.ctl`
+- `Base Leaf Actor.ctl`
 - `Msg.ctl`
 
 ---
 
-PPLs. Idea: jettl is used ONLY as a PPL. If the developer is curious about the underlying functionality, then they should (as any other language) go to the git repository and examine the source code for further learning. Otherwise, the documentation is the source of truth for the framework for both decisions behind the design of the source code along with usability of the jettl framework.
+jettl is used ONLY as a PPL. If the developer is curious about the underlying functionality, then they should (as any other language) go to the git repository and examine the source code for further learning. Further, the documentation is the source of truth for the framework for both decisions behind the design of the source code along with usability of the jettl framework.
 
 ---
 
-OOP Access Scope gripe..:
-Even though their libraries are private, the interface can still be implemented (weird, but it works for some reason). **This is a weird rule with LabVIEW where, even if an interface is private to a library AND the interface is marked private, other classes outside the library can still implement the interface.** While interfaces themselves (as files) can be set to private access scope within a project library, this primarily restricts which other VIs can _use_ or _call_ the interface, not which classes can _implement_ it. The same can be said for classes.
-Now, where you can get in a tough spot! If your interface is marked private to a containing library and that library is built into a PPL, NOW the class that implements the interface (now a PPL, if then you start using the PPL version) is now not able to allow the class to implement the interface SINCE the interface is private to the PPL and is not available in the PPL since it was marked as private!
-SO. Best practice for code development, to side step this rule above in LabVIEW (that in my opinion should be more restrictive to not let others implement a class/interface if the class/interface is private to classes/interfaces outside of the containing library) is to not implement an interface or inherit from a class that is private to a containing library that that class/interface is not apart of.
+GOTCHA! Access Scope on Interfaces / Classes:
+Even though their libraries are private, the interface can still be implemented in other interfaces / classes **Rule: even if an interface is private to a library AND (to be more strict) the interface is marked private, other classes outside the library can still implement the interface.** While interfaces themselves can be set to private access scope within a project library, this primarily restricts which other VIs can _use_ or _call_ the interface, not which classes can _implement_ it. The same can be said for classes.
+Now, where this is a GOTCHA! If your interface is marked private to a containing library and that library is built into a PPL, NOW if you were to use that PPL, classes that otherwise could implement the interface (non-PPL), cannot implement the interface (PPL) SINCE the interface is private to the PPL and is not available in the PPL since it was marked as private!
+SO. Best practice for code development (non-PPL) to side step this rule above in LabVIEW (IMO the private scope on an interface / class or library containing (say) a public interface / class should be more restrictive and not let other interfaces/classes implement the interface/class if the interface/class is private to interfaces/classes outside of the containing library) is to not implement an interface (or inherit from a class) that is private to a containing library or public but containing library is private that that class/interface is not apart of.
 
 ---
 
-Add back in the Msg Attributes to Base Actor cluster
+Constraint: a mesaage can only be told, it cannot be directly called.
 
-Write Msg Attributes
-Here’s the thing, we cannot call a messages method in line, it must ALWAYS be Told.
-
-Eh….. make Base Actor private and launched internally, for the Spawn, add an input for the Base Actor inputs (some interface thing like the Root Actors input interface), this is in case I add data inputs the Base Actor in the future.
+—
 
 
 Msg DVR
-DVRs for messages, memory copies being created when sending user events. He addressed this in the example with a DVR as the payload. Nonetheless, this gets back to the code smell of a different async process deleting a DVR once complete with the data. Though, if lifetimes are guaranteed and the deleting of DVRs occurs under the hood in the framework, this could provide as a benefit.
+DVRs for messages, memory copies being created when telling user events. He addressed this in the example with a DVR as the payload. Lifetimes are guaranteed and the deleting of DVRs occurs under the hood.
 https://youtu.be/zR6qe2POhFk?si=QVWJH4omuairiQLv @18:57
 
-SubVI for the Release Transport and put it RIGHT when the Actor shouldn’t handle anymore messages! ie right when “Stopping without children”.
+—
 
----
+For Root Actor:
+SubVI for the Release Transport and put it RIGHT when the Actor shouldn’t handle anymore messages! ie when “Stopping without children”.
 
-Static type checking
-A message can only be told IF the actor that would listen to the message ALSO has that message in it’s “Inbound Msgs” set. This set is compiled from all calls to the Tell methods in a msg library ie
+For Leaf Actors:
+Same, but location RIGHT when stop hits.
 
-Msgs
-- Inbound
-- Implemented (interface check)
-- Tell Forward Self
-- Tell Forward Parent
-- Tell Forward Child
+—
 
-The three above are checked against the internal - “Unified Forward Self Msgs”
-- “Unified Parent Forward Msgs”
-- “Unified Child Forward Mags”
-“Other” DD method for forwarding messages by doing case structures around them to see which will be forwarded.
+Unhandled messages, make sure to delete the DVR.
 
-NOTE an error will occur if trying to tell a message to an actor that doesn’t have it in it’s “Inbound Msgs” set
+--
 
+Telling messages: a purely static design.
+By framework design, Root ONLY listens to messages it has implemented. This eliminates message checks, minimizing overhead in Root. This check is done in the Leaf Actor before telling message to Root. The Leaf Actor checks the Root Actor “Implemented Msgs” set.
 
-Outbound
-- Tell Self Forward
-- Tell Parent Forward
-- Tell Child Forward
-- Tell Self Init
-- Tell Parent Init
-- Tell Child Init
+Root Msgs:
+Inbound:
+- Implemented Msgs (these are inbound)
+Outbound:
+- Tell Leaf (statically determined).
 
+Leaf Msgs:
+Inbound:
+- Implemented Msgs (if not implemented, then no-op) this is a design flaw that should be detected by documentation / analyzer, since statically typed spawning)
 
+Outbound:
+- Tell Root (checks if Root implements, otherwise error).
+- Tell Self
 
-DD for Tell Forward
-DD for Tell Forward Self
-DD for Tell Forward Parent
-DD for Tell Forward Child
-
-
-
-Inbound
+—
+Leaf Actors are easy to document, they:
+- Tell Msg to Root
+- Tell Msg to Self
+—
 
 
+Leaf Actors:
+Leaf cannot be spawned unless Root Implemented all Msgs Leaf tells. This prevents runtime errors that otherwise would occur if trying to tell a message to Root Actor that doesn’t have it in it’s “Implemented Msgs” set. That means that the Implemented Msgs check is NOT necessary! WOW!
 
+—
 
-
-
-
-
-Implement DD Overrides in TEMPLATE and Base Actor.
-
----
-
-Instead of configuration object:
+ALREADY STATED:
 New DVR in Spawner and delete DVR in Spawnee, New DVR there.
 
-Messaging is purely hierarchical AND FAST due to DVRs. Minimize overhead when listening to messages and forwarding.
+—
+
+DVR:
+Messaging is purely hierarchical AND FAST due to DVRs. Minimize overhead in Root when listening to messages and forwarding.
+Msg DVR should have knowledge of Root and Leaf? 
+
+—
+
+ALREADY STATED:
+Spawning a Leaf Actor, checks if the Leaf Actor can:
+- listen to all messages available from Root (Poly VI for Leaf string and message name) (this action should be scripted, WOULD need to be statically tied to an alias.)
+
+Goal: Very static system is what jettl aims for.
+The only “dynamic” part of the system is the decorations of Leaf Actors. But this is actually static since there are Poly VIs for the spawned actor with its alias.
+“Alias Name.vi” Poly Actor that is scripted to statically type the Leaf Actors. This makes the spawning of Leaf Actors static, within that DD method call. (Note it is DD not for overriding, but to declare to the compiler that the object in is the SAME object out, this will minimize memory copies and lead to better performance.)
+
+Statically determining spawning should be determined at edit time.
+
+This would work with Factory Pattern PPLs, so long as they’re known at edit time. Therefore, Factory Pattern is discouraged since it is dynamic.
+
+jettl aims to be a heavily typed system when everything is known at edit time. Minimizing dynamics at runtime, therefore preventing bugs and errors from occurring.
+
+—
+
+jettl has two actor types:
+- Root
+- Leaf
+As defined through their containing library name.
+(Take away the Private Actors virtual private folder).
+Constraint: One Root Actor and N many Leaf Actors.
+
+Root Actor:
+N many decorators (note more decorations means more DD overhead).
+Root Base Actor is always innermost.
+(Define the Leaf Actors Core Actors here).
+
+Leaf Actors:
+Decorator Actors
+Core Actors (defined in Root Actor).
+(Get rid of Edge Actors)
+
+—
+
+Root Actor Transport:
+Queue (DVR). Queue used instead of Event for maximum performance as it is a 1:1 transport.
+MINIMUM LOGIC for maximum throughput of messages.
+
+Leaf Actor Transport:
+Event (DVR). Event used due to ability to 1:N message external entities in an application and control events.
+
+—
+
+Root Actor Spawning:
+Note spawning is blocking so spawning in the lifetime of Root is NOT allowed. This must occur upon initialization. Errors from a Leaf to the Root Actor is an automatic shutdown. HANDLE ERRORS IN LEAF otherwise automatic shutdown.
+
+—
+
+Create libraries with Poly VIs inside:
+- Read Base Root Actor DVR
+- Read Decorator Root Actor DVR
+- Read Base Lead Actor DVR
+- Read Decorator Leaf Actor DVR
+- Read Msg DVR
+
+—
+
+THIS IS A REPEAT:
+
+Root Actor:
+- Tell Leaf
+
+Leaf Actor:
+- Tell Self
+- Tell Root
+
+—
+
+Get rid of jettl in the names!
+
+—
+
+No more Parent, Child
+Rename to Root and Leaf
+
+—
+
+Delete:
+- Read Unified Actor.lvlib
+- Read Base Actor.lvlib
 
 ---
 
-Finalize the Actor interface
-In accordance with the Base Actor private data.
+Buffer DVR is a Type Def Cluster:
+- array of Msg DVRs
+- Current Index
+(in Root, Read/Write since updating Buffer DVR)
+
+Current Index is incremented after reading (Swap Values.vi)
+Check instead the Current Index if above “value” in array. Then new DVRs that replace default Msg DVRs array elements BEFORE the Current Index, and of course at the end, update Current index to 0.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
