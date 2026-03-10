@@ -475,23 +475,35 @@ Root Async Actor.vi
 Make non reentrant, put highlight execution on. What is the recreated execution for:
 - Two Roots spawning one after another?
 What are the executions for these? Because we want to leak the first reference. And we want to know what to do, in the nonreentrant case without having the uninitialized shift register.
-—
-New DVR in “Async Actor.vi”. In “Setting Up”, delete DVR in Leaf Actor, then New DVR. This ties the lifetime of the DVR to the Actor being spawned (Root or Leaf).
-Root Actor:- “Write Unified Root Actor”- “Read Unified Root Actor”
-Leaf Actor:- “Write Unified Root Actor”- “Read Unified Root Actor”
-—
 
-# Msgs
+---
+
+`Root Actor.lvclass`:
+- `Write Unified Root Actor.vi`
+- `Read Unified Root Actor.vi`
+
+`Leaf Actor.lvclass`:
+- `Write Unified Root Actor.vi`
+- `Read Unified Root Acto.vi`
+
+---
+
+Lifetime.
+All Actors are persistent for the application. Root is spawned and before finishing spawning, spawns all Leaf Actors. Leaf Actors will all be stopped and go out of scope before the Root is stopped.
+
+---
+
+In spawning, checks if the Alias Map has the same number of elements as the `Leaf Aliases`:`Enum`. This guarantees that each `Leaf Alias` has a Leaf Actor. All `Leaf Actors` are spawned at startup.
+
+---
+
+NOPE! This is statically determined at runtime that the Root Actor implements the Msg before Running. There is a check in Leaf Actor that only allows Msgs to be told to Root if Root Implements that Msg (different interface, but nonetheless same library). 
+
+---
 
 - Always know what Base Root Actor and Base Leaf Actor messages are implemented.
 - Spawning Root Actor (with input of Core Actors), their messages can be saved as “Implemented Core Msgs”.
 UNFINISHED
-
-—
-
-Transport DVR
-
-—
 
 # General Actor Concepts
 
@@ -517,25 +529,23 @@ Use of jettl:Some VIs in the jettl.lvlib are public since they’re used in the 
 —
 Delete “Root Call.vi”
 —
-Get rid of jettl in namesGet rid of Root Actor -> RootGet rid of Leaf Actor -> Leafs (Leaves correct spelling but let’s keep it “simple”)
-—
-Due to bugs with DVRs and classes, all DVRs are Type Def clusters.
-—
-DVR.. maybe don’t use read only parallel access, and only use the read/write with data wired through.This is more deterministic and not prone to race conditions.
+Get rid of jettl in names
+Keep Root Actor
+Keep Leaf Actor
 
 
 # Random
 
 Since unconditionally calling Async Elements in “Setting Up.vi”:Put Decorator for Actor.vi IN Actor.viThen the enqueue of Async Elements occurs in “Base Actor.lvclass”.
 —
-Shit, can do the same for the Find Msgs? And output an array of the Msgs, then can index the array to properly get the correct Msgs for each Actor.DON’T be afraid to append functionality to decorator methods.Think about rewriting Recurse where this is a decorator method.
-Think about rewriting Decorator -> Init Actor DVR
+Shit, can do the same for the Find Msgs? And output an array of the Msgs, then can index the array to properly get the correct Msgs for each Actor. Append functionality to decorator methods. Think about rewriting `Recurse.vi` as a decorator method. that unconditionally executes the `Recurse.vi` decorator every time.
+`Decorator.vi` -> `Init Actor.vi`
+
 —
 Avoid ANY UI Thread transfer:https://www.youtube.com/watch?v=Zc8Xx9AFqtc @22:59
 
-Google: Set Control Values By Index.Use THIS instead of property nodes by mapping the control ref to the indexes at initialization.Maybe.. Refs bundle at start ALSO has the This VI and App Ref.
-—
-The Actor.ctl doesn’t need to be DVR in private data!Or does wrapping in DVR provide faster performance?
+Google: Set Control Values By Index. Use this instead of property nodes by mapping the control ref to the indexes at initialization.
+
 —
 But do take consideration to have pass through Object for Read methods TO avoid memory copieshttps://youtu.be/Zc8Xx9AFqtc?si=Di0mG8iJLwI-5Eif@31:24OR Just co sided being diligent and use flat sequence structure to enforce serial execution. As suggested in video (by Eli Kerry, not error wire though!, flat sequence)Single frame flat sequence enforced ordering to avoid memory copies.—
 https://www.youtube.com/watch?v=Zc8Xx9AFqtc @ 37:47Inline works for the Find Msgs VI with the inline setting since the block diagram is ABSORBED into the containing diagram, so the variant DOES work?
@@ -549,7 +559,18 @@ jettl strives to be the gold standard in DVRs, memory, and performance optimizat
 Application lifetime guarantee of Root and Leafs.
 Leaf Defines in it’s private data (outermost layer for fastest lookup without DD calls to innermost layer) the:- “Msg DVR Root Buffer DVR”:”Array of Msg DVRs”- “Msg DVR Leaf Buffer DVR”:”Array of Msg DVRs”
 
-All Actors are persistent for the application.
+Why is the `Msg.ctl` a DVR i.e. `Msg DVR`?
+Answer:
+- To not create data copies in Root by transporting data from one DVR to another.
+- Since a `Msg DVR` in the Root Actor can be told to N many Leaf Actors, a new DVR must be used for each Leaf Actor that will listen to the Msg DVR. In the `Root Actor`:
+1. another Msg DVR is grabbed from the buffer and type def data is written to it.
+2. the `Msg DVR` is deleted
+
+The lifetime of the Msg DVRs lifetime are tied to the Leaf lifetime since the Leaf creates the DVRs.
+Now, the Buffers are tied to the Root Actor so that the Root Actor can easily map lookup the `Alias` to `Msg DVR Buffer` for a given Leaf Actor.
+
+For optimal performance, the Msg DVR is a type def cluster. Not a class, due to accessor overhead and class / interface and DD IO bugs.
+
 “Lifetime Root:Queue” created in Root Actor and when all Leaf Actors have told their Stopped Msg, then the Root Actor enqueues this and all Leaf Actors can then finish executing. Otherwise they continue executing messages.
 
 Therefore, the Msg DVR lifetime is just in the Leaf Actor that created it. DVR is deleted in Root and the Msg.ctl is gotten there using “Swap Values.vi”.
@@ -574,9 +595,44 @@ Maybe there’s a dedicated “Priority” message (under the hood) that tells L
 —
 Documentation:In Root Actor, since the Tell Leaf function calls are statically typed in the “Name.vi” in Root Actor, this directly determines WHERE messages are told from and to to fill out the entirety of the tree hierarchy of mesaaging
 
+---
+
+
+DVR.. maybe don’t use read only parallel access, and only use the read/write with data wired through.
+https://forums.ni.com/t5/LabVIEW/DVR-Parallel-Read-Access/td-p/3645659
+
+---
+
+Since Msg DVR is a type def cluster, the Mark As Modifier (on the IPES input) is not used since the data in the DVR is not directly a dynamic dispatch interface/class. Though, this could be reconsidered to use Mark As Modifier since there are interfaces within the `Msg.ctl` type def cluster.
+Note these resources on DVRs:
+- https://lavag.org/topic/7761-in-place-element-structure-mark-as-modifier/
+- https://lavag.org/topic/19685-dvr-and-error-handling/
+- https://forums.ni.com/t5/LabVIEW/Mark-as-modifier-in-place-of-structure/td-p/2028072
+- https://www.ni.com/docs/en-US/bundle/labview-api-ref/page/structures/in-place-element-structure.html#:~:text=You%20can%20right%2Dclick%20a,data%20and%20avoid%20race%20conditions
+- https://forums.ni.com/t5/LabVIEW/Manipulating-DVR-Data-Is-this-correct/m-p/3211893
+- https://forums.ni.com/t5/LabVIEW/quot-Data-Value-Reference-quot-and-quot-In-Place-Element/td-p/1558466
+- https://www.ni.com/docs/en-US/bundle/labview/page/caveats-and-recommendations-for-using-in-place-element-structures.html
+- https://www.ni.com/docs/en-US/bundle/labview/page/storing-data-and-reducing-data-copies-with-data-value-references.html#:~:text=Storing%20Data%20and%20Reducing%20Data%20Copies%20with,value%20references%20to%20store%20large%20data%20sets.
+- https://medium.com/@thomas.zilliox/sharing-memory-between-modules-and-loops-in-labview-287e14e4039e
+- https://www.youtube.com/watch?v=VIWzjnkqz1Q
+- https://www.youtube.com/watch?v=lPwLTCtgYDo
+- https://forums.ni.com/t5/LabVIEW/Anyone-else-having-DVR-In-place-element-structure-bug-error-1556/td-p/4320674
+- https://forums.ni.com/t5/LabVIEW/Pointers-in-Labview/m-p/1242534#M525059
+- https://forums.ni.com/t5/LabVIEW/Reference-to-a-variable/m-p/4038233#M1158672
+- https://www.ni.com/docs/en-US/bundle/labview-api-ref/page/functions/data-value-reference-read-write-element.html?srsltid=AfmBOoonDb0eZCRmaWPO4N9VNUrYt9_UCMS-Xoeok8eylPlcB3ber5dI
+- https://www.youtube.com/watch?v=DTbqR0H-e8g
+- https://lavag.org/topic/10983-dvr-vs-pointer/
+- https://www.ni.com/docs/en-US/bundle/labview/page/storing-data-and-reducing-data-copies-with-data-value-references.html?srsltid=AfmBOop8BAUarAnSy6KhSo8oJHJ-6_S7GbU5qGuWa3Pkd82RajZvUnJi
+and many other discussions on DVRs in LabVIEW.
+
 # Memory
 
 https://www.youtube.com/watch?v=dIGHfybWCG4 @ 25:02
+
+
+
+
+
 
 
 
@@ -597,45 +653,29 @@ Huh…. Maybe no runtime checks as to not throw errors.. minimize errors that ca
 —
 —
 
-—
-- DVR Specifics:
-All DVRs are Type Def clusters. But, some of the type defs have inside them interfaces (which are instantiated as classes at runtime). Therefore Mark As Modifier (on the IPES input) is not used in jettl unless:
-1. This is a write operation **AND**
-2. A dynamic dispatch method is called within the IPES.
-This could change in the future, note:
-https://lavag.org/topic/7761-in-place-element-structure-mark-as-modifier/
-https://lavag.org/topic/19685-dvr-and-error-handling/
-https://forums.ni.com/t5/LabVIEW/Mark-as-modifier-in-place-of-structure/td-p/2028072
-https://www.ni.com/docs/en-US/bundle/labview-api-ref/page/structures/in-place-element-structure.html#:~:text=You%20can%20right%2Dclick%20a,data%20and%20avoid%20race%20conditions
-https://forums.ni.com/t5/LabVIEW/Manipulating-DVR-Data-Is-this-correct/m-p/3211893
-https://forums.ni.com/t5/LabVIEW/quot-Data-Value-Reference-quot-and-quot-In-Place-Element/td-p/1558466
-https://www.ni.com/docs/en-US/bundle/labview/page/caveats-and-recommendations-for-using-in-place-element-structures.html
-https://www.ni.com/docs/en-US/bundle/labview/page/storing-data-and-reducing-data-copies-with-data-value-references.html#:~:text=Storing%20Data%20and%20Reducing%20Data%20Copies%20with,value%20references%20to%20store%20large%20data%20sets.
-https://medium.com/@thomas.zilliox/sharing-memory-between-modules-and-loops-in-labview-287e14e4039e
-https://www.youtube.com/watch?v=VIWzjnkqz1Q
-https://www.youtube.com/watch?v=lPwLTCtgYDo
-https://forums.ni.com/t5/LabVIEW/Anyone-else-having-DVR-In-place-element-structure-bug-error-1556/td-p/4320674
-https://forums.ni.com/t5/LabVIEW/Pointers-in-Labview/m-p/1242534#M525059
-https://forums.ni.com/t5/LabVIEW/Reference-to-a-variable/m-p/4038233#M1158672
-https://www.ni.com/docs/en-US/bundle/labview-api-ref/page/functions/data-value-reference-read-write-element.html?srsltid=AfmBOoonDb0eZCRmaWPO4N9VNUrYt9_UCMS-Xoeok8eylPlcB3ber5dI
-https://www.youtube.com/watch?v=DTbqR0H-e8g
-https://lavag.org/topic/10983-dvr-vs-pointer/
-https://www.ni.com/docs/en-US/bundle/labview/page/storing-data-and-reducing-data-copies-with-data-value-references.html?srsltid=AfmBOop8BAUarAnSy6KhSo8oJHJ-6_S7GbU5qGuWa3Pkd82RajZvUnJi
-and many other discussions on DVRs in LabVIEW.
+
 
 ---
 
-Stopped is the final message that can be read by the Root Actor from a Leaf Actor.Leaf Actor lifetime: Only when the Root Actor listens to Stopped will the Leaf Actor be able to go out of scope (from a queue that is dequeued after the Tell Root Stopped Msg in “Tearing Down.vi”. This guarantees lifetime of messages told before Stopped, but not after Stopped since the Msg DVR (tied to the Leaf lifetime) goes out of scope after Stopped message.
+Stopped is the final message that can be read by the Root Actor from a Leaf Actor. Leaf Actor lifetime: Only when the Root Actor listens to Stopped will the Leaf Actor be able to go out of scope (from a queue that is dequeued after the Tell Root Stopped Msg in “Tearing Down.vi”.
+
 “Stopped Listened To:BoolQueue” AFTER Stopped as Dequeue (In Stopped reads “Stopped Listened To” and enqueues TRUE.
 Add “Stopped Listened To:boolQueue” to “Leaf Unified Actor.ctl” and is created and bundled at the “Update Unified Actor.vi” in “Setting Up.vi” for Leaf Actor.
 
 ---
 
-Root listens to Msg, ALWAYS forwards to Leaf. There is a check in Leaf Actor that only allows Msgs to be told to Root if Root Implements that Msg (different interface, but nonetheless same library). 
+Root Actor job:
+listens to `Msg DVRs`, only uses `Tell Leaf.vi` to the specified Alias.
 
-Care is taken to not create data copies anywhere in Root (hence the use of Msg DVR). Due to changing of the Msg DVR lifetime to the Root Actor, the Msg DVR is deleted and a new DVR with the same type def data, of course the Teller is updated again in Root. Rethink the Teller, since the Teller is only important in the Leaf Actors.
+Root Actor has scripted `Name.vi`(Alias) Poly VI (within library to encapsulate name spacing for the following two private functions):
+- `Tell Leaf.vi` wraps `Tell Leaf.vi` with the destination Leaf correlating to the Enum that it is in (Poly VI Name).
+- `Spawn Leaf.vi` wraps `Spawn Leaf.vi` with the Leaf Actor correlating to the Enum that it is in (Poly VI Name).
 
---
+---
+
+The `Teller.ctl` is only updated in the `Leaf Actors` in the `Tell Root.vi`.
+
+---
 
 Clusters implemented as DVRs:
 - `Root Actor.ctl`
@@ -812,16 +852,31 @@ Buffer DVR is a Type Def Cluster:
 Current Index is incremented after reading (Swap Values.vi)
 Check instead the Current Index if above “value” in array. Then new DVRs that replace default Msg DVRs array elements BEFORE the Current Index, and of course at the end, update Current index to 0.
 
+---
 
+`Base Root Actor.lvclass` has private data of:
+- `Actor.ctl`
+- `Base Actor.ctl`
 
+`Base Leaf Actor.lvclass` has private data of:
+- `Actor.ctl`
+- `Base Actor.ctl`
 
+---
 
+Only use Poly VIs for reuse. For convince and quick drop lookup, they're also in the palettes.
 
+---
 
+fixed size arrays for optimal performance, this is mandatory at edit time.
 
+---
 
+since Leaf Actors have same lifetime as Root Actor, hold all DVR Msg Buffers in Root!
+There could be a debug analyzer in Leaf Actors that checks how often buffers are written to, when creating New DVRs.
+Maybe, executing in parallel to the `Name.vi` in the Leaf Actors is a Buffer allocation what checks the size of the Buffer to ensure the size is at the threshold. There might be some other metadata used in the `Buffer DVR` to keep track of which method calls are Valid DVRs. In Msg DVR Buffer DVR, keep the most recent `Valid DVR Index` and `Current DVR Index`. Read the two values (from Read Only DVR, quick) then make (and if more than (half?) aren't full, then New DVRs and replace these in between the indexes above and in between in the array by writing to the DVR (just the replace function). Note in between reading the DVR and writing to the DVR, the DVR could have been accessed multiple times, but this isn't an issue because otherwise the default Msg DVRs in the array will be replaced anyway which is what we wanted to do. Just ensure that the Msg DVR Buffer DVR isn't being written to more frequently than can allocate more New DVRs to the array. Otherwise the Root will get a DVR default value which would CRASH the program. This is a corner case that we take extra precaution to prevent as talked about in more detail later i.e. ensuring the buffer size is large enough and keeping a running record in the Msg DVR Buffer DVR of the dt of writes to the buffer. Remember, the Leaf Actors job is to use the Msg DVR Buffer DVR as SHORT as possible. As to keep the Root Actor, grabbing Msg DVRs from the Msg DVR Buffer DVR maximally responsive.
 
-
+Note, there could be a debug analyzer in Leaf Actor (as Core) that checks how often buffers are written to, when creating New DVRs to check for how often it needs replenishing.
 
 
 

@@ -9,14 +9,8 @@
 
 </Property>
 	<Item Name="Spawn" Type="Folder">
-		<Item Name="Root Actors" Type="Folder">
-			<Item Name="Root Actors.lvclass" Type="LVClass" URL="../Root Actors/Root Actors.lvclass"/>
-			<Item Name="Base Root Actors.lvlib" Type="Library" URL="../Base Root Actors/Base Root Actors.lvlib">
-				<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-			</Item>
-			<Item Name="Init Root Actors.vi" Type="VI" URL="../Init Root Actors.vi"/>
-		</Item>
 		<Item Name="Spawn.lvlib" Type="Library" URL="../Spawn/Spawn.lvlib"/>
+		<Item Name="Spawn Leaf Actor.vi" Type="VI" URL="../Spawn/Spawn Leaf Actor.vi"/>
 		<Item Name="Check Parent Actor.vi" Type="VI" URL="../Check Parent Actor.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>

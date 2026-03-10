@@ -10,13 +10,7 @@
 
 </Property>
 	<Item Name="Spawn.vi" Type="VI" URL="../Spawn.vi"/>
-	<Item Name="Async Root.vi" Type="VI" URL="../Async Root.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="Async Child.vi" Type="VI" URL="../Async Child.vi">
-		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-	</Item>
-	<Item Name="Call Root.vi" Type="VI" URL="../Call Root.vi">
+	<Item Name="Root Actor.vi" Type="VI" URL="../Root Actor.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 </Library>
