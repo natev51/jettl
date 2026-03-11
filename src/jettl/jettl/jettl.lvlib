@@ -76,7 +76,7 @@
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 	</Item>
-	<Item Name="Msg" Type="Folder">
+	<Item Name="Msg DVR" Type="Folder">
 		<Item Name="Self" Type="Folder">
 			<Item Name="Tell Init Self.vi" Type="VI" URL="../Tell Init Self.vi"/>
 			<Item Name="Tell Forward Self.vi" Type="VI" URL="../Tell Forward Self.vi"/>

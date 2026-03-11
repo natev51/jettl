@@ -455,7 +455,11 @@ Any naming Tool (“Rename” / “Poly VI Alias” generation) must have:- one,
 Why: Easy for icon text display for Actors and Msgs
 “Excluded Names.vi”: checked programmatically for the library for the (either)- VI names already present
 - Alias Names already present
+
 —
+
+Get rid of any enums for aliases.
+Use strings exclusively AND have them be checked in scripting tools as to not cause naming conflicts / duplication of Leaf Alias names
 
 # Coordinated Shutdown
 
@@ -464,8 +468,6 @@ ONLY exists in the Root Actor.
 —
 
 Coordinated Shutdown guarantees that Root Actor always outlives Leaf Actors.
-
-—
 
 # Spawning
 
@@ -493,7 +495,7 @@ All Actors are persistent for the application. Root is spawned and before finish
 
 ---
 
-In spawning, checks if the Alias Map has the same number of elements as the `Leaf Aliases`:`Enum`. This guarantees that each `Leaf Alias` has a Leaf Actor. All `Leaf Actors` are spawned at startup.
+In spawning, checks if the Alias Map has the same number of elements as the `Leaf Aliases` as defined through counting the number of Alias and associated Spawn VIs. This guarantees that each `Leaf Alias` has a Leaf Actor. All `Leaf Actors` are spawned at startup.
 
 ---
 
@@ -504,6 +506,18 @@ NOPE! This is statically determined at runtime that the Root Actor implements th
 - Always know what Base Root Actor and Base Leaf Actor messages are implemented.
 - Spawning Root Actor (with input of Core Actors), their messages can be saved as “Implemented Core Msgs”.
 UNFINISHED
+
+--
+
+Spawning:
+
+Root checks:
+- `Implemented Msgs` from Self
+- `Implemented Msgs` from Leaf
+
+Leaf checks:
+- `Implemented Msgs` from Self
+- `Implemented Msgs` from Root
 
 # General Actor Concepts
 
@@ -523,16 +537,23 @@ Find Msgs can have a DD output?
 
 —
 
+in Actors,
+All preallocated calls MUST be inline. Why?:
+Maximum performance. Otherwise, if it can’t it’s probably a good idea to move the part that doesn’t allow inline execution into a Utility Library.
+
 # General
 
-Use of jettl:Some VIs in the jettl.lvlib are public since they’re used in the Actors. Some of these methods should not be used, though it is not clear which by inspecting the library.Therefore, we distinguish public function calls (no method calls) that can be used ans only those defined through polymorphic VIs, which are all found on the palette.
-—
-Delete “Root Call.vi”
+Use of jettl:Some VIs in the jettl.lvlib are public since they’re used in the Actors. Some of these methods should not be used, though it is not clear which by inspecting the library. Therefore, we distinguish public function calls (no method calls) that can be used ans only those defined through polymorphic VIs, which are all found on the palette.
 —
 Get rid of jettl in names
 Keep Root Actor
 Keep Leaf Actor
 
+---
+
+Why even have a hierarchy of messaging? Why not have a broker that directly forwards Msg DVRs to other Leaf Actors directly. The answer is to
+- decouple the Leaf Actors from other Leaf Actors
+- Allow state logic in the Root Actor to execute messages differently as a middle man. 
 
 # Random
 
@@ -630,59 +651,92 @@ and many other discussions on DVRs in LabVIEW.
 https://www.youtube.com/watch?v=dIGHfybWCG4 @ 25:02
 
 
+# Working 1
 
+TEMPLATE Root Msg.lvclass (interface)
+- “TEMPLATE.vi”
 
+TEMPLATE Leaf Msg.lvclass (interface)
+- “TEMPLATE Before.vi
+- “TEMPLATE After.vi
 
-
-
-
-
-
-# Working
-
-Two Interfaces in Msg Library:
-- Root:“TEMPLATE Root Msg.lvclass”- “TEMPLATE.vi”
-- Leaf:TEMPLATE Leaf Msg.lvclass”- “TEMPLATE Before.vi”- “TEMPLATE After.vi”
 Interfaces in jett:
-- “Root Execute.vi”
-- “Leaf Execute.vi”
-^^^^Have to come back to this..
-
-Huh…. Maybe no runtime checks as to not throw errors.. minimize errors that can be thrown in Root Actor. Here that means checks for if a Leaf can accept a message, whatever, just tell it. The Leaf will auto ignore it and delete the reference.
+- “Execute.vi”
 
 —
+
+Goals of Root Actor:
+- Minimize runtime checks
+- Minimize runtime errors
+
 —
 
+In Spawn, check for:
+- Root Actor must have implemented all messages Leaf will tell.
+- Leaf Actor must have implemented all messages Root will tell.
+
+—
+
+Decouple the framework from external libraries.
+That means do not use poly function calls outside of actors.
+This ensures strictly typing the messages that are tied to the actor of interest.
+The tools only recurse through the actor of interest method and function calls to determine which “Tell Root.vi” calls will be made.
+
+—
+
+I really want to force developers to compile their code to PPLs. This will dramatically help build times and really show that this framework is high performance driven.
+Now.. could be difficultly with bitness, OS, and target.. but this should be looked at later. The mentality for fast build times is still there.
+
+—
+
+LabVIEW gripe
+Private access scope on methods cannot be dynamic dispatch. WHY? It’s not so much that I want to use these DD terminals for overriding, but rather to declare to the compiler that the object input will be the same at the object output.
+Maybe this isn’t all that bad since we can use preallocate reentrancy and inline the method call. 
+Private preallocated SD method call. (Note it is not DD even though would be used not for overriding, but to declare to the compiler that the object in is the SAME object out, this will minimize memory copies and lead to better performance.) but preallocated private inline is always better performance! So better not to DD.
+Maybe there is a way to do this by internally (to the SD method) use the preserve runtime class OR outside of the method use the preserve runtime class.
+Maybe this can be done with the scripting tools to put in these preserve runtime class, but maybe it’s not necessary since they’re inlined anyway? And the compiler already KNOWS the method call passes the object through, since otherwise placing it into a DD method would break the DD method. HUH! TRUE!
+
+—
+
+Spawning check:
+Root Actor MUST have at least one Leaf Actor.
+Leaf Actor MUST have Root Actor be valid refnum..
 
 
----
+—
 
-Stopped is the final message that can be read by the Root Actor from a Leaf Actor. Leaf Actor lifetime: Only when the Root Actor listens to Stopped will the Leaf Actor be able to go out of scope (from a queue that is dequeued after the Tell Root Stopped Msg in “Tearing Down.vi”.
+Lifetime:
+Root Actor listens to Stopped as it’s final message. Leaf Actor lifetime: Only when the Root Actor listens to Stopped will the Leaf Actor be able to go out of scope (from a queue that is dequeued after the Tell Root Stopped Msg in “Tearing Down.vi”. This is because the Actor may otherwise need to forward and execute messages that are still coming from the Root to achieve Coordinated Shutdown.
 
 “Stopped Listened To:BoolQueue” AFTER Stopped as Dequeue (In Stopped reads “Stopped Listened To” and enqueues TRUE.
-Add “Stopped Listened To:boolQueue” to “Leaf Unified Actor.ctl” and is created and bundled at the “Update Unified Actor.vi” in “Setting Up.vi” for Leaf Actor.
+Add “Stopped Listened To:boolQueue” to “Leaf Unified Actor.ctl” and is created and bundled at the “Update Unified Actor.vi” in “Setting Up.vi” for Leaf Actor.
 
 ---
+
+# Working 2
 
 Root Actor job:
-listens to `Msg DVRs`, only uses `Tell Leaf.vi` to the specified Alias.
+Listens to `Msg DVRs`, only uses Poly `Tell Leaf.vi` in Name.vi.
+
+—
 
 Root Actor has scripted `Name.vi`(Alias) Poly VI (within library to encapsulate name spacing for the following two private functions):
-- `Tell Leaf.vi` wraps `Tell Leaf.vi` with the destination Leaf correlating to the Enum that it is in (Poly VI Name).
-- `Spawn Leaf.vi` wraps `Spawn Leaf.vi` with the Leaf Actor correlating to the Enum that it is in (Poly VI Name).
+- `Tell Leaf.vi` wraps `Tell Leaf.vi` with the destination Leaf correlating to the string that it is in (Poly VI Name).
+- `Spawn Leaf.vi` wraps `Spawn Leaf.vi` with the Leaf Actor correlating to the string that it is in (Poly VI Name).
 
 ---
 
-The `Teller.ctl` is only updated in the `Leaf Actors` in the `Tell Root.vi`.
+The `Teller.ctl` is only updated in `Leaf Actors` in the `Tell Root.vi`.
 
 ---
 
 Clusters implemented as DVRs:
-- `Root Actor.ctl`
-- `Leaf Actor.ctl`
-- `Base Root Actor.ctl`
-- `Base Leaf Actor.ctl`
 - `Msg.ctl`
+- `Msg DVR Buffer.ctl`
+
+Base Root Actor:
+`Msg DVR Buffer DVR Map`
+`Leaf Unified Actor Alias` to `Msg DVR Buffer DVR`
 
 ---
 
@@ -703,85 +757,97 @@ Constraint: a mesaage can only be told, it cannot be directly called.
 
 
 Msg DVR
-DVRs for messages, memory copies being created when telling user events. He addressed this in the example with a DVR as the payload. Lifetimes are guaranteed and the deleting of DVRs occurs under the hood.
+DVRs for messages, memory copies being created when telling user events. He addressed this in the example with a DVR as the payload.
 https://youtu.be/zR6qe2POhFk?si=QVWJH4omuairiQLv @18:57
 
 —
 
+# Working 3
+
 For Root Actor:
-SubVI for the Release Transport and put it RIGHT when the Actor shouldn’t handle anymore messages! ie when “Stopping without children”.
+`Release Transport.vi` location isn’t important since Leafs will be Stopped (Despawned State!!) when Root Actor shouldn’t handle anymore messages! ie when “Stopping Without Leaf Actors”.
 
 For Leaf Actors:
 Same, but location RIGHT when stop hits.
 
+REVIST THE ABOVE.
+
 —
 
-Unhandled messages, make sure to delete the DVR.
+`Unhandled Msg DVRs`, make sure to delete the DVR.
+
+—
+
+Good idea to include field in Teller where the Msg DVR is type casted to I32 for the unique identifier.
 
 --
 
 Telling messages: a purely static design.
-By framework design, Root ONLY listens to messages it has implemented. This eliminates message checks, minimizing overhead in Root. This check is done in the Leaf Actor before telling message to Root. The Leaf Actor checks the Root Actor “Implemented Msgs” set.
 
-Root Msgs:
-Inbound:
-- Implemented Msgs (these are inbound)
-Outbound:
-- Tell Leaf (statically determined).
+Root Actor outbound messages:
+- `Root Tell Leaf.vi`
+- `Root Tell Self.vi`
 
-Leaf Msgs:
-Inbound:
-- Implemented Msgs (if not implemented, then no-op) this is a design flaw that should be detected by documentation / analyzer, since statically typed spawning)
-
-Outbound:
-- Tell Root (checks if Root implements, otherwise error).
-- Tell Self
-
-—
-Leaf Actors are easy to document, they:
-- Tell Msg to Root
-- Tell Msg to Self
-—
-
-
-Leaf Actors:
-Leaf cannot be spawned unless Root Implemented all Msgs Leaf tells. This prevents runtime errors that otherwise would occur if trying to tell a message to Root Actor that doesn’t have it in it’s “Implemented Msgs” set. That means that the Implemented Msgs check is NOT necessary! WOW!
+Leaf Actor outbound messages:
+- `Leaf Tell Self.vi`
+- `Leaf Tell Root.vi`
 
 —
 
-ALREADY STATED:
-New DVR in Spawner and delete DVR in Spawnee, New DVR there.
+
+Spawn:
+Leaf Actor, hence Root Actors cannot be spawned unless Root Actor Implemented all Msgs Leaf tells Root Actor.
 
 —
 
 DVR:
-Messaging is purely hierarchical AND FAST due to DVRs. Minimize overhead in Root when listening to messages and forwarding.
-Msg DVR should have knowledge of Root and Leaf? 
+Messaging is purely hierarchical AND FAST due to DVRs. Minimizes overhead in Root when listening to messages and forwarding.
+Msg DVR should have knowledge of Root and Leaf?
+
+—
+
+Root Actor is a state machine with enum representing the state. This comes with the Root Actor with a default state of Idle. Benefits of enum approach as compared with State Pattern:
+- Direct manipulation of Root Actor state
+- No instantiating objects and calling their state through DD overrides, leading to DD overhead. Enums are statically typed.
+- State Pattern must have memory copies of Root Actor state when DD into the states DD object states.
 
 —
 
 ALREADY STATED:
 Spawning a Leaf Actor, checks if the Leaf Actor can:
-- listen to all messages available from Root (Poly VI for Leaf string and message name) (this action should be scripted, WOULD need to be statically tied to an alias.)
+- listen to all messages available from Root Actor (Poly VI for Leaf string and message name)
 
-Goal: Very static system is what jettl aims for.
-The only “dynamic” part of the system is the decorations of Leaf Actors. But this is actually static since there are Poly VIs for the spawned actor with its alias.
-“Alias Name.vi” Poly Actor that is scripted to statically type the Leaf Actors. This makes the spawning of Leaf Actors static, within that DD method call. (Note it is DD not for overriding, but to declare to the compiler that the object in is the SAME object out, this will minimize memory copies and lead to better performance.)
 
-Statically determining spawning should be determined at edit time.
+—
 
-This would work with Factory Pattern PPLs, so long as they’re known at edit time. Therefore, Factory Pattern is discouraged since it is dynamic.
+jettl Goal:
+- Very static system.
+- Heavily typed system where everything is known at edit time. This minimizes dynamics, therefore preventing bugs and errors from occurring at runtime.
 
-jettl aims to be a heavily typed system when everything is known at edit time. Minimizing dynamics at runtime, therefore preventing bugs and errors from occurring.
+The only “dynamic” part of the system is the decorations of Root Actor and Leaf Actors.
+
+Testing Leaf Actor and the Unified Leaf Actor FROM the statically typed SD method for spawning the Unified Leaf Actor.
+
+No dynamics, therefore no;
+- Factory Pattern
 
 —
 
 jettl has two actor types:
 - Root
 - Leaf
-As defined through their containing library name.
-(Take away the Private Actors virtual private folder).
+
+—
+
+Take away the Private Actors virtual private folder
+
+—
+
 Constraint: One Root Actor and N many Leaf Actors.
+
+# Working 4
+
+—
 
 Root Actor:
 N many decorators (note more decorations means more DD overhead).
@@ -789,18 +855,18 @@ Root Base Actor is always innermost.
 (Define the Leaf Actors Core Actors here).
 
 Leaf Actors:
-Decorator Actors
+Actors
 Core Actors (defined in Root Actor).
 (Get rid of Edge Actors)
 
 —
 
 Root Actor Transport:
-Queue (DVR). Queue used instead of Event for maximum performance as it is a 1:1 transport.
+Queue. Queue used instead of Event for maximum performance as it is a 1:1 transport.
 MINIMUM LOGIC for maximum throughput of messages.
 
 Leaf Actor Transport:
-Event (DVR). Event used due to ability to 1:N message external entities in an application and control events.
+Event. Event used due to ability to 1:N message external entities in an application and control events.
 
 —
 
@@ -815,17 +881,6 @@ Create libraries with Poly VIs inside:
 - Read Base Lead Actor DVR
 - Read Decorator Leaf Actor DVR
 - Read Msg DVR
-
-—
-
-THIS IS A REPEAT:
-
-Root Actor:
-- Tell Leaf
-
-Leaf Actor:
-- Tell Self
-- Tell Root
 
 —
 
@@ -844,23 +899,16 @@ Delete:
 
 ---
 
-Buffer DVR is a Type Def Cluster:
-- array of Msg DVRs
-- Current Index
-(in Root, Read/Write since updating Buffer DVR)
-
-Current Index is incremented after reading (Swap Values.vi)
-Check instead the Current Index if above “value” in array. Then new DVRs that replace default Msg DVRs array elements BEFORE the Current Index, and of course at the end, update Current index to 0.
-
----
-
 `Base Root Actor.lvclass` has private data of:
 - `Actor.ctl`
 - `Base Actor.ctl`
+Specific to Root Actor.lvlib?
 
 `Base Leaf Actor.lvclass` has private data of:
 - `Actor.ctl`
 - `Base Actor.ctl`
+Specific to Leaf Actor.lvlib?
+
 
 ---
 
@@ -870,6 +918,8 @@ Only use Poly VIs for reuse. For convince and quick drop lookup, they're also in
 
 fixed size arrays for optimal performance, this is mandatory at edit time.
 
+# Working 5
+
 ---
 
 since Leaf Actors have same lifetime as Root Actor, hold all DVR Msg Buffers in Root!
@@ -878,42 +928,50 @@ Maybe, executing in parallel to the `Name.vi` in the Leaf Actors is a Buffer all
 
 Note, there could be a debug analyzer in Leaf Actor (as Core) that checks how often buffers are written to, when creating New DVRs to check for how often it needs replenishing.
 
+EDIT THIS:
+
+Msg DVR Buffer DVR is a Type Def Cluster:
+- array of Msg DVRs
+- Current Index
+- Valid
+(in Root, Read/Write since updating Buffer DVR)
+
+Current Index is incremented after reading (Swap Values.vi)
+Check instead the Current Index if above “value” in array. Then new DVRs that replace default Msg DVRs array elements BEFORE the Current Index, and of course at the end, update Current index to 0.
+
+
+—
+
+Must DVRs have their outputs wired? If so, what is the benefit?
+
+
+---
+
+Circular Buffer drawing for Msg DVR Buffer DVR.
+
+—
+
+Don’t need Msg Priority for Msg DVR because:
+Always adding more to the Msg DVR Buffer DVR for every Msg DVR that is being executed in the Leaf Actor. This happens in parallel with the Name Before.vi and Name After.vi
+
+—
+
+
+---
 
 
 
+Msg DVR Buffer DVR
 
+Currently, just DVR New in both Root and Leaf.
 
+Potential performance idea:
+Preallocated `Msg DVR Buffer DVR`
+Could have a dedicated `Msg DVR Buffer Leaf Actor` that has dual `Msg DVR Buffer DVR` arrays and any other necessary information in the cluster for the current index, when it hits the end of the array, moves index back to 0 and changes the Array number to 1 if at 0 (and 0 if at 1).
+Since the Root Actor can read the Index, if at the end, the n tell message to Leaf saying to fill the buffer (it will be the other buffer that is not the current).
+There must be a way to do this remarkably fast with `Swap Values.vi` where a temporary buffer is filled (outside of the DVR) and it always ready to write into the buffer for the Root Actor to pick from.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Think about dual DMA transfers when moving data from one DMA to another in FPGA design for maximum streaming performance.
 
 
 
