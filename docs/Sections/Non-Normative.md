@@ -1076,7 +1076,7 @@ Note we use 1:1 events.
 
 ---
 
-Actor Endpoints Forums Posts of Interest
+Actor Endpoints Forums Posts of Interest that I find really helpful in understanding the package.
 
 In order of when posted:
 https://forums.ni.com/t5/Actor-Framework-Discussions/Linked-network-actor-between-2-executables-on-the-same-machine/m-p/3386772
@@ -1154,12 +1154,62 @@ Since the Actors use the decorator pattern, there is merit to having a dedicated
 
 ---
 
+So, with the changing of messages, instead we do not have outputs for messages. Instead, this is within the Metadata cluster, which must contain at least one data type, since it is a cluster.
 
+---
 
+Keep controls and indicators on the main block diagram so that the compiler can best optimize the block diagram. In particular, in Actor.vi, keep all control and indicator terminals outside of the event structure. Use local variables to update the panel. Refrain from using property nodes as they use the UI thread for execution, slowing down performance. “Set Control Value By Index” to avoid performance hit with map lookup of reference to index, instead of property node “write value”.
+https://youtu.be/PalpLe8OxSQ?si=E7A3xokgCaTyO1JU @22:47
 
+—
 
+Goal of fixing Root Loop, only reentrant calls in Indy Actor Model.
+Root Loop fixing proposal.
+Always the Root leaks the first reference (internal Boolean True for “First Root”.
+Then for subsequent Root spawns (from Leaf Actors), since the Root has (recommended) input (no output) from Leaf Actor, this “First Loop” Boolean is read to determine to leak the reference.
+OR
+can we always just check if reference has been leaked?
+OR
+?
 
+---
 
+Call parent node for class inheritance (when checked overrides must call parent) cannot call parent node anywhere unless on the same top level diagram (not within a structure i.e. case structure, etc) whereas for decorator pattern, more than one can occur.
+This is especially helpful for the case scenario where there is a decision of execution, say for an error case structure where either the No Error or Error case executes. In this case, put the decorated method in both cases. So that it is executed unconditionally.
+*VI Analayzer test to run through all permutations of cases and structures to ensure that one and only one decorator is present for the method call. Say there is an Enum case structure, we want to ensure that the decorator is called in every case.
+This functionality is not available with class inheritance (when checked overrides must call parent) since call parent node must be on the top level diagram, not in any structures.
+
+More from Child override method of override must call parent, getting error:
+**This dynamic dispatch VI does not unconditionally invoke the Call Parent Class Method node.**:
+Details:
+*This dynamic dispatch VI overrides a VI defined by an ancestor class. The ancestor class has set a requirement that all overriding VIs must invoke the Call Parent Class Method (CPCM) node. In order to ensure that the CPCM node is always invoked every time the VI is called, the following requirements must be fulfilled:* 
+1) *The CPCM node cannot be inside any structure nodes.*
+2) *The dynamic dispatch input FPTerminal must connect to the dynamic dispatch input of the CPCM node.*
+3) *Any dynamic dispatch outputs of the CPCM node must connect to any dynamic dispatch output FPTerminals on the diagram.*
+4) *There must be one and only one CPCM node on the diagram.*
+
+---
+
+Benchmarking with test harness.
+[An End to Brainless Programming - Darren Nattinger](https://www.youtube.com/watch?v=pS1UBZzKl9k) @18:49
+
+---
+
+Current implementation creates New DVRs with the data.
+
+Performance Idea: not confirmed.
+Msg DVR Allocations for specific Tell Root Msg.
+The idea, with Leaf Actors, telling Root. To reach the goal of getting the data to Root, the DVR Buffer already has (default) DVRs created, and in parallel updates each Msg DVR with “Data” Cluster, then when all complete, executes “Leaf Tell Root”. This is the fastest way to Tell the Data to Root.
+Then after this in “Leaf Tell Root”, allocates New DVRs to Buffer for the next time Telling that Msg. This way when initially telling data, DVRs don’t need to be created since they’re already created in pre allocated buffer and just need to be written to. This saves overhead to creating the DVRs BEFORE telling, and instead does this AFTER.
+
+---
+
+Don’t bother with the UID field for identifying Leaf Actors. Leaf Actors are identified with their Unified Actor Alias.
+Teller:
+- Unified Leaf Alias
+- Unified Leaf Relation
+- Absolute Time
+- Relative Time
 
 
 
