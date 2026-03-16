@@ -1211,11 +1211,44 @@ Teller:
 - Absolute Time
 - Relative Time
 
+---
 
+Root Loop
+In the top level application spawner, use `LV Root Loop.vi` to deliberately leak the references for BOTH Root and Leaf since different static references.
 
+Goal is to make everything reentrant so this checking reference with uninitialized shift register is not allowed. is not allowed.
 
+For a VI started with Start Asynchronous Call, the reference must be statically typed to the specific VI being launched. This is a fundamental requirement when asynchronously starting a unique static VI.
 
+At first glance, Start Asynchronous Call can make the reference appear to be leaked, but this behavior is intentional. The VI reference wired into Start Asynchronous Call is also returned by the node. By design, the initial statically linked reference is retained for the lifetime of the application instance and is released only when the application instance shuts down.
 
+The purpose of retaining this first reference is to keep the static VI available for repeated loading and execution. In that sense, the reference is not leaked in the usual resource-management sense; it is intentionally kept in memory instead of being closed when an individual VI clone is no longer needed. DETT may still report this condition as a leak because the reference remains allocated after the last instance of the VI goes idle.
+
+More precisely, the first reference associated with the statically defined Open VI Reference → Start Asynchronous Call path becomes unused but intentionally remains in memory. This behavior resolves the Root Loop issue.
+
+More generally, if Root and Leaf are different VIs started asynchronously, the application will retain at least two such references: one for Root and one for Leaf. Each reference is tied to a separate statically linked VI that may be loaded repeatedly during execution.
+
+References:
+- [DQMH Reference Management](https://documentation.dqmh.org/dqmh/7.1/ReferenceManagement.html#vi-server)
+- [The Root Loop](http://www.labviewcraftsmen.com/blog/the-root-loop)
+- [The UI Thread, Root Loop, and LabVIEW: What You Need to Know](https://www.genuen.com/blog/the-ui-thread-root-loop-and-labview-what-you-need-to-know/?hs_amp=true)
+- [Calling A VI Asynchronously To Avoid The "Root Loop" Issue](https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000000kGHeSAM&l=en-US)
+- [05 DQMH Updates from Ver 4 to 5](https://www.youtube.com/watch?v=sKwKUX5_dAc)
+
+---
+
+Leaf Actor -> Leaf
+Root Actor -> Root
+
+---
+
+Rescripting Tools:Map in to out terminal I32 for scripting
+
+---
+
+Philosophically, Root Tells messages to statically defined Leaf(s) and checks state for stopping and stop.Root does do DD Execute for messages it implements, but all state is within the Root Cluster. So this Actor is a single class based (just only message implementations) (DD methods for Start, Setup, etc, are SD with function calls inside that manipulate Root.ctl Cluster. Use NES for Root.ctl unbundle and rebundle.IAM Root Name.vi
+
+---
 
 
 
