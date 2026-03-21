@@ -1250,6 +1250,28 @@ Philosophically, Root Tells messages to statically defined Leaf(s) and checks st
 
 ---
 
+Stay out of the UI Thread for maximum performance. - Greg Richardson
+[Behind the Scenes of the LabVIEW Compiler - Greg Richardson. GDevCon N.A. 2025](https://www.youtube.com/watch?v=Zc8Xx9AFqtc) @22:09
+
+---
+
+Indy Actor Model: A DAG Driven Development, Actor Model implementation in LabVIEW.
+
+---
+
+Points that should be emphasized:
+* Combine jettl code with non jettl code.
+* Self documentation using Antidoc.
+* Unified Actors are decoupled from knowing how they are spawned.
+
+---
+
+Reference Lifetime
+Unified Actors are async processes that have access to using but not (by design) access to the reference lifetime since these references are tied to the Root Actor lifetime, which is guaranteed to remain open before a Leaf Actor is spawned and after a Leaf Actor is stopped. A Leaf Actor only has reference to message the Root and itself. Async process hold the lifetime of references they create i.e. when they go out of scope, the reference they created will also be implicitly destroyed.
+
+For testing, a harness Root Actor must be created to spawn the Leaf Actor. This keep the Leaf Actor in a state that it will be in in the production code i.e. telling and listening to msgs including those that are framework specific and custom.
+
+---
 
 
 
