@@ -1214,6 +1214,9 @@ Teller:
 ---
 
 Root Loop
+
+Solution AF (and DQMH?) uses is a non-reentrant VI with uninitialized shift register: The uninitialized shift register is used to retain a persistent reference for clone instances. Without this, the first iteration (i = 0) will consistently throw an error and create a leaked reference. The design ensures that a single reference is opened on the initial call and remains valid for the lifetime of the application.
+
 In the top level application spawner, use `LV Root Loop.vi` to deliberately leak the references for BOTH Root and Leaf since different static references.
 
 Goal is to make everything reentrant so this checking reference with uninitialized shift register is not allowed. is not allowed.
@@ -1274,7 +1277,43 @@ For testing, a harness Root Actor must be created to spawn the Leaf Actor. This 
 ---
 
 
+Statically typed messages to be told between actors. And since all actors must implement the interface message that will be listened to, searching the messages that each actor can implement is done on startup to minimize error checking of type casts for given messages.
 
+A deep study on Actor Model implementations in other languages has been performed allowing for standardization on naming conventions and procedural calling order.
+
+Add descriptions to the VIs and classes (these can later be converted to Antidoc)
+
+Reason the Base Actor class hasn't been made to be inherited from:
+Decorator Pattern using the Actor interface, which the the Base Actor implements. Note you cannot instantiate it (it is private to the jettl library) because the framework instantiates it for you to ensure this will be the inner most actor being decorated. This decoration gives the developer the ability to dynamically wrap actors with other actors, combining their Msgs to make a Unified Actor, enabling classes to wrap each others functionality via their common interface they implement instead of statically inheriting the classes to wrap each others functionality. 
+
+The template is heavy with decoration implementations that will be the same among all actors.
+Yes, this a directly associated with the Actor interface containing many method calls.
+
+[Only Use Inheritance If You Want Both of These](https://www.youtube.com/watch?v=C3B5IIlt4-0).
+As purist OOP philosophy suggests, there are two things static class inheritance MUST do:
+1. must override all of the parent DD methods and
+2. call the parents method in the overridden method.
+This is not enforced by LabVIEW as the default, but the classes DD methods MUST have these checkboxes checked.
+Decorator Pattern is a dynamic replacement of static class inheritance has counterparts for the checkboxes:
+- All interface DD methods must be overridden in a concreate implementation (interface checkbox checked *(just like the classes must override all of the parent DD methods)*).
+- MUST call the parent method in the overridden method *(just like the classes must override all of the parent DD methods)*, this must be done by the developer (handled for you in Template).
+Further information to convert class inheritance to decorator pattern is in a markdown file with pictures showing the transition from class inheritance to Subtype Polymorphism and Interface Composition resulting in the decorator pattern.
+
+
+When using this pattern for holding a reference open for clones, the shift register needs to be uninitialized or the i=0 run will always error and leak an extra reference. The intent is to open one reference on 1st run and leave it open until the app closes. Making it (the place the ref is stored, not necessarily this whole VI) non reentrant will also save on references.
+
+Av:
+
+I think most of the Actor interface methods should be hidden from developers using this framework (as opposed to developing this framework). The methods of *my* actor should only be "actor model things" (things to let me send messages, dequeue messages, spawn nested actors...), and specific implementations for the things the actor does. The methods I see in the template are all things that seem to me should be defined by the framework itself and shouldn't exist in the code for my application. That is just my opinion though, this something I like how NIAF does and don't like how DQMH does and this is more DQMHy.
+
+N:
+
+I agree, I wish there was a way that these decorated methods could not be implemented.. I may have an idea of how to do this, but it would require an incredible amount of refactor and a great deal of overhead of checking every layer of actors for if they implement a DD method or not. Now, I've already figured this out, and is *exactly* how the messaging works by checking interface implementation. But for a decorator actor, it's much more involved to the point of where the tradeoff is just not there. Plus, this would break Liskov Substitution since some interface methods wouldn't be implemented. That being said, I tried to mitigate this by separating the DD jettl methods into two virtual folders for the default implementation and one for the extended functionality that a developer would add.. this is like not overriding a method vs overriding a method. This is just what comes with the decorator pattern when adhering to SOLID principles.
+
+"Actor model things" is a good point.. I have to think more on this. But I would say that the methods given to you all are actor / message related. There are a few read only methods that appear, but these are nonetheless very actor / msg related. Maybe there is a better way of organizing the virtual folders?
+It's all defined by the framework under the hood, but there are touchpoints for allowing you to take control of your actor at every stage of it's lifetime. For example, for the Event, Queue, and Notifier Actor.vi, immediately the Actor Ref reference is gotten before the setup and start. This allows you to do things to the function and it's controls in the setup and start, something no other framework allows. So, yes more of the otherwise code under the hood in other frameworks is exposed to you (as far as function calls that you can't change anyway), but leads to more functionality of, especially with panel management and reference instantiation, unhandled msgs, etc.
+
+More DQMHy does hurt, but I can understand from the point of view seeing more boilerplate code than is necessary for an actor. There are a few things I see as common tools and things I have used that are too redundant which I would want a framework to have such as the control refs cluster which can be scripted in the future for generating signal value change event methods without need hassle to readily make controls and references and bundle, etc just to use user events for the front panel.
 
 
 
