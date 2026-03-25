@@ -657,22 +657,6 @@ Reference:
 
 - [Large LabVIEW Project Development Techniques](https://youtu.be/7zS3Q_K71XY?si=VZXcWRaCqc0C4tWh) @00:14:08-00:14:46
 
-### Color Scheme
-
-Banner colors and class wire colors should match.
-
-jettl coloring scheme:
-
-- Purple Library: RGB (166,153,182)
-- Blue Interface: RGB (104,136,190)
-- Green Class: RGB (110,149,108)
-
-How to remember:
-
-"Look down at the green grass, look up to the blue sky, and look further to the purple galaxy."
-
-These are the levels of abstraction and containerization.
-
 ### Icons
 
 Banner:
