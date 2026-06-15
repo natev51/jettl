@@ -54,7 +54,7 @@
 		<Item Name="SettingUp.vi" Type="VI" URL="../SettingUp.vi"/>
 		<Item Name="Calling.vi" Type="VI" URL="../Calling.vi"/>
 		<Item Name="FinalizingTurn.vi" Type="VI" URL="../FinalizingTurn.vi"/>
-		<Item Name="Tearing Down.vi" Type="VI" URL="../Tearing Down.vi"/>
+		<Item Name="TearingDown.vi" Type="VI" URL="../TearingDown.vi"/>
 		<Item Name="TransportTeardown.vi" Type="VI" URL="../TransportTeardown.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
@@ -79,7 +79,7 @@
 			<Item Name="ComponentActorAlias.ctl" Type="VI" URL="../ComponentActorAlias.ctl"/>
 			<Item Name="Message.ctl" Type="VI" URL="../Message.ctl"/>
 			<Item Name="MessageSet.ctl" Type="VI" URL="../MessageSet.ctl"/>
-			<Item Name="Lifetime.ctl" Type="VI" URL="../Lifetime.ctl"/>
+			<Item Name="Lifecycle.ctl" Type="VI" URL="../Lifecycle.ctl"/>
 			<Item Name="ActorType.ctl" Type="VI" URL="../ActorType.ctl"/>
 			<Item Name="TellOrigin.ctl" Type="VI" URL="../TellOrigin.ctl"/>
 			<Item Name="PreSetup.ctl" Type="VI" URL="../PreSetup.ctl"/>
