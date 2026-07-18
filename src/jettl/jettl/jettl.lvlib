@@ -17,6 +17,7 @@
 			<Item Name="ActorMap.ctl" Type="VI" URL="../ActorMap.ctl"/>
 			<Item Name="PreSetup.ctl" Type="VI" URL="../PreSetup.ctl"/>
 			<Item Name="PostSetup.ctl" Type="VI" URL="../PostSetup.ctl"/>
+			<Item Name="LayerType.ctl" Type="VI" URL="../LayerType.ctl"/>
 		</Item>
 		<Item Name="Dependent" Type="Folder">
 			<Item Name="Stats.ctl" Type="VI" URL="../Stats.ctl"/>
@@ -66,6 +67,7 @@
 		<Item Name="FindChildActorAttributes.vi" Type="VI" URL="../FindChildActorAttributes.vi"/>
 		<Item Name="FindStats.vi" Type="VI" URL="../FindStats.vi"/>
 		<Item Name="ZZZZZZZZ.vi" Type="VI" URL="../ZZZZZZZZ.vi"/>
+		<Item Name="DUMBFinalMsg.vi" Type="VI" URL="../DUMBFinalMsg.vi"/>
 	</Item>
 	<Item Name="Message" Type="Folder">
 		<Item Name="Msg.lvclass" Type="LVClass" URL="../Msg/Msg.lvclass"/>
