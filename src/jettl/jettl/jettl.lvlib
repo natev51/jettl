@@ -10,29 +10,29 @@
 </Property>
 	<Item Name="TypeDefs" Type="Folder">
 		<Item Name="Independent" Type="Folder">
-			<Item Name="LifecycleEnum.ctl" Type="VI" URL="../LifecycleEnum.ctl"/>
-			<Item Name="ActorTypeEnum.ctl" Type="VI" URL="../ActorTypeEnum.ctl"/>
-			<Item Name="TellOriginEnum.ctl" Type="VI" URL="../TellOriginEnum.ctl"/>
-			<Item Name="MessageSet.ctl" Type="VI" URL="../MessageSet.ctl"/>
+			<Item Name="MsgSet.ctl" Type="VI" URL="../MsgSet.ctl"/>
+			<Item Name="Lifecycle.ctl" Type="VI" URL="../Lifecycle.ctl"/>
+			<Item Name="Origin.ctl" Type="VI" URL="../Origin.ctl"/>
+			<Item Name="Msg.ctl" Type="VI" URL="../Msg.ctl"/>
 			<Item Name="ActorMap.ctl" Type="VI" URL="../ActorMap.ctl"/>
-			<Item Name="MessageCluster.ctl" Type="VI" URL="../MessageCluster.ctl"/>
-			<Item Name="PreSetupCluster.ctl" Type="VI" URL="../PreSetupCluster.ctl"/>
-			<Item Name="PostSetupCluster.ctl" Type="VI" URL="../PostSetupCluster.ctl"/>
+			<Item Name="PreSetup.ctl" Type="VI" URL="../PreSetup.ctl"/>
+			<Item Name="PostSetup.ctl" Type="VI" URL="../PostSetup.ctl"/>
 		</Item>
 		<Item Name="Dependent" Type="Folder">
-			<Item Name="TellComponentMessageSetMap.ctl" Type="VI" URL="../TellComponentMessageSetMap.ctl"/>
-			<Item Name="ComponentActorClusterMap.ctl" Type="VI" URL="../ComponentActorClusterMap.ctl"/>
-			<Item Name="MainCluster.ctl" Type="VI" URL="../MainCluster.ctl"/>
-			<Item Name="MessagesCluster.ctl" Type="VI" URL="../MessagesCluster.ctl"/>
-			<Item Name="MetadataCluster.ctl" Type="VI" URL="../MetadataCluster.ctl"/>
-			<Item Name="ActorCluster.ctl" Type="VI" URL="../ActorCluster.ctl"/>
-			<Item Name="BaseCluster.ctl" Type="VI" URL="../BaseCluster.ctl"/>
+			<Item Name="Stats.ctl" Type="VI" URL="../Stats.ctl"/>
+			<Item Name="Metadata.ctl" Type="VI" URL="../Metadata.ctl"/>
+			<Item Name="Layer.ctl" Type="VI" URL="../Layer.ctl"/>
+			<Item Name="Unified.ctl" Type="VI" URL="../Unified.ctl"/>
+			<Item Name="ChildUnifiedMap.ctl" Type="VI" URL="../ChildUnifiedMap.ctl"/>
+			<Item Name="State.ctl" Type="VI" URL="../State.ctl"/>
+			<Item Name="Base.ctl" Type="VI" URL="../Base.ctl"/>
 		</Item>
 	</Item>
 	<Item Name="Spawn" Type="Folder">
-		<Item Name="SpawnAsync.vi" Type="VI" URL="../SpawnAsync.vi"/>
+		<Item Name="CreateRoot.vi" Type="VI" URL="../CreateRoot.vi"/>
+		<Item Name="CreateChild.vi" Type="VI" URL="../CreateChild.vi"/>
 		<Item Name="ConfigActor.vi" Type="VI" URL="../ConfigActor.vi"/>
-		<Item Name="SpawnMediator.vi" Type="VI" URL="../SpawnMediator.vi">
+		<Item Name="CreateRootCore.vi" Type="VI" URL="../CreateRootCore.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 		<Item Name="SpawnComponent.vi" Type="VI" URL="../SpawnComponent.vi">
@@ -59,14 +59,17 @@
 		<Item Name="UpdateLifecycle.vi" Type="VI" URL="../UpdateLifecycle.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
-		<Item Name="FindComponentActorCluster.vi" Type="VI" URL="../FindComponentActorCluster.vi"/>
-		<Item Name="FindMessageSet.vi" Type="VI" URL="../FindMessageSet.vi"/>
+		<Item Name="FindLifecycle.vi" Type="VI" URL="../FindLifecycle.vi"/>
+		<Item Name="FindSelfActorAttributes.vi" Type="VI" URL="../FindSelfActorAttributes.vi"/>
+		<Item Name="FindParentActorAttributes.vi" Type="VI" URL="../FindParentActorAttributes.vi"/>
+		<Item Name="FindChildActorAttributesMap.vi" Type="VI" URL="../FindChildActorAttributesMap.vi"/>
+		<Item Name="FindChildActorAttributes.vi" Type="VI" URL="../FindChildActorAttributes.vi"/>
+		<Item Name="FindStats.vi" Type="VI" URL="../FindStats.vi"/>
 		<Item Name="ZZZZZZZZ.vi" Type="VI" URL="../ZZZZZZZZ.vi"/>
-		<Item Name="Abort.vi" Type="VI" URL="../Abort.vi"/>
 	</Item>
 	<Item Name="Message" Type="Folder">
-		<Item Name="Message.lvclass" Type="LVClass" URL="../Message/Message.lvclass"/>
-		<Item Name="CustomMetadata.lvclass" Type="LVClass" URL="../CustomMetadata/CustomMetadata.lvclass"/>
+		<Item Name="Msg.lvclass" Type="LVClass" URL="../Msg/Msg.lvclass"/>
+		<Item Name="Metadata.lvclass" Type="LVClass" URL="../Metadata/Metadata.lvclass"/>
 		<Item Name="ExecuteOrRecurse.vi" Type="VI" URL="../ExecuteOrRecurse.vi"/>
 		<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>
 		<Item Name="PreTell.vi" Type="VI" URL="../PreTell.vi">
@@ -76,8 +79,8 @@
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 		<Item Name="TellSelf.vi" Type="VI" URL="../TellSelf.vi"/>
-		<Item Name="TellMediator.vi" Type="VI" URL="../TellMediator.vi"/>
-		<Item Name="TellComponent.vi" Type="VI" URL="../TellComponent.vi"/>
+		<Item Name="TellParent.vi" Type="VI" URL="../TellParent.vi"/>
+		<Item Name="TellChild.vi" Type="VI" URL="../TellChild.vi"/>
 	</Item>
 	<Item Name="Error" Type="Folder">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>

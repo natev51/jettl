@@ -9,6 +9,6 @@
 
 </Property>
 	<Item Name="_Template.lvclass" Type="LVClass" URL="../_Template/_Template.lvclass"/>
-	<Item Name="{{Message}}.lvlib" Type="Library" URL="../{{Message}}/{{Message}}.lvlib"/>
+	<Item Name="{{Msg}}.lvlib" Type="Library" URL="../{{Msg}}/{{Msg}}.lvlib"/>
 	<Item Name="{{Actor}}.lvlib" Type="Library" URL="../{{Actor}}/{{Actor}}.lvlib"/>
 </Library>
