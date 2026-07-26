@@ -10,33 +10,36 @@
 </Property>
 	<Item Name="TypeDefs" Type="Folder">
 		<Item Name="Independent" Type="Folder">
-			<Item Name="MsgSet.ctl" Type="VI" URL="../MsgSet.ctl"/>
+			<Item Name="MsgNames.ctl" Type="VI" URL="../MsgNames.ctl"/>
 			<Item Name="Lifecycle.ctl" Type="VI" URL="../Lifecycle.ctl"/>
 			<Item Name="Origin.ctl" Type="VI" URL="../Origin.ctl"/>
-			<Item Name="Msg.ctl" Type="VI" URL="../Msg.ctl"/>
-			<Item Name="ActorMap.ctl" Type="VI" URL="../ActorMap.ctl"/>
 			<Item Name="PreSetup.ctl" Type="VI" URL="../PreSetup.ctl"/>
 			<Item Name="PostSetup.ctl" Type="VI" URL="../PostSetup.ctl"/>
 			<Item Name="LayerType.ctl" Type="VI" URL="../LayerType.ctl"/>
+			<Item Name="Config.ctl" Type="VI" URL="../Config.ctl"/>
+			<Item Name="Msg.ctl" Type="VI" URL="../Msg.ctl"/>
+			<Item Name="MsgExecuteType.ctl" Type="VI" URL="../MsgExecuteType.ctl"/>
 		</Item>
 		<Item Name="Dependent" Type="Folder">
+			<Item Name="MsgAttribs.ctl" Type="VI" URL="../MsgAttribs.ctl"/>
 			<Item Name="Stats.ctl" Type="VI" URL="../Stats.ctl"/>
-			<Item Name="Metadata.ctl" Type="VI" URL="../Metadata.ctl"/>
+			<Item Name="PreTell.ctl" Type="VI" URL="../PreTell.ctl"/>
 			<Item Name="Layer.ctl" Type="VI" URL="../Layer.ctl"/>
-			<Item Name="Unified.ctl" Type="VI" URL="../Unified.ctl"/>
-			<Item Name="ChildUnifiedMap.ctl" Type="VI" URL="../ChildUnifiedMap.ctl"/>
-			<Item Name="State.ctl" Type="VI" URL="../State.ctl"/>
-			<Item Name="Base.ctl" Type="VI" URL="../Base.ctl"/>
+			<Item Name="ActorAttribs.ctl" Type="VI" URL="../ActorAttribs.ctl"/>
+			<Item Name="ChildActors.ctl" Type="VI" URL="../ChildActors.ctl"/>
+			<Item Name="Actor.ctl" Type="VI" URL="../Actor.ctl"/>
+			<Item Name="MsgMap.ctl" Type="VI" URL="../MsgMap.ctl"/>
+			<Item Name="LayerAttribs.ctl" Type="VI" URL="../LayerAttribs.ctl"/>
 		</Item>
 	</Item>
 	<Item Name="Spawn" Type="Folder">
+		<Item Name="LeakRootLoop.vi" Type="VI" URL="../LeakRootLoop.vi"/>
 		<Item Name="CreateRoot.vi" Type="VI" URL="../CreateRoot.vi"/>
 		<Item Name="CreateChild.vi" Type="VI" URL="../CreateChild.vi"/>
-		<Item Name="ConfigActor.vi" Type="VI" URL="../ConfigActor.vi"/>
 		<Item Name="CreateRootCore.vi" Type="VI" URL="../CreateRootCore.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
-		<Item Name="SpawnComponent.vi" Type="VI" URL="../SpawnComponent.vi">
+		<Item Name="CreateChildCore.vi" Type="VI" URL="../CreateChildCore.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 		<Item Name="AsyncOptions.vi" Type="VI" URL="../AsyncOptions.vi">
@@ -48,6 +51,7 @@
 		<Item Name="Base.lvlib" Type="Library" URL="../Base/Base.lvlib">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
+		<Item Name="SetupWrapper.vi" Type="VI" URL="../SetupWrapper.vi"/>
 		<Item Name="Setup.vi" Type="VI" URL="../Setup.vi"/>
 		<Item Name="PreLoop.vi" Type="VI" URL="../PreLoop.vi"/>
 		<Item Name="Turn.vi" Type="VI" URL="../Turn.vi"/>
@@ -65,14 +69,15 @@
 		<Item Name="FindParentActorAttributes.vi" Type="VI" URL="../FindParentActorAttributes.vi"/>
 		<Item Name="FindChildActorAttributesMap.vi" Type="VI" URL="../FindChildActorAttributesMap.vi"/>
 		<Item Name="FindChildActorAttributes.vi" Type="VI" URL="../FindChildActorAttributes.vi"/>
-		<Item Name="FindStats.vi" Type="VI" URL="../FindStats.vi"/>
+		<Item Name="Verify.vi" Type="VI" URL="../Verify.vi"/>
 		<Item Name="ZZZZZZZZ.vi" Type="VI" URL="../ZZZZZZZZ.vi"/>
 		<Item Name="DUMBFinalMsg.vi" Type="VI" URL="../DUMBFinalMsg.vi"/>
 	</Item>
-	<Item Name="Message" Type="Folder">
+	<Item Name="Msg" Type="Folder">
 		<Item Name="Msg.lvclass" Type="LVClass" URL="../Msg/Msg.lvclass"/>
 		<Item Name="Metadata.lvclass" Type="LVClass" URL="../Metadata/Metadata.lvclass"/>
-		<Item Name="ExecuteOrRecurse.vi" Type="VI" URL="../ExecuteOrRecurse.vi"/>
+		<Item Name="Execute.vi" Type="VI" URL="../Execute.vi"/>
+		<Item Name="Listen.vi" Type="VI" URL="../Listen.vi"/>
 		<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>
 		<Item Name="PreTell.vi" Type="VI" URL="../PreTell.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
