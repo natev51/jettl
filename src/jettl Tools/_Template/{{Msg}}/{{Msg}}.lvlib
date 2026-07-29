@@ -14,7 +14,6 @@
 	<Item Name="TellParent.vi" Type="VI" URL="../TellParent.vi"/>
 	<Item Name="TellChild.vi" Type="VI" URL="../TellChild.vi"/>
 	<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>
-	<Item Name="Listen.vi" Type="VI" URL="../Listen.vi"/>
 	<Item Name="{{Msg}}Wrapper.vi" Type="VI" URL="../{{Msg}}Wrapper.vi"/>
 	<Item Name="Init.vi" Type="VI" URL="../Init.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>

@@ -17,13 +17,12 @@
 			<Item Name="PostSetup.ctl" Type="VI" URL="../PostSetup.ctl"/>
 			<Item Name="LayerType.ctl" Type="VI" URL="../LayerType.ctl"/>
 			<Item Name="Config.ctl" Type="VI" URL="../Config.ctl"/>
-			<Item Name="Msg.ctl" Type="VI" URL="../Msg.ctl"/>
 			<Item Name="MsgExecuteType.ctl" Type="VI" URL="../MsgExecuteType.ctl"/>
 		</Item>
 		<Item Name="Dependent" Type="Folder">
+			<Item Name="Msg.ctl" Type="VI" URL="../Msg.ctl"/>
 			<Item Name="MsgAttribs.ctl" Type="VI" URL="../MsgAttribs.ctl"/>
 			<Item Name="Stats.ctl" Type="VI" URL="../Stats.ctl"/>
-			<Item Name="PreTell.ctl" Type="VI" URL="../PreTell.ctl"/>
 			<Item Name="Layer.ctl" Type="VI" URL="../Layer.ctl"/>
 			<Item Name="ActorAttribs.ctl" Type="VI" URL="../ActorAttribs.ctl"/>
 			<Item Name="ChildActors.ctl" Type="VI" URL="../ChildActors.ctl"/>
@@ -51,24 +50,16 @@
 		<Item Name="Base.lvlib" Type="Library" URL="../Base/Base.lvlib">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
-		<Item Name="SetupWrapper.vi" Type="VI" URL="../SetupWrapper.vi"/>
 		<Item Name="Setup.vi" Type="VI" URL="../Setup.vi"/>
 		<Item Name="PreLoop.vi" Type="VI" URL="../PreLoop.vi"/>
-		<Item Name="Turn.vi" Type="VI" URL="../Turn.vi"/>
+		<Item Name="Listen.vi" Type="VI" URL="../Listen.vi"/>
 		<Item Name="FinalizeTurn.vi" Type="VI" URL="../FinalizeTurn.vi"/>
 		<Item Name="PostLoop.vi" Type="VI" URL="../PostLoop.vi"/>
 		<Item Name="Teardown.vi" Type="VI" URL="../Teardown.vi"/>
 		<Item Name="TransportTeardown.vi" Type="VI" URL="../TransportTeardown.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
-		<Item Name="UpdateLifecycle.vi" Type="VI" URL="../UpdateLifecycle.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="FindLifecycle.vi" Type="VI" URL="../FindLifecycle.vi"/>
-		<Item Name="FindSelfActorAttributes.vi" Type="VI" URL="../FindSelfActorAttributes.vi"/>
-		<Item Name="FindParentActorAttributes.vi" Type="VI" URL="../FindParentActorAttributes.vi"/>
-		<Item Name="FindChildActorAttributesMap.vi" Type="VI" URL="../FindChildActorAttributesMap.vi"/>
-		<Item Name="FindChildActorAttributes.vi" Type="VI" URL="../FindChildActorAttributes.vi"/>
+		<Item Name="FindChildActorAttribs.vi" Type="VI" URL="../FindChildActorAttribs.vi"/>
 		<Item Name="Verify.vi" Type="VI" URL="../Verify.vi"/>
 		<Item Name="ZZZZZZZZ.vi" Type="VI" URL="../ZZZZZZZZ.vi"/>
 		<Item Name="DUMBFinalMsg.vi" Type="VI" URL="../DUMBFinalMsg.vi"/>
@@ -77,7 +68,6 @@
 		<Item Name="Msg.lvclass" Type="LVClass" URL="../Msg/Msg.lvclass"/>
 		<Item Name="Metadata.lvclass" Type="LVClass" URL="../Metadata/Metadata.lvclass"/>
 		<Item Name="Execute.vi" Type="VI" URL="../Execute.vi"/>
-		<Item Name="Listen.vi" Type="VI" URL="../Listen.vi"/>
 		<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>
 		<Item Name="PreTell.vi" Type="VI" URL="../PreTell.vi">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
