@@ -10,25 +10,25 @@
 </Property>
 	<Item Name="TypeDefs" Type="Folder">
 		<Item Name="Independent" Type="Folder">
-			<Item Name="MsgNames.ctl" Type="VI" URL="../MsgNames.ctl"/>
+			<Item Name="Msg Set.ctl" Type="VI" URL="../Msg Set.ctl"/>
 			<Item Name="Lifecycle.ctl" Type="VI" URL="../Lifecycle.ctl"/>
 			<Item Name="Origin.ctl" Type="VI" URL="../Origin.ctl"/>
-			<Item Name="PreSetup.ctl" Type="VI" URL="../PreSetup.ctl"/>
-			<Item Name="PostSetup.ctl" Type="VI" URL="../PostSetup.ctl"/>
-			<Item Name="LayerType.ctl" Type="VI" URL="../LayerType.ctl"/>
+			<Item Name="Pre Setup.ctl" Type="VI" URL="../Pre Setup.ctl"/>
+			<Item Name="Post Setup.ctl" Type="VI" URL="../Post Setup.ctl"/>
+			<Item Name="Layer Type.ctl" Type="VI" URL="../Layer Type.ctl"/>
 			<Item Name="Config.ctl" Type="VI" URL="../Config.ctl"/>
-			<Item Name="MsgExecuteType.ctl" Type="VI" URL="../MsgExecuteType.ctl"/>
+			<Item Name="Msg Execute Type.ctl" Type="VI" URL="../Msg Execute Type.ctl"/>
+			<Item Name="Implemented Map.ctl" Type="VI" URL="../Implemented Map.ctl"/>
 		</Item>
 		<Item Name="Dependent" Type="Folder">
-			<Item Name="Msg.ctl" Type="VI" URL="../Msg.ctl"/>
-			<Item Name="MsgAttribs.ctl" Type="VI" URL="../MsgAttribs.ctl"/>
 			<Item Name="Stats.ctl" Type="VI" URL="../Stats.ctl"/>
-			<Item Name="Layer.ctl" Type="VI" URL="../Layer.ctl"/>
-			<Item Name="ActorAttribs.ctl" Type="VI" URL="../ActorAttribs.ctl"/>
-			<Item Name="ChildActors.ctl" Type="VI" URL="../ChildActors.ctl"/>
+			<Item Name="Msg Attribs.ctl" Type="VI" URL="../Msg Attribs.ctl"/>
+			<Item Name="Msg.ctl" Type="VI" URL="../Msg.ctl"/>
+			<Item Name="Layer Attribs.ctl" Type="VI" URL="../Layer Attribs.ctl"/>
+			<Item Name="Layer Map.ctl" Type="VI" URL="../Layer Map.ctl"/>
+			<Item Name="Actor Attribs.ctl" Type="VI" URL="../Actor Attribs.ctl"/>
+			<Item Name="Children.ctl" Type="VI" URL="../Children.ctl"/>
 			<Item Name="Actor.ctl" Type="VI" URL="../Actor.ctl"/>
-			<Item Name="MsgMap.ctl" Type="VI" URL="../MsgMap.ctl"/>
-			<Item Name="LayerAttribs.ctl" Type="VI" URL="../LayerAttribs.ctl"/>
 		</Item>
 	</Item>
 	<Item Name="Spawn" Type="Folder">
@@ -45,15 +45,15 @@
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 	</Item>
-	<Item Name="Actor" Type="Folder">
-		<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor.lvclass"/>
+	<Item Name="Actor Layer" Type="Folder">
+		<Item Name="Actor Layer.lvclass" Type="LVClass" URL="../Actor Layer/Actor Layer.lvclass"/>
 		<Item Name="Base.lvlib" Type="Library" URL="../Base/Base.lvlib">
 			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		</Item>
 		<Item Name="Setup.vi" Type="VI" URL="../Setup.vi"/>
 		<Item Name="PreLoop.vi" Type="VI" URL="../PreLoop.vi"/>
-		<Item Name="Listen.vi" Type="VI" URL="../Listen.vi"/>
-		<Item Name="FinalizeTurn.vi" Type="VI" URL="../FinalizeTurn.vi"/>
+		<Item Name="Begin Turn.vi" Type="VI" URL="../Begin Turn.vi"/>
+		<Item Name="End Turn.vi" Type="VI" URL="../End Turn.vi"/>
 		<Item Name="PostLoop.vi" Type="VI" URL="../PostLoop.vi"/>
 		<Item Name="Teardown.vi" Type="VI" URL="../Teardown.vi"/>
 		<Item Name="TransportTeardown.vi" Type="VI" URL="../TransportTeardown.vi">
@@ -66,18 +66,9 @@
 	</Item>
 	<Item Name="Msg" Type="Folder">
 		<Item Name="Msg.lvclass" Type="LVClass" URL="../Msg/Msg.lvclass"/>
-		<Item Name="Metadata.lvclass" Type="LVClass" URL="../Metadata/Metadata.lvclass"/>
-		<Item Name="Execute.vi" Type="VI" URL="../Execute.vi"/>
+		<Item Name="Listen.vi" Type="VI" URL="../Listen.vi"/>
+		<Item Name="Tell.vi" Type="VI" URL="../Tell.vi"/>
 		<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>
-		<Item Name="PreTell.vi" Type="VI" URL="../PreTell.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="Tell.vi" Type="VI" URL="../Tell.vi">
-			<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		</Item>
-		<Item Name="TellSelf.vi" Type="VI" URL="../TellSelf.vi"/>
-		<Item Name="TellParent.vi" Type="VI" URL="../TellParent.vi"/>
-		<Item Name="TellChild.vi" Type="VI" URL="../TellChild.vi"/>
 	</Item>
 	<Item Name="Error" Type="Folder">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
@@ -93,5 +84,8 @@
 		<Item Name="Cannot Spawn Children As Leaf.vi" Type="VI" URL="../Cannot Spawn Children As Leaf.vi"/>
 		<Item Name="Not In Started State.vi" Type="VI" URL="../Not In Started State.vi"/>
 		<Item Name="Msg Not In Inbound Msgs.vi" Type="VI" URL="../Msg Not In Inbound Msgs.vi"/>
+	</Item>
+	<Item Name="dlete" Type="Folder">
+		<Item Name="Layer.ctl" Type="VI" URL="../Layer.ctl"/>
 	</Item>
 </Library>

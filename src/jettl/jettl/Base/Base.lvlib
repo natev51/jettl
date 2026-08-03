@@ -10,7 +10,7 @@
 
 </Property>
 	<Item Name="InitActor.vi" Type="VI" URL="../InitActor.vi"/>
-	<Item Name="Actor.lvclass" Type="LVClass" URL="../Actor/Actor.lvclass">
+	<Item Name="Actor Layer.lvclass" Type="LVClass" URL="../Actor/Actor Layer.lvclass">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
 </Library>

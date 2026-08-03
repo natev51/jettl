@@ -10,14 +10,12 @@
 
 </Property>
 	<Item Name="Payload.ctl" Type="VI" URL="../Payload.ctl"/>
-	<Item Name="TellSelf.vi" Type="VI" URL="../TellSelf.vi"/>
-	<Item Name="TellParent.vi" Type="VI" URL="../TellParent.vi"/>
-	<Item Name="TellChild.vi" Type="VI" URL="../TellChild.vi"/>
-	<Item Name="Call.vi" Type="VI" URL="../Call.vi"/>
-	<Item Name="{{Msg}}Wrapper.vi" Type="VI" URL="../{{Msg}}Wrapper.vi"/>
 	<Item Name="Init.vi" Type="VI" URL="../Init.vi">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 	</Item>
+	<Item Name="Tell Self.vi" Type="VI" URL="../Tell Self.vi"/>
+	<Item Name="Tell Parent.vi" Type="VI" URL="../Tell Parent.vi"/>
+	<Item Name="Tell Child.vi" Type="VI" URL="../Tell Child.vi"/>
 	<Item Name="Msg.lvclass" Type="LVClass" URL="../Msg/Msg.lvclass"/>
-	<Item Name="ActorMsg.lvclass" Type="LVClass" URL="../ActorMsg/ActorMsg.lvclass"/>
+	<Item Name="Actor Msg.lvclass" Type="LVClass" URL="../Actor Msg/Actor Msg.lvclass"/>
 </Library>
